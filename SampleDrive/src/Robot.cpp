@@ -9,12 +9,27 @@ private:
 	const std::string autoNameCustom = "My Auto";
 	std::string autoSelected;
 
+	bool arcade;
+	CANTalon* rTalon1;
+	CANTalon* rTalon2;
+	CANTalon* lTalon1;
+	CANTalon* lTalon2;
+	Joystick* rJoy;
+	Joystick* lJoy;
+
 	void RobotInit()
 	{
 		chooser = new SendableChooser();
 		chooser->AddDefault(autoNameDefault, (void*)&autoNameDefault);
 		chooser->AddObject(autoNameCustom, (void*)&autoNameCustom);
 		SmartDashboard::PutData("Auto Modes", chooser);
+
+		rJoy = new Joystick(1);
+		lJoy = new Joystick(0);
+		lTalon1 = new CANTalon(0);
+		lTalon2 = new CANTalon(1);
+		rTalon1 = new CANTalon(2);
+		rTalon2 = new CANTalon(3);
 	}
 
 
@@ -51,12 +66,16 @@ private:
 
 	void TeleopInit()
 	{
-
+		arcade = false;
 	}
 
 	void TeleopPeriodic()
 	{
+		if (arcade) {
 
+		} else {
+
+		}
 	}
 
 	void TestPeriodic()
