@@ -24,11 +24,6 @@ private:
 
 	void RobotInit()
 	{
-		chooser = new SendableChooser();
-		chooser->AddDefault(autoNameDefault, (void*)&autoNameDefault);
-		chooser->AddObject(autoNameCustom, (void*)&autoNameCustom);
-		SmartDashboard::PutData("Auto Modes", chooser);
-
 		rJoy = new Joystick(1);
 		lJoy = new Joystick(0);
 		lTalon1 = new CANTalon(0);
@@ -76,6 +71,10 @@ private:
 
 	void TeleopPeriodic()
 	{
+		if (rJoy->GetRawButton(1)) {
+			arcade = !arcade;
+		}
+
 		if (arcade) {
 			throttle = rJoy->GetY();
 			angle = lJoy->GetX();
