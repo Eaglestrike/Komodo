@@ -1,0 +1,3649 @@
+!SESSION 2016-01-11 15:19:24.432 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_40
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.ui.intro 4 0 2016-01-11 15:21:28.684
+!MESSAGE C:\Users\Lukeasaurus\Desktop\eclipse\WPILib Intro\sample.xml (The system cannot find the path specified)
+!STACK 0
+java.io.FileNotFoundException: C:\Users\Lukeasaurus\Desktop\eclipse\WPILib Intro\sample.xml (The system cannot find the path specified)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(Unknown Source)
+	at java.io.FileInputStream.<init>(Unknown Source)
+	at java.io.FileInputStream.<init>(Unknown Source)
+	at sun.net.www.protocol.file.FileURLConnection.connect(Unknown Source)
+	at sun.net.www.protocol.file.FileURLConnection.getInputStream(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityManager.setupCurrentEntity(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLVersionDetector.determineDocVersion(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(Unknown Source)
+	at javax.xml.parsers.DocumentBuilder.parse(Unknown Source)
+	at org.eclipse.ui.internal.intro.impl.model.loader.IntroContentParser.parse(IntroContentParser.java:94)
+	at org.eclipse.ui.internal.intro.impl.model.loader.IntroContentParser.<init>(IntroContentParser.java:56)
+	at org.eclipse.ui.internal.intro.impl.model.IntroModelRoot.loadDOM(IntroModelRoot.java:885)
+	at org.eclipse.ui.internal.intro.impl.model.IntroModelRoot.processConfigExtension(IntroModelRoot.java:411)
+	at org.eclipse.ui.internal.intro.impl.model.IntroModelRoot.resolveConfigExtensions(IntroModelRoot.java:381)
+	at org.eclipse.ui.internal.intro.impl.model.IntroModelRoot.resolveChildren(IntroModelRoot.java:242)
+	at org.eclipse.ui.internal.intro.impl.model.AbstractIntroContainer.getChildren(AbstractIntroContainer.java:86)
+	at org.eclipse.ui.internal.intro.impl.model.IntroModelRoot.loadModel(IntroModelRoot.java:164)
+	at org.eclipse.ui.internal.intro.impl.model.loader.BaseExtensionPointManager.loadModel(BaseExtensionPointManager.java:95)
+	at org.eclipse.ui.internal.intro.impl.model.loader.ExtensionPointManager.loadCurrentModel(ExtensionPointManager.java:61)
+	at org.eclipse.ui.internal.intro.impl.model.loader.ExtensionPointManager.getCurrentModel(ExtensionPointManager.java:73)
+	at org.eclipse.ui.intro.config.CustomizableIntroPart.init(CustomizableIntroPart.java:154)
+	at org.eclipse.ui.internal.ViewIntroAdapterPart.init(ViewIntroAdapterPart.java:216)
+	at org.eclipse.ui.internal.ViewReference.initialize(ViewReference.java:140)
+	at org.eclipse.ui.internal.e4.compatibility.CompatibilityPart.create(CompatibilityPart.java:305)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:888)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:869)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:120)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.internalMake(InjectorImpl.java:337)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.make(InjectorImpl.java:258)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.make(ContextInjectionFactory.java:162)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.createFromBundle(ReflectionContributionFactory.java:104)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.doCreate(ReflectionContributionFactory.java:73)
+	at org.eclipse.e4.ui.internal.workbench.ReflectionContributionFactory.create(ReflectionContributionFactory.java:55)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ContributedPartRenderer.createWidget(ContributedPartRenderer.java:127)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:983)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:662)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$6.run(PartRenderingEngine.java:547)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:531)
+	at org.eclipse.e4.ui.workbench.renderers.swt.ElementReferenceRenderer.createWidget(ElementReferenceRenderer.java:69)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createWidget(PartRenderingEngine.java:983)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:662)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl$1.handleEvent(PartServiceImpl.java:100)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler$1.run(UIEventHandler.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:187)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:156)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4734)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:218)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:36)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:148)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:135)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:78)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:39)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:81)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:59)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
+	at org.eclipse.e4.ui.model.application.ui.impl.ElementContainerImpl.setSelectedElement(ElementContainerImpl.java:171)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.postProcess(LazyStackRenderer.java:108)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:678)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$1.handleEvent(PartRenderingEngine.java:141)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler$1.run(UIEventHandler.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:187)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:156)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4734)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:218)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:36)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:148)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:135)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:78)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:39)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:81)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:59)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
+	at org.eclipse.e4.ui.model.application.ui.impl.UIElementImpl.setToBeRendered(UIElementImpl.java:303)
+	at org.eclipse.e4.ui.workbench.addons.cleanupaddon.CleanupAddon.subscribeRenderingChanged(CleanupAddon.java:265)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.ui.internal.di.UIEventObjectSupplier$UIEventHandler$1.run(UIEventObjectSupplier.java:56)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:187)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:156)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4734)
+	at org.eclipse.e4.ui.internal.workbench.swt.E4Application$1.syncExec(E4Application.java:218)
+	at org.eclipse.e4.ui.internal.di.UIEventObjectSupplier$UIEventHandler.handleEvent(UIEventObjectSupplier.java:53)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:197)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:230)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:148)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:135)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:78)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:39)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:81)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:59)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:374)
+	at org.eclipse.e4.ui.model.application.ui.impl.UIElementImpl.setToBeRendered(UIElementImpl.java:303)
+	at org.eclipse.e4.ui.internal.workbench.ModelServiceImpl.showElementInWindow(ModelServiceImpl.java:485)
+	at org.eclipse.e4.ui.internal.workbench.ModelServiceImpl.bringToTop(ModelServiceImpl.java:454)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.delegateBringToTop(PartServiceImpl.java:705)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.activate(PartServiceImpl.java:682)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.activate(PartServiceImpl.java:620)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.activate(PartServiceImpl.java:608)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.showPart(PartServiceImpl.java:1137)
+	at org.eclipse.ui.internal.WorkbenchPage.showPart(WorkbenchPage.java:1292)
+	at org.eclipse.ui.internal.WorkbenchPage.busyShowView(WorkbenchPage.java:1283)
+	at org.eclipse.ui.internal.WorkbenchPage$14.run(WorkbenchPage.java:4208)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.ui.internal.WorkbenchPage.showView(WorkbenchPage.java:4204)
+	at org.eclipse.ui.internal.WorkbenchPage.showView(WorkbenchPage.java:4184)
+	at org.eclipse.ui.internal.WorkbenchIntroManager.createIntro(WorkbenchIntroManager.java:182)
+	at org.eclipse.ui.internal.WorkbenchIntroManager.showIntro(WorkbenchIntroManager.java:129)
+	at org.eclipse.ui.application.WorkbenchWindowAdvisor.openIntro(WorkbenchWindowAdvisor.java:190)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchWindowAdvisor.openIntro(IDEWorkbenchWindowAdvisor.java:564)
+	at org.eclipse.ui.internal.WorkbenchWindow.setup(WorkbenchWindow.java:758)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.processAnnotated(InjectorImpl.java:888)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:120)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.inject(InjectorImpl.java:85)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.inject(ContextInjectionFactory.java:73)
+	at org.eclipse.ui.internal.Workbench.createWorkbenchWindow(Workbench.java:1480)
+	at org.eclipse.ui.internal.Workbench.getActiveWorkbenchWindow(Workbench.java:1453)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.updateActiveShell(WorkbenchSourceProvider.java:943)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider.getCurrentState(WorkbenchSourceProvider.java:137)
+	at org.eclipse.ui.internal.services.WorkbenchSourceProvider$6.handleEvent(WorkbenchSourceProvider.java:703)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:84)
+	at org.eclipse.swt.widgets.Display.filterEvent(Display.java:1262)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1060)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1085)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1070)
+	at org.eclipse.swt.widgets.Decorations.WM_ACTIVATE(Decorations.java:1666)
+	at org.eclipse.swt.widgets.Shell.WM_ACTIVATE(Shell.java:2151)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4607)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:339)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1626)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2075)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5023)
+	at org.eclipse.swt.internal.win32.OS.BringWindowToTop(Native Method)
+	at org.eclipse.swt.widgets.Decorations.bringToTop(Decorations.java:230)
+	at org.eclipse.swt.widgets.Shell.open(Shell.java:1217)
+	at org.eclipse.e4.ui.workbench.renderers.swt.WBWRenderer.postProcess(WBWRenderer.java:744)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:678)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.safeCreateGui(PartRenderingEngine.java:766)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.access$2(PartRenderingEngine.java:737)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$7.run(PartRenderingEngine.java:731)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.createGui(PartRenderingEngine.java:715)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$9.run(PartRenderingEngine.java:1074)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1032)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:148)
+	at org.eclipse.ui.internal.Workbench$5.run(Workbench.java:636)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:332)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:579)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:135)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:380)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:235)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:648)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:603)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1465)
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-01-11 15:21:46.269
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-01-11 15:21:46.286
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Lukeasaurus'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:47.197
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:47.204
+!MESSAGE Install necessary for tools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:47.610
+!MESSAGE 	ZipEntry sfx-2014.11.01/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:47.617
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:47.632
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:47.648
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/bool/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:47.666
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/bool/.jrubyfx_cache/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:47.685
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/command/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:47.704
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/command/.jrubyfx_cache/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:47.722
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/pid/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:47.743
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/pid/.jrubyfx_cache/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:47.760
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/subsystem/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:47.777
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/subsystem/.jrubyfx_cache/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:47.791
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/tab-switcher/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:47.814
+!MESSAGE 	ZipEntry OutlineViewer.jar: 279565
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:47.978
+!MESSAGE 	ZipEntry RobotBuilder.jar: 2238543
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:48.734
+!MESSAGE 	ZipEntry SmartDashboard.jar: 2335321
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:49.123
+!MESSAGE 	ZipEntry java-installer.jar: 2977723
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:49.488
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/bool/.jrubyfx_cache/774a63170b63edbd5e88db7126df6db9645b436c.rb: 2335
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:49.672
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/bool/BadBool.fxml: 920
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:49.700
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/bool/icon.png: 1188
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:49.720
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/bool/icon.svg: 2314
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:49.750
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/command/.jrubyfx_cache/ce51af7b129edfccc7586fa5960223cade268b4f.rb: 4722
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:49.785
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/command/command.fxml: 2608
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:49.862
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/command/icon.png: 1027
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:49.882
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/command/icon.svg: 3614
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:49.921
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/command/media-playback-start.png: 677
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:49.955
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/command/media-playback-stop.png: 297
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:49.973
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/manifest.yml: 1277
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:49.996
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/pid/.jrubyfx_cache/cc169a7ed334897bab8166f0453a93a3f710aa61.rb: 5685
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:50.027
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/pid/PIDParent.fxml: 2297
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:50.058
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/pid/pidicon.png: 2184
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:50.068
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/pid/pidicon.svg: 20932
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:50.087
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/subsystem/.jrubyfx_cache/c43f0db19d95c1f21829c7e961d536a3fbb293dd.rb: 3121
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:50.104
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/subsystem/subsystem.fxml: 1408
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:50.114
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/tab-switcher/icon.png: 1485
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:50.122
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/tab-switcher/icon.svg: 3897
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:50.132
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/tab-switcher/tab_switcher.rb: 1768
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:50.143
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/livewindowplugin.jar: 234804
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:50.159
+!MESSAGE 	ZipEntry sfx-2014.11.01/sfx.jar: 28036895
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:57.440
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:57.459
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:21:57.476
+!MESSAGE Install necessary for cpp
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:07.296
+!MESSAGE 	ZipEntry ant/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:07.313
+!MESSAGE 	ZipEntry include/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:07.329
+!MESSAGE 	ZipEntry include/Buttons/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:07.346
+!MESSAGE 	ZipEntry include/CAN/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:07.363
+!MESSAGE 	ZipEntry include/Commands/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:07.380
+!MESSAGE 	ZipEntry include/HAL/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:07.396
+!MESSAGE 	ZipEntry include/HAL/cpp/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:07.413
+!MESSAGE 	ZipEntry include/Internal/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:07.431
+!MESSAGE 	ZipEntry include/LiveWindow/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:07.470
+!MESSAGE 	ZipEntry include/NetworkCommunication/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:07.482
+!MESSAGE 	ZipEntry include/OSAL/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:07.689
+!MESSAGE 	ZipEntry include/SmartDashboard/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:07.873
+!MESSAGE 	ZipEntry include/Vision/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.105
+!MESSAGE 	ZipEntry include/ctre/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.122
+!MESSAGE 	ZipEntry include/interfaces/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.138
+!MESSAGE 	ZipEntry include/networktables/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.150
+!MESSAGE 	ZipEntry include/networktables2/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.163
+!MESSAGE 	ZipEntry include/networktables2/client/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.173
+!MESSAGE 	ZipEntry include/networktables2/connection/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.183
+!MESSAGE 	ZipEntry include/networktables2/server/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.196
+!MESSAGE 	ZipEntry include/networktables2/stream/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.206
+!MESSAGE 	ZipEntry include/networktables2/thread/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.271
+!MESSAGE 	ZipEntry include/networktables2/type/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.280
+!MESSAGE 	ZipEntry include/networktables2/util/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.290
+!MESSAGE 	ZipEntry include/tables/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.300
+!MESSAGE 	ZipEntry lib/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.310
+!MESSAGE 	ZipEntry sim/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.320
+!MESSAGE 	ZipEntry sim/include/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.332
+!MESSAGE 	ZipEntry sim/include/Buttons/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.342
+!MESSAGE 	ZipEntry sim/include/Commands/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.352
+!MESSAGE 	ZipEntry sim/include/HAL/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.361
+!MESSAGE 	ZipEntry sim/include/HAL/cpp/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.370
+!MESSAGE 	ZipEntry sim/include/LiveWindow/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.378
+!MESSAGE 	ZipEntry sim/include/OSAL/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.386
+!MESSAGE 	ZipEntry sim/include/SmartDashboard/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.432
+!MESSAGE 	ZipEntry sim/include/interfaces/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.460
+!MESSAGE 	ZipEntry sim/include/networktables/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.466
+!MESSAGE 	ZipEntry sim/include/networktables2/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.478
+!MESSAGE 	ZipEntry sim/include/networktables2/client/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.494
+!MESSAGE 	ZipEntry sim/include/networktables2/connection/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.511
+!MESSAGE 	ZipEntry sim/include/networktables2/server/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.535
+!MESSAGE 	ZipEntry sim/include/networktables2/stream/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.557
+!MESSAGE 	ZipEntry sim/include/networktables2/thread/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.636
+!MESSAGE 	ZipEntry sim/include/networktables2/type/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.653
+!MESSAGE 	ZipEntry sim/include/networktables2/util/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.669
+!MESSAGE 	ZipEntry sim/include/simulation/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.683
+!MESSAGE 	ZipEntry sim/include/simulation/msgs/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.696
+!MESSAGE 	ZipEntry sim/include/tables/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.708
+!MESSAGE 	ZipEntry sim/lib/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.721
+!MESSAGE 	ZipEntry sim/tools/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.733
+!MESSAGE 	ZipEntry ant/ant-classloadertask.jar: 70515
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:08.969
+!MESSAGE 	ZipEntry ant/ant-contrib.jar: 194050
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:09.038
+!MESSAGE 	ZipEntry ant/build.properties: 426
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:09.065
+!MESSAGE 	ZipEntry ant/build.xml: 5055
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:09.107
+!MESSAGE 	ZipEntry ant/jsch-0.1.50.jar: 249282
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:09.157
+!MESSAGE 	ZipEntry ant/netconsole-host: 13856
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:09.302
+!MESSAGE 	ZipEntry ant/robotCommand: 63
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:09.331
+!MESSAGE 	ZipEntry include/ADXL345_I2C.h: 2049
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:09.361
+!MESSAGE 	ZipEntry include/ADXL345_SPI.h: 2157
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:09.392
+!MESSAGE 	ZipEntry include/AnalogAccelerometer.h: 1468
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:09.420
+!MESSAGE 	ZipEntry include/AnalogInput.h: 2533
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:09.450
+!MESSAGE 	ZipEntry include/AnalogOutput.h: 1154
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:09.479
+!MESSAGE 	ZipEntry include/AnalogPotentiometer.h: 2775
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:09.508
+!MESSAGE 	ZipEntry include/AnalogTrigger.h: 1101
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:09.539
+!MESSAGE 	ZipEntry include/AnalogTriggerOutput.h: 2723
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:09.570
+!MESSAGE 	ZipEntry include/Base.h: 819
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:09.685
+!MESSAGE 	ZipEntry include/BuiltInAccelerometer.h: 1221
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:09.717
+!MESSAGE 	ZipEntry include/Buttons/Button.h: 1295
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:09.753
+!MESSAGE 	ZipEntry include/Buttons/ButtonScheduler.h: 735
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:09.791
+!MESSAGE 	ZipEntry include/Buttons/CancelButtonScheduler.h: 765
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:09.820
+!MESSAGE 	ZipEntry include/Buttons/HeldButtonScheduler.h: 727
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:10.059
+!MESSAGE 	ZipEntry include/Buttons/InternalButton.h: 749
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:10.090
+!MESSAGE 	ZipEntry include/Buttons/JoystickButton.h: 723
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:10.122
+!MESSAGE 	ZipEntry include/Buttons/NetworkButton.h: 762
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:10.151
+!MESSAGE 	ZipEntry include/Buttons/PressedButtonScheduler.h: 742
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:10.170
+!MESSAGE 	ZipEntry include/Buttons/ReleasedButtonScheduler.h: 747
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:10.189
+!MESSAGE 	ZipEntry include/Buttons/ToggleButtonScheduler.h: 765
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:10.209
+!MESSAGE 	ZipEntry include/Buttons/Trigger.h: 1608
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:10.227
+!MESSAGE 	ZipEntry include/CAN/can_proto.h: 20248
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:10.307
+!MESSAGE 	ZipEntry include/CANJaguar.h: 7733
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:10.337
+!MESSAGE 	ZipEntry include/CANSpeedController.h: 3258
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:10.368
+!MESSAGE 	ZipEntry include/CANTalon.h: 6062
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:10.399
+!MESSAGE 	ZipEntry include/CameraServer.h: 2597
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:10.429
+!MESSAGE 	ZipEntry include/Commands/Command.h: 5675
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:10.496
+!MESSAGE 	ZipEntry include/Commands/CommandGroup.h: 2439
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:10.539
+!MESSAGE 	ZipEntry include/Commands/CommandGroupEntry.h: 835
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:10.951
+!MESSAGE 	ZipEntry include/Commands/PIDCommand.h: 1687
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:10.991
+!MESSAGE 	ZipEntry include/Commands/PIDSubsystem.h: 2347
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.022
+!MESSAGE 	ZipEntry include/Commands/PrintCommand.h: 790
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.060
+!MESSAGE 	ZipEntry include/Commands/Scheduler.h: 1942
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.087
+!MESSAGE 	ZipEntry include/Commands/StartCommand.h: 779
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.114
+!MESSAGE 	ZipEntry include/Commands/Subsystem.h: 1243
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.136
+!MESSAGE 	ZipEntry include/Commands/WaitCommand.h: 777
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.163
+!MESSAGE 	ZipEntry include/Commands/WaitForChildren.h: 803
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.190
+!MESSAGE 	ZipEntry include/Commands/WaitUntilCommand.h: 829
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.217
+!MESSAGE 	ZipEntry include/Compressor.h: 1666
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.242
+!MESSAGE 	ZipEntry include/Controller.h: 1012
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.264
+!MESSAGE 	ZipEntry include/ControllerPower.h: 946
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.286
+!MESSAGE 	ZipEntry include/Counter.h: 3328
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.309
+!MESSAGE 	ZipEntry include/CounterBase.h: 1070
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.333
+!MESSAGE 	ZipEntry include/DigitalInput.h: 1479
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.357
+!MESSAGE 	ZipEntry include/DigitalOutput.h: 1673
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.381
+!MESSAGE 	ZipEntry include/DigitalSource.h: 1063
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.410
+!MESSAGE 	ZipEntry include/DoubleSolenoid.h: 1818
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.427
+!MESSAGE 	ZipEntry include/DriverStation.h: 3361
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.443
+!MESSAGE 	ZipEntry include/Encoder.h: 3722
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.483
+!MESSAGE 	ZipEntry include/Error.h: 1416
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.499
+!MESSAGE 	ZipEntry include/ErrorBase.h: 3808
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.520
+!MESSAGE 	ZipEntry include/GearTooth.h: 1127
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.535
+!MESSAGE 	ZipEntry include/GenericHID.h: 1097
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.548
+!MESSAGE 	ZipEntry include/Gyro.h: 2292
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.713
+!MESSAGE 	ZipEntry include/HAL/Accelerometer.hpp: 279
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.723
+!MESSAGE 	ZipEntry include/HAL/Analog.hpp: 3697
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.732
+!MESSAGE 	ZipEntry include/HAL/CAN.hpp: 1149
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.742
+!MESSAGE 	ZipEntry include/HAL/Compressor.hpp: 1192
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.764
+!MESSAGE 	ZipEntry include/HAL/Digital.hpp: 6404
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.775
+!MESSAGE 	ZipEntry include/HAL/Errors.hpp: 3846
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.786
+!MESSAGE 	ZipEntry include/HAL/HAL.hpp: 7096
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.796
+!MESSAGE 	ZipEntry include/HAL/Interrupts.hpp: 1143
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.855
+!MESSAGE 	ZipEntry include/HAL/Notifier.hpp: 337
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.865
+!MESSAGE 	ZipEntry include/HAL/PDP.hpp: 470
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:11.999
+!MESSAGE 	ZipEntry include/HAL/Power.hpp: 642
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.029
+!MESSAGE 	ZipEntry include/HAL/Semaphore.hpp: 1337
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.058
+!MESSAGE 	ZipEntry include/HAL/SerialPort.hpp: 1340
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.086
+!MESSAGE 	ZipEntry include/HAL/Solenoid.hpp: 679
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.114
+!MESSAGE 	ZipEntry include/HAL/Task.hpp: 1559
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.148
+!MESSAGE 	ZipEntry include/HAL/Utilities.hpp: 270
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.177
+!MESSAGE 	ZipEntry include/HAL/cpp/Resource.hpp: 1371
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.206
+!MESSAGE 	ZipEntry include/HAL/cpp/Synchronized.hpp: 3299
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.244
+!MESSAGE 	ZipEntry include/HLUsageReporting.h: 811
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.272
+!MESSAGE 	ZipEntry include/I2C.h: 1244
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.301
+!MESSAGE 	ZipEntry include/Internal/HardwareHLReporting.h: 183
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.330
+!MESSAGE 	ZipEntry include/InterruptableSensorBase.h: 1776
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.359
+!MESSAGE 	ZipEntry include/IterativeRobot.h: 2668
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.390
+!MESSAGE 	ZipEntry include/Jaguar.h: 849
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.418
+!MESSAGE 	ZipEntry include/Joystick.h: 2910
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.448
+!MESSAGE 	ZipEntry include/LiveWindow/LiveWindow.h: 1571
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.475
+!MESSAGE 	ZipEntry include/LiveWindow/LiveWindowSendable.h: 1171
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.508
+!MESSAGE 	ZipEntry include/LiveWindow/LiveWindowStatusListener.h: 317
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.548
+!MESSAGE 	ZipEntry include/Log.hpp: 2391
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.578
+!MESSAGE 	ZipEntry include/MotorSafety.h: 746
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.613
+!MESSAGE 	ZipEntry include/MotorSafetyHelper.h: 1438
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.644
+!MESSAGE 	ZipEntry include/NIIMAQdx.h: 40516
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.679
+!MESSAGE 	ZipEntry include/NTErrorBase.h: 1626
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.819
+!MESSAGE 	ZipEntry include/NetworkCommunication/AICalibration.h: 464
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.848
+!MESSAGE 	ZipEntry include/NetworkCommunication/CANInterfacePlugin.h: 3823
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:12.881
+!MESSAGE 	ZipEntry include/NetworkCommunication/CANSessionMux.h: 2886
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:13.023
+!MESSAGE 	ZipEntry include/NetworkCommunication/FRCComm.h: 3941
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:13.053
+!MESSAGE 	ZipEntry include/NetworkCommunication/LoadOut.h: 1664
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:13.076
+!MESSAGE 	ZipEntry include/NetworkCommunication/UsageReporting.h: 4333
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:13.673
+!MESSAGE 	ZipEntry include/NetworkCommunication/symModuleLink.h: 352
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:13.703
+!MESSAGE 	ZipEntry include/Notifier.h: 1828
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:13.747
+!MESSAGE 	ZipEntry include/OSAL/Synchronized.h: 2578
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:13.774
+!MESSAGE 	ZipEntry include/OSAL/Task.h: 1768
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:13.789
+!MESSAGE 	ZipEntry include/PIDController.h: 3578
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:13.805
+!MESSAGE 	ZipEntry include/PIDOutput.h: 683
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:13.818
+!MESSAGE 	ZipEntry include/PIDSource.h: 737
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:13.833
+!MESSAGE 	ZipEntry include/PWM.h: 4469
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:13.847
+!MESSAGE 	ZipEntry include/PowerDistributionPanel.h: 1324
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:13.862
+!MESSAGE 	ZipEntry include/Preferences.h: 3548
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:13.876
+!MESSAGE 	ZipEntry include/Relay.h: 1847
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:13.890
+!MESSAGE 	ZipEntry include/Resource.h: 1344
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:13.969
+!MESSAGE 	ZipEntry include/RobotBase.h: 1950
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.002
+!MESSAGE 	ZipEntry include/RobotDrive.h: 4542
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.048
+!MESSAGE 	ZipEntry include/RobotState.h: 938
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.081
+!MESSAGE 	ZipEntry include/SPI.h: 1438
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.127
+!MESSAGE 	ZipEntry include/SafePWM.h: 1209
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.164
+!MESSAGE 	ZipEntry include/SampleRobot.h: 744
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.195
+!MESSAGE 	ZipEntry include/SensorBase.h: 1902
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.228
+!MESSAGE 	ZipEntry include/SerialPort.h: 2164
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.263
+!MESSAGE 	ZipEntry include/Servo.h: 1531
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.295
+!MESSAGE 	ZipEntry include/SmartDashboard/NamedSendable.h: 537
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.325
+!MESSAGE 	ZipEntry include/SmartDashboard/Sendable.h: 988
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.356
+!MESSAGE 	ZipEntry include/SmartDashboard/SendableChooser.h: 1579
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.391
+!MESSAGE 	ZipEntry include/SmartDashboard/SmartDashboard.h: 1961
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.425
+!MESSAGE 	ZipEntry include/Solenoid.h: 1381
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.459
+!MESSAGE 	ZipEntry include/SolenoidBase.h: 1143
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.491
+!MESSAGE 	ZipEntry include/SpeedController.h: 1180
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.532
+!MESSAGE 	ZipEntry include/Talon.h: 844
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.566
+!MESSAGE 	ZipEntry include/TalonSRX.h: 897
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.594
+!MESSAGE 	ZipEntry include/Task.h: 1417
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.624
+!MESSAGE 	ZipEntry include/Timer.h: 1478
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.652
+!MESSAGE 	ZipEntry include/USBCamera.h: 3083
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.682
+!MESSAGE 	ZipEntry include/Ultrasonic.h: 3030
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.986
+!MESSAGE 	ZipEntry include/Utility.h: 1936
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:14.998
+!MESSAGE 	ZipEntry include/Victor.h: 968
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.007
+!MESSAGE 	ZipEntry include/VictorSP.h: 826
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.017
+!MESSAGE 	ZipEntry include/Vision/AxisCamera.h: 2905
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.026
+!MESSAGE 	ZipEntry include/Vision/BaeUtilities.h: 2072
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.036
+!MESSAGE 	ZipEntry include/Vision/BinaryImage.h: 1625
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.045
+!MESSAGE 	ZipEntry include/Vision/ColorImage.h: 2909
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.094
+!MESSAGE 	ZipEntry include/Vision/FrcError.h: 1454
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.125
+!MESSAGE 	ZipEntry include/Vision/HSLImage.h: 650
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.214
+!MESSAGE 	ZipEntry include/Vision/ImageBase.h: 750
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.249
+!MESSAGE 	ZipEntry include/Vision/MonoImage.h: 953
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.279
+!MESSAGE 	ZipEntry include/Vision/RGBImage.h: 649
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.495
+!MESSAGE 	ZipEntry include/Vision/Threshold.h: 931
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.694
+!MESSAGE 	ZipEntry include/Vision/VisionAPI.h: 7332
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.730
+!MESSAGE 	ZipEntry include/WPIErrors.h: 4849
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.761
+!MESSAGE 	ZipEntry include/WPILib.h: 2802
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.792
+!MESSAGE 	ZipEntry include/ctre/CanTalonSRX.h: 20077
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.821
+!MESSAGE 	ZipEntry include/ctre/CtreCanNode.h: 2206
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.849
+!MESSAGE 	ZipEntry include/ctre/ctre.h: 1264
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.883
+!MESSAGE 	ZipEntry include/interfaces/Accelerometer.h: 1371
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.914
+!MESSAGE 	ZipEntry include/interfaces/Potentiometer.h: 792
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.945
+!MESSAGE 	ZipEntry include/networktables/NetworkTable.h: 8494
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:15.976
+!MESSAGE 	ZipEntry include/networktables/NetworkTableConnectionListenerAdapter.h: 789
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:16.007
+!MESSAGE 	ZipEntry include/networktables/NetworkTableKeyListenerAdapter.h: 872
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:16.518
+!MESSAGE 	ZipEntry include/networktables/NetworkTableListenerAdapter.h: 741
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:16.685
+!MESSAGE 	ZipEntry include/networktables/NetworkTableMode.h: 1649
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:16.717
+!MESSAGE 	ZipEntry include/networktables/NetworkTableProvider.h: 906
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:16.747
+!MESSAGE 	ZipEntry include/networktables/NetworkTableSubListenerAdapter.h: 873
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:16.775
+!MESSAGE 	ZipEntry include/networktables2/AbstractNetworkTableEntryStore.h: 2159
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:16.805
+!MESSAGE 	ZipEntry include/networktables2/FlushableOutgoingEntryReceiver.h: 520
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:16.833
+!MESSAGE 	ZipEntry include/networktables2/IncomingEntryReceiver.h: 547
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:16.861
+!MESSAGE 	ZipEntry include/networktables2/NetworkTableEntry.h: 2058
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:16.893
+!MESSAGE 	ZipEntry include/networktables2/NetworkTableMessageType.h: 774
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:17.006
+!MESSAGE 	ZipEntry include/networktables2/NetworkTableNode.h: 2857
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:17.038
+!MESSAGE 	ZipEntry include/networktables2/OutgoingEntryReceiver.h: 776
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:17.325
+!MESSAGE 	ZipEntry include/networktables2/TableKeyExistsWithDifferentTypeException.h: 1319
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:17.355
+!MESSAGE 	ZipEntry include/networktables2/TransactionDirtier.h: 772
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:17.383
+!MESSAGE 	ZipEntry include/networktables2/WriteManager.h: 2107
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:17.463
+!MESSAGE 	ZipEntry include/networktables2/client/ClientConnectionAdapter.h: 3159
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:17.496
+!MESSAGE 	ZipEntry include/networktables2/client/ClientConnectionListenerManager.h: 648
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:17.530
+!MESSAGE 	ZipEntry include/networktables2/client/ClientConnectionState.h: 2340
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:17.667
+!MESSAGE 	ZipEntry include/networktables2/client/ClientNetworkTableEntryStore.h: 1157
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:17.686
+!MESSAGE 	ZipEntry include/networktables2/client/NetworkTableClient.h: 1162
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:17.708
+!MESSAGE 	ZipEntry include/networktables2/connection/BadMessageException.h: 428
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:17.725
+!MESSAGE 	ZipEntry include/networktables2/connection/ConnectionAdapter.h: 1215
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:17.742
+!MESSAGE 	ZipEntry include/networktables2/connection/ConnectionMonitorThread.h: 1041
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:17.863
+!MESSAGE 	ZipEntry include/networktables2/connection/DataIOStream.h: 1061
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:17.915
+!MESSAGE 	ZipEntry include/networktables2/connection/NetworkTableConnection.h: 1415
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:17.945
+!MESSAGE 	ZipEntry include/networktables2/server/NetworkTableServer.h: 1517
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:17.980
+!MESSAGE 	ZipEntry include/networktables2/server/ServerAdapterManager.h: 658
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.002
+!MESSAGE 	ZipEntry include/networktables2/server/ServerConnectionAdapter.h: 3009
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.035
+!MESSAGE 	ZipEntry include/networktables2/server/ServerConnectionList.h: 1392
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.058
+!MESSAGE 	ZipEntry include/networktables2/server/ServerConnectionState.h: 1478
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.081
+!MESSAGE 	ZipEntry include/networktables2/server/ServerIncomingConnectionListener.h: 684
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.162
+!MESSAGE 	ZipEntry include/networktables2/server/ServerIncomingStreamMonitor.h: 2243
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.192
+!MESSAGE 	ZipEntry include/networktables2/server/ServerNetworkTableEntryStore.h: 1269
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.227
+!MESSAGE 	ZipEntry include/networktables2/stream/FDIOStream.h: 487
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.249
+!MESSAGE 	ZipEntry include/networktables2/stream/IOStream.h: 381
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.271
+!MESSAGE 	ZipEntry include/networktables2/stream/IOStreamFactory.h: 568
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.293
+!MESSAGE 	ZipEntry include/networktables2/stream/IOStreamProvider.h: 695
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.340
+!MESSAGE 	ZipEntry include/networktables2/stream/SocketServerStreamProvider.h: 577
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.362
+!MESSAGE 	ZipEntry include/networktables2/stream/SocketStreamFactory.h: 549
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.383
+!MESSAGE 	ZipEntry include/networktables2/stream/SocketStreams.h: 908
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.405
+!MESSAGE 	ZipEntry include/networktables2/thread/DefaultThreadManager.h: 1225
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.428
+!MESSAGE 	ZipEntry include/networktables2/thread/NTThread.h: 431
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.451
+!MESSAGE 	ZipEntry include/networktables2/thread/NTThreadManager.h: 732
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.472
+!MESSAGE 	ZipEntry include/networktables2/thread/PeriodicRunnable.h: 610
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.519
+!MESSAGE 	ZipEntry include/networktables2/type/ArrayData.h: 2158
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.547
+!MESSAGE 	ZipEntry include/networktables2/type/ArrayEntryType.h: 2569
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.567
+!MESSAGE 	ZipEntry include/networktables2/type/BooleanArray.h: 560
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.583
+!MESSAGE 	ZipEntry include/networktables2/type/ComplexData.h: 759
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.601
+!MESSAGE 	ZipEntry include/networktables2/type/ComplexEntryType.h: 1465
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.620
+!MESSAGE 	ZipEntry include/networktables2/type/DefaultEntryTypes.h: 2252
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.637
+!MESSAGE 	ZipEntry include/networktables2/type/NetworkTableEntryType.h: 2421
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.654
+!MESSAGE 	ZipEntry include/networktables2/type/NetworkTableEntryTypeManager.h: 1227
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.670
+!MESSAGE 	ZipEntry include/networktables2/type/NumberArray.h: 562
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:18.685
+!MESSAGE 	ZipEntry include/networktables2/type/StringArray.h: 576
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:19.035
+!MESSAGE 	ZipEntry include/networktables2/util/EOFException.h: 570
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:19.065
+!MESSAGE 	ZipEntry include/networktables2/util/IOException.h: 1199
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:19.093
+!MESSAGE 	ZipEntry include/networktables2/util/IllegalStateException.h: 466
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:19.120
+!MESSAGE 	ZipEntry include/networktables2/util/StringCache.h: 662
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:19.368
+!MESSAGE 	ZipEntry include/networktables2/util/System.h: 680
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:19.397
+!MESSAGE 	ZipEntry include/nivision.h: 466344
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:19.758
+!MESSAGE 	ZipEntry include/pcre.h: 14107
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:19.932
+!MESSAGE 	ZipEntry include/tables/IRemote.h: 1123
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:19.960
+!MESSAGE 	ZipEntry include/tables/IRemoteConnectionListener.h: 735
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:19.990
+!MESSAGE 	ZipEntry include/tables/ITable.h: 5617
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:20.023
+!MESSAGE 	ZipEntry include/tables/ITableListener.h: 979
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:20.055
+!MESSAGE 	ZipEntry include/tables/ITableProvider.h: 499
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:20.192
+!MESSAGE 	ZipEntry include/tables/TableKeyNotDefinedException.h: 709
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:20.221
+!MESSAGE 	ZipEntry lib/libFRC_NetworkCommunication.so: 74
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:20.248
+!MESSAGE 	ZipEntry lib/libFRC_NetworkCommunication.so.1: 76
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:20.276
+!MESSAGE 	ZipEntry lib/libFRC_NetworkCommunication.so.1.5: 78
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:20.518
+!MESSAGE 	ZipEntry lib/libFRC_NetworkCommunication.so.1.5.0: 499832
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:21.094
+!MESSAGE 	ZipEntry lib/libFRC_NetworkCommunicationLV.so: 76
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:21.122
+!MESSAGE 	ZipEntry lib/libFRC_NetworkCommunicationLV.so.1: 78
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:21.154
+!MESSAGE 	ZipEntry lib/libFRC_NetworkCommunicationLV.so.1.5: 80
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:21.182
+!MESSAGE 	ZipEntry lib/libFRC_NetworkCommunicationLV.so.1.5.0: 4584
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:21.204
+!MESSAGE 	ZipEntry lib/libGCBase_gcc-4.4-arm_v2_3.so: 110437
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:21.427
+!MESSAGE 	ZipEntry lib/libGenApi_gcc-4.4-arm_v2_3.so: 3437504
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:21.808
+!MESSAGE 	ZipEntry lib/libHALAthena.a: 4283488
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:22.490
+!MESSAGE 	ZipEntry lib/libHALAthena_shared.so: 1381145
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:22.799
+!MESSAGE 	ZipEntry lib/libLog_gcc-4.4-arm_v2_3.so: 26237
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:22.831
+!MESSAGE 	ZipEntry lib/libMathParser_gcc-4.4-arm_v2_3.so: 49301
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:22.863
+!MESSAGE 	ZipEntry lib/libNetworkTables.a: 11829942
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:25.174
+!MESSAGE 	ZipEntry lib/libNiFpga.so: 57
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:25.193
+!MESSAGE 	ZipEntry lib/libNiFpga.so.14: 59
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:25.230
+!MESSAGE 	ZipEntry lib/libNiFpga.so.14.0: 61
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:25.247
+!MESSAGE 	ZipEntry lib/libNiFpga.so.14.0.0: 393768
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:25.284
+!MESSAGE 	ZipEntry lib/libNiFpgaLv.so: 59
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:25.304
+!MESSAGE 	ZipEntry lib/libNiFpgaLv.so.14: 61
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:25.321
+!MESSAGE 	ZipEntry lib/libNiFpgaLv.so.14.0: 63
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:25.339
+!MESSAGE 	ZipEntry lib/libNiFpgaLv.so.14.0.0: 73228
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:25.363
+!MESSAGE 	ZipEntry lib/libNiRioSrv.so: 59
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:25.380
+!MESSAGE 	ZipEntry lib/libNiRioSrv.so.14: 61
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:25.528
+!MESSAGE 	ZipEntry lib/libNiRioSrv.so.14.0: 63
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:25.595
+!MESSAGE 	ZipEntry lib/libNiRioSrv.so.14.0.0: 842316
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:25.996
+!MESSAGE 	ZipEntry lib/libRoboRIO_FRC_ChipObject.so: 72
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.023
+!MESSAGE 	ZipEntry lib/libRoboRIO_FRC_ChipObject.so.1: 74
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.052
+!MESSAGE 	ZipEntry lib/libRoboRIO_FRC_ChipObject.so.1.2: 76
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.081
+!MESSAGE 	ZipEntry lib/libRoboRIO_FRC_ChipObject.so.1.2.0: 381560
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.138
+!MESSAGE 	ZipEntry lib/libi2c.so: 53
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.166
+!MESSAGE 	ZipEntry lib/libi2c.so.1: 55
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.194
+!MESSAGE 	ZipEntry lib/libi2c.so.1.0: 57
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.223
+!MESSAGE 	ZipEntry lib/libi2c.so.1.0.0: 4076
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.254
+!MESSAGE 	ZipEntry lib/liblog4cpp_gcc-4.4-arm_v2_3.so: 324751
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.326
+!MESSAGE 	ZipEntry lib/libni_emb.so: 56
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.350
+!MESSAGE 	ZipEntry lib/libni_emb.so.7: 58
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.365
+!MESSAGE 	ZipEntry lib/libni_emb.so.7.0: 60
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.380
+!MESSAGE 	ZipEntry lib/libni_emb.so.7.0.0: 189204
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.798
+!MESSAGE 	ZipEntry lib/libni_rtlog.so: 58
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.825
+!MESSAGE 	ZipEntry lib/libni_rtlog.so.2: 60
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.851
+!MESSAGE 	ZipEntry lib/libni_rtlog.so.2.3: 62
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.878
+!MESSAGE 	ZipEntry lib/libni_rtlog.so.2.3.0: 9992
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.909
+!MESSAGE 	ZipEntry lib/libniimaqdx.so: 59
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.936
+!MESSAGE 	ZipEntry lib/libniimaqdx.so.14: 61
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.963
+!MESSAGE 	ZipEntry lib/libniimaqdx.so.14.0: 63
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:26.989
+!MESSAGE 	ZipEntry lib/libniimaqdx.so.14.0.0: 2215400
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:28.638
+!MESSAGE 	ZipEntry lib/libnirio_emb_can.so: 64
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:28.670
+!MESSAGE 	ZipEntry lib/libnirio_emb_can.so.14: 66
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:28.697
+!MESSAGE 	ZipEntry lib/libnirio_emb_can.so.14.0: 68
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:28.726
+!MESSAGE 	ZipEntry lib/libnirio_emb_can.so.14.0.0: 61780
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:28.756
+!MESSAGE 	ZipEntry lib/libnivision.so: 59
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:28.775
+!MESSAGE 	ZipEntry lib/libnivision.so.14: 61
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:28.797
+!MESSAGE 	ZipEntry lib/libnivision.so.14.0: 63
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:29.365
+!MESSAGE 	ZipEntry lib/libnivision.so.14.0.0: 9654528
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:31.333
+!MESSAGE 	ZipEntry lib/libnivissvc.so: 59
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:31.362
+!MESSAGE 	ZipEntry lib/libnivissvc.so.14: 61
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:31.394
+!MESSAGE 	ZipEntry lib/libnivissvc.so.14.0: 63
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:31.416
+!MESSAGE 	ZipEntry lib/libnivissvc.so.14.0.0: 2806736
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:32.265
+!MESSAGE 	ZipEntry lib/libspi.so: 53
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:32.279
+!MESSAGE 	ZipEntry lib/libspi.so.1: 55
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:32.294
+!MESSAGE 	ZipEntry lib/libspi.so.1.0: 57
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:32.311
+!MESSAGE 	ZipEntry lib/libspi.so.1.0.0: 4400
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:32.329
+!MESSAGE 	ZipEntry lib/libvisa.so: 196396
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:32.354
+!MESSAGE 	ZipEntry lib/libwpi.so: 72
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:32.365
+!MESSAGE 	ZipEntry lib/libwpi_2015.so: 445
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:32.378
+!MESSAGE 	ZipEntry lib/libwpilib_nonshared.a: 28576636
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:36.561
+!MESSAGE 	ZipEntry sim/include/AnalogInput.h: 1888
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:36.572
+!MESSAGE 	ZipEntry sim/include/AnalogPotentiometer.h: 2554
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:36.590
+!MESSAGE 	ZipEntry sim/include/Base.h: 819
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:36.608
+!MESSAGE 	ZipEntry sim/include/Buttons/Button.h: 1295
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:36.627
+!MESSAGE 	ZipEntry sim/include/Buttons/ButtonScheduler.h: 735
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:36.646
+!MESSAGE 	ZipEntry sim/include/Buttons/CancelButtonScheduler.h: 765
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:36.664
+!MESSAGE 	ZipEntry sim/include/Buttons/HeldButtonScheduler.h: 727
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:36.690
+!MESSAGE 	ZipEntry sim/include/Buttons/InternalButton.h: 749
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:36.717
+!MESSAGE 	ZipEntry sim/include/Buttons/JoystickButton.h: 723
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:36.744
+!MESSAGE 	ZipEntry sim/include/Buttons/NetworkButton.h: 762
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:36.763
+!MESSAGE 	ZipEntry sim/include/Buttons/PressedButtonScheduler.h: 742
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:36.782
+!MESSAGE 	ZipEntry sim/include/Buttons/ReleasedButtonScheduler.h: 747
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:36.802
+!MESSAGE 	ZipEntry sim/include/Buttons/ToggleButtonScheduler.h: 765
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:36.838
+!MESSAGE 	ZipEntry sim/include/Buttons/Trigger.h: 1608
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:36.869
+!MESSAGE 	ZipEntry sim/include/Commands/Command.h: 5675
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:36.890
+!MESSAGE 	ZipEntry sim/include/Commands/CommandGroup.h: 2439
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:36.907
+!MESSAGE 	ZipEntry sim/include/Commands/CommandGroupEntry.h: 835
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:36.922
+!MESSAGE 	ZipEntry sim/include/Commands/PIDCommand.h: 1687
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.210
+!MESSAGE 	ZipEntry sim/include/Commands/PIDSubsystem.h: 2347
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.228
+!MESSAGE 	ZipEntry sim/include/Commands/PrintCommand.h: 790
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.449
+!MESSAGE 	ZipEntry sim/include/Commands/Scheduler.h: 1942
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.479
+!MESSAGE 	ZipEntry sim/include/Commands/StartCommand.h: 779
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.494
+!MESSAGE 	ZipEntry sim/include/Commands/Subsystem.h: 1243
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.510
+!MESSAGE 	ZipEntry sim/include/Commands/WaitCommand.h: 777
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.521
+!MESSAGE 	ZipEntry sim/include/Commands/WaitForChildren.h: 803
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.544
+!MESSAGE 	ZipEntry sim/include/Commands/WaitUntilCommand.h: 829
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.555
+!MESSAGE 	ZipEntry sim/include/Controller.h: 1012
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.567
+!MESSAGE 	ZipEntry sim/include/Counter.h: 3667
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.584
+!MESSAGE 	ZipEntry sim/include/CounterBase.h: 1049
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.600
+!MESSAGE 	ZipEntry sim/include/DigitalInput.h: 1343
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.615
+!MESSAGE 	ZipEntry sim/include/DoubleSolenoid.h: 1567
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.634
+!MESSAGE 	ZipEntry sim/include/DriverStation.h: 4047
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.650
+!MESSAGE 	ZipEntry sim/include/Encoder.h: 3473
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.666
+!MESSAGE 	ZipEntry sim/include/Error.h: 1416
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.678
+!MESSAGE 	ZipEntry sim/include/ErrorBase.h: 3808
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.702
+!MESSAGE 	ZipEntry sim/include/GenericHID.h: 1097
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.723
+!MESSAGE 	ZipEntry sim/include/Gyro.h: 2079
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.769
+!MESSAGE 	ZipEntry sim/include/HAL/Accelerometer.hpp: 279
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.776
+!MESSAGE 	ZipEntry sim/include/HAL/Analog.hpp: 3697
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.786
+!MESSAGE 	ZipEntry sim/include/HAL/CAN.hpp: 1149
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.797
+!MESSAGE 	ZipEntry sim/include/HAL/Compressor.hpp: 1192
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.812
+!MESSAGE 	ZipEntry sim/include/HAL/Digital.hpp: 6404
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.828
+!MESSAGE 	ZipEntry sim/include/HAL/Errors.hpp: 3846
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.838
+!MESSAGE 	ZipEntry sim/include/HAL/HAL.hpp: 7096
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.849
+!MESSAGE 	ZipEntry sim/include/HAL/Interrupts.hpp: 1143
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.860
+!MESSAGE 	ZipEntry sim/include/HAL/Notifier.hpp: 337
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.869
+!MESSAGE 	ZipEntry sim/include/HAL/PDP.hpp: 470
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.879
+!MESSAGE 	ZipEntry sim/include/HAL/Power.hpp: 642
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.890
+!MESSAGE 	ZipEntry sim/include/HAL/Semaphore.hpp: 1337
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.908
+!MESSAGE 	ZipEntry sim/include/HAL/SerialPort.hpp: 1340
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.918
+!MESSAGE 	ZipEntry sim/include/HAL/Solenoid.hpp: 679
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.931
+!MESSAGE 	ZipEntry sim/include/HAL/Task.hpp: 1559
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.944
+!MESSAGE 	ZipEntry sim/include/HAL/Utilities.hpp: 270
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.961
+!MESSAGE 	ZipEntry sim/include/HAL/cpp/Resource.hpp: 1371
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.973
+!MESSAGE 	ZipEntry sim/include/HAL/cpp/Synchronized.hpp: 3299
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.984
+!MESSAGE 	ZipEntry sim/include/HLUsageReporting.h: 811
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:37.996
+!MESSAGE 	ZipEntry sim/include/IterativeRobot.h: 2789
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.014
+!MESSAGE 	ZipEntry sim/include/Jaguar.h: 814
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.034
+!MESSAGE 	ZipEntry sim/include/Joystick.h: 2562
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.050
+!MESSAGE 	ZipEntry sim/include/LiveWindow/LiveWindow.h: 1571
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.066
+!MESSAGE 	ZipEntry sim/include/LiveWindow/LiveWindowSendable.h: 1171
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.077
+!MESSAGE 	ZipEntry sim/include/LiveWindow/LiveWindowStatusListener.h: 317
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.096
+!MESSAGE 	ZipEntry sim/include/Log.hpp: 2391
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.107
+!MESSAGE 	ZipEntry sim/include/MotorSafety.h: 746
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.117
+!MESSAGE 	ZipEntry sim/include/MotorSafetyHelper.h: 1438
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.131
+!MESSAGE 	ZipEntry sim/include/NTErrorBase.h: 1626
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.141
+!MESSAGE 	ZipEntry sim/include/Notifier.h: 1828
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.152
+!MESSAGE 	ZipEntry sim/include/OSAL/Synchronized.h: 2578
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.182
+!MESSAGE 	ZipEntry sim/include/OSAL/Task.h: 1768
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.190
+!MESSAGE 	ZipEntry sim/include/PIDController.h: 3578
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.197
+!MESSAGE 	ZipEntry sim/include/PIDOutput.h: 683
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.247
+!MESSAGE 	ZipEntry sim/include/PIDSource.h: 737
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.266
+!MESSAGE 	ZipEntry sim/include/PWM.h: 3617
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.297
+!MESSAGE 	ZipEntry sim/include/Relay.h: 1963
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.326
+!MESSAGE 	ZipEntry sim/include/Resource.h: 1344
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.351
+!MESSAGE 	ZipEntry sim/include/RobotBase.h: 1488
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.378
+!MESSAGE 	ZipEntry sim/include/RobotDrive.h: 4385
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.408
+!MESSAGE 	ZipEntry sim/include/RobotState.h: 938
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.425
+!MESSAGE 	ZipEntry sim/include/SafePWM.h: 1209
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.444
+!MESSAGE 	ZipEntry sim/include/SampleRobot.h: 744
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.462
+!MESSAGE 	ZipEntry sim/include/SensorBase.h: 1902
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.482
+!MESSAGE 	ZipEntry sim/include/SmartDashboard/NamedSendable.h: 537
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.502
+!MESSAGE 	ZipEntry sim/include/SmartDashboard/Sendable.h: 988
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.522
+!MESSAGE 	ZipEntry sim/include/SmartDashboard/SendableChooser.h: 1579
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.543
+!MESSAGE 	ZipEntry sim/include/SmartDashboard/SmartDashboard.h: 1961
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.570
+!MESSAGE 	ZipEntry sim/include/Solenoid.h: 1361
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.602
+!MESSAGE 	ZipEntry sim/include/SpeedController.h: 1157
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.657
+!MESSAGE 	ZipEntry sim/include/Talon.h: 802
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.678
+!MESSAGE 	ZipEntry sim/include/Task.h: 1417
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.687
+!MESSAGE 	ZipEntry sim/include/Timer.h: 1478
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.697
+!MESSAGE 	ZipEntry sim/include/Utility.h: 1936
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.706
+!MESSAGE 	ZipEntry sim/include/Victor.h: 806
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.737
+!MESSAGE 	ZipEntry sim/include/WPIErrors.h: 4849
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.765
+!MESSAGE 	ZipEntry sim/include/WPILib.h: 1317
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.793
+!MESSAGE 	ZipEntry sim/include/interfaces/Accelerometer.h: 1371
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.812
+!MESSAGE 	ZipEntry sim/include/interfaces/Potentiometer.h: 792
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.830
+!MESSAGE 	ZipEntry sim/include/networktables/NetworkTable.h: 8494
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.860
+!MESSAGE 	ZipEntry sim/include/networktables/NetworkTableConnectionListenerAdapter.h: 789
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.879
+!MESSAGE 	ZipEntry sim/include/networktables/NetworkTableKeyListenerAdapter.h: 872
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.932
+!MESSAGE 	ZipEntry sim/include/networktables/NetworkTableListenerAdapter.h: 741
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.951
+!MESSAGE 	ZipEntry sim/include/networktables/NetworkTableMode.h: 1649
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.963
+!MESSAGE 	ZipEntry sim/include/networktables/NetworkTableProvider.h: 906
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.978
+!MESSAGE 	ZipEntry sim/include/networktables/NetworkTableSubListenerAdapter.h: 873
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:38.993
+!MESSAGE 	ZipEntry sim/include/networktables2/AbstractNetworkTableEntryStore.h: 2159
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.006
+!MESSAGE 	ZipEntry sim/include/networktables2/FlushableOutgoingEntryReceiver.h: 520
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.020
+!MESSAGE 	ZipEntry sim/include/networktables2/IncomingEntryReceiver.h: 547
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.036
+!MESSAGE 	ZipEntry sim/include/networktables2/NetworkTableEntry.h: 2058
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.049
+!MESSAGE 	ZipEntry sim/include/networktables2/NetworkTableMessageType.h: 774
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.062
+!MESSAGE 	ZipEntry sim/include/networktables2/NetworkTableNode.h: 2857
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.082
+!MESSAGE 	ZipEntry sim/include/networktables2/OutgoingEntryReceiver.h: 776
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.093
+!MESSAGE 	ZipEntry sim/include/networktables2/TableKeyExistsWithDifferentTypeException.h: 1319
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.105
+!MESSAGE 	ZipEntry sim/include/networktables2/TransactionDirtier.h: 772
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.116
+!MESSAGE 	ZipEntry sim/include/networktables2/WriteManager.h: 2107
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.135
+!MESSAGE 	ZipEntry sim/include/networktables2/client/ClientConnectionAdapter.h: 3159
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.152
+!MESSAGE 	ZipEntry sim/include/networktables2/client/ClientConnectionListenerManager.h: 648
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.164
+!MESSAGE 	ZipEntry sim/include/networktables2/client/ClientConnectionState.h: 2340
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.177
+!MESSAGE 	ZipEntry sim/include/networktables2/client/ClientNetworkTableEntryStore.h: 1157
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.191
+!MESSAGE 	ZipEntry sim/include/networktables2/client/NetworkTableClient.h: 1162
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.203
+!MESSAGE 	ZipEntry sim/include/networktables2/connection/BadMessageException.h: 428
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.211
+!MESSAGE 	ZipEntry sim/include/networktables2/connection/ConnectionAdapter.h: 1215
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.219
+!MESSAGE 	ZipEntry sim/include/networktables2/connection/ConnectionMonitorThread.h: 1041
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.238
+!MESSAGE 	ZipEntry sim/include/networktables2/connection/DataIOStream.h: 1061
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.246
+!MESSAGE 	ZipEntry sim/include/networktables2/connection/NetworkTableConnection.h: 1415
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.254
+!MESSAGE 	ZipEntry sim/include/networktables2/server/NetworkTableServer.h: 1517
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.264
+!MESSAGE 	ZipEntry sim/include/networktables2/server/ServerAdapterManager.h: 658
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.273
+!MESSAGE 	ZipEntry sim/include/networktables2/server/ServerConnectionAdapter.h: 3009
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.294
+!MESSAGE 	ZipEntry sim/include/networktables2/server/ServerConnectionList.h: 1392
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.303
+!MESSAGE 	ZipEntry sim/include/networktables2/server/ServerConnectionState.h: 1478
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.311
+!MESSAGE 	ZipEntry sim/include/networktables2/server/ServerIncomingConnectionListener.h: 684
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.319
+!MESSAGE 	ZipEntry sim/include/networktables2/server/ServerIncomingStreamMonitor.h: 2243
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.330
+!MESSAGE 	ZipEntry sim/include/networktables2/server/ServerNetworkTableEntryStore.h: 1269
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.345
+!MESSAGE 	ZipEntry sim/include/networktables2/stream/FDIOStream.h: 487
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.354
+!MESSAGE 	ZipEntry sim/include/networktables2/stream/IOStream.h: 381
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.362
+!MESSAGE 	ZipEntry sim/include/networktables2/stream/IOStreamFactory.h: 568
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.370
+!MESSAGE 	ZipEntry sim/include/networktables2/stream/IOStreamProvider.h: 695
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.394
+!MESSAGE 	ZipEntry sim/include/networktables2/stream/SocketServerStreamProvider.h: 577
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.418
+!MESSAGE 	ZipEntry sim/include/networktables2/stream/SocketStreamFactory.h: 549
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.427
+!MESSAGE 	ZipEntry sim/include/networktables2/stream/SocketStreams.h: 908
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.435
+!MESSAGE 	ZipEntry sim/include/networktables2/thread/DefaultThreadManager.h: 1225
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.448
+!MESSAGE 	ZipEntry sim/include/networktables2/thread/NTThread.h: 431
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.455
+!MESSAGE 	ZipEntry sim/include/networktables2/thread/NTThreadManager.h: 732
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.468
+!MESSAGE 	ZipEntry sim/include/networktables2/thread/PeriodicRunnable.h: 610
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.513
+!MESSAGE 	ZipEntry sim/include/networktables2/type/ArrayData.h: 2158
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.551
+!MESSAGE 	ZipEntry sim/include/networktables2/type/ArrayEntryType.h: 2569
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.800
+!MESSAGE 	ZipEntry sim/include/networktables2/type/BooleanArray.h: 560
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.820
+!MESSAGE 	ZipEntry sim/include/networktables2/type/ComplexData.h: 759
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.849
+!MESSAGE 	ZipEntry sim/include/networktables2/type/ComplexEntryType.h: 1465
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.867
+!MESSAGE 	ZipEntry sim/include/networktables2/type/DefaultEntryTypes.h: 2252
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.886
+!MESSAGE 	ZipEntry sim/include/networktables2/type/NetworkTableEntryType.h: 2421
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.905
+!MESSAGE 	ZipEntry sim/include/networktables2/type/NetworkTableEntryTypeManager.h: 1227
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.923
+!MESSAGE 	ZipEntry sim/include/networktables2/type/NumberArray.h: 562
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.941
+!MESSAGE 	ZipEntry sim/include/networktables2/type/StringArray.h: 576
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.963
+!MESSAGE 	ZipEntry sim/include/networktables2/util/EOFException.h: 570
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:39.982
+!MESSAGE 	ZipEntry sim/include/networktables2/util/IOException.h: 1199
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.001
+!MESSAGE 	ZipEntry sim/include/networktables2/util/IllegalStateException.h: 466
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.013
+!MESSAGE 	ZipEntry sim/include/networktables2/util/StringCache.h: 662
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.037
+!MESSAGE 	ZipEntry sim/include/networktables2/util/System.h: 680
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.049
+!MESSAGE 	ZipEntry sim/include/simulation/MainNode.h: 1433
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.082
+!MESSAGE 	ZipEntry sim/include/simulation/SimContinuousOutput.h: 584
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.103
+!MESSAGE 	ZipEntry sim/include/simulation/SimDigitalInput.h: 419
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.124
+!MESSAGE 	ZipEntry sim/include/simulation/SimEncoder.h: 614
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.143
+!MESSAGE 	ZipEntry sim/include/simulation/SimFloatInput.h: 418
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.160
+!MESSAGE 	ZipEntry sim/include/simulation/SimGyro.h: 568
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.177
+!MESSAGE 	ZipEntry sim/include/simulation/msgs/bool.pb.h: 4475
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.196
+!MESSAGE 	ZipEntry sim/include/simulation/msgs/driver-station.pb.h: 7966
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.217
+!MESSAGE 	ZipEntry sim/include/simulation/msgs/float64.pb.h: 4581
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.233
+!MESSAGE 	ZipEntry sim/include/simulation/msgs/joystick.pb.h: 6007
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.252
+!MESSAGE 	ZipEntry sim/include/simulation/msgs/msgs.h: 1086
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.266
+!MESSAGE 	ZipEntry sim/include/simulation/simTime.h: 192
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.280
+!MESSAGE 	ZipEntry sim/include/tables/IRemote.h: 1123
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.289
+!MESSAGE 	ZipEntry sim/include/tables/IRemoteConnectionListener.h: 735
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.298
+!MESSAGE 	ZipEntry sim/include/tables/ITable.h: 5617
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.308
+!MESSAGE 	ZipEntry sim/include/tables/ITableListener.h: 979
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.316
+!MESSAGE 	ZipEntry sim/include/tables/ITableProvider.h: 499
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.328
+!MESSAGE 	ZipEntry sim/include/tables/TableKeyNotDefinedException.h: 709
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.338
+!MESSAGE 	ZipEntry sim/lib/jinput-platform-2.0.5-natives-linux.jar: 10362
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.355
+!MESSAGE 	ZipEntry sim/lib/libjinput-linux.so: 13656
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.389
+!MESSAGE 	ZipEntry sim/lib/libjinput-linux64.so: 14512
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.402
+!MESSAGE 	ZipEntry sim/tools/SimDS.jar: 1094400
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.470
+!MESSAGE 	ZipEntry so.properties: 24
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-11 15:22:40.559
+!MESSAGE Installedcpp
+!SESSION 2016-01-12 14:47:07.680 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_40
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2016-01-12 14:47:57.187
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-01-12 14:51:14.066
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-01-12 14:51:14.533
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Lukeasaurus'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:41.075
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:41.423
+!MESSAGE Install necessary for tools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:43.991
+!MESSAGE 	ZipEntry sfx-2014.11.01/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:44.285
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:44.298
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:44.317
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/bool/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:44.335
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/bool/.jrubyfx_cache/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:44.360
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/command/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:44.381
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/command/.jrubyfx_cache/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:44.542
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/pid/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:45.247
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/pid/.jrubyfx_cache/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:46.111
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/subsystem/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:46.131
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/subsystem/.jrubyfx_cache/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:46.191
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/tab-switcher/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:46.540
+!MESSAGE 	ZipEntry OutlineViewer.jar: 279565
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:47.209
+!MESSAGE 	ZipEntry RobotBuilder.jar: 2238543
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:49.015
+!MESSAGE 	ZipEntry SmartDashboard.jar: 2335321
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:51.024
+!MESSAGE 	ZipEntry java-installer.jar: 2977723
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:52.884
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/bool/.jrubyfx_cache/774a63170b63edbd5e88db7126df6db9645b436c.rb: 2335
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:53.295
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/bool/BadBool.fxml: 920
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:51:54.120
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/bool/icon.png: 1188
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:00.131
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/bool/icon.svg: 2314
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:00.887
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/command/.jrubyfx_cache/ce51af7b129edfccc7586fa5960223cade268b4f.rb: 4722
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:01.116
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/command/command.fxml: 2608
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:01.221
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/command/icon.png: 1027
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:01.623
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/command/icon.svg: 3614
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:01.729
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/command/media-playback-start.png: 677
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:01.812
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/command/media-playback-stop.png: 297
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:01.847
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/manifest.yml: 1277
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:02.163
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/pid/.jrubyfx_cache/cc169a7ed334897bab8166f0453a93a3f710aa61.rb: 5685
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:02.326
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/pid/PIDParent.fxml: 2297
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:02.743
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/pid/pidicon.png: 2184
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:02.849
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/pid/pidicon.svg: 20932
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:03.161
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/subsystem/.jrubyfx_cache/c43f0db19d95c1f21829c7e961d536a3fbb293dd.rb: 3121
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:03.505
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/subsystem/subsystem.fxml: 1408
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:03.557
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/tab-switcher/icon.png: 1485
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:03.783
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/tab-switcher/icon.svg: 3897
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:03.898
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/built-in/tab-switcher/tab_switcher.rb: 1768
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:03.977
+!MESSAGE 	ZipEntry sfx-2014.11.01/plugins/livewindowplugin.jar: 234804
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:04.109
+!MESSAGE 	ZipEntry sfx-2014.11.01/sfx.jar: 28036895
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:26.713
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:26.939
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:26.960
+!MESSAGE Install necessary for cpp
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:47.722
+!MESSAGE 	ZipEntry ant/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:48.703
+!MESSAGE 	ZipEntry include/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:48.727
+!MESSAGE 	ZipEntry include/Buttons/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:48.746
+!MESSAGE 	ZipEntry include/CAN/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:48.768
+!MESSAGE 	ZipEntry include/Commands/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:48.784
+!MESSAGE 	ZipEntry include/HAL/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:48.801
+!MESSAGE 	ZipEntry include/HAL/cpp/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:48.821
+!MESSAGE 	ZipEntry include/Internal/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:48.838
+!MESSAGE 	ZipEntry include/LiveWindow/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:49.503
+!MESSAGE 	ZipEntry include/NetworkCommunication/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:49.575
+!MESSAGE 	ZipEntry include/OSAL/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:49.592
+!MESSAGE 	ZipEntry include/SmartDashboard/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:49.610
+!MESSAGE 	ZipEntry include/Vision/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:49.626
+!MESSAGE 	ZipEntry include/ctre/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:49.641
+!MESSAGE 	ZipEntry include/interfaces/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:49.660
+!MESSAGE 	ZipEntry include/networktables/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:49.679
+!MESSAGE 	ZipEntry include/networktables2/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:49.698
+!MESSAGE 	ZipEntry include/networktables2/client/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:49.714
+!MESSAGE 	ZipEntry include/networktables2/connection/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:49.730
+!MESSAGE 	ZipEntry include/networktables2/server/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:49.748
+!MESSAGE 	ZipEntry include/networktables2/stream/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:49.763
+!MESSAGE 	ZipEntry include/networktables2/thread/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:53.747
+!MESSAGE 	ZipEntry include/networktables2/type/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:53.763
+!MESSAGE 	ZipEntry include/networktables2/util/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:53.778
+!MESSAGE 	ZipEntry include/tables/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:53.794
+!MESSAGE 	ZipEntry lib/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:53.810
+!MESSAGE 	ZipEntry sim/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:53.825
+!MESSAGE 	ZipEntry sim/include/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:53.841
+!MESSAGE 	ZipEntry sim/include/Buttons/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:53.855
+!MESSAGE 	ZipEntry sim/include/Commands/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:53.871
+!MESSAGE 	ZipEntry sim/include/HAL/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:53.886
+!MESSAGE 	ZipEntry sim/include/HAL/cpp/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:53.901
+!MESSAGE 	ZipEntry sim/include/LiveWindow/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:53.917
+!MESSAGE 	ZipEntry sim/include/OSAL/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:53.935
+!MESSAGE 	ZipEntry sim/include/SmartDashboard/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:53.997
+!MESSAGE 	ZipEntry sim/include/interfaces/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:54.013
+!MESSAGE 	ZipEntry sim/include/networktables/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:54.028
+!MESSAGE 	ZipEntry sim/include/networktables2/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:54.045
+!MESSAGE 	ZipEntry sim/include/networktables2/client/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:54.061
+!MESSAGE 	ZipEntry sim/include/networktables2/connection/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:54.078
+!MESSAGE 	ZipEntry sim/include/networktables2/server/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:54.093
+!MESSAGE 	ZipEntry sim/include/networktables2/stream/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:54.109
+!MESSAGE 	ZipEntry sim/include/networktables2/thread/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:54.128
+!MESSAGE 	ZipEntry sim/include/networktables2/type/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:54.148
+!MESSAGE 	ZipEntry sim/include/networktables2/util/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:54.172
+!MESSAGE 	ZipEntry sim/include/simulation/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:54.197
+!MESSAGE 	ZipEntry sim/include/simulation/msgs/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:54.219
+!MESSAGE 	ZipEntry sim/include/tables/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:54.236
+!MESSAGE 	ZipEntry sim/lib/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:54.253
+!MESSAGE 	ZipEntry sim/tools/: 0
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:54.274
+!MESSAGE 	ZipEntry ant/ant-classloadertask.jar: 70515
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:54.388
+!MESSAGE 	ZipEntry ant/ant-contrib.jar: 194050
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:54.438
+!MESSAGE 	ZipEntry ant/build.properties: 426
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:54.470
+!MESSAGE 	ZipEntry ant/build.xml: 5055
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:54.898
+!MESSAGE 	ZipEntry ant/jsch-0.1.50.jar: 249282
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:55.237
+!MESSAGE 	ZipEntry ant/netconsole-host: 13856
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:55.477
+!MESSAGE 	ZipEntry ant/robotCommand: 63
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:55.509
+!MESSAGE 	ZipEntry include/ADXL345_I2C.h: 2049
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:55.541
+!MESSAGE 	ZipEntry include/ADXL345_SPI.h: 2157
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:55.581
+!MESSAGE 	ZipEntry include/AnalogAccelerometer.h: 1468
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:55.617
+!MESSAGE 	ZipEntry include/AnalogInput.h: 2533
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:55.646
+!MESSAGE 	ZipEntry include/AnalogOutput.h: 1154
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:55.676
+!MESSAGE 	ZipEntry include/AnalogPotentiometer.h: 2775
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:55.707
+!MESSAGE 	ZipEntry include/AnalogTrigger.h: 1101
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:55.738
+!MESSAGE 	ZipEntry include/AnalogTriggerOutput.h: 2723
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:55.813
+!MESSAGE 	ZipEntry include/Base.h: 819
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:56.412
+!MESSAGE 	ZipEntry include/BuiltInAccelerometer.h: 1221
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:56.447
+!MESSAGE 	ZipEntry include/Buttons/Button.h: 1295
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:56.489
+!MESSAGE 	ZipEntry include/Buttons/ButtonScheduler.h: 735
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:56.802
+!MESSAGE 	ZipEntry include/Buttons/CancelButtonScheduler.h: 765
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:56.853
+!MESSAGE 	ZipEntry include/Buttons/HeldButtonScheduler.h: 727
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:57.633
+!MESSAGE 	ZipEntry include/Buttons/InternalButton.h: 749
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:57.666
+!MESSAGE 	ZipEntry include/Buttons/JoystickButton.h: 723
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:57.696
+!MESSAGE 	ZipEntry include/Buttons/NetworkButton.h: 762
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:57.726
+!MESSAGE 	ZipEntry include/Buttons/PressedButtonScheduler.h: 742
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:57.760
+!MESSAGE 	ZipEntry include/Buttons/ReleasedButtonScheduler.h: 747
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:57.790
+!MESSAGE 	ZipEntry include/Buttons/ToggleButtonScheduler.h: 765
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:57.827
+!MESSAGE 	ZipEntry include/Buttons/Trigger.h: 1608
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:57.857
+!MESSAGE 	ZipEntry include/CAN/can_proto.h: 20248
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:57.888
+!MESSAGE 	ZipEntry include/CANJaguar.h: 7733
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:57.917
+!MESSAGE 	ZipEntry include/CANSpeedController.h: 3258
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:57.950
+!MESSAGE 	ZipEntry include/CANTalon.h: 6062
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:57.985
+!MESSAGE 	ZipEntry include/CameraServer.h: 2597
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:58.022
+!MESSAGE 	ZipEntry include/Commands/Command.h: 5675
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:58.129
+!MESSAGE 	ZipEntry include/Commands/CommandGroup.h: 2439
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:58.204
+!MESSAGE 	ZipEntry include/Commands/CommandGroupEntry.h: 835
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:58.234
+!MESSAGE 	ZipEntry include/Commands/PIDCommand.h: 1687
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:58.768
+!MESSAGE 	ZipEntry include/Commands/PIDSubsystem.h: 2347
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:58.806
+!MESSAGE 	ZipEntry include/Commands/PrintCommand.h: 790
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:58.848
+!MESSAGE 	ZipEntry include/Commands/Scheduler.h: 1942
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:58.881
+!MESSAGE 	ZipEntry include/Commands/StartCommand.h: 779
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:58.914
+!MESSAGE 	ZipEntry include/Commands/Subsystem.h: 1243
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:58.940
+!MESSAGE 	ZipEntry include/Commands/WaitCommand.h: 777
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:58.975
+!MESSAGE 	ZipEntry include/Commands/WaitForChildren.h: 803
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:59.015
+!MESSAGE 	ZipEntry include/Commands/WaitUntilCommand.h: 829
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:59.048
+!MESSAGE 	ZipEntry include/Compressor.h: 1666
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:59.076
+!MESSAGE 	ZipEntry include/Controller.h: 1012
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:59.104
+!MESSAGE 	ZipEntry include/ControllerPower.h: 946
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:59.135
+!MESSAGE 	ZipEntry include/Counter.h: 3328
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:59.167
+!MESSAGE 	ZipEntry include/CounterBase.h: 1070
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:59.199
+!MESSAGE 	ZipEntry include/DigitalInput.h: 1479
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:59.228
+!MESSAGE 	ZipEntry include/DigitalOutput.h: 1673
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:59.261
+!MESSAGE 	ZipEntry include/DigitalSource.h: 1063
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:59.289
+!MESSAGE 	ZipEntry include/DoubleSolenoid.h: 1818
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:59.317
+!MESSAGE 	ZipEntry include/DriverStation.h: 3361
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:59.345
+!MESSAGE 	ZipEntry include/Encoder.h: 3722
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:59.919
+!MESSAGE 	ZipEntry include/Error.h: 1416
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:52:59.959
+!MESSAGE 	ZipEntry include/ErrorBase.h: 3808
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:00.018
+!MESSAGE 	ZipEntry include/GearTooth.h: 1127
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:00.049
+!MESSAGE 	ZipEntry include/GenericHID.h: 1097
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:00.076
+!MESSAGE 	ZipEntry include/Gyro.h: 2292
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:00.375
+!MESSAGE 	ZipEntry include/HAL/Accelerometer.hpp: 279
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:00.402
+!MESSAGE 	ZipEntry include/HAL/Analog.hpp: 3697
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:00.431
+!MESSAGE 	ZipEntry include/HAL/CAN.hpp: 1149
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:00.458
+!MESSAGE 	ZipEntry include/HAL/Compressor.hpp: 1192
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:00.976
+!MESSAGE 	ZipEntry include/HAL/Digital.hpp: 6404
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:01.071
+!MESSAGE 	ZipEntry include/HAL/Errors.hpp: 3846
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:01.179
+!MESSAGE 	ZipEntry include/HAL/HAL.hpp: 7096
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:01.213
+!MESSAGE 	ZipEntry include/HAL/Interrupts.hpp: 1143
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:01.312
+!MESSAGE 	ZipEntry include/HAL/Notifier.hpp: 337
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:01.496
+!MESSAGE 	ZipEntry include/HAL/PDP.hpp: 470
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:01.783
+!MESSAGE 	ZipEntry include/HAL/Power.hpp: 642
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:01.937
+!MESSAGE 	ZipEntry include/HAL/Semaphore.hpp: 1337
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:02.042
+!MESSAGE 	ZipEntry include/HAL/SerialPort.hpp: 1340
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:02.096
+!MESSAGE 	ZipEntry include/HAL/Solenoid.hpp: 679
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:02.452
+!MESSAGE 	ZipEntry include/HAL/Task.hpp: 1559
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:02.522
+!MESSAGE 	ZipEntry include/HAL/Utilities.hpp: 270
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:02.575
+!MESSAGE 	ZipEntry include/HAL/cpp/Resource.hpp: 1371
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:02.644
+!MESSAGE 	ZipEntry include/HAL/cpp/Synchronized.hpp: 3299
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:02.682
+!MESSAGE 	ZipEntry include/HLUsageReporting.h: 811
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:03.133
+!MESSAGE 	ZipEntry include/I2C.h: 1244
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:03.182
+!MESSAGE 	ZipEntry include/Internal/HardwareHLReporting.h: 183
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:03.495
+!MESSAGE 	ZipEntry include/InterruptableSensorBase.h: 1776
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:03.640
+!MESSAGE 	ZipEntry include/IterativeRobot.h: 2668
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:03.879
+!MESSAGE 	ZipEntry include/Jaguar.h: 849
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:03.924
+!MESSAGE 	ZipEntry include/Joystick.h: 2910
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:03.960
+!MESSAGE 	ZipEntry include/LiveWindow/LiveWindow.h: 1571
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:04.012
+!MESSAGE 	ZipEntry include/LiveWindow/LiveWindowSendable.h: 1171
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:04.080
+!MESSAGE 	ZipEntry include/LiveWindow/LiveWindowStatusListener.h: 317
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:04.323
+!MESSAGE 	ZipEntry include/Log.hpp: 2391
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:04.630
+!MESSAGE 	ZipEntry include/MotorSafety.h: 746
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:04.759
+!MESSAGE 	ZipEntry include/MotorSafetyHelper.h: 1438
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:05.177
+!MESSAGE 	ZipEntry include/NIIMAQdx.h: 40516
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:05.219
+!MESSAGE 	ZipEntry include/NTErrorBase.h: 1626
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:05.254
+!MESSAGE 	ZipEntry include/NetworkCommunication/AICalibration.h: 464
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:05.309
+!MESSAGE 	ZipEntry include/NetworkCommunication/CANInterfacePlugin.h: 3823
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:05.630
+!MESSAGE 	ZipEntry include/NetworkCommunication/CANSessionMux.h: 2886
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:05.686
+!MESSAGE 	ZipEntry include/NetworkCommunication/FRCComm.h: 3941
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:05.880
+!MESSAGE 	ZipEntry include/NetworkCommunication/LoadOut.h: 1664
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:05.963
+!MESSAGE 	ZipEntry include/NetworkCommunication/UsageReporting.h: 4333
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:06.001
+!MESSAGE 	ZipEntry include/NetworkCommunication/symModuleLink.h: 352
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:06.586
+!MESSAGE 	ZipEntry include/Notifier.h: 1828
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:06.683
+!MESSAGE 	ZipEntry include/OSAL/Synchronized.h: 2578
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:06.832
+!MESSAGE 	ZipEntry include/OSAL/Task.h: 1768
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:07.107
+!MESSAGE 	ZipEntry include/PIDController.h: 3578
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:07.212
+!MESSAGE 	ZipEntry include/PIDOutput.h: 683
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:07.427
+!MESSAGE 	ZipEntry include/PIDSource.h: 737
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:08.057
+!MESSAGE 	ZipEntry include/PWM.h: 4469
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:08.139
+!MESSAGE 	ZipEntry include/PowerDistributionPanel.h: 1324
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:08.489
+!MESSAGE 	ZipEntry include/Preferences.h: 3548
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:08.790
+!MESSAGE 	ZipEntry include/Relay.h: 1847
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:09.009
+!MESSAGE 	ZipEntry include/Resource.h: 1344
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:09.594
+!MESSAGE 	ZipEntry include/RobotBase.h: 1950
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:09.765
+!MESSAGE 	ZipEntry include/RobotDrive.h: 4542
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:09.925
+!MESSAGE 	ZipEntry include/RobotState.h: 938
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:09.993
+!MESSAGE 	ZipEntry include/SPI.h: 1438
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:10.227
+!MESSAGE 	ZipEntry include/SafePWM.h: 1209
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:10.520
+!MESSAGE 	ZipEntry include/SampleRobot.h: 744
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:10.547
+!MESSAGE 	ZipEntry include/SensorBase.h: 1902
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:10.578
+!MESSAGE 	ZipEntry include/SerialPort.h: 2164
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:10.725
+!MESSAGE 	ZipEntry include/Servo.h: 1531
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:10.923
+!MESSAGE 	ZipEntry include/SmartDashboard/NamedSendable.h: 537
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:10.961
+!MESSAGE 	ZipEntry include/SmartDashboard/Sendable.h: 988
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:10.996
+!MESSAGE 	ZipEntry include/SmartDashboard/SendableChooser.h: 1579
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:11.207
+!MESSAGE 	ZipEntry include/SmartDashboard/SmartDashboard.h: 1961
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:11.584
+!MESSAGE 	ZipEntry include/Solenoid.h: 1381
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:11.627
+!MESSAGE 	ZipEntry include/SolenoidBase.h: 1143
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:11.679
+!MESSAGE 	ZipEntry include/SpeedController.h: 1180
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:12.343
+!MESSAGE 	ZipEntry include/Talon.h: 844
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:12.382
+!MESSAGE 	ZipEntry include/TalonSRX.h: 897
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:12.421
+!MESSAGE 	ZipEntry include/Task.h: 1417
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:12.458
+!MESSAGE 	ZipEntry include/Timer.h: 1478
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:12.488
+!MESSAGE 	ZipEntry include/USBCamera.h: 3083
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:12.518
+!MESSAGE 	ZipEntry include/Ultrasonic.h: 3030
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:12.549
+!MESSAGE 	ZipEntry include/Utility.h: 1936
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:12.578
+!MESSAGE 	ZipEntry include/Victor.h: 968
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:12.607
+!MESSAGE 	ZipEntry include/VictorSP.h: 826
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:12.634
+!MESSAGE 	ZipEntry include/Vision/AxisCamera.h: 2905
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:12.663
+!MESSAGE 	ZipEntry include/Vision/BaeUtilities.h: 2072
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:12.701
+!MESSAGE 	ZipEntry include/Vision/BinaryImage.h: 1625
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:12.734
+!MESSAGE 	ZipEntry include/Vision/ColorImage.h: 2909
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:12.801
+!MESSAGE 	ZipEntry include/Vision/FrcError.h: 1454
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:12.835
+!MESSAGE 	ZipEntry include/Vision/HSLImage.h: 650
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:12.875
+!MESSAGE 	ZipEntry include/Vision/ImageBase.h: 750
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:12.906
+!MESSAGE 	ZipEntry include/Vision/MonoImage.h: 953
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:12.938
+!MESSAGE 	ZipEntry include/Vision/RGBImage.h: 649
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:12.975
+!MESSAGE 	ZipEntry include/Vision/Threshold.h: 931
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:13.006
+!MESSAGE 	ZipEntry include/Vision/VisionAPI.h: 7332
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:13.038
+!MESSAGE 	ZipEntry include/WPIErrors.h: 4849
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:13.069
+!MESSAGE 	ZipEntry include/WPILib.h: 2802
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:13.102
+!MESSAGE 	ZipEntry include/ctre/CanTalonSRX.h: 20077
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:13.141
+!MESSAGE 	ZipEntry include/ctre/CtreCanNode.h: 2206
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:13.181
+!MESSAGE 	ZipEntry include/ctre/ctre.h: 1264
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:13.464
+!MESSAGE 	ZipEntry include/interfaces/Accelerometer.h: 1371
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:13.503
+!MESSAGE 	ZipEntry include/interfaces/Potentiometer.h: 792
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:13.636
+!MESSAGE 	ZipEntry include/networktables/NetworkTable.h: 8494
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:13.676
+!MESSAGE 	ZipEntry include/networktables/NetworkTableConnectionListenerAdapter.h: 789
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:13.953
+!MESSAGE 	ZipEntry include/networktables/NetworkTableKeyListenerAdapter.h: 872
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:14.058
+!MESSAGE 	ZipEntry include/networktables/NetworkTableListenerAdapter.h: 741
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:14.245
+!MESSAGE 	ZipEntry include/networktables/NetworkTableMode.h: 1649
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:14.445
+!MESSAGE 	ZipEntry include/networktables/NetworkTableProvider.h: 906
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:14.476
+!MESSAGE 	ZipEntry include/networktables/NetworkTableSubListenerAdapter.h: 873
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:14.505
+!MESSAGE 	ZipEntry include/networktables2/AbstractNetworkTableEntryStore.h: 2159
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:14.540
+!MESSAGE 	ZipEntry include/networktables2/FlushableOutgoingEntryReceiver.h: 520
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:14.574
+!MESSAGE 	ZipEntry include/networktables2/IncomingEntryReceiver.h: 547
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:14.602
+!MESSAGE 	ZipEntry include/networktables2/NetworkTableEntry.h: 2058
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:14.631
+!MESSAGE 	ZipEntry include/networktables2/NetworkTableMessageType.h: 774
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:14.660
+!MESSAGE 	ZipEntry include/networktables2/NetworkTableNode.h: 2857
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:14.989
+!MESSAGE 	ZipEntry include/networktables2/OutgoingEntryReceiver.h: 776
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:15.610
+!MESSAGE 	ZipEntry include/networktables2/TableKeyExistsWithDifferentTypeException.h: 1319
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:15.643
+!MESSAGE 	ZipEntry include/networktables2/TransactionDirtier.h: 772
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:15.683
+!MESSAGE 	ZipEntry include/networktables2/WriteManager.h: 2107
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:15.713
+!MESSAGE 	ZipEntry include/networktables2/client/ClientConnectionAdapter.h: 3159
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:15.921
+!MESSAGE 	ZipEntry include/networktables2/client/ClientConnectionListenerManager.h: 648
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:16.329
+!MESSAGE 	ZipEntry include/networktables2/client/ClientConnectionState.h: 2340
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:16.383
+!MESSAGE 	ZipEntry include/networktables2/client/ClientNetworkTableEntryStore.h: 1157
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:16.418
+!MESSAGE 	ZipEntry include/networktables2/client/NetworkTableClient.h: 1162
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:16.629
+!MESSAGE 	ZipEntry include/networktables2/connection/BadMessageException.h: 428
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:16.659
+!MESSAGE 	ZipEntry include/networktables2/connection/ConnectionAdapter.h: 1215
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:16.688
+!MESSAGE 	ZipEntry include/networktables2/connection/ConnectionMonitorThread.h: 1041
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:16.748
+!MESSAGE 	ZipEntry include/networktables2/connection/DataIOStream.h: 1061
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:17.003
+!MESSAGE 	ZipEntry include/networktables2/connection/NetworkTableConnection.h: 1415
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:17.528
+!MESSAGE 	ZipEntry include/networktables2/server/NetworkTableServer.h: 1517
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:17.837
+!MESSAGE 	ZipEntry include/networktables2/server/ServerAdapterManager.h: 658
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:17.873
+!MESSAGE 	ZipEntry include/networktables2/server/ServerConnectionAdapter.h: 3009
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:18.290
+!MESSAGE 	ZipEntry include/networktables2/server/ServerConnectionList.h: 1392
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:18.739
+!MESSAGE 	ZipEntry include/networktables2/server/ServerConnectionState.h: 1478
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:18.954
+!MESSAGE 	ZipEntry include/networktables2/server/ServerIncomingConnectionListener.h: 684
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:18.991
+!MESSAGE 	ZipEntry include/networktables2/server/ServerIncomingStreamMonitor.h: 2243
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:19.511
+!MESSAGE 	ZipEntry include/networktables2/server/ServerNetworkTableEntryStore.h: 1269
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:19.702
+!MESSAGE 	ZipEntry include/networktables2/stream/FDIOStream.h: 487
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:19.888
+!MESSAGE 	ZipEntry include/networktables2/stream/IOStream.h: 381
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:20.319
+!MESSAGE 	ZipEntry include/networktables2/stream/IOStreamFactory.h: 568
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:20.458
+!MESSAGE 	ZipEntry include/networktables2/stream/IOStreamProvider.h: 695
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:20.984
+!MESSAGE 	ZipEntry include/networktables2/stream/SocketServerStreamProvider.h: 577
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:21.397
+!MESSAGE 	ZipEntry include/networktables2/stream/SocketStreamFactory.h: 549
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:21.648
+!MESSAGE 	ZipEntry include/networktables2/stream/SocketStreams.h: 908
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:21.788
+!MESSAGE 	ZipEntry include/networktables2/thread/DefaultThreadManager.h: 1225
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:21.816
+!MESSAGE 	ZipEntry include/networktables2/thread/NTThread.h: 431
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:21.845
+!MESSAGE 	ZipEntry include/networktables2/thread/NTThreadManager.h: 732
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:22.022
+!MESSAGE 	ZipEntry include/networktables2/thread/PeriodicRunnable.h: 610
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:22.556
+!MESSAGE 	ZipEntry include/networktables2/type/ArrayData.h: 2158
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:23.063
+!MESSAGE 	ZipEntry include/networktables2/type/ArrayEntryType.h: 2569
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:23.096
+!MESSAGE 	ZipEntry include/networktables2/type/BooleanArray.h: 560
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:23.501
+!MESSAGE 	ZipEntry include/networktables2/type/ComplexData.h: 759
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:23.883
+!MESSAGE 	ZipEntry include/networktables2/type/ComplexEntryType.h: 1465
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:23.915
+!MESSAGE 	ZipEntry include/networktables2/type/DefaultEntryTypes.h: 2252
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:23.944
+!MESSAGE 	ZipEntry include/networktables2/type/NetworkTableEntryType.h: 2421
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:23.979
+!MESSAGE 	ZipEntry include/networktables2/type/NetworkTableEntryTypeManager.h: 1227
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:24.013
+!MESSAGE 	ZipEntry include/networktables2/type/NumberArray.h: 562
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:24.049
+!MESSAGE 	ZipEntry include/networktables2/type/StringArray.h: 576
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:24.083
+!MESSAGE 	ZipEntry include/networktables2/util/EOFException.h: 570
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:24.117
+!MESSAGE 	ZipEntry include/networktables2/util/IOException.h: 1199
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:24.463
+!MESSAGE 	ZipEntry include/networktables2/util/IllegalStateException.h: 466
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:24.491
+!MESSAGE 	ZipEntry include/networktables2/util/StringCache.h: 662
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:24.732
+!MESSAGE 	ZipEntry include/networktables2/util/System.h: 680
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:24.764
+!MESSAGE 	ZipEntry include/nivision.h: 466344
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:25.223
+!MESSAGE 	ZipEntry include/pcre.h: 14107
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:25.600
+!MESSAGE 	ZipEntry include/tables/IRemote.h: 1123
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:25.854
+!MESSAGE 	ZipEntry include/tables/IRemoteConnectionListener.h: 735
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:26.245
+!MESSAGE 	ZipEntry include/tables/ITable.h: 5617
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:26.751
+!MESSAGE 	ZipEntry include/tables/ITableListener.h: 979
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:26.895
+!MESSAGE 	ZipEntry include/tables/ITableProvider.h: 499
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:27.264
+!MESSAGE 	ZipEntry include/tables/TableKeyNotDefinedException.h: 709
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:27.483
+!MESSAGE 	ZipEntry lib/libFRC_NetworkCommunication.so: 74
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:27.515
+!MESSAGE 	ZipEntry lib/libFRC_NetworkCommunication.so.1: 76
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:27.547
+!MESSAGE 	ZipEntry lib/libFRC_NetworkCommunication.so.1.5: 78
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:27.960
+!MESSAGE 	ZipEntry lib/libFRC_NetworkCommunication.so.1.5.0: 499832
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:28.319
+!MESSAGE 	ZipEntry lib/libFRC_NetworkCommunicationLV.so: 76
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:29.174
+!MESSAGE 	ZipEntry lib/libFRC_NetworkCommunicationLV.so.1: 78
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:29.476
+!MESSAGE 	ZipEntry lib/libFRC_NetworkCommunicationLV.so.1.5: 80
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:29.511
+!MESSAGE 	ZipEntry lib/libFRC_NetworkCommunicationLV.so.1.5.0: 4584
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:29.539
+!MESSAGE 	ZipEntry lib/libGCBase_gcc-4.4-arm_v2_3.so: 110437
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:29.740
+!MESSAGE 	ZipEntry lib/libGenApi_gcc-4.4-arm_v2_3.so: 3437504
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:30.317
+!MESSAGE 	ZipEntry lib/libHALAthena.a: 4283488
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:31.524
+!MESSAGE 	ZipEntry lib/libHALAthena_shared.so: 1381145
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:32.289
+!MESSAGE 	ZipEntry lib/libLog_gcc-4.4-arm_v2_3.so: 26237
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:32.425
+!MESSAGE 	ZipEntry lib/libMathParser_gcc-4.4-arm_v2_3.so: 49301
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:32.643
+!MESSAGE 	ZipEntry lib/libNetworkTables.a: 11829942
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:35.405
+!MESSAGE 	ZipEntry lib/libNiFpga.so: 57
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:35.751
+!MESSAGE 	ZipEntry lib/libNiFpga.so.14: 59
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:36.038
+!MESSAGE 	ZipEntry lib/libNiFpga.so.14.0: 61
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:36.502
+!MESSAGE 	ZipEntry lib/libNiFpga.so.14.0.0: 393768
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:36.562
+!MESSAGE 	ZipEntry lib/libNiFpgaLv.so: 59
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:36.804
+!MESSAGE 	ZipEntry lib/libNiFpgaLv.so.14: 61
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:37.008
+!MESSAGE 	ZipEntry lib/libNiFpgaLv.so.14.0: 63
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:37.110
+!MESSAGE 	ZipEntry lib/libNiFpgaLv.so.14.0.0: 73228
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:37.161
+!MESSAGE 	ZipEntry lib/libNiRioSrv.so: 59
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:37.749
+!MESSAGE 	ZipEntry lib/libNiRioSrv.so.14: 61
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:38.281
+!MESSAGE 	ZipEntry lib/libNiRioSrv.so.14.0: 63
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:39.565
+!MESSAGE 	ZipEntry lib/libNiRioSrv.so.14.0.0: 842316
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:40.385
+!MESSAGE 	ZipEntry lib/libRoboRIO_FRC_ChipObject.so: 72
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:40.416
+!MESSAGE 	ZipEntry lib/libRoboRIO_FRC_ChipObject.so.1: 74
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:40.450
+!MESSAGE 	ZipEntry lib/libRoboRIO_FRC_ChipObject.so.1.2: 76
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:40.482
+!MESSAGE 	ZipEntry lib/libRoboRIO_FRC_ChipObject.so.1.2.0: 381560
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:40.692
+!MESSAGE 	ZipEntry lib/libi2c.so: 53
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:40.717
+!MESSAGE 	ZipEntry lib/libi2c.so.1: 55
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:40.744
+!MESSAGE 	ZipEntry lib/libi2c.so.1.0: 57
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:40.770
+!MESSAGE 	ZipEntry lib/libi2c.so.1.0.0: 4076
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:40.801
+!MESSAGE 	ZipEntry lib/liblog4cpp_gcc-4.4-arm_v2_3.so: 324751
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:40.872
+!MESSAGE 	ZipEntry lib/libni_emb.so: 56
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:40.902
+!MESSAGE 	ZipEntry lib/libni_emb.so.7: 58
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:40.928
+!MESSAGE 	ZipEntry lib/libni_emb.so.7.0: 60
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:40.956
+!MESSAGE 	ZipEntry lib/libni_emb.so.7.0.0: 189204
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:41.733
+!MESSAGE 	ZipEntry lib/libni_rtlog.so: 58
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:41.772
+!MESSAGE 	ZipEntry lib/libni_rtlog.so.2: 60
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:41.802
+!MESSAGE 	ZipEntry lib/libni_rtlog.so.2.3: 62
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:41.836
+!MESSAGE 	ZipEntry lib/libni_rtlog.so.2.3.0: 9992
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:41.881
+!MESSAGE 	ZipEntry lib/libniimaqdx.so: 59
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:41.910
+!MESSAGE 	ZipEntry lib/libniimaqdx.so.14: 61
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:41.939
+!MESSAGE 	ZipEntry lib/libniimaqdx.so.14.0: 63
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:41.972
+!MESSAGE 	ZipEntry lib/libniimaqdx.so.14.0.0: 2215400
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:42.893
+!MESSAGE 	ZipEntry lib/libnirio_emb_can.so: 64
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:43.328
+!MESSAGE 	ZipEntry lib/libnirio_emb_can.so.14: 66
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:43.357
+!MESSAGE 	ZipEntry lib/libnirio_emb_can.so.14.0: 68
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:43.386
+!MESSAGE 	ZipEntry lib/libnirio_emb_can.so.14.0.0: 61780
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:43.436
+!MESSAGE 	ZipEntry lib/libnivision.so: 59
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:43.498
+!MESSAGE 	ZipEntry lib/libnivision.so.14: 61
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:43.532
+!MESSAGE 	ZipEntry lib/libnivision.so.14.0: 63
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:43.847
+!MESSAGE 	ZipEntry lib/libnivision.so.14.0.0: 9654528
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:48.303
+!MESSAGE 	ZipEntry lib/libnivissvc.so: 59
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:48.544
+!MESSAGE 	ZipEntry lib/libnivissvc.so.14: 61
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:48.577
+!MESSAGE 	ZipEntry lib/libnivissvc.so.14.0: 63
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:48.619
+!MESSAGE 	ZipEntry lib/libnivissvc.so.14.0.0: 2806736
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:49.641
+!MESSAGE 	ZipEntry lib/libspi.so: 53
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:50.230
+!MESSAGE 	ZipEntry lib/libspi.so.1: 55
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:50.259
+!MESSAGE 	ZipEntry lib/libspi.so.1.0: 57
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:50.289
+!MESSAGE 	ZipEntry lib/libspi.so.1.0.0: 4400
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:50.322
+!MESSAGE 	ZipEntry lib/libvisa.so: 196396
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:50.394
+!MESSAGE 	ZipEntry lib/libwpi.so: 72
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:50.853
+!MESSAGE 	ZipEntry lib/libwpi_2015.so: 445
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:53:51.116
+!MESSAGE 	ZipEntry lib/libwpilib_nonshared.a: 28576636
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:00.294
+!MESSAGE 	ZipEntry sim/include/AnalogInput.h: 1888
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:00.499
+!MESSAGE 	ZipEntry sim/include/AnalogPotentiometer.h: 2554
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:00.801
+!MESSAGE 	ZipEntry sim/include/Base.h: 819
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:00.832
+!MESSAGE 	ZipEntry sim/include/Buttons/Button.h: 1295
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:01.376
+!MESSAGE 	ZipEntry sim/include/Buttons/ButtonScheduler.h: 735
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:01.544
+!MESSAGE 	ZipEntry sim/include/Buttons/CancelButtonScheduler.h: 765
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:01.562
+!MESSAGE 	ZipEntry sim/include/Buttons/HeldButtonScheduler.h: 727
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:02.089
+!MESSAGE 	ZipEntry sim/include/Buttons/InternalButton.h: 749
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:02.267
+!MESSAGE 	ZipEntry sim/include/Buttons/JoystickButton.h: 723
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:02.298
+!MESSAGE 	ZipEntry sim/include/Buttons/NetworkButton.h: 762
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:02.329
+!MESSAGE 	ZipEntry sim/include/Buttons/PressedButtonScheduler.h: 742
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:02.360
+!MESSAGE 	ZipEntry sim/include/Buttons/ReleasedButtonScheduler.h: 747
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:02.387
+!MESSAGE 	ZipEntry sim/include/Buttons/ToggleButtonScheduler.h: 765
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:02.444
+!MESSAGE 	ZipEntry sim/include/Buttons/Trigger.h: 1608
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:02.489
+!MESSAGE 	ZipEntry sim/include/Commands/Command.h: 5675
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:02.567
+!MESSAGE 	ZipEntry sim/include/Commands/CommandGroup.h: 2439
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:02.793
+!MESSAGE 	ZipEntry sim/include/Commands/CommandGroupEntry.h: 835
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:03.274
+!MESSAGE 	ZipEntry sim/include/Commands/PIDCommand.h: 1687
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:03.534
+!MESSAGE 	ZipEntry sim/include/Commands/PIDSubsystem.h: 2347
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:03.558
+!MESSAGE 	ZipEntry sim/include/Commands/PrintCommand.h: 790
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:03.607
+!MESSAGE 	ZipEntry sim/include/Commands/Scheduler.h: 1942
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:03.643
+!MESSAGE 	ZipEntry sim/include/Commands/StartCommand.h: 779
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:03.664
+!MESSAGE 	ZipEntry sim/include/Commands/Subsystem.h: 1243
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:03.698
+!MESSAGE 	ZipEntry sim/include/Commands/WaitCommand.h: 777
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:03.745
+!MESSAGE 	ZipEntry sim/include/Commands/WaitForChildren.h: 803
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:03.766
+!MESSAGE 	ZipEntry sim/include/Commands/WaitUntilCommand.h: 829
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:03.786
+!MESSAGE 	ZipEntry sim/include/Controller.h: 1012
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:03.815
+!MESSAGE 	ZipEntry sim/include/Counter.h: 3667
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:03.851
+!MESSAGE 	ZipEntry sim/include/CounterBase.h: 1049
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:03.887
+!MESSAGE 	ZipEntry sim/include/DigitalInput.h: 1343
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:04.491
+!MESSAGE 	ZipEntry sim/include/DoubleSolenoid.h: 1567
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:05.091
+!MESSAGE 	ZipEntry sim/include/DriverStation.h: 4047
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:05.130
+!MESSAGE 	ZipEntry sim/include/Encoder.h: 3473
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:05.168
+!MESSAGE 	ZipEntry sim/include/Error.h: 1416
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:05.213
+!MESSAGE 	ZipEntry sim/include/ErrorBase.h: 3808
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:05.262
+!MESSAGE 	ZipEntry sim/include/GenericHID.h: 1097
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:05.583
+!MESSAGE 	ZipEntry sim/include/Gyro.h: 2079
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:05.611
+!MESSAGE 	ZipEntry sim/include/HAL/Accelerometer.hpp: 279
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:05.629
+!MESSAGE 	ZipEntry sim/include/HAL/Analog.hpp: 3697
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:05.657
+!MESSAGE 	ZipEntry sim/include/HAL/CAN.hpp: 1149
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:05.675
+!MESSAGE 	ZipEntry sim/include/HAL/Compressor.hpp: 1192
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:05.779
+!MESSAGE 	ZipEntry sim/include/HAL/Digital.hpp: 6404
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:05.807
+!MESSAGE 	ZipEntry sim/include/HAL/Errors.hpp: 3846
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:06.759
+!MESSAGE 	ZipEntry sim/include/HAL/HAL.hpp: 7096
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:06.814
+!MESSAGE 	ZipEntry sim/include/HAL/Interrupts.hpp: 1143
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:06.849
+!MESSAGE 	ZipEntry sim/include/HAL/Notifier.hpp: 337
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:06.872
+!MESSAGE 	ZipEntry sim/include/HAL/PDP.hpp: 470
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:06.994
+!MESSAGE 	ZipEntry sim/include/HAL/Power.hpp: 642
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:07.218
+!MESSAGE 	ZipEntry sim/include/HAL/Semaphore.hpp: 1337
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:07.240
+!MESSAGE 	ZipEntry sim/include/HAL/SerialPort.hpp: 1340
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:07.929
+!MESSAGE 	ZipEntry sim/include/HAL/Solenoid.hpp: 679
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:07.955
+!MESSAGE 	ZipEntry sim/include/HAL/Task.hpp: 1559
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:07.978
+!MESSAGE 	ZipEntry sim/include/HAL/Utilities.hpp: 270
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:08.011
+!MESSAGE 	ZipEntry sim/include/HAL/cpp/Resource.hpp: 1371
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:08.039
+!MESSAGE 	ZipEntry sim/include/HAL/cpp/Synchronized.hpp: 3299
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:08.078
+!MESSAGE 	ZipEntry sim/include/HLUsageReporting.h: 811
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:08.105
+!MESSAGE 	ZipEntry sim/include/IterativeRobot.h: 2789
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:08.135
+!MESSAGE 	ZipEntry sim/include/Jaguar.h: 814
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:08.165
+!MESSAGE 	ZipEntry sim/include/Joystick.h: 2562
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:08.192
+!MESSAGE 	ZipEntry sim/include/LiveWindow/LiveWindow.h: 1571
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:08.219
+!MESSAGE 	ZipEntry sim/include/LiveWindow/LiveWindowSendable.h: 1171
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:08.241
+!MESSAGE 	ZipEntry sim/include/LiveWindow/LiveWindowStatusListener.h: 317
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:08.763
+!MESSAGE 	ZipEntry sim/include/Log.hpp: 2391
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:08.802
+!MESSAGE 	ZipEntry sim/include/MotorSafety.h: 746
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:08.837
+!MESSAGE 	ZipEntry sim/include/MotorSafetyHelper.h: 1438
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:08.870
+!MESSAGE 	ZipEntry sim/include/NTErrorBase.h: 1626
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:08.898
+!MESSAGE 	ZipEntry sim/include/Notifier.h: 1828
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:08.925
+!MESSAGE 	ZipEntry sim/include/OSAL/Synchronized.h: 2578
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:08.952
+!MESSAGE 	ZipEntry sim/include/OSAL/Task.h: 1768
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:08.990
+!MESSAGE 	ZipEntry sim/include/PIDController.h: 3578
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:09.031
+!MESSAGE 	ZipEntry sim/include/PIDOutput.h: 683
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:09.248
+!MESSAGE 	ZipEntry sim/include/PIDSource.h: 737
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:09.295
+!MESSAGE 	ZipEntry sim/include/PWM.h: 3617
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:09.557
+!MESSAGE 	ZipEntry sim/include/Relay.h: 1963
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:09.595
+!MESSAGE 	ZipEntry sim/include/Resource.h: 1344
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:09.616
+!MESSAGE 	ZipEntry sim/include/RobotBase.h: 1488
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:09.652
+!MESSAGE 	ZipEntry sim/include/RobotDrive.h: 4385
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:09.691
+!MESSAGE 	ZipEntry sim/include/RobotState.h: 938
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:09.724
+!MESSAGE 	ZipEntry sim/include/SafePWM.h: 1209
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:09.760
+!MESSAGE 	ZipEntry sim/include/SampleRobot.h: 744
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:09.803
+!MESSAGE 	ZipEntry sim/include/SensorBase.h: 1902
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:09.852
+!MESSAGE 	ZipEntry sim/include/SmartDashboard/NamedSendable.h: 537
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:09.905
+!MESSAGE 	ZipEntry sim/include/SmartDashboard/Sendable.h: 988
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:09.977
+!MESSAGE 	ZipEntry sim/include/SmartDashboard/SendableChooser.h: 1579
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:10.023
+!MESSAGE 	ZipEntry sim/include/SmartDashboard/SmartDashboard.h: 1961
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:10.088
+!MESSAGE 	ZipEntry sim/include/Solenoid.h: 1361
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:10.120
+!MESSAGE 	ZipEntry sim/include/SpeedController.h: 1157
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:10.156
+!MESSAGE 	ZipEntry sim/include/Talon.h: 802
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:10.661
+!MESSAGE 	ZipEntry sim/include/Task.h: 1417
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:10.698
+!MESSAGE 	ZipEntry sim/include/Timer.h: 1478
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:10.732
+!MESSAGE 	ZipEntry sim/include/Utility.h: 1936
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:10.761
+!MESSAGE 	ZipEntry sim/include/Victor.h: 806
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.269
+!MESSAGE 	ZipEntry sim/include/WPIErrors.h: 4849
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.305
+!MESSAGE 	ZipEntry sim/include/WPILib.h: 1317
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.341
+!MESSAGE 	ZipEntry sim/include/interfaces/Accelerometer.h: 1371
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.381
+!MESSAGE 	ZipEntry sim/include/interfaces/Potentiometer.h: 792
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.413
+!MESSAGE 	ZipEntry sim/include/networktables/NetworkTable.h: 8494
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.445
+!MESSAGE 	ZipEntry sim/include/networktables/NetworkTableConnectionListenerAdapter.h: 789
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.480
+!MESSAGE 	ZipEntry sim/include/networktables/NetworkTableKeyListenerAdapter.h: 872
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.642
+!MESSAGE 	ZipEntry sim/include/networktables/NetworkTableListenerAdapter.h: 741
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.680
+!MESSAGE 	ZipEntry sim/include/networktables/NetworkTableMode.h: 1649
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.716
+!MESSAGE 	ZipEntry sim/include/networktables/NetworkTableProvider.h: 906
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.751
+!MESSAGE 	ZipEntry sim/include/networktables/NetworkTableSubListenerAdapter.h: 873
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.783
+!MESSAGE 	ZipEntry sim/include/networktables2/AbstractNetworkTableEntryStore.h: 2159
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.822
+!MESSAGE 	ZipEntry sim/include/networktables2/FlushableOutgoingEntryReceiver.h: 520
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.853
+!MESSAGE 	ZipEntry sim/include/networktables2/IncomingEntryReceiver.h: 547
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.873
+!MESSAGE 	ZipEntry sim/include/networktables2/NetworkTableEntry.h: 2058
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.903
+!MESSAGE 	ZipEntry sim/include/networktables2/NetworkTableMessageType.h: 774
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.921
+!MESSAGE 	ZipEntry sim/include/networktables2/NetworkTableNode.h: 2857
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.949
+!MESSAGE 	ZipEntry sim/include/networktables2/OutgoingEntryReceiver.h: 776
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.966
+!MESSAGE 	ZipEntry sim/include/networktables2/TableKeyExistsWithDifferentTypeException.h: 1319
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:11.993
+!MESSAGE 	ZipEntry sim/include/networktables2/TransactionDirtier.h: 772
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:12.011
+!MESSAGE 	ZipEntry sim/include/networktables2/WriteManager.h: 2107
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:12.042
+!MESSAGE 	ZipEntry sim/include/networktables2/client/ClientConnectionAdapter.h: 3159
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:12.065
+!MESSAGE 	ZipEntry sim/include/networktables2/client/ClientConnectionListenerManager.h: 648
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:12.086
+!MESSAGE 	ZipEntry sim/include/networktables2/client/ClientConnectionState.h: 2340
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:12.385
+!MESSAGE 	ZipEntry sim/include/networktables2/client/ClientNetworkTableEntryStore.h: 1157
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:12.426
+!MESSAGE 	ZipEntry sim/include/networktables2/client/NetworkTableClient.h: 1162
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:12.444
+!MESSAGE 	ZipEntry sim/include/networktables2/connection/BadMessageException.h: 428
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:12.466
+!MESSAGE 	ZipEntry sim/include/networktables2/connection/ConnectionAdapter.h: 1215
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:12.501
+!MESSAGE 	ZipEntry sim/include/networktables2/connection/ConnectionMonitorThread.h: 1041
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:12.666
+!MESSAGE 	ZipEntry sim/include/networktables2/connection/DataIOStream.h: 1061
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:12.689
+!MESSAGE 	ZipEntry sim/include/networktables2/connection/NetworkTableConnection.h: 1415
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:12.714
+!MESSAGE 	ZipEntry sim/include/networktables2/server/NetworkTableServer.h: 1517
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:12.738
+!MESSAGE 	ZipEntry sim/include/networktables2/server/ServerAdapterManager.h: 658
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:12.777
+!MESSAGE 	ZipEntry sim/include/networktables2/server/ServerConnectionAdapter.h: 3009
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:12.967
+!MESSAGE 	ZipEntry sim/include/networktables2/server/ServerConnectionList.h: 1392
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:12.985
+!MESSAGE 	ZipEntry sim/include/networktables2/server/ServerConnectionState.h: 1478
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:13.012
+!MESSAGE 	ZipEntry sim/include/networktables2/server/ServerIncomingConnectionListener.h: 684
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:13.033
+!MESSAGE 	ZipEntry sim/include/networktables2/server/ServerIncomingStreamMonitor.h: 2243
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:13.078
+!MESSAGE 	ZipEntry sim/include/networktables2/server/ServerNetworkTableEntryStore.h: 1269
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:13.112
+!MESSAGE 	ZipEntry sim/include/networktables2/stream/FDIOStream.h: 487
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:13.159
+!MESSAGE 	ZipEntry sim/include/networktables2/stream/IOStream.h: 381
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:13.191
+!MESSAGE 	ZipEntry sim/include/networktables2/stream/IOStreamFactory.h: 568
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:13.225
+!MESSAGE 	ZipEntry sim/include/networktables2/stream/IOStreamProvider.h: 695
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:13.614
+!MESSAGE 	ZipEntry sim/include/networktables2/stream/SocketServerStreamProvider.h: 577
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:13.636
+!MESSAGE 	ZipEntry sim/include/networktables2/stream/SocketStreamFactory.h: 549
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:13.654
+!MESSAGE 	ZipEntry sim/include/networktables2/stream/SocketStreams.h: 908
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:13.672
+!MESSAGE 	ZipEntry sim/include/networktables2/thread/DefaultThreadManager.h: 1225
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:13.691
+!MESSAGE 	ZipEntry sim/include/networktables2/thread/NTThread.h: 431
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:13.721
+!MESSAGE 	ZipEntry sim/include/networktables2/thread/NTThreadManager.h: 732
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:13.750
+!MESSAGE 	ZipEntry sim/include/networktables2/thread/PeriodicRunnable.h: 610
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:14.291
+!MESSAGE 	ZipEntry sim/include/networktables2/type/ArrayData.h: 2158
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:14.815
+!MESSAGE 	ZipEntry sim/include/networktables2/type/ArrayEntryType.h: 2569
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:14.839
+!MESSAGE 	ZipEntry sim/include/networktables2/type/BooleanArray.h: 560
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:14.861
+!MESSAGE 	ZipEntry sim/include/networktables2/type/ComplexData.h: 759
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:15.609
+!MESSAGE 	ZipEntry sim/include/networktables2/type/ComplexEntryType.h: 1465
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:15.646
+!MESSAGE 	ZipEntry sim/include/networktables2/type/DefaultEntryTypes.h: 2252
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:15.683
+!MESSAGE 	ZipEntry sim/include/networktables2/type/NetworkTableEntryType.h: 2421
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:15.719
+!MESSAGE 	ZipEntry sim/include/networktables2/type/NetworkTableEntryTypeManager.h: 1227
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:15.746
+!MESSAGE 	ZipEntry sim/include/networktables2/type/NumberArray.h: 562
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:15.927
+!MESSAGE 	ZipEntry sim/include/networktables2/type/StringArray.h: 576
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:15.950
+!MESSAGE 	ZipEntry sim/include/networktables2/util/EOFException.h: 570
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:16.016
+!MESSAGE 	ZipEntry sim/include/networktables2/util/IOException.h: 1199
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:16.036
+!MESSAGE 	ZipEntry sim/include/networktables2/util/IllegalStateException.h: 466
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:16.054
+!MESSAGE 	ZipEntry sim/include/networktables2/util/StringCache.h: 662
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:16.624
+!MESSAGE 	ZipEntry sim/include/networktables2/util/System.h: 680
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:16.642
+!MESSAGE 	ZipEntry sim/include/simulation/MainNode.h: 1433
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:16.671
+!MESSAGE 	ZipEntry sim/include/simulation/SimContinuousOutput.h: 584
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:16.698
+!MESSAGE 	ZipEntry sim/include/simulation/SimDigitalInput.h: 419
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:17.249
+!MESSAGE 	ZipEntry sim/include/simulation/SimEncoder.h: 614
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:17.487
+!MESSAGE 	ZipEntry sim/include/simulation/SimFloatInput.h: 418
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:17.518
+!MESSAGE 	ZipEntry sim/include/simulation/SimGyro.h: 568
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:17.853
+!MESSAGE 	ZipEntry sim/include/simulation/msgs/bool.pb.h: 4475
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:17.887
+!MESSAGE 	ZipEntry sim/include/simulation/msgs/driver-station.pb.h: 7966
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:17.924
+!MESSAGE 	ZipEntry sim/include/simulation/msgs/float64.pb.h: 4581
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:17.954
+!MESSAGE 	ZipEntry sim/include/simulation/msgs/joystick.pb.h: 6007
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:18.148
+!MESSAGE 	ZipEntry sim/include/simulation/msgs/msgs.h: 1086
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:18.177
+!MESSAGE 	ZipEntry sim/include/simulation/simTime.h: 192
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:18.202
+!MESSAGE 	ZipEntry sim/include/tables/IRemote.h: 1123
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:18.221
+!MESSAGE 	ZipEntry sim/include/tables/IRemoteConnectionListener.h: 735
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:18.249
+!MESSAGE 	ZipEntry sim/include/tables/ITable.h: 5617
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:18.287
+!MESSAGE 	ZipEntry sim/include/tables/ITableListener.h: 979
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:18.316
+!MESSAGE 	ZipEntry sim/include/tables/ITableProvider.h: 499
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:18.742
+!MESSAGE 	ZipEntry sim/include/tables/TableKeyNotDefinedException.h: 709
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:18.790
+!MESSAGE 	ZipEntry sim/lib/jinput-platform-2.0.5-natives-linux.jar: 10362
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:18.832
+!MESSAGE 	ZipEntry sim/lib/libjinput-linux.so: 13656
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:18.882
+!MESSAGE 	ZipEntry sim/lib/libjinput-linux64.so: 14512
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:18.986
+!MESSAGE 	ZipEntry sim/tools/SimDS.jar: 1094400
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:19.607
+!MESSAGE 	ZipEntry so.properties: 24
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-01-12 14:54:20.338
+!MESSAGE Installedcpp
