@@ -90,3 +90,19 @@ int main(int, char**)
     }
     return 0;
 }
+int socketConnection(){
+	try
+	  {
+		// Create the client socket
+		ClientSocket client_socket ( "localhost", 30000 );
+
+		// rest of code -
+		// send request, retrieve reply, etc...
+
+	  }
+	catch ( SocketException& e )
+	  {
+		std::cout << "Exception was caught:" << e.description() << "\n";
+	  }
+	return 0;
+}
