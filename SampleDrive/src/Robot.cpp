@@ -1,4 +1,5 @@
 #include "WPILib.h"
+#include <math.h>
 
 class Robot: public IterativeRobot
 {
@@ -10,6 +11,10 @@ private:
 	std::string autoSelected;
 
 	bool arcade;
+	double throttle;
+	double angle;
+	double leftMotorOutput;
+	double rightMotorOutput;
 	CANTalon* rTalon1;
 	CANTalon* rTalon2;
 	CANTalon* lTalon1;
@@ -19,11 +24,6 @@ private:
 
 	void RobotInit()
 	{
-		chooser = new SendableChooser();
-		chooser->AddDefault(autoNameDefault, (void*)&autoNameDefault);
-		chooser->AddObject(autoNameCustom, (void*)&autoNameCustom);
-		SmartDashboard::PutData("Auto Modes", chooser);
-
 		rJoy = new Joystick(1);
 		lJoy = new Joystick(0);
 		lTalon1 = new CANTalon(0);
@@ -71,10 +71,49 @@ private:
 
 	void TeleopPeriodic()
 	{
+		if (rJoy->GetRawButton(1)) {
+			arcade = !arcade;
+		}
+
 		if (arcade) {
+			throttle = rJoy->GetY();
+			angle = lJoy->GetX();
+			leftMotorOutput = 0;
+			rightMotorOutput = 0;
+
+			if(throttle > 0.0) {
+					angle = -angle;
+					if(angle < 0.0) {
+						leftMotorOutput = (throttle + angle);
+						rightMotorOutput = fmax(throttle, -angle);
+					}
+					else {
+						leftMotorOutput = fmax(throttle, angle);
+						rightMotorOutput = (throttle - angle);
+					}
+				}
+				else {
+					if(angle > 0.0) {
+						leftMotorOutput = -fmax(-throttle, angle);
+						rightMotorOutput = throttle + angle;
+						//std::cout << rightMotorOutput << std::endl;
+					}
+					else {
+						leftMotorOutput = throttle - angle;
+						rightMotorOutput = -fmax(-throttle,-angle);
+					}
+
+				}
+			lTalon1->Set(leftMotorOutput);
+			lTalon2->Set(leftMotorOutput);
+			rTalon1->Set(rightMotorOutput);
+			rTalon2->Set(rightMotorOutput);
 
 		} else {
-
+			lTalon1->Set(lJoy->GetY());
+			lTalon2->Set(lJoy->GetY());
+			rTalon1->Set(rJoy->GetY());
+			rTalon2->Set(rJoy->GetY());
 		}
 	}
 

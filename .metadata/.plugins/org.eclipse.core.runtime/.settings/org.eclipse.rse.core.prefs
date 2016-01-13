@@ -1,0 +1,9 @@
+<<<<<<< HEAD
+activeuserprofiles=Samsung-PC;Team
+eclipse.preferences.version=1
+=======
+activeuserprofiles=LUKE-PC;Team
+eclipse.preferences.version=1
+org.eclipse.rse.systemtype.local.systemType.defaultUserId=Lukeasaurus
+useridperkey=LUKE-PC.Local\=Lukeasaurus;
+>>>>>>> b20bfd35b002d76942087b176552867b1d96df8f
