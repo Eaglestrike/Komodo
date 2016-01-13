@@ -1,0 +1,17 @@
+/*
+ * HUDServer.h
+ *
+ *  Created on: Jan 12, 2016
+ *      Author: Samsung
+ */
+
+#ifndef SRC_HUDSERVER_H_
+#define SRC_HUDSERVER_H_
+
+class HUDServer {
+public:
+	HUDServer();
+	virtual ~HUDServer();
+};
+
+#endif /* SRC_HUDSERVER_H_ */
