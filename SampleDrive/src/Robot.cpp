@@ -1,5 +1,7 @@
 #include "WPILib.h"
 #include <math.h>
+#include "Xbox.h"
+#include "modules/IntakeModule.h"
 
 class Robot: public IterativeRobot
 {
@@ -19,8 +21,12 @@ private:
 	CANTalon* rTalon2;
 	CANTalon* lTalon1;
 	CANTalon* lTalon2;
+
+	IntakeModule* intake;
+
 	Joystick* rJoy;
 	Joystick* lJoy;
+	Xbox* controller;
 
 	void RobotInit()
 	{
@@ -30,6 +36,8 @@ private:
 		lTalon2 = new CANTalon(1);
 		rTalon1 = new CANTalon(2);
 		rTalon2 = new CANTalon(3);
+		controller = new Xbox(2);
+		intake = new IntakeModule(4);
 	}
 
 
@@ -115,6 +123,8 @@ private:
 			rTalon1->Set(rJoy->GetY());
 			rTalon2->Set(rJoy->GetY());
 		}
+
+		intake->setPower(controller->getLY());
 	}
 
 	void TestPeriodic()

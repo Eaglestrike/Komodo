@@ -11,6 +11,7 @@
 #include <WPIlib.h>
 
 class IntakeModule {
+public:
 	IntakeModule(int intake);
 	void setPower(double pow);
 	void spinIn();
