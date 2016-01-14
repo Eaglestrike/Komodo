@@ -1,4 +1,5 @@
 #include "WPILib.h"
+#include "HUDServer.h"
 
 class Robot: public IterativeRobot
 {

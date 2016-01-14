@@ -1,1 +1,7 @@
-Info: Nothing to build for VisionRobot
+17:46:51 **** Incremental Build of configuration Debug for project VisionRobot ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\VisionRobot\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HUDServer.o" "..\\src\\HUDServer.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Samsung/wpilib/cpp/current/lib" -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a,-rpath,/usr/local/frc/rpath-lib -o FRCUserProgram "src\\Robot.o" "src\\HUDServer.o" -lwpi 
+
+17:46:56 Build Finished (took 5s.332ms)
+
