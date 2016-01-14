@@ -17,7 +17,7 @@ private:
 	{
 		up = new Servo(0);
 		side = new Servo(1);
-		server = new HUDServer(0, up, side);
+		server = new HUDServer(500, up, side);
 		chooser = new SendableChooser();
 		chooser->AddDefault(autoNameDefault, (void*)&autoNameDefault);
 		chooser->AddObject(autoNameCustom, (void*)&autoNameCustom);
