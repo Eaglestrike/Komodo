@@ -33,6 +33,11 @@ public:
 private:
 	std::thread t;
 	int matchtime = 0;
+	Servo* up;
+	Servo* side;
+	bool sweep = false;
+	bool lowsweep = false;
+	bool goDown;
 
 };
 

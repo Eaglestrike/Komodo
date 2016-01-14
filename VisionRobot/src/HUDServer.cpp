@@ -11,6 +11,8 @@ HUDServer::HUDServer(int portno, Servo* serv1, Servo* serv2) {
 	// TODO Auto-generated constructor stub
 	std::cout << "before";
 	std::cout << "Test";
+	up = serv1;
+	side = serv2;
 	t = std::thread(send, this, portno);
 
 }
@@ -22,6 +24,7 @@ void HUDServer::send(void* v, int port) {
 void HUDServer::callSend(int portno) {
 	while (true) {
 		int sockfd, newsockfd, n;
+		char buffer[256];
 		std::cout << "initialized sockfd, new sockfd, n" << std::endl;
 		socklen_t clilen;
 		std::cout << "initialized clilen" << std::endl;
@@ -49,25 +52,97 @@ void HUDServer::callSend(int portno) {
 			std::cout << "ERROR on accept" << std::endl;
 		std::cout << "listening" << std::endl;
 		while (true) { //infinite loops :D
-//			int err;
-//			int sizeerr = sizeof(err);
-//			int ret = getsockopt(sock, SOL_SOCKET, SO_ERROR, &err, &sizeerr);
-//			if (ret) {
-//				std::cout << "HUD disconnected\n";
-//				break;
-//			}
-			std::String number;
-			newsockfd >> number;
+			//			int err;
+			//			int sizeerr = sizeof(err);
+			//			int ret = getsockopt(sock, SOL_SOCKET, SO_ERROR, &err, &sizeerr);
+			//			if (ret) {
+			//				std::cout << "HUD disconnected\n";
+			//				break;
+			//			}
+			std::string number;
+			n = read(newsockfd,buffer,255);
+			int n1 = 0;
+			int n2 = 0;
+			int bar = 0;
+			std::string buff1;
+			std::string buff2;
+			for(int i = 0; i < 255 ; i++) {
+				if(buffer[i] == 0 && bar == 0) {
+					for(int u = 0; u < i; u++) {
+						buff1.append(&buffer[u]);
+					}
+					n1 = std::stoi(buff1);
+					bar = i;
+				}
+				else if(buffer[i] == 0) {
+					for(int u = bar; u < i; u++) {
+						buff2.append(&buffer[u]);
+					}
+					n2 = std::stoi(buff2);
+					break;
+				}
+			}
+			//std::stringstream ss(n);
+			//std::istream_iterator<std::string> begin(ss);
+			//std::istream_iterator<std::string> end;
+			//std::vector<std::string> vstrings(begin, end);
+			//std::copy(vstrings.begin(), vstrings.end(), std::ostream_iterator<std::string>(std::cout, "\n"));
 
-			std::stringstream ss(number);
-			std::istream_iterator<std::string> begin(ss);
-			std::istream_iterator<std::string> end;
-			std::vector<std::string> vstrings(begin, end);
-			std::copy(vstrings.begin(), vstrings.end(), std::ostream_iterator<std::string>(std::cout, "\n"));
+			//coord[0] = std::stoi(vstrings.end());
+			//coord[1] = std::stoi(vstrings.end());
 
-			//int i = std::stoi(s);
+			if(n1 == -1 && n2 == -1) {
+				//sweep
+				//sweep = true;
+				if(!sweep) {
+					side->SetAngle(0);
+					up->SetAngle(0);
+				}
+				else if(lowSweep) {
+					side->SetAngle(side->GetAngle()+1);
+					lowsweep = false;
+					goDown = false;
+				}
+				else if(up->GetAngle() == 0  || !goDown) {
+					up->SetAngle(up->GetAngle() + 1);
+					lowsweep = false;
+					goDown = false;
+				}
+				else if(up->GetAngle() > 0 || goDown) {
+					goDown = true;
+					up->SetAngle(up->GetAngle() - 1);
+					lowsweep = false;
+				}
+				else if(up->GetAngle() > 180 || up->GetAngle() <= 0) {
+					lowsweep = true;
+				}
 
-			int coord [2];
+				sweep = true;
+			}
+			else {
+				sweep = false;
+			}
+
+			if(n1 > 1080/2 + 10) {
+				side->SetAngle(side->GetAngle() - 1);
+			}
+			else if(n1 < 1080/2 - 10) {
+				side->SetAngle(side->GetAngle() + 1);
+			}
+			else {
+
+			}
+
+			if(n2 > 720/2 + 10) {
+				up->SetAngle(up->GetAngle() - 1);
+			}
+			else if(n2 < 720/2 - 10) {
+				up->SetAngle(up->GetAngle() + 1);
+			}
+			else {
+
+			}
+
 			if(n < 0)
 				break;
 
