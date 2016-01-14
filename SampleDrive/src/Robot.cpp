@@ -2,6 +2,7 @@
 #include <math.h>
 #include "Xbox.h"
 #include "modules/IntakeModule.h"
+#include "modules/DriveModule.h"
 
 class Robot: public IterativeRobot
 {
@@ -13,16 +14,9 @@ private:
 	std::string autoSelected;
 
 	bool arcade;
-	double throttle;
-	double angle;
-	double leftMotorOutput;
-	double rightMotorOutput;
-	CANTalon* rTalon1;
-	CANTalon* rTalon2;
-	CANTalon* lTalon1;
-	CANTalon* lTalon2;
 
 	IntakeModule* intake;
+	DriveModule* drive;
 
 	Joystick* rJoy;
 	Joystick* lJoy;
@@ -32,12 +26,9 @@ private:
 	{
 		rJoy = new Joystick(1);
 		lJoy = new Joystick(0);
-		lTalon1 = new CANTalon(0);
-		lTalon2 = new CANTalon(1);
-		rTalon1 = new CANTalon(2);
-		rTalon2 = new CANTalon(3);
 		controller = new Xbox(2);
 		intake = new IntakeModule(4);
+		drive = new DriveModule(0,1,2,3);
 	}
 
 
@@ -84,44 +75,9 @@ private:
 		}
 
 		if (arcade) {
-			throttle = rJoy->GetY();
-			angle = lJoy->GetX();
-			leftMotorOutput = 0;
-			rightMotorOutput = 0;
-
-			if(throttle > 0.0) {
-					angle = -angle;
-					if(angle < 0.0) {
-						leftMotorOutput = (throttle + angle);
-						rightMotorOutput = fmax(throttle, -angle);
-					}
-					else {
-						leftMotorOutput = fmax(throttle, angle);
-						rightMotorOutput = (throttle - angle);
-					}
-				}
-				else {
-					if(angle > 0.0) {
-						leftMotorOutput = -fmax(-throttle, angle);
-						rightMotorOutput = throttle + angle;
-						//std::cout << rightMotorOutput << std::endl;
-					}
-					else {
-						leftMotorOutput = throttle - angle;
-						rightMotorOutput = -fmax(-throttle,-angle);
-					}
-
-				}
-			lTalon1->Set(leftMotorOutput);
-			lTalon2->Set(leftMotorOutput);
-			rTalon1->Set(rightMotorOutput);
-			rTalon2->Set(rightMotorOutput);
-
+			drive->driveArcade(rJoy->GetY(),lJoy->GetX());
 		} else {
-			lTalon1->Set(lJoy->GetY());
-			lTalon2->Set(lJoy->GetY());
-			rTalon1->Set(rJoy->GetY());
-			rTalon2->Set(rJoy->GetY());
+			drive->driveTank(lJoy->GetY(), rJoy->GetY());
 		}
 
 		intake->setPower(controller->getLY());
