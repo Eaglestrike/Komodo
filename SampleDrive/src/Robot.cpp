@@ -105,9 +105,15 @@ private:
 
 				}
 			lTalon1->Set(leftMotorOutput);
+			lTalon2->Set(leftMotorOutput);
+			rTalon1->Set(rightMotorOutput);
+			rTalon2->Set(rightMotorOutput);
 
 		} else {
-
+			lTalon1->Set(lJoy->GetY());
+			lTalon2->Set(lJoy->GetY());
+			rTalon1->Set(rJoy->GetY());
+			rTalon2->Set(rJoy->GetY());
 		}
 	}
 
