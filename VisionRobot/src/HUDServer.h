@@ -37,7 +37,7 @@ private:
 	Servo* side;
 	bool sweep = false;
 	bool lowSweep = false;
-	bool goDown;
+	bool goDown= false;
 
 };
 
