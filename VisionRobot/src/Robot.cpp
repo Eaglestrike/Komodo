@@ -1,69 +1,71 @@
 #include "WPILib.h"
-#include "HUDServer.h"
+//#include "HUDServer.h"
 
 class Robot: public IterativeRobot
 {
 private:
 	LiveWindow *lw = LiveWindow::GetInstance();
-	SendableChooser *chooser;
-	const std::string autoNameDefault = "Default";
-	const std::string autoNameCustom = "My Auto";
-	std::string autoSelected;
+	int frameWidth,frameHeight,xMovePerTick,yMovePerTick,tolerance;
+	int movementFactor=1;
 	Servo* up;
 	Servo* side;
-	HUDServer* server;
-
+	//HUDServer* server;
+	NetworkTable* visionTable;
 	void RobotInit()
 	{
+		visionTable = NetworkTable::GetTable("visionTable");
 		up = new Servo(0);
 		side = new Servo(1);
-		server = new HUDServer(500, up, side);
-		chooser = new SendableChooser();
-		chooser->AddDefault(autoNameDefault, (void*)&autoNameDefault);
-		chooser->AddObject(autoNameCustom, (void*)&autoNameCustom);
-		SmartDashboard::PutData("Auto Modes", chooser);
+		//server = new HUDServer(500, up, side);
+
 	}
 
 
-	/**
-	 * This autonomous (along with the chooser code above) shows how to select between different autonomous modes
-	 * using the dashboard. The sendable chooser code works with the Java SmartDashboard. If you prefer the LabVIEW
-	 * Dashboard, remove all of the chooser code and uncomment the GetString line to get the auto name from the text box
-	 * below the Gyro
-	 *
-	 * You can add additional auto modes by adding additional comparisons to the if-else structure below with additional strings.
-	 * If using the SendableChooser make sure to add them to the chooser code above as well.
-	 */
+
 	void AutonomousInit()
 	{
-		autoSelected = *((std::string*)chooser->GetSelected());
-		//std::string autoSelected = SmartDashboard::GetString("Auto Selector", autoNameDefault);
-		std::cout << "Auto selected: " << autoSelected << std::endl;
-
-		if(autoSelected == autoNameCustom){
-			//Custom Auto goes here
-		} else {
-			//Default Auto goes here
-		}
 	}
 
 	void AutonomousPeriodic()
 	{
-		if(autoSelected == autoNameCustom){
-			//Custom Auto goes here
-		} else {
-			//Default Auto goes here
-		}
+
 	}
 
 	void TeleopInit()
 	{
-
+		frameWidth = visionTable->GetNumber("width");
+		frameHeight = visionTable->GetNumber("height");
+		tolerance = visionTable->GetNumber("Tolerance");
+		yMovePerTick = visionTable->GetNumber("yTicks");
+		xMovePerTick = visionTable->GetNumber("xTicks");
 	}
 
 	void TeleopPeriodic()
 	{
+		if(visionTable->GetBoolean("detectedObject")){
+			std::cout<<"Saw an object"<<std::endl;
+			int x = visionTable->GetNumber("X");
+			int y = visionTable->GetNumber("Y");
+			int movementInX  = (x>frameWidth/2+tolerance)?(xMovePerTick):(0);
+			movementInX = (x<frameWidth/2-tolerance)?(-xMovePerTick):(0);
+			int movementInY  = (y>frameHeight/2+tolerance)?(-yMovePerTick):(0);
+			movementInY = (y<frameHeight/2-tolerance)?(yMovePerTick):(0);
+			up->SetAngle(up->GetAngle()+movementInY);
+			side->SetAngle(side->GetAngle()+movementInX);
+		}
+		else{
 
+			std::cout<<"Sweeping"<<std::endl;
+			if(side->GetAngle()>180){
+				movementFactor=1;
+			}
+			if(side->GetAngle()<0){
+				movementFactor=0;
+			}
+
+
+			side->SetAngle(side->GetAngle()+xMovePerTick*movementFactor);
+		}
 	}
 
 	void TestPeriodic()

@@ -100,21 +100,21 @@ void HUDServer::callSend(int portno) {
 				}
 				else if(lowSweep) {
 					side->SetAngle(side->GetAngle()+1);
-					lowsweep = false;
+					lowSweep = false;
 					goDown = false;
 				}
 				else if(up->GetAngle() == 0  || !goDown) {
 					up->SetAngle(up->GetAngle() + 1);
-					lowsweep = false;
+					lowSweep = false;
 					goDown = false;
 				}
 				else if(up->GetAngle() > 0 || goDown) {
 					goDown = true;
 					up->SetAngle(up->GetAngle() - 1);
-					lowsweep = false;
+					lowSweep = false;
 				}
 				else if(up->GetAngle() > 180 || up->GetAngle() <= 0) {
-					lowsweep = true;
+					lowSweep = true;
 				}
 
 				sweep = true;
