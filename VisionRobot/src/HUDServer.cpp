@@ -61,27 +61,49 @@ void HUDServer::callSend(int portno) {
 			//			}
 			std::string number;
 			n = read(newsockfd,buffer,255);
-			int n1 = 0;
-			int n2 = 0;
+			int n1 = -1;
+			int n2 = -1;
 			int bar = 0;
 			std::string buff1;
 			std::string buff2;
+			//std::cout << "reading" << std::endl;
 			for(int i = 0; i < 255 ; i++) {
-				if(buffer[i] == 0 && bar == 0) {
-					for(int u = 0; u < i; u++) {
+				//std::cout << buffer[i] << std::endl;
+				if(buffer[i] == ' ' && bar == 0) {
+					for(int u = bar; u < i; u++) {
 						buff1.append(&buffer[u]);
 					}
 					n1 = std::stoi(buff1);
 					bar = i;
+					//std::cout << buff1 << std::endl;
+					//std::cout <<"n1 :  "<<n1 <<std::endl;
+					break;
 				}
-				else if(buffer[i] == 0) {
+				//				else if(buffer[i] == 0) {
+				//					for(int u = bar; u < i+2; u++) {
+				//						std::cout << "in the loop" << std::endl;
+				//						buff2.append(&buffer[u]);
+				//					}
+				//					std::cout<<"Buff2 "<<buff2<<std::endl;
+				//					n2 = std::stoi(buff2);
+				//					break;
+				//				}
+			}
+			//std::cout << buffer[bar] << std::endl;
+			for(int i = bar+1; i < 255 ; i++) {
+				//std::cout << buffer[i] << std::endl;
+				if(buffer[i] == ' ') {
 					for(int u = bar; u < i; u++) {
 						buff2.append(&buffer[u]);
 					}
+					//std::cout << buff2 << std::endl;
 					n2 = std::stoi(buff2);
+					//std::cout <<"n2 :  "<<n2 <<std::endl;
 					break;
 				}
 			}
+
+
 			//std::stringstream ss(n);
 			//std::istream_iterator<std::string> begin(ss);
 			//std::istream_iterator<std::string> end;
@@ -92,52 +114,56 @@ void HUDServer::callSend(int portno) {
 			//coord[1] = std::stoi(vstrings.end());
 
 			if(n1 == -1 && n2 == -1) {
-				//sweep
-				//sweep = true;
-				if(!sweep) {
-					side->SetAngle(0);
-					up->SetAngle(0);
-				}
-				else if(lowSweep) {
-					side->SetAngle(side->GetAngle()+1);
-					lowSweep = false;
-					goDown = false;
-				}
-				else if(up->GetAngle() == 0  || !goDown) {
-					up->SetAngle(up->GetAngle() + 1);
-					lowSweep = false;
-					goDown = false;
-				}
-				else if(up->GetAngle() > 0 || goDown) {
-					goDown = true;
-					up->SetAngle(up->GetAngle() - 1);
-					lowSweep = false;
-				}
-				else if(up->GetAngle() > 180 || up->GetAngle() <= 0) {
-					lowSweep = true;
-				}
+				std::cout << "sweep" << std::endl;
 
-				sweep = true;
+//				//sweep
+//				//sweep = true;
+//				if(!sweep) {
+//					side->SetAngle(0);
+//					up->SetAngle(0);
+//				}
+//				else {
+//					std::cout << side->GetAngle() << std::endl;
+//					if(!lowsweep) {
+//						side->SetAngle(side->GetAngle()+.1);
+//					}
+//					else {
+//						side->SetAngle(side->GetAngle()-.1);
+//					}
+//
+//					if(side->GetAngle() == 180) {
+//						lowsweep = true;
+//					}
+//					else if(side->GetAngle() == 0) {
+//						lowsweep = false;
+//					}
+//				}
+//
+//				sweep = true;
 			}
 			else {
 				sweep = false;
 			}
 
-			if(n1 > 1080/2 + 10) {
-				side->SetAngle(side->GetAngle() - 1);
+			if(n1 > 640/2 + 10) {
+				std::cout << "Going Left" << std::endl;
+				side->SetAngle(side->GetAngle() - .1);
 			}
-			else if(n1 < 1080/2 - 10) {
-				side->SetAngle(side->GetAngle() + 1);
+			else if(n1 < 640/2 - 10 && n1 > 0 ) {
+				std::cout << "Going right" << std::endl;
+				side->SetAngle(side->GetAngle() + .1);
 			}
 			else {
 
 			}
 
-			if(n2 > 720/2 + 10) {
-				up->SetAngle(up->GetAngle() - 1);
+			if(n2 > 480/2 + 10) {
+				up->SetAngle(up->GetAngle() + .1);
+				std::cout << "Going up" << std::endl;
 			}
-			else if(n2 < 720/2 - 10) {
-				up->SetAngle(up->GetAngle() + 1);
+			else if(n2 < 480/2 - 10 && n2 > 0) {
+				std::cout << "Going down" << std::endl;
+				up->SetAngle(up->GetAngle() - .1);
 			}
 			else {
 
@@ -146,12 +172,16 @@ void HUDServer::callSend(int portno) {
 			if(n < 0)
 				break;
 
-			Wait(1);
+			//Wait(.05);
+			std::cout << n1 << " " << n2 << std::endl;
+			//std::cout <<  up->GetAngle() << side->GetAngle() << std::endl;
+			std::fill(std::begin(buffer), std::end(buffer), 0);
 		}
 		close(newsockfd);
 		close(sockfd);
 	}
 }
+
 
 HUDServer::~HUDServer() {
 	// TODO Auto-generated destructor stub
