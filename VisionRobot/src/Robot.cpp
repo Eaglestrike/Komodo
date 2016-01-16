@@ -1,8 +1,11 @@
 #include "WPILib.h"
+#include "NetworkTables/NetworkTable.h"
 //#include "HUDServer.h"
 
 class Robot: public IterativeRobot
 {
+public:
+	std::shared_ptr<NetworkTable> visionTable;
 private:
 	LiveWindow *lw = LiveWindow::GetInstance();
 	int frameWidth,frameHeight,xMovePerTick,yMovePerTick,tolerance;
@@ -10,9 +13,10 @@ private:
 	Servo* up;
 	Servo* side;
 	//HUDServer* server;
-	NetworkTable* visionTable;
+
 	void RobotInit()
 	{
+
 		visionTable = NetworkTable::GetTable("visionTable");
 		up = new Servo(0);
 		side = new Servo(1);
@@ -42,14 +46,16 @@ private:
 
 	void TeleopPeriodic()
 	{
-		if(visionTable->GetBoolean("detectedObject")){
+		if(visionTable->GetValue("detectedObject")){
 			std::cout<<"Saw an object"<<std::endl;
+
 			int x = visionTable->GetNumber("X");
 			int y = visionTable->GetNumber("Y");
 			int movementInX  = (x>frameWidth/2+tolerance)?(xMovePerTick):(0);
 			movementInX = (x<frameWidth/2-tolerance)?(-xMovePerTick):(0);
 			int movementInY  = (y>frameHeight/2+tolerance)?(-yMovePerTick):(0);
 			movementInY = (y<frameHeight/2-tolerance)?(yMovePerTick):(0);
+			std::cout<<movementInX<<" "<<movementInY <<std::endl;
 			up->SetAngle(up->GetAngle()+movementInY);
 			side->SetAngle(side->GetAngle()+movementInX);
 		}
