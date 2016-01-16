@@ -1,33 +1,71 @@
-17:35:33 **** Incremental Build of configuration Debug for project VisionRobot ****
+18:28:21 **** Incremental Build of configuration Debug for project VisionRobot ****
 Info: Internal Builder is used for build
 arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\VisionRobot\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'virtual void Robot::RobotInit()':
-..\src\Robot.cpp:16:15: error: cannot convert 'std::shared_ptr<NetworkTable>' to 'NetworkTable*' in assignment
-   visionTable = NetworkTable::GetTable("visionTable");
-               ^
 ..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
-..\src\Robot.cpp:36:46: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+..\src\Robot.cpp:43:46: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
    frameWidth = visionTable->GetNumber("width");
                                               ^
-..\src\Robot.cpp:37:48: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+..\src\Robot.cpp:44:48: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
    frameHeight = visionTable->GetNumber("height");
                                                 ^
-..\src\Robot.cpp:38:49: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+..\src\Robot.cpp:45:49: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
    tolerance = visionTable->GetNumber("Tolerance");
                                                  ^
-..\src\Robot.cpp:39:49: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+..\src\Robot.cpp:46:49: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
    yMovePerTick = visionTable->GetNumber("yTicks");
                                                  ^
-..\src\Robot.cpp:40:49: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+..\src\Robot.cpp:47:49: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
    xMovePerTick = visionTable->GetNumber("xTicks");
                                                  ^
 ..\src\Robot.cpp: In member function 'virtual void Robot::TeleopPeriodic()':
-..\src\Robot.cpp:45:46: warning: 'virtual bool NetworkTable::GetBoolean(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:346): Raises an exception if key not found; use GetBoolean(StringRef key, bool defaultValue) instead [-Wdeprecated-declarations]
+..\src\Robot.cpp:52:46: warning: 'virtual bool NetworkTable::GetBoolean(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:346): Raises an exception if key not found; use GetBoolean(StringRef key, bool defaultValue) instead [-Wdeprecated-declarations]
    if(visionTable->GetBoolean("detectedObject")){
                                               ^
-..\src\Robot.cpp:47:38: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+..\src\Robot.cpp:55:38: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
     int x = visionTable->GetNumber("X");
                                       ^
-..\src\Robot.cpp:48:38: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+..\src\Robot.cpp:56:38: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
     int y = visionTable->GetNumber("Y");
                                       ^
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Samsung/wpilib/cpp/current/lib" -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a,-rpath,/usr/local/frc/rpath-lib -o FRCUserProgram "src\\Robot.o" "src\\HUDServer.o" -lwpi 
+Info: Nothing to build for VisionRobot
+Info: Nothing to build for HelloTest
+Info: Nothing to build for SampleDrive
+Info: Nothing to build for VisionRobot
+Info: Nothing to build for VisionRobot
+Info: Nothing to build for HelloTest
+Info: Nothing to build for SampleDrive
+Info: Nothing to build for VisionRobot
+18:37:18 **** Incremental Build of configuration Debug for project VisionRobot ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\VisionRobot\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
+..\src\Robot.cpp:43:46: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+   frameWidth = visionTable->GetNumber("width");
+                                              ^
+..\src\Robot.cpp:44:48: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+   frameHeight = visionTable->GetNumber("height");
+                                                ^
+..\src\Robot.cpp:45:49: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+   tolerance = visionTable->GetNumber("Tolerance");
+                                                 ^
+..\src\Robot.cpp:46:49: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+   yMovePerTick = visionTable->GetNumber("yTicks");
+                                                 ^
+..\src\Robot.cpp:47:49: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+   xMovePerTick = visionTable->GetNumber("xTicks");
+                                                 ^
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopPeriodic()':
+..\src\Robot.cpp:52:46: warning: 'virtual bool NetworkTable::GetBoolean(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:346): Raises an exception if key not found; use GetBoolean(StringRef key, bool defaultValue) instead [-Wdeprecated-declarations]
+   if(visionTable->GetBoolean("detectedObject")){
+                                              ^
+..\src\Robot.cpp:55:38: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+    int x = visionTable->GetNumber("X");
+                                      ^
+..\src\Robot.cpp:56:38: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+    int y = visionTable->GetNumber("Y");
+                                      ^
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Samsung/wpilib/cpp/current/lib" -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a,-rpath,/usr/local/frc/rpath-lib -o FRCUserProgram "src\\Robot.o" "src\\HUDServer.o" -lwpi 
+Info: Nothing to build for HelloTest
+Info: Nothing to build for SampleDrive
+Info: Nothing to build for VisionRobot

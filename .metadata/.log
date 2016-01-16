@@ -11472,3 +11472,111 @@ Caused by: java.io.IOException: CreateProcess error=2, The system cannot find th
 	at java.lang.ProcessImpl.<init>(Unknown Source)
 	at java.lang.ProcessImpl.start(Unknown Source)
 	... 11 more
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 17:55:06.431
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 17:55:06.444
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 17:56:46.178
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 17:56:46.190
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 17:58:03.775
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 17:58:03.787
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 17:59:16.979
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 17:59:16.992
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:01:36.591
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:01:36.601
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:03:38.946
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:03:38.955
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:04:43.207
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:04:43.216
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:15:46.745
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:15:46.755
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:16:32.523
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:16:32.532
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:18:22.999
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:18:23.009
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:19:13.294
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:19:13.305
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:21:38.482
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:21:38.490
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:22:36.272
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:22:36.279
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:23:47.285
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:23:47.292
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:24:45.276
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:24:45.282
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:30:58.904
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:30:58.911
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:33:38.068
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:33:38.075
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:37:23.247
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:37:23.253
+!MESSAGE Targets: deploy, Mode: run
