@@ -3,6 +3,7 @@
 #include "Xbox.h"
 #include "modules/IntakeModule.h"
 #include "modules/DriveModule.h"
+#include "Peripherals/AutonomousCode/LogisticFunction.h"
 
 class Robot: public IterativeRobot
 {
@@ -86,10 +87,6 @@ private:
 	void TestPeriodic()
 	{
 		lw->Run();
-	}
-
-	double expDrive(double totalDistance, double totalTime, double currentTime) {
-
 	}
 };
 
