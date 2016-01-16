@@ -43,7 +43,7 @@ private:
 	void TeleopPeriodic()
 	{
 		if(visionTable->GetBoolean("detectedObject")){
-			std::cout<<"Saw an object"<<std::endl;
+			std::cout<<"Saw an objects"<<std::endl;
 			int x = visionTable->GetNumber("X");
 			int y = visionTable->GetNumber("Y");
 			int movementInX  = (x>frameWidth/2+tolerance)?(xMovePerTick):(0);

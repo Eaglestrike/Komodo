@@ -1,6 +1,5 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=b20bfd35b002d76942087b176552867b1d96df8f
 eclipse.preferences.version=1
-<<<<<<< HEAD
 org.eclipse.core.variables.valueVariables=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<valueVariables>\r\n<valueVariable description\="WPILib Path" name\="WPILIB" readOnly\="false" value\="${HOME}/wpilib"/>\r\n<valueVariable description\="user.home directory" name\="HOME" readOnly\="false" value\="C\:\\Users\\Samsung"/>\r\n</valueVariables>\r\n
-=======
-org.eclipse.core.variables.valueVariables=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<valueVariables>\r\n<valueVariable description\="user.home directory" name\="HOME" readOnly\="false" value\="C\:\\Users\\Lukeasaurus"/>\r\n</valueVariables>\r\n
->>>>>>> b20bfd35b002d76942087b176552867b1d96df8f
