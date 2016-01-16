@@ -4,6 +4,9 @@
 #include "modules/IntakeModule.h"
 #include "modules/DriveModule.h"
 #include "Peripherals/AutonomousCode/LogisticFunction.h"
+#include <iostream>
+#include <cstdio>
+#include <ctime>
 
 class Robot: public IterativeRobot
 {
@@ -18,6 +21,7 @@ private:
 
 	IntakeModule* intake;
 	DriveModule* drive;
+	LogisticFunction* func;
 
 	Joystick* rJoy;
 	Joystick* lJoy;
@@ -52,6 +56,15 @@ private:
 			//Custom Auto goes here
 		} else {
 			//Default Auto goes here
+		}
+	}
+
+	void autonGo(double distance, double time) {//Time in seconds for now
+		func = new LogisticFunction(distance, time);
+		std::clock_t timer;
+		timer = std::clock();
+		while (timer < (time+1)*CLOCKS_PER_SEC) {
+			drive->setDriveSetpoint(func->getDistance(timer/CLOCKS_PER_SEC));
 		}
 	}
 

@@ -52,14 +52,7 @@ public:
 	void setLeftPower(double lPow);
 	void driveArcade(double throttle, double angle);
 	void driveTank(double lPow, double rPow);
-	void setSetpoint(double setpoint);
-	double getREncoderCount();
-	double getLEncoderCount();
-	void enableDrivePID();
-	double getDriveP();
-	double getDriveI();
-	double getDriveD();
-	double getDriveOutput();
+	void setDriveSetpoint(double setpoint);
 	void setDrivePID(double p, double i, double d);
 
 private:

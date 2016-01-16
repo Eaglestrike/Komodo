@@ -65,6 +65,6 @@ void DriveModule::driveTank(double lPow, double rPow) {
 	setRightPower(rPow);
 }
 
-void DriveModule::setSetpoint(double setpoint) {
+void DriveModule::setDriveSetpoint(double setpoint) {
 	drive_controller->SetSetpoint(setpoint);
 }
