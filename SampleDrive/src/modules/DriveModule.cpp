@@ -6,11 +6,18 @@
  */
 #include "DriveModule.h"
 
-DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2) {
+DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, int lEncB, int rEncA, int rEncB) {
 	rTalon1 = new CANTalon(rTal1);
 	rTalon2 = new CANTalon(rTal2);
 	lTalon1 = new CANTalon(lTal1);
 	lTalon2 = new CANTalon(lTal2);
+
+	rEnc = new Encoder(rEncA, rEncB);
+	lEnc = new Encoder(lEncA, lEncB);
+
+	driveIn = new DriveIn(rEnc, lEnc);
+	driveOut = new DriveOut();
+	drive_controller = new PIDController(DRIVE_CONTROLLER_P, DRIVE_CONTROLLER_I, DRIVE_CONTROLLER_D, driveIn, driveOut);
 }
 
 void DriveModule::setRightPower(double rPow) {
@@ -56,4 +63,8 @@ void DriveModule::driveArcade(double throttle, double angle) {
 void DriveModule::driveTank(double lPow, double rPow) {
 	setLeftPower(lPow);
 	setRightPower(rPow);
+}
+
+void DriveModule::setSetpoint(double setpoint) {
+	drive_controller->SetSetpoint(setpoint);
 }

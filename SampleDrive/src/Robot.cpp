@@ -28,7 +28,7 @@ private:
 		lJoy = new Joystick(0);
 		controller = new Xbox(2);
 		intake = new IntakeModule(4);
-		drive = new DriveModule(0,1,2,3);
+		drive = new DriveModule(0,1,2,3,4,5,6,7);
 	}
 
 
@@ -86,6 +86,10 @@ private:
 	void TestPeriodic()
 	{
 		lw->Run();
+	}
+
+	double expDrive(double totalDistance, double totalTime, double currentTime) {
+
 	}
 };
 
