@@ -11580,3 +11580,27 @@ Caused by: java.io.IOException: CreateProcess error=2, The system cannot find th
 
 !ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-15 18:37:23.253
 !MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-16 12:42:05.238
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-16 12:42:05.247
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-16 12:42:24.365
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-16 12:42:24.372
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-16 13:26:59.483
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-16 13:26:59.486
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-16 13:27:50.857
+!MESSAGE Running ant file: C:\Robotics\Komodo\VisionRobot\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-16 13:27:50.863
+!MESSAGE Targets: deploy, Mode: run
