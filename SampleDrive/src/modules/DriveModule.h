@@ -9,14 +9,51 @@
 #define SRC_MODULES_DRIVEMODULE_H_
 
 #include <WPILib.h>
+#include "Settings.h"
+
+class DriveIn: public PIDSource {
+private:
+	Encoder* rEnc;
+	Encoder* lEnc;
+
+public:
+	virtual ~DriveIn(){}
+	DriveIn(Encoder* rEncInput, Encoder* lEncInput) {
+		rEnc = rEncInput;
+		lEnc = lEncInput;
+	}
+
+	double PIDGet() {
+		return (rEnc->GetDistance() - lEnc->GetDistance())/2.0;
+	}
+};
+
+class DriveOut: public PIDOutput {
+private:
+	double power;
+
+public:
+	DriveOut(): power(0) {}
+	virtual ~DriveOut(){}
+
+	void PIDWrite(float output) {
+		power = output;
+	}
+
+	double getPower() {
+		return power;
+	}
+};
 
 class DriveModule{
 public:
-	DriveModule(int lTal1, int lTal2, int rTal1, int rTal2);
+	DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, int lEncB, int rEncA, int rEncB);
 	void setRightPower(double rPow);
 	void setLeftPower(double lPow);
 	void driveArcade(double throttle, double angle);
 	void driveTank(double lPow, double rPow);
+	void setDriveSetpoint(double setpoint);
+	void setDrivePID(double p, double i, double d);
 
 private:
 	CANTalon* rTalon1;
@@ -25,6 +62,12 @@ private:
 	CANTalon* lTalon2;
 	double leftMotorOutput;
 	double rightMotorOutput;
+
+	Encoder* lEnc;
+	Encoder* rEnc;
+	DriveIn* driveIn;
+	DriveOut* driveOut;
+	PIDController* drive_controller;
 };
 
 
