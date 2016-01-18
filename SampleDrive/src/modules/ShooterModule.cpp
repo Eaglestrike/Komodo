@@ -14,6 +14,8 @@ ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, in
 	left_shooter = new CANTalon(leftport);
 	right_shooter = new CANTalon(rightport);
 
+	angleMotor->SetFeedbackDevice(CANTalon::FeedbackDevice(2));
+
 	//angleMotor->SetFeedbackDevice(angle);
 	angleMotor->SetPID(0,0,0);
 
@@ -24,10 +26,17 @@ ShooterModule::~ShooterModule() {
 }
 
 
-void ShooterModule::shoot() {
-
+void ShooterModule::shoot(double left, double right, double time) {
+	std::clock_t timer;
+	timer = std::clock();
+	left_shooter->Set(left);
+	right_shooter->Set(right);
+	if(timer >= time*CLOCKS_PER_SEC) {
+		left_shooter->Set(0);
+		right_shooter->Set(0);
+	}
 }
 
 void ShooterModule::tilt(double angle) {
-
+	angleMotor->SetSetpoint(angle);
 }
