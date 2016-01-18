@@ -12438,3 +12438,9 @@ Caused by: java.io.IOException: CreateProcess error=2, The system cannot find th
 	at java.lang.ProcessImpl.<init>(Unknown Source)
 	at java.lang.ProcessImpl.start(Unknown Source)
 	... 11 more
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-18 15:44:59.529
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-01-18 15:44:59.541
+!MESSAGE Targets: deploy, Mode: run

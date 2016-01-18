@@ -2,3 +2,49 @@
 Info: Internal Builder is used for build
 arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\SampleDrive\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\modules\\ShooterModule.o" "..\\src\\modules\\ShooterModule.cpp" 
 arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Samsung/wpilib/cpp/current/lib" -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a,-rpath,/usr/local/frc/rpath-lib -o FRCUserProgram "src\\modules\\ShooterModule.o" "src\\modules\\IntakeModule.o" "src\\modules\\DriveModule.o" "src\\Xbox.o" "src\\Robot.o" -lwpi 
+15:44:51 **** Incremental Build of configuration Debug for project SampleDrive ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\SampleDrive\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\SampleDrive\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\modules\\ShooterModule.o" "..\\src\\modules\\ShooterModule.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\SampleDrive\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Peripherals\\AutonomousCode\\LogisticFunction.o" "..\\src\\Peripherals\\AutonomousCode\\LogisticFunction.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Samsung/wpilib/cpp/current/lib" -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a,-rpath,/usr/local/frc/rpath-lib -o FRCUserProgram "src\\modules\\ShooterModule.o" "src\\modules\\IntakeModule.o" "src\\modules\\DriveModule.o" "src\\Xbox.o" "src\\Robot.o" "src\\Peripherals\\AutonomousCode\\LogisticFunction.o" -lwpi 
+15:45:00 **** Rebuild of configuration Debug for project HelloTest ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\HelloTest\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Samsung/wpilib/cpp/current/lib" -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a,-rpath,/usr/local/frc/rpath-lib -o FRCUserProgram "src\\Robot.o" -lwpi 
+Info: Nothing to build for SampleDrive
+15:45:05 **** Rebuild of configuration Debug for project VisionRobot ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\VisionRobot\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\HUDServer.o" "..\\src\\HUDServer.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\VisionRobot\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
+..\src\Robot.cpp:51:46: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+   frameWidth = visionTable->GetNumber("width");
+                                              ^
+..\src\Robot.cpp:52:48: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+   frameHeight = visionTable->GetNumber("height");
+                                                ^
+..\src\Robot.cpp:53:49: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+   tolerance = visionTable->GetNumber("Tolerance");
+                                                 ^
+..\src\Robot.cpp:54:49: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+   yMovePerTick = visionTable->GetNumber("yTicks");
+                                                 ^
+..\src\Robot.cpp:55:49: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+   xMovePerTick = visionTable->GetNumber("xTicks");
+                                                 ^
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopPeriodic()':
+..\src\Robot.cpp:65:53: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+   std::cout<<visionTable->GetNumber("detectedObject")<<std::endl;
+                                                     ^
+..\src\Robot.cpp:66:45: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+   if(visionTable->GetNumber("detectedObject")==1){
+                                             ^
+..\src\Robot.cpp:69:34: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+    x = visionTable->GetNumber("X");
+                                  ^
+..\src\Robot.cpp:70:34: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+    y = visionTable->GetNumber("Y");
+                                  ^
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\VisionRobot\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Xbox.o" "..\\src\\Xbox.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Samsung/wpilib/cpp/current/lib" -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a,-rpath,/usr/local/frc/rpath-lib -o FRCUserProgram "src\\Xbox.o" "src\\Robot.o" "src\\HUDServer.o" -lwpi 
