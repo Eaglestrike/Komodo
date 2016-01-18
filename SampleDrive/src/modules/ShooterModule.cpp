@@ -10,11 +10,24 @@
 ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, int rightport) {
 	// TODO Auto-generated constructor stub
 	angle = new AnalogPotentiometer(anglePort);
-	angleMotor = new CanTalonSRX(angleMotorPort);
-	left_shooter = new CanTalonSRX(leftport);
+	angleMotor = new CANTalon(angleMotorPort);
+	left_shooter = new CANTalon(leftport);
+	right_shooter = new CANTalon(rightport);
+
+	//angleMotor->SetFeedbackDevice(angle);
+	angleMotor->SetPID(0,0,0);
+
 }
 
 ShooterModule::~ShooterModule() {
 	// TODO Auto-generated destructor stub
 }
 
+
+void ShooterModule::shoot() {
+
+}
+
+void ShooterModule::tilt(double angle) {
+
+}
