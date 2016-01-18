@@ -33,7 +33,7 @@ private:
 		lJoy = new Joystick(0);
 		controller = new Xbox(2);
 		intake = new IntakeModule(4);
-		drive = new DriveModule(0,1,2,3,4,5,6,7);
+		drive = new DriveModule(DRIVE_LEFT1, DRIVE_LEFT2, DRIVE_RIGHT1, DRIVE_RIGHT2, DRIVE_ENCODER_1_A, DRIVE_ENCODER_1_B, DRIVE_ENCODER_2_A, DRIVE_ENCODER_2_B);
 	}
 
 
@@ -51,7 +51,7 @@ private:
 		autoSelected = *((std::string*)chooser->GetSelected());
 		//std::string autoSelected = SmartDashboard::GetString("Auto Selector", autoNameDefault);
 		std::cout << "Auto selected: " << autoSelected << std::endl;
-
+		autonGo(100,2);
 		if(autoSelected == autoNameCustom){
 			//Custom Auto goes here
 		} else {
@@ -63,7 +63,7 @@ private:
 		func = new LogisticFunction(distance, time);
 		std::clock_t timer;
 		timer = std::clock();
-		while (timer < (time+1)*CLOCKS_PER_SEC) {
+		while (timer < (time+1)*CLOCKS_PER_SEC || func->getDistance(timer/CLOCKS_PER_SEC)-5 < distance) {
 			drive->setDriveSetpoint(func->getDistance(timer/CLOCKS_PER_SEC));
 		}
 	}
