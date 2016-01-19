@@ -18,6 +18,7 @@ DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, 
 	driveIn = new DriveIn(rEnc, lEnc);
 	driveOut = new DriveOut();
 	drive_controller = new PIDController(DRIVE_CONTROLLER_P, DRIVE_CONTROLLER_I, DRIVE_CONTROLLER_D, driveIn, driveOut);
+	drive_controller->Enable();
 }
 
 void DriveModule::setRightPower(double rPow) {
@@ -63,6 +64,10 @@ void DriveModule::driveArcade(double throttle, double angle) {
 void DriveModule::driveTank(double lPow, double rPow) {
 	setLeftPower(lPow);
 	setRightPower(rPow);
+}
+
+double DriveModule::getDriveOutput() {
+	return driveOut->getPower();
 }
 
 void DriveModule::setDriveSetpoint(double setpoint) {

@@ -48,10 +48,10 @@ private:
 	 */
 	void AutonomousInit()
 	{
+		std::cout << "Starting auton" << std::endl;
 		autoSelected = *((std::string*)chooser->GetSelected());
-		//std::string autoSelected = SmartDashboard::GetString("Auto Selector", autoNameDefault);
-		std::cout << "Auto selected: " << autoSelected << std::endl;
-		autonGo(100,2);
+		std::string autoSelectedString = SmartDashboard::GetString("Auto Selector", autoNameDefault);
+		std::cout << "Auto selected: " << autoSelectedString << std::endl;
 		if(autoSelected == autoNameCustom){
 			//Custom Auto goes here
 		} else {
@@ -61,11 +61,17 @@ private:
 
 	void autonGo(double distance, double time) {//Time in seconds for now
 		func = new LogisticFunction(distance, time);
-		std::clock_t timer;
-		timer = std::clock();
-		while (timer < (time+1)*CLOCKS_PER_SEC || func->getDistance(timer/CLOCKS_PER_SEC)-5 < distance) {
-			drive->setDriveSetpoint(func->getDistance(timer/CLOCKS_PER_SEC));
+		std::cout << "Starting timer" << std::endl;
+		Timer timer;
+		timer.Start();
+		std::cout << "Starting function finding" << std::endl;
+		while (timer.Get() < time) { //&& func->getDistance(timer.Get()-5 < distance) {
+			drive->setDriveSetpoint(func->getDistance(timer.Get()));
+			drive->setLeftPower(drive->getDriveOutput());
+			drive->setRightPower(drive->getDriveOutput());
+			std::cout << func->getDistance(timer.Get()) << std::endl;
 		}
+		std::cout << "Finishing functions" << std::endl;
 	}
 
 	void AutonomousPeriodic()
@@ -79,7 +85,9 @@ private:
 
 	void TeleopInit()
 	{
-		arcade = false;
+		//arcade = false;
+		std::cout << "Autonomous starting" << std::endl;
+		autonGo(100,2);
 	}
 
 	void TeleopPeriodic()
@@ -95,6 +103,10 @@ private:
 		}
 
 		intake->setPower(controller->getLY());
+	}
+
+	void TestInit() {
+
 	}
 
 	void TestPeriodic()

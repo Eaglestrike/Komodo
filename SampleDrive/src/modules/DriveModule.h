@@ -54,6 +54,7 @@ public:
 	void driveTank(double lPow, double rPow);
 	void setDriveSetpoint(double setpoint);
 	void setDrivePID(double p, double i, double d);
+	double getDriveOutput();
 
 private:
 	CANTalon* rTalon1;
