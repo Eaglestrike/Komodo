@@ -3,6 +3,7 @@
 //#include "HUDServer.h"
 #include "Xbox.h"
 #include <math.h>
+#include "BestTimer.h"
 class Robot: public IterativeRobot
 {
 public:
@@ -13,8 +14,8 @@ private:
 	double yTime;
 	Xbox* xbox;
 	double xAngle;
-	Timer* xTimer;
-	Timer* yTimer;
+	BestTimer* xTimer;
+	BestTimer* yTimer;
 	double yAngle;
 	int ticks=0;
 	double movementInY=0;
@@ -33,8 +34,8 @@ private:
 		visionTable = NetworkTable::GetTable("visionTable");
 		up = new Servo(0);
 		side = new Servo(1);
-		xTimer = new Timer();
-		yTimer =  new Timer();
+		xTimer = new BestTimer();
+		yTimer =  new BestTimer();
 		//server = new HUDServer(500, up, side);
 
 	}
@@ -58,10 +59,10 @@ private:
 		Ytolerance = visionTable->GetNumber("YTolerance");
 		yMovePerTick = visionTable->GetNumber("yTicks");
 		xMovePerTick = visionTable->GetNumber("xTicks");
-		xTimer->Reset();
-		yTimer->Reset();
-		xTimer->Start();
-		yTimer->Start();
+		xTimer->reset();
+		yTimer->reset();
+		xTimer->start();
+		yTimer->start();
 		up->SetAngle(60);
 		side->SetAngle(0);
 	}
@@ -94,21 +95,21 @@ private:
 //				movementInY=-yMovePerTick;
 //			}
 			//0.19sec/60degrees move speed on servos
-			if(xTimer->Get()>=xTime){
+			if(xTimer->getTime()>=xTime*1000){
 				xAngle = visionTable->GetNumber("xAngle");
 				double moveAngle = xAngle-26.4;
 				side->SetAngle(side->GetAngle()+moveAngle);
 				xTime = abs(double((.19/60)*moveAngle));
-				xTimer->Reset();
-				xTimer->Start();
+				xTimer->reset();
+				xTimer->start();
 			}
-			if(yTimer->Get()>=yTime){
+			if(yTimer->getTime()>=yTime*1000){
 				yAngle = visionTable->GetNumber("yAngle");
 				double moveAngle = yAngle-26.4;
 				up->SetAngle(up->GetAngle()+moveAngle);
 				yTime = abs(double((.19/60)*moveAngle));
-				yTimer->Reset();
-				yTimer->Start();
+				yTimer->reset();
+				yTimer->start();
 			}
 			if(up->GetAngle()>90){
 				up->SetAngle(90);
@@ -128,6 +129,8 @@ private:
 
 			side->SetAngle(side->GetAngle()+xMovePerTick*movementFactor*2);
 		}
+		std::cout<<"xTime: "<<xTime<<"yTime: "<<yTime<<std::endl;
+		std::cout<<"xTimer: "<<xTimer->getTime()<<" yTimer: "<<yTimer->getTime()<<std::endl;
 //		std::cout<<"movementInX: "<<movementInX<<" movementInY: "<<movementInY<<std::endl;
 //		std::cout<<"Current Y Angle: "<<up->GetAngle()<<" Current X Angle: "<<side->GetAngle()<<std::endl;
 //		std::cout<<"X: "<<x<<" Y: "<<y<<std::endl;
