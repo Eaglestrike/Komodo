@@ -3,6 +3,10 @@
 #include "Xbox.h"
 #include "modules/IntakeModule.h"
 #include "modules/DriveModule.h"
+#include "Peripherals/AutonomousCode/LogisticFunction.h"
+#include <iostream>
+#include <cstdio>
+#include <ctime>
 
 class Robot: public IterativeRobot
 {
@@ -17,6 +21,7 @@ private:
 
 	IntakeModule* intake;
 	DriveModule* drive;
+	LogisticFunction* func;
 
 	Joystick* rJoy;
 	Joystick* lJoy;
@@ -28,7 +33,7 @@ private:
 		lJoy = new Joystick(0);
 		controller = new Xbox(2);
 		intake = new IntakeModule(4);
-		drive = new DriveModule(0,1,2,3);
+		drive = new DriveModule(DRIVE_LEFT1, DRIVE_LEFT2, DRIVE_RIGHT1, DRIVE_RIGHT2, DRIVE_ENCODER_1_A, DRIVE_ENCODER_1_B, DRIVE_ENCODER_2_A, DRIVE_ENCODER_2_B);
 	}
 
 
@@ -43,15 +48,30 @@ private:
 	 */
 	void AutonomousInit()
 	{
+		std::cout << "Starting auton" << std::endl;
 		autoSelected = *((std::string*)chooser->GetSelected());
-		//std::string autoSelected = SmartDashboard::GetString("Auto Selector", autoNameDefault);
-		std::cout << "Auto selected: " << autoSelected << std::endl;
-
+		std::string autoSelectedString = SmartDashboard::GetString("Auto Selector", autoNameDefault);
+		std::cout << "Auto selected: " << autoSelectedString << std::endl;
 		if(autoSelected == autoNameCustom){
 			//Custom Auto goes here
 		} else {
 			//Default Auto goes here
 		}
+	}
+
+	void autonGo(double distance, double time) {//Time in seconds for now
+		func = new LogisticFunction(distance, time);
+		std::cout << "Starting timer" << std::endl;
+		Timer timer;
+		timer.Start();
+		std::cout << "Starting function finding" << std::endl;
+		while (timer.Get() < time) { //&& func->getDistance(timer.Get()-5 < distance) {
+			drive->setDriveSetpoint(func->getDistance(timer.Get()));
+			drive->setLeftPower(drive->getDriveOutput());
+			drive->setRightPower(drive->getDriveOutput());
+			std::cout << func->getDistance(timer.Get()) << std::endl;
+		}
+		std::cout << "Finishing functions" << std::endl;
 	}
 
 	void AutonomousPeriodic()
@@ -65,7 +85,9 @@ private:
 
 	void TeleopInit()
 	{
-		arcade = false;
+		//arcade = false;
+		std::cout << "Autonomous starting" << std::endl;
+		autonGo(100,2);
 	}
 
 	void TeleopPeriodic()
@@ -81,6 +103,10 @@ private:
 		}
 
 		intake->setPower(controller->getLY());
+	}
+
+	void TestInit() {
+
 	}
 
 	void TestPeriodic()

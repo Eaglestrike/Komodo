@@ -29,12 +29,18 @@ private:
 
 	void RobotInit()
 	{
+		std::cout << "start" << std::endl;
 		xbox = new Xbox(2);
 		visionTable = NetworkTable::GetTable("visionTable");
+		std::cout << "hello" << std::endl;
 		up = new Servo(0);
 		side = new Servo(1);
+<<<<<<< HEAD
 		xTimer = new Timer();
 		yTimer =  new Timer();
+=======
+		std::cout << "hello" << std::endl;
+>>>>>>> aa09af6a27a6a8dc230459eefea14a282b69a78d
 		//server = new HUDServer(500, up, side);
 
 	}
@@ -43,6 +49,7 @@ private:
 
 	void AutonomousInit()
 	{
+
 	}
 
 	void AutonomousPeriodic()
