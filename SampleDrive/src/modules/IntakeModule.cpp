@@ -7,10 +7,16 @@
 
 #include <modules/IntakeModule.h>
 
-IntakeModule::IntakeModule(int intake) {
-	intakeTalon = new CANTalon(intake);
+IntakeModule::IntakeModule(int spinInput, int moveInput) {
+	spinTalon = new CANTalon(spinInput);
+	moveTalon = new CANTalon(moveInput);
+
 }
 
-void IntakeModule::setPower(double pow) {
-	intakeTalon->Set(pow);
+void IntakeModule::setSpinPower(double pow) {
+	spinTalon->Set(pow);
+}
+
+void IntakeModule::setMovePower(double pow) {
+	moveTalon->Set(pow);
 }
