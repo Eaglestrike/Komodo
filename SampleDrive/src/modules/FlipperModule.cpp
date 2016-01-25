@@ -5,6 +5,8 @@
  *      Author: natek
  */
 
+#include "FlipperModule.h"
+
 FlipperModule::FlipperModule(int Solenoid1, int Solenoid2) {
 	deploySol = new Solenoid(Solenoid1);
 	retractSol = new Solenoid(Solenoid2);

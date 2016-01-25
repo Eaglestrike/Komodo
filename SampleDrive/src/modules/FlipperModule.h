@@ -8,7 +8,7 @@
 #ifndef SRC_MODULES_FLIPPERMODULE_H_
 #define SRC_MODULES_FLIPPERMODULE_H_
 
-#include <WPILib.h>
+#include <WPIlib.h>
 
 class FlipperModule {
 public:

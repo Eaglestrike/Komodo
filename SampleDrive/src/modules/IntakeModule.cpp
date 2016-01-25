@@ -9,7 +9,7 @@
 
 IntakeModule::IntakeModule(int spinInput, int moveInput) {
 	spinTalon = new CANTalon(spinInput);
-	moveTalon = new CANTalon(moveInput);
+	moveSol = new Solenoid(moveInput);
 
 }
 
@@ -17,6 +17,14 @@ void IntakeModule::setSpinPower(double pow) {
 	spinTalon->Set(pow);
 }
 
-void IntakeModule::setMovePower(double pow) {
-	moveTalon->Set(pow);
+void IntakeModule::retractIntake() {
+	moveSol->Set(false);
+}
+
+void IntakeModule::deployIntake() {
+	moveSol->Set(true);
+}
+
+void IntakeModule::alternateIntake() {
+	moveSol->Set(!moveSol->Get());
 }
