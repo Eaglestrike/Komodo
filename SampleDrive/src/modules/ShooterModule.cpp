@@ -9,12 +9,13 @@
 
 
 
-ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, int rightport) {
+ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, int rightport, int solenoidPort) {
 	// TODO Auto-generated constructor stub
 	angle = new AnalogPotentiometer(anglePort);
 	angleMotor = new CANTalon(angleMotorPort);
 	leftShooter = new CANTalon(leftport);
 	rightShooter = new CANTalon(rightport);
+	shooterSol = new Solenoid(solenoidPort);
 
 	shootIn = new ShooterIn(angle);
 	shootOut = new ShooterOut();
@@ -26,16 +27,27 @@ ShooterModule::~ShooterModule() {
 	// TODO Auto-generated destructor stub
 }
 
+void ShooterModule::createThread() {
+	std::thread t (ShooterModule::callrun, this);
+	t.detach();
+}
+
+void ShooterModule::callrun(void* m) {
+	((ShooterModule*)m)->run();
+}
+
+void ShooterModule::run() {
+	shoot(1, 1, 1);
+}
 
 void ShooterModule::shoot(double left, double right, double time) {
-	Timer timer;
-	timer.Start();
+	shooterSol->Set(true);
 	leftShooter->Set(left);
 	rightShooter->Set(right);
-	if(timer.Get() >= time) {
-		leftShooter->Set(0);
-		rightShooter->Set(0);
-	}
+	Wait(time);
+	leftShooter->Set(0);
+	rightShooter->Set(0);
+	shooterSol->Set(false);
 }
 
 void ShooterModule::setAngleMotorPower(double power) {

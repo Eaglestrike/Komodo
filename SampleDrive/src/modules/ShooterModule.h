@@ -52,19 +52,23 @@ public:
 
 class ShooterModule {
 public:
-	ShooterModule(int anglePort, int angleMotorPort, int leftport, int rightport);
+	ShooterModule(int anglePort, int angleMotorPort, int leftport, int rightport, int solenoidPort);
 	virtual ~ShooterModule();
 
 	void setAngleMotorPower(double power);
 	void tilt(double angle);
 	void shoot(double left, double right, double time);
 
+    void run();
+    static void callrun(void*);
+  	void createThread();
 
 private:
 	AnalogPotentiometer* angle;
 	CANTalon* angleMotor;
 	CANTalon* rightShooter;
 	CANTalon* leftShooter;
+	Solenoid* shooterSol;
 
 	ShooterIn* shootIn;
 	ShooterOut* shootOut;
