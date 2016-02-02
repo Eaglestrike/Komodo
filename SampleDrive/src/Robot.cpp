@@ -60,7 +60,7 @@ private:
 	}
 
 	void autonGo(double distance, double time) {//Time in seconds for now
-		func = new LogisticFunction(distance, time);
+		func = new LogisticFunction(time, distance);
 		std::cout << "Starting timer" << std::endl;
 		Timer timer;
 		timer.Start();
@@ -69,8 +69,10 @@ private:
 			drive->setDriveSetpoint(func->getDistance(timer.Get()));
 			drive->setLeftPower(drive->getDriveOutput());
 			drive->setRightPower(drive->getDriveOutput());
-			std::cout << func->getDistance(timer.Get()) << std::endl;
+			std::cout << drive->getDriveOutput() << std::endl;
 		}
+//		std::cout << func->getA() << std::endl;
+//		std::cout << func->getDistance(2) << std::endl;
 		std::cout << "Finishing functions" << std::endl;
 	}
 
@@ -87,7 +89,7 @@ private:
 	{
 		//arcade = false;
 		std::cout << "Autonomous starting" << std::endl;
-		autonGo(100,2);
+		autonGo(900,2);
 	}
 
 	void TeleopPeriodic()

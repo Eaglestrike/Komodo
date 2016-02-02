@@ -1,4 +1,4 @@
-17:03:05 **** Incremental Build of configuration Debug for project SampleDrive ****
+17:25:27 **** Incremental Build of configuration Debug for project SampleDrive ****
 Info: Internal Builder is used for build
 arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\SampleDrive\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
 arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Samsung/wpilib/cpp/current/lib" -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a,-rpath,/usr/local/frc/rpath-lib -o FRCUserProgram "src\\modules\\ShooterModule.o" "src\\modules\\IntakeModule.o" "src\\modules\\DriveModule.o" "src\\Xbox.o" "src\\Robot.o" "src\\Peripherals\\AutonomousCode\\LogisticFunction.o" -lwpi 
@@ -6,14 +6,36 @@ Info: Nothing to build for SampleDrive
 Info: Nothing to build for HelloTest
 Info: Nothing to build for SampleDrive
 Info: Nothing to build for VisionRobot
-17:04:49 **** Incremental Build of configuration Debug for project SampleDrive ****
+17:28:24 **** Incremental Build of configuration Debug for project SampleDrive ****
 Info: Internal Builder is used for build
 arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\SampleDrive\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp: In member function 'void Robot::autonGo(double, double)':
-..\src\Robot.cpp:72:23: error: 'class LogisticFunction' has no member named 'getDistanc'
-    std::cout << func->getDistanc(timer.Get()) << std::endl;
-                       ^
-17:05:14 **** Incremental Build of configuration Debug for project SampleDrive ****
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Samsung/wpilib/cpp/current/lib" -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a,-rpath,/usr/local/frc/rpath-lib -o FRCUserProgram "src\\modules\\ShooterModule.o" "src\\modules\\IntakeModule.o" "src\\modules\\DriveModule.o" "src\\Xbox.o" "src\\Robot.o" "src\\Peripherals\\AutonomousCode\\LogisticFunction.o" -lwpi 
+Info: Nothing to build for HelloTest
+Info: Nothing to build for SampleDrive
+Info: Nothing to build for VisionRobot
+17:29:36 **** Incremental Build of configuration Debug for project SampleDrive ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\SampleDrive\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Peripherals\\AutonomousCode\\LogisticFunction.o" "..\\src\\Peripherals\\AutonomousCode\\LogisticFunction.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Samsung/wpilib/cpp/current/lib" -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a,-rpath,/usr/local/frc/rpath-lib -o FRCUserProgram "src\\modules\\ShooterModule.o" "src\\modules\\IntakeModule.o" "src\\modules\\DriveModule.o" "src\\Xbox.o" "src\\Robot.o" "src\\Peripherals\\AutonomousCode\\LogisticFunction.o" -lwpi 
+Info: Nothing to build for HelloTest
+Info: Nothing to build for SampleDrive
+Info: Nothing to build for VisionRobot
+17:31:15 **** Incremental Build of configuration Debug for project SampleDrive ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\SampleDrive\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Samsung/wpilib/cpp/current/lib" -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a,-rpath,/usr/local/frc/rpath-lib -o FRCUserProgram "src\\modules\\ShooterModule.o" "src\\modules\\IntakeModule.o" "src\\modules\\DriveModule.o" "src\\Xbox.o" "src\\Robot.o" "src\\Peripherals\\AutonomousCode\\LogisticFunction.o" -lwpi 
+Info: Nothing to build for HelloTest
+Info: Nothing to build for SampleDrive
+Info: Nothing to build for VisionRobot
+17:34:17 **** Incremental Build of configuration Debug for project SampleDrive ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\SampleDrive\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\SampleDrive\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\modules\\DriveModule.o" "..\\src\\modules\\DriveModule.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Samsung/wpilib/cpp/current/lib" -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a,-rpath,/usr/local/frc/rpath-lib -o FRCUserProgram "src\\modules\\ShooterModule.o" "src\\modules\\IntakeModule.o" "src\\modules\\DriveModule.o" "src\\Xbox.o" "src\\Robot.o" "src\\Peripherals\\AutonomousCode\\LogisticFunction.o" -lwpi 
+Info: Nothing to build for HelloTest
+Info: Nothing to build for SampleDrive
+Info: Nothing to build for VisionRobot
+17:35:54 **** Incremental Build of configuration Debug for project SampleDrive ****
 Info: Internal Builder is used for build
 arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\SampleDrive\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
 arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Samsung/wpilib/cpp/current/lib" -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a,-rpath,/usr/local/frc/rpath-lib -o FRCUserProgram "src\\modules\\ShooterModule.o" "src\\modules\\IntakeModule.o" "src\\modules\\DriveModule.o" "src\\Xbox.o" "src\\Robot.o" "src\\Peripherals\\AutonomousCode\\LogisticFunction.o" -lwpi 

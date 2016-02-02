@@ -13,6 +13,7 @@ public:
 	LogisticFunction(double maxDistance, double maxTime);
 	virtual ~LogisticFunction(){};
 	double getDistance(double time);
+	double getA();
 
 private:
 	double D;

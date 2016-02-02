@@ -53,6 +53,7 @@ public:
 	void driveArcade(double throttle, double angle);
 	void driveTank(double lPow, double rPow);
 	void setDriveSetpoint(double setpoint);
+	double getDriveSetpoint();
 	void setDrivePID(double p, double i, double d);
 	double getDriveOutput();
 

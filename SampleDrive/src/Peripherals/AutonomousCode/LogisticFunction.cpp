@@ -15,5 +15,9 @@ LogisticFunction::LogisticFunction(double maxTime, double maxDistance) {
 }
 
 double LogisticFunction::getDistance(double time) {
-	return D*(1-exp(-A*time));
+	return D*(1-exp(A*time));
+}
+
+double LogisticFunction::getA() {
+	return A;
 }

@@ -73,3 +73,7 @@ double DriveModule::getDriveOutput() {
 void DriveModule::setDriveSetpoint(double setpoint) {
 	drive_controller->SetSetpoint(setpoint);
 }
+
+double DriveModule::getDriveSetpoint() {
+	return drive_controller->GetSetpoint();
+}
