@@ -32,7 +32,7 @@ private:
 		rJoy = new Joystick(1);
 		lJoy = new Joystick(0);
 		controller = new Xbox(2);
-		intake = new IntakeModule(4);
+		intake = new IntakeModule(4, 5);
 		drive = new DriveModule(DRIVE_LEFT1, DRIVE_LEFT2, DRIVE_RIGHT1, DRIVE_RIGHT2, DRIVE_ENCODER_1_A, DRIVE_ENCODER_1_B, DRIVE_ENCODER_2_A, DRIVE_ENCODER_2_B);
 	}
 
@@ -104,7 +104,7 @@ private:
 			drive->driveTank(lJoy->GetY(), rJoy->GetY());
 		}
 
-		intake->setPower(controller->getLY());
+		intake->setSpinPower(controller->getLY());
 	}
 
 	void TestInit() {

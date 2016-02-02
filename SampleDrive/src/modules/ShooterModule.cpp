@@ -7,17 +7,19 @@
 
 #include <modules/ShooterModule.h>
 
-ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, int rightport) {
+
+
+ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, int rightport, int solenoidPort) {
 	// TODO Auto-generated constructor stub
 	angle = new AnalogPotentiometer(anglePort);
 	angleMotor = new CANTalon(angleMotorPort);
-	left_shooter = new CANTalon(leftport);
-	right_shooter = new CANTalon(rightport);
+	leftShooter = new CANTalon(leftport);
+	rightShooter = new CANTalon(rightport);
+	shooterSol = new Solenoid(solenoidPort);
 
-	angleMotor->SetFeedbackDevice(CANTalon::FeedbackDevice(2));
-
-	//angleMotor->SetFeedbackDevice(angle);
-	angleMotor->SetPID(0,0,0);
+	shootIn = new ShooterIn(angle);
+	shootOut = new ShooterOut();
+	angleController = new PIDController(SHOOTER_CONTROLLER_P, SHOOTER_CONTROLLER_I, SHOOTER_CONTROLLER_D,  shootIn, angleMotor);
 
 }
 
@@ -25,18 +27,33 @@ ShooterModule::~ShooterModule() {
 	// TODO Auto-generated destructor stub
 }
 
+void ShooterModule::createThread() {
+	std::thread t (ShooterModule::callrun, this);
+	t.detach();
+}
+
+void ShooterModule::callrun(void* m) {
+	((ShooterModule*)m)->run();
+}
+
+void ShooterModule::run() {
+	shoot(1, 1, 1);
+}
 
 void ShooterModule::shoot(double left, double right, double time) {
-	std::clock_t timer;
-	timer = std::clock();
-	left_shooter->Set(left);
-	right_shooter->Set(right);
-	if(timer >= time*CLOCKS_PER_SEC) {
-		left_shooter->Set(0);
-		right_shooter->Set(0);
-	}
+	shooterSol->Set(true);
+	leftShooter->Set(left);
+	rightShooter->Set(right);
+	Wait(time);
+	leftShooter->Set(0);
+	rightShooter->Set(0);
+	shooterSol->Set(false);
+}
+
+void ShooterModule::setAngleMotorPower(double power) {
+	angleMotor->Set(power);
 }
 
 void ShooterModule::tilt(double angle) {
-	angleMotor->SetSetpoint(angle);
+	angleController->SetSetpoint(angle);
 }
