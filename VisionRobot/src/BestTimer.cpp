@@ -57,7 +57,7 @@ bool BestTimer::isRunning() {
 
 unsigned long BestTimer::getTime() {
 	if(running)
-		return ((unsigned long) clock() - beg) / CLOCKS_PER_SEC;
+		return ((unsigned long) clock() - beg); /// 100000.01;
 	else
 		return end - beg;
 }
