@@ -87,9 +87,9 @@ private:
 
 	void TeleopInit()
 	{
-		//arcade = false;
-		std::cout << "Autonomous starting" << std::endl;
-		autonGo(900,2);
+		arcade = false;
+		//std::cout << "Autonomous starting" << std::endl;
+		//autonGo(900,2);
 	}
 
 	void TeleopPeriodic()
