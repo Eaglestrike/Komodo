@@ -3,7 +3,7 @@
 //#include "HUDServer.h"
 #include "Xbox.h"
 #include <math.h>
-#include "BestTimer.h"
+#include "Timer.h"
 class Robot: public IterativeRobot
 {
 public:
@@ -14,10 +14,11 @@ private:
 	double yTime;
 	Xbox* xbox;
 	double xAngle;
-	BestTimer* xTimer;
-	BestTimer* yTimer;
+	Timer* xTimer;
+	Timer* yTimer;
 	double yAngle;
 	int ticks=0;
+	int yticks=0;
 	double movementInY=0;
 	double x;
 	double y;
@@ -34,8 +35,8 @@ private:
 		visionTable = NetworkTable::GetTable("visionTable");
 		up = new Servo(0);
 		side = new Servo(1);
-		xTimer = new BestTimer();
-		yTimer =  new BestTimer();
+		xTimer = new Timer();
+		yTimer =  new Timer();
 		//server = new HUDServer(500, up, side);
 
 	}
@@ -59,10 +60,10 @@ private:
 		Ytolerance = visionTable->GetNumber("YTolerance");
 		yMovePerTick = visionTable->GetNumber("yTicks");
 		xMovePerTick = visionTable->GetNumber("xTicks");
-		xTimer->reset();
-		yTimer->reset();
-		xTimer->start();
-		yTimer->start();
+		xTimer->Reset();
+		yTimer->Reset();
+		xTimer->Start();
+		yTimer->Start();
 		up->SetAngle(60);
 		side->SetAngle(0);
 	}
@@ -82,39 +83,42 @@ private:
 			x = visionTable->GetNumber("X");
 			y = visionTable->GetNumber("Y");
 
-//			if(x>(frameWidth/2+Xtolerance)){
-//				movementInX = -xMovePerTick;
-//			}
-//			if(x<(frameWidth/2-Xtolerance)){
-//				movementInX = xMovePerTick;
-//			}
-//			if(y>(frameHeight/2+Ytolerance)){
-//				movementInY=yMovePerTick;
-//			}
-//			else if(y<(frameHeight/2-Ytolerance)){
-//				movementInY=-yMovePerTick;
-//			}
-			//0.19sec/60degrees move speed on servos
-			if(xTimer->getTime()>=xTime*1000){
-				xAngle = visionTable->GetNumber("xAngle");
-				double moveAngle = xAngle-26.4;
-				side->SetAngle(side->GetAngle()+moveAngle);
-				xTime = abs(double((.19/60)*moveAngle));
-				xTimer->reset();
-				xTimer->start();
+			if(x>(frameWidth/2+Xtolerance)){
+				movementInX = -xMovePerTick;
 			}
-			if(yTimer->getTime()>=yTime*1000){
+			if(x<(frameWidth/2-Xtolerance)){
+				movementInX = xMovePerTick;
+			}
+			if(y>(frameHeight/2+Ytolerance)){
+				movementInY=yMovePerTick;
+			}
+			else if(y<(frameHeight/2-Ytolerance)){
+				movementInY=-yMovePerTick;
+			}
+//			0.19sec/60degrees move speed on servos
+			if(ticks%15==0){
+				xAngle = visionTable->GetNumber("xAngle");
+				double moveAngle = (xAngle-26.4)*.5;
+				side->SetAngle(side->GetAngle()+moveAngle);
+				xTime = fabs((50/ 60)*moveAngle);
+				xTimer->Reset();
+				xTimer->Start();
+				ticks=0;
+			}
+			if(yticks%25==0){
 				yAngle = visionTable->GetNumber("yAngle");
-				double moveAngle = yAngle-26.4;
+				double moveAngle = (19.8-yAngle);
 				up->SetAngle(up->GetAngle()+moveAngle);
-				yTime = abs(double((.19/60)*moveAngle));
-				yTimer->reset();
-				yTimer->start();
+				yTime = fabs((50/60)*moveAngle);
+				yTimer->Reset();
+				yTimer->Start();
+				yticks=0;
 			}
 			if(up->GetAngle()>90){
 				up->SetAngle(90);
 			}
 			ticks++;
+			yticks++;
 		}
 		else{
 
@@ -130,7 +134,7 @@ private:
 			side->SetAngle(side->GetAngle()+xMovePerTick*movementFactor*2);
 		}
 		std::cout<<"xTime: "<<xTime<<"yTime: "<<yTime<<std::endl;
-		std::cout<<"xTimer: "<<xTimer->getTime()<<" yTimer: "<<yTimer->getTime()<<std::endl;
+		std::cout<<"xTimer: "<<xTimer->Get()<<" yTimer: "<<yTimer->Get()<<std::endl;
 //		std::cout<<"movementInX: "<<movementInX<<" movementInY: "<<movementInY<<std::endl;
 //		std::cout<<"Current Y Angle: "<<up->GetAngle()<<" Current X Angle: "<<side->GetAngle()<<std::endl;
 //		std::cout<<"X: "<<x<<" Y: "<<y<<std::endl;

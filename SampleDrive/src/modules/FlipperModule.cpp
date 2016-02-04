@@ -1,26 +1,3 @@
-/*
- * FlipperModule.cpp
- *
-<<<<<<< HEAD
- *  Created on: Jan 21, 2016
- *      Author: Samsung
- */
-
-#include <modules/FlipperModule.h>
-
-FlipperModule::FlipperModule() {
-	// TODO Auto-generated constructor stub
-
-}
-
-FlipperModule::~FlipperModule() {
-	// TODO Auto-generated destructor stub
-}
-
-=======
- *  Created on: Jan 23, 2016
- *      Author: natek
- */
 
 #include "FlipperModule.h"
 
@@ -38,4 +15,3 @@ void FlipperModule::Retract() {
 	deploySol->Set(false);
 	retractSol->Set(true);
 }
->>>>>>> dbae54ae4a00404b92c45167e62093cdb6e036c0
