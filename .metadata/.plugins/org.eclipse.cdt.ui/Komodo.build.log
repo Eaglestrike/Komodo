@@ -1,7 +1,18 @@
-16:21:55 **** Rebuild of configuration Debug for project Komodo ****
+15:53:30 **** Incremental Build of configuration Debug for project Komodo ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\Komodo\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Samsung/wpilib/cpp/current/lib" -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a,-rpath,/usr/local/frc/rpath-lib -o FRCUserProgram "src\\Robot.o" -lwpi 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\Komodo\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\modules\\IntakeModule.o" "..\\src\\modules\\IntakeModule.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\Komodo\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\modules\\ShooterModule.o" "..\\src\\modules\\ShooterModule.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\Komodo\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\modules\\DriveModule.o" "..\\src\\modules\\DriveModule.cpp" 
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\Komodo\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\modules\\FlipperModule.o" "..\\src\\modules\\FlipperModule.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Samsung/wpilib/cpp/current/lib" -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a,-rpath,/usr/local/frc/rpath-lib -o FRCUserProgram "src\\modules\\ShooterModule.o" "src\\modules\\RobotModule.o" "src\\modules\\IntakeModule.o" "src\\modules\\FlipperModule.o" "src\\modules\\DriveModule.o" "src\\Robot.o" "cv\\main.o" "cv\\SocketException.o" "cv\\Socket.o" "cv\\ClientSocket.o" "VisionRobot\\src\\Xbox.o" "VisionRobot\\src\\Robot.o" "VisionRobot\\src\\HUDServer.o" "VisionRobot\\src\\BestTimer.o" -lwpi 
+arm-frc-linux-gnueabi-g++: error: cv\main.o: No such file or directory
+arm-frc-linux-gnueabi-g++: error: cv\SocketException.o: No such file or directory
+arm-frc-linux-gnueabi-g++: error: cv\Socket.o: No such file or directory
+arm-frc-linux-gnueabi-g++: error: cv\ClientSocket.o: No such file or directory
+arm-frc-linux-gnueabi-g++: error: VisionRobot\src\Xbox.o: No such file or directory
+arm-frc-linux-gnueabi-g++: error: VisionRobot\src\Robot.o: No such file or directory
+arm-frc-linux-gnueabi-g++: error: VisionRobot\src\HUDServer.o: No such file or directory
+arm-frc-linux-gnueabi-g++: error: VisionRobot\src\BestTimer.o: No such file or directory
 
-16:22:03 Build Finished (took 8s.139ms)
+15:53:41 Build Finished (took 11s.305ms)
 
