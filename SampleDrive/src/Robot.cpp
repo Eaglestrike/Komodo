@@ -33,9 +33,11 @@ private:
 	Joystick* lJoy;
 	int intakeCounter = 0;
 	Xbox* controller;
-	bool intakes = false;
+	bool intakes = true;
+	bool tomah = false;
 	//Solenoid* intakeSolenoid;
 	FlipperModule* tomahawks;
+	int tomahawkCounter = 0;
 	//PCM* pcm;
 
 	void RobotInit()
@@ -46,9 +48,9 @@ private:
 		intake = new IntakeModule(INTAKE_MOTOR, INTAKE_SOL);
 		//intakeSolenoid = new Solenoid(0);
 		drive = new DriveModule(DRIVE_LEFT1, DRIVE_LEFT2, DRIVE_RIGHT1, DRIVE_RIGHT2, DRIVE_ENCODER_1_A, DRIVE_ENCODER_1_B, DRIVE_ENCODER_2_A, DRIVE_ENCODER_2_B);
-		shooter = new ShooterModule(0, ANGLEMOTOR, SHOOTERMOTOR1, SHOOTERMOTOR2, SHOOTER_SOL);
+		shooter = new ShooterModule(POT, ANGLEMOTOR, SHOOTERMOTOR1, SHOOTERMOTOR2, SHOOTER_SOL, 9);
 		shooter->createThread();
-		//tomahawks = new FlipperModule(TOMOHAWKS);
+		tomahawks = new FlipperModule(TOMOHAWKS);
 		//pcm = new PCM();
 	}
 
@@ -132,35 +134,50 @@ private:
 			shooter->shootKicker(false);
 		}
 		shooter->mShoot(controller->getLX());
-		shooter->setAngleMotorPower(.1 * controller->getRX());
+		shooter->setAngleMotorPower(.2 * controller->getRX());
 
-//		if(controller->getY() != intakes){
-//			if(intakes==0){
-//				intake->deployIntake();
-//			}
-//			else if(intakes==1){
-//				intake->retractIntake();
-//			}
-//		}
-//
-//		intakes = controller->getY();
-	//	if(controller->getA()) {
-			//intakeSolenoid->Set(true);
-			//tomahawks->Deploy();
-//		}
+		if(controller->getY() != intakes){
+			intakeCounter++;
+		}
+		intakes = controller->getY();
+
+		if(controller->getA() != tomah){
+			tomahawkCounter++;
+		}
+		tomah = controller->getA();
 
 
-//		if(intakeCounter % 2 == 0){
-//			intake->retractIntake();
-//		}else if(intakeCounter % 4 == 0){
-//			intake->deployIntake();
-//		}
+		//		if(controller->getA() != tomah){
+		//			if(tomah==0){
+		//				tomahawks->Deploy();
+		//			}
+		//			else if(tomah==1){
+		//				tomahawks->Retract();
+		//			}
+		//		}
+		//		if(controller->getA()) {
+		//			//intakeSolenoid->Set(true);
+		//			tomahawks->Deploy();
+		//		}
+
+		if(tomahawkCounter % 4 == 0) {
+			tomahawks->Retract();
+		}
+		else if(tomahawkCounter % 2 == 0) {
+			tomahawks->Deploy();
+		}
+
+		if(intakeCounter % 4 == 0){
+			intake->retractIntake();
+		}else if(intakeCounter % 2 == 0){
+			intake->deployIntake();
+		}
 		if(intakeCounter % 20 == 0) {
 			std::cout << "controller value" << controller->getA() << std::endl;
 			//std::cout << "value of solenoid" << intakeSolenoid->Get() << std::endl;
 
 		}
-		intakeCounter++;
+		//intakeCounter++;
 
 	}
 
@@ -170,6 +187,11 @@ private:
 
 	void TestPeriodic()
 	{
+		if(intakeCounter % 60 == 0) {
+			std::cout << shooter->getAngle() << std::endl;
+
+		}
+		intakeCounter++;
 		lw->Run();
 	}
 };

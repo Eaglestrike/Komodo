@@ -20,13 +20,13 @@
 #define PSHOOTER_CONTROLLER_D 0
 
 //angles
-#define RMAXIMUM_ANGLE 0
-#define RMINIMUM_ANGLE 0
+#define RMAXIMUM_ANGLE .58
+#define RMINIMUM_ANGLE .04
 
 #define PMAXIMUM_ANGLE 0
 #define PMINIMUM_ANGLE 0
 
-#define RINTAKE_ANGLE 0
+#define RINTAKE_ANGLE .56
 
 #define PINTAKE_ANGLE 0
 
@@ -34,6 +34,8 @@
 #define SHOOTERMOTOR1 7
 #define SHOOTERMOTOR2 8
 #define ANGLEMOTOR 4
+
+#define POT 0
 
 
 //drive

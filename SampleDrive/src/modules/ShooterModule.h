@@ -52,15 +52,17 @@ public:
 
 class ShooterModule {
 public:
-	ShooterModule(int anglePort, int angleMotorPort, int leftport, int rightport, int solenoidPort);
+	ShooterModule(int anglePort, int angleMotorPort, int leftport, int rightport, int solenoidPort, int buttonport);
 	virtual ~ShooterModule();
 
 	void setAngleMotorPower(double power);
 	void tilt(double angle);
 	void shoot(double left, double right, double time);
 	bool getShot();
+	double getAngle();
 	void mShoot(double power);
 	void shootKicker(bool kick);
+	bool isBallIn();
 
     void run();
     static void callrun(void*);
@@ -76,6 +78,7 @@ private:
 	ShooterIn* shootIn;
 	ShooterOut* shootOut;
 	PIDController* angleController;
+	DigitalInput* button;
 	bool shot = false;
 };
 

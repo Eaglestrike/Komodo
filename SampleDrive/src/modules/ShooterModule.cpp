@@ -9,13 +9,14 @@
 
 
 
-ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, int rightport, int solenoidPort) {
+ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, int rightport, int solenoidPort, int buttonport) {
 	// TODO Auto-generated constructor stub
 	angle = new AnalogPotentiometer(anglePort);
 	angleMotor = new CANTalon(angleMotorPort);
 	leftShooter = new CANTalon(leftport);
 	rightShooter = new CANTalon(rightport);
 	shooterSol = new Solenoid(solenoidPort);
+	button = new DigitalInput(buttonport);
 
 	shootIn = new ShooterIn(angle);
 	shootOut = new ShooterOut();
@@ -25,6 +26,14 @@ ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, in
 
 ShooterModule::~ShooterModule() {
 	// TODO Auto-generated destructor stub
+}
+
+double ShooterModule::getAngle()  {
+	return angle->Get();
+}
+
+bool ShooterModule::isBallIn() {
+	return !button->Get();
 }
 
 void ShooterModule::createThread() {

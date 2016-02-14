@@ -36,6 +36,8 @@
 #define ANGLEMOTOR 4
 
 
+#define POT 0
+
 //drive
 #define DRIVE_CONTROLLER_P 0.017
 #define DRIVE_CONTROLLER_I 0
