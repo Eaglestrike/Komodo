@@ -46,13 +46,26 @@ void ShooterModule::run() {
 }
 
 void ShooterModule::shoot(double left, double right, double time) {
-	shooterSol->Set(true);
-	leftShooter->Set(left);
-	rightShooter->Set(right);
-	Wait(time);
-	leftShooter->Set(0);
-	rightShooter->Set(0);
-	shooterSol->Set(false);
+	if (real && getAngle() < RMAXIMUM_ANGLE) {
+		shooterSol->Set(true);
+		leftShooter->Set(left);
+		rightShooter->Set(right);
+		Wait(time);
+		leftShooter->Set(0);
+		rightShooter->Set(0);
+		shooterSol->Set(false);
+	}
+	else if (!real && getAngle() < PMAXIMUM_ANGLE) {
+		shooterSol->Set(true);
+		leftShooter->Set(left);
+		rightShooter->Set(right);
+		Wait(time);
+		leftShooter->Set(0);
+		rightShooter->Set(0);
+		shooterSol->Set(false);
+	} else {
+		std::cout << "The shooter is not below the maximum angle" << std::endl;
+	}
 }
 
 void ShooterModule::setAngleMotorPower(double power) {
@@ -61,4 +74,8 @@ void ShooterModule::setAngleMotorPower(double power) {
 
 void ShooterModule::tilt(double angle) {
 	angleController->SetSetpoint(angle);
+}
+
+double ShooterModule::getAngle() {
+	return angleController->Get();
 }

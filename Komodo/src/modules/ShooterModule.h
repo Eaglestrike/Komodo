@@ -59,6 +59,7 @@ public:
 	void setAngleMotorPower(double power);
 	void tilt(double angle);
 	void shoot(double left, double right, double time);
+	double getAngle();
 
     void run();
     static void callrun(void*);
