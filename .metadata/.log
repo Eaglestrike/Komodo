@@ -15002,3 +15002,553 @@ org.eclipse.core.runtime.CoreException: No property tester contributes a propert
 !MESSAGE No property tester contributes a property org.eclipse.core.resources.projectNature to type class org.eclipse.cdt.internal.core.model.CContainer
 !SUBENTRY 1 org.eclipse.core.expressions 4 201 2016-02-13 14:58:02.033
 !MESSAGE No property tester contributes a property org.eclipse.core.resources.projectNature to type class org.eclipse.cdt.internal.core.model.CContainer
+
+!ENTRY org.eclipse.cdt.core 4 0 2016-02-13 20:48:16.296
+!MESSAGE Error: Cannot run program "rm" (in directory "C:\Robotics\Komodo\Komodo\Debug"): CreateProcess error=2, The system cannot find the file specified
+!STACK 0
+java.io.IOException: Cannot run program "rm" (in directory "C:\Robotics\Komodo\Komodo\Debug"): CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(Unknown Source)
+	at java.lang.Runtime.exec(Unknown Source)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:92)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:194)
+	at org.eclipse.cdt.managedbuilder.internal.buildmodel.CommandBuilder.build(CommandBuilder.java:105)
+	at org.eclipse.cdt.managedbuilder.internal.buildmodel.StepBuilder.build(StepBuilder.java:94)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.cleanWithInternalBuilder(CommonBuilder.java:1209)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.clean(CommonBuilder.java:1098)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.clean(CommonBuilder.java:1046)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:736)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:496)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:405)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:318)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(Unknown Source)
+	at java.lang.ProcessImpl.start(Unknown Source)
+	... 24 more
+
+!ENTRY org.eclipse.cdt.core 4 0 2016-02-13 20:48:16.415
+!MESSAGE Error: Cannot run program "rm" (in directory "C:\Robotics\Komodo\SampleDrive\Debug"): CreateProcess error=2, The system cannot find the file specified
+!STACK 0
+java.io.IOException: Cannot run program "rm" (in directory "C:\Robotics\Komodo\SampleDrive\Debug"): CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(Unknown Source)
+	at java.lang.Runtime.exec(Unknown Source)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:92)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:194)
+	at org.eclipse.cdt.managedbuilder.internal.buildmodel.CommandBuilder.build(CommandBuilder.java:105)
+	at org.eclipse.cdt.managedbuilder.internal.buildmodel.StepBuilder.build(StepBuilder.java:94)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.cleanWithInternalBuilder(CommonBuilder.java:1209)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.clean(CommonBuilder.java:1098)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.clean(CommonBuilder.java:1046)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:736)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:496)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:405)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:318)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(Unknown Source)
+	at java.lang.ProcessImpl.start(Unknown Source)
+	... 24 more
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 20:48:54.601
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 20:48:54.610
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY org.eclipse.ant.launching 4 0 2016-02-13 20:49:10.448
+!MESSAGE Failure of Background Ant Build
+!STACK 1
+org.eclipse.core.runtime.CoreException: C:\Users\Samsung\wpilib\cpp\current\ant\build.xml:118: java.lang.UnsatisfiedLinkError: no net in java.library.path
+	at org.eclipse.ant.core.AntRunner.handleInvocationTargetException(AntRunner.java:448)
+	at org.eclipse.ant.core.AntRunner.run(AntRunner.java:380)
+	at org.eclipse.ant.internal.launching.launchConfigurations.AntLaunchDelegate$1.run(AntLaunchDelegate.java:244)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: C:\Users\Samsung\wpilib\cpp\current\ant\build.xml:118: java.lang.UnsatisfiedLinkError: no net in java.library.path
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:116)
+	at org.apache.tools.ant.Task.perform(Task.java:348)
+	at org.apache.tools.ant.Target.execute(Target.java:435)
+	at org.apache.tools.ant.Target.performTasks(Target.java:456)
+	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1393)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1364)
+	at org.apache.tools.ant.helper.DefaultExecutor.executeTargets(DefaultExecutor.java:41)
+	at org.eclipse.ant.internal.core.ant.EclipseDefaultExecutor.executeTargets(EclipseDefaultExecutor.java:36)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1248)
+	at org.eclipse.ant.internal.core.ant.InternalAntRunner.run(InternalAntRunner.java:703)
+	at org.eclipse.ant.internal.core.ant.InternalAntRunner.run(InternalAntRunner.java:525)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.ant.core.AntRunner.run(AntRunner.java:371)
+	... 2 more
+Caused by: java.lang.UnsatisfiedLinkError: no net in java.library.path
+	at java.lang.ClassLoader.loadLibrary(Unknown Source)
+	at java.lang.Runtime.loadLibrary0(Unknown Source)
+	at java.lang.System.loadLibrary(Unknown Source)
+	at java.net.AbstractPlainSocketImpl$1.run(Unknown Source)
+	at java.net.AbstractPlainSocketImpl$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.AbstractPlainSocketImpl.<clinit>(Unknown Source)
+	at java.net.Socket.setImpl(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at sun.net.NetworkClient.createSocket(Unknown Source)
+	at sun.net.NetworkClient.doConnect(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.<init>(Unknown Source)
+	at sun.net.www.http.HttpClient.New(Unknown Source)
+	at sun.net.www.http.HttpClient.New(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$6.run(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$6.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessController.doPrivileged(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.access$100(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$8.run(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$8.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessController.doPrivileged(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream(Unknown Source)
+	at net.sf.antcontrib.net.PostTask$1.run(PostTask.java:282)
+	at net.sf.antcontrib.net.PostTask.execute(PostTask.java:308)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:292)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+	... 17 more
+!SUBENTRY 1 org.eclipse.ant.core 4 1 2016-02-13 20:49:10.449
+!MESSAGE C:\Users\Samsung\wpilib\cpp\current\ant\build.xml:118: java.lang.UnsatisfiedLinkError: no net in java.library.path
+!STACK 0
+C:\Users\Samsung\wpilib\cpp\current\ant\build.xml:118: java.lang.UnsatisfiedLinkError: no net in java.library.path
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:116)
+	at org.apache.tools.ant.Task.perform(Task.java:348)
+	at org.apache.tools.ant.Target.execute(Target.java:435)
+	at org.apache.tools.ant.Target.performTasks(Target.java:456)
+	at org.apache.tools.ant.Project.executeSortedTargets(Project.java:1393)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1364)
+	at org.apache.tools.ant.helper.DefaultExecutor.executeTargets(DefaultExecutor.java:41)
+	at org.eclipse.ant.internal.core.ant.EclipseDefaultExecutor.executeTargets(EclipseDefaultExecutor.java:36)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1248)
+	at org.eclipse.ant.internal.core.ant.InternalAntRunner.run(InternalAntRunner.java:703)
+	at org.eclipse.ant.internal.core.ant.InternalAntRunner.run(InternalAntRunner.java:525)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.ant.core.AntRunner.run(AntRunner.java:371)
+	at org.eclipse.ant.internal.launching.launchConfigurations.AntLaunchDelegate$1.run(AntLaunchDelegate.java:244)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.UnsatisfiedLinkError: no net in java.library.path
+	at java.lang.ClassLoader.loadLibrary(Unknown Source)
+	at java.lang.Runtime.loadLibrary0(Unknown Source)
+	at java.lang.System.loadLibrary(Unknown Source)
+	at java.net.AbstractPlainSocketImpl$1.run(Unknown Source)
+	at java.net.AbstractPlainSocketImpl$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.AbstractPlainSocketImpl.<clinit>(Unknown Source)
+	at java.net.Socket.setImpl(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at sun.net.NetworkClient.createSocket(Unknown Source)
+	at sun.net.NetworkClient.doConnect(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.<init>(Unknown Source)
+	at sun.net.www.http.HttpClient.New(Unknown Source)
+	at sun.net.www.http.HttpClient.New(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$6.run(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$6.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessController.doPrivileged(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.access$100(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$8.run(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection$8.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessController.doPrivileged(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getOutputStream(Unknown Source)
+	at net.sf.antcontrib.net.PostTask$1.run(PostTask.java:282)
+	at net.sf.antcontrib.net.PostTask.execute(PostTask.java:308)
+	at org.apache.tools.ant.UnknownElement.execute(UnknownElement.java:292)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.tools.ant.dispatch.DispatchUtils.execute(DispatchUtils.java:106)
+	... 17 more
+!SESSION 2016-02-13 20:49:37.296 -----------------------------------------------
+eclipse.buildId=4.4.2.M20150204-1700
+java.version=1.8.0_73
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.cdt.core.native 4 0 2016-02-13 20:50:29.692
+!MESSAGE no spawner in java.library.path
+
+!ENTRY org.eclipse.cdt.core 4 0 2016-02-13 20:50:32.184
+!MESSAGE Error: Cannot run program "gcc" (in directory "C:\Users\Samsung\Downloads\eclipse-java-luna-SR1a-win32\eclipse"): CreateProcess error=2, The system cannot find the file specified
+!STACK 0
+java.io.IOException: Cannot run program "gcc" (in directory "C:\Users\Samsung\Downloads\eclipse-java-luna-SR1a-win32\eclipse"): CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(Unknown Source)
+	at java.lang.Runtime.exec(Unknown Source)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:92)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:194)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:263)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:759)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:689)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:562)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(Unknown Source)
+	at java.lang.ProcessImpl.start(Unknown Source)
+	... 11 more
+
+!ENTRY org.eclipse.cdt.core 4 0 2016-02-13 20:50:32.248
+!MESSAGE Error: Cannot run program "g++" (in directory "C:\Users\Samsung\Downloads\eclipse-java-luna-SR1a-win32\eclipse"): CreateProcess error=2, The system cannot find the file specified
+!STACK 0
+java.io.IOException: Cannot run program "g++" (in directory "C:\Users\Samsung\Downloads\eclipse-java-luna-SR1a-win32\eclipse"): CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(Unknown Source)
+	at java.lang.Runtime.exec(Unknown Source)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:92)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:194)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:263)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:759)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:689)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:562)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(Unknown Source)
+	at java.lang.ProcessImpl.start(Unknown Source)
+	... 11 more
+
+!ENTRY org.eclipse.cdt.core 4 0 2016-02-13 20:50:32.298
+!MESSAGE Error: Cannot run program "gcc" (in directory "C:\Robotics\Komodo\SampleDrive"): CreateProcess error=2, The system cannot find the file specified
+!STACK 0
+java.io.IOException: Cannot run program "gcc" (in directory "C:\Robotics\Komodo\SampleDrive"): CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(Unknown Source)
+	at java.lang.Runtime.exec(Unknown Source)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:92)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:194)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:263)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:759)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:689)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:562)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(Unknown Source)
+	at java.lang.ProcessImpl.start(Unknown Source)
+	... 11 more
+
+!ENTRY org.eclipse.cdt.core 4 0 2016-02-13 20:50:32.343
+!MESSAGE Error: Cannot run program "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\amd64\cl" (in directory "C:\Robotics\Komodo\SampleDrive"): CreateProcess error=2, The system cannot find the file specified
+!STACK 0
+java.io.IOException: Cannot run program "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\amd64\cl" (in directory "C:\Robotics\Komodo\SampleDrive"): CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(Unknown Source)
+	at java.lang.Runtime.exec(Unknown Source)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:92)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:194)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:263)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:759)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:689)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:562)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(Unknown Source)
+	at java.lang.ProcessImpl.start(Unknown Source)
+	... 11 more
+
+!ENTRY org.eclipse.cdt.core 4 0 2016-02-13 20:50:33.168
+!MESSAGE Error: Cannot run program "gcc" (in directory "C:\Robotics\Komodo\Komodo"): CreateProcess error=2, The system cannot find the file specified
+!STACK 0
+java.io.IOException: Cannot run program "gcc" (in directory "C:\Robotics\Komodo\Komodo"): CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(Unknown Source)
+	at java.lang.Runtime.exec(Unknown Source)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:92)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:194)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:263)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:759)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:689)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:562)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(Unknown Source)
+	at java.lang.ProcessImpl.start(Unknown Source)
+	... 11 more
+
+!ENTRY org.eclipse.cdt.core 4 0 2016-02-13 20:50:33.202
+!MESSAGE Error: Cannot run program "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\amd64\cl" (in directory "C:\Robotics\Komodo\Komodo"): CreateProcess error=2, The system cannot find the file specified
+!STACK 0
+java.io.IOException: Cannot run program "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\amd64\cl" (in directory "C:\Robotics\Komodo\Komodo"): CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(Unknown Source)
+	at java.lang.Runtime.exec(Unknown Source)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:92)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:194)
+	at org.eclipse.cdt.internal.core.BuildRunnerHelper.build(BuildRunnerHelper.java:263)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runProgramForLanguage(AbstractBuiltinSpecsDetector.java:759)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForLanguage(AbstractBuiltinSpecsDetector.java:689)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector.runForEachLanguage(AbstractBuiltinSpecsDetector.java:562)
+	at org.eclipse.cdt.managedbuilder.language.settings.providers.AbstractBuiltinSpecsDetector$1.runInWorkspace(AbstractBuiltinSpecsDetector.java:496)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(Unknown Source)
+	at java.lang.ProcessImpl.start(Unknown Source)
+	... 11 more
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-02-13 20:50:33.989
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-02-13 20:50:34.004
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Samsung'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-02-13 20:50:34.671
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-02-13 20:50:34.685
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-02-13 20:50:34.699
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-02-13 20:50:34.713
+!MESSAGE Installedcpp
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-02-13 20:50:34.728
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2016-02-13 20:50:34.741
+!MESSAGE Installedjava
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 20:50:53.046
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 20:50:53.055
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 21:18:46.168
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 21:18:46.178
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 21:19:41.522
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 21:19:41.531
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 21:25:16.871
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 21:25:16.879
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 21:36:17.679
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 21:36:17.686
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 21:37:17.165
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 21:37:17.172
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 21:40:18.091
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 21:40:18.099
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 21:44:44.187
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 21:44:44.194
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:18:01.770
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:18:01.777
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:23:23.851
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:23:23.859
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:25:40.981
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:25:40.988
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:32:46.875
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:32:46.881
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:38:39.208
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:38:39.214
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:39:39.978
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:39:39.985
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY org.eclipse.cdt.core 4 0 2016-02-13 22:46:14.803
+!MESSAGE Error: Cannot run program "rm" (in directory "C:\Robotics\Komodo\Komodo\Debug"): CreateProcess error=2, The system cannot find the file specified
+!STACK 0
+java.io.IOException: Cannot run program "rm" (in directory "C:\Robotics\Komodo\Komodo\Debug"): CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(Unknown Source)
+	at java.lang.Runtime.exec(Unknown Source)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:92)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:194)
+	at org.eclipse.cdt.managedbuilder.internal.buildmodel.CommandBuilder.build(CommandBuilder.java:105)
+	at org.eclipse.cdt.managedbuilder.internal.buildmodel.StepBuilder.build(StepBuilder.java:94)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.cleanWithInternalBuilder(CommonBuilder.java:1209)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.clean(CommonBuilder.java:1098)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.clean(CommonBuilder.java:1046)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:736)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:496)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:405)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:318)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(Unknown Source)
+	at java.lang.ProcessImpl.start(Unknown Source)
+	... 24 more
+
+!ENTRY org.eclipse.cdt.core 4 0 2016-02-13 22:46:14.958
+!MESSAGE Error: Cannot run program "rm" (in directory "C:\Robotics\Komodo\SampleDrive\Debug"): CreateProcess error=2, The system cannot find the file specified
+!STACK 0
+java.io.IOException: Cannot run program "rm" (in directory "C:\Robotics\Komodo\SampleDrive\Debug"): CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(Unknown Source)
+	at java.lang.Runtime.exec(Unknown Source)
+	at org.eclipse.cdt.utils.spawner.ProcessFactory.exec(ProcessFactory.java:92)
+	at org.eclipse.cdt.core.CommandLauncher.execute(CommandLauncher.java:194)
+	at org.eclipse.cdt.managedbuilder.internal.buildmodel.CommandBuilder.build(CommandBuilder.java:105)
+	at org.eclipse.cdt.managedbuilder.internal.buildmodel.StepBuilder.build(StepBuilder.java:94)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.cleanWithInternalBuilder(CommonBuilder.java:1209)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.clean(CommonBuilder.java:1098)
+	at org.eclipse.cdt.managedbuilder.internal.core.CommonBuilder.clean(CommonBuilder.java:1046)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:736)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:299)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:302)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:358)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:381)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:496)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:405)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog.doClean(CleanDialog.java:318)
+	at org.eclipse.ui.internal.ide.dialogs.CleanDialog$1.runInWorkspace(CleanDialog.java:151)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(Unknown Source)
+	at java.lang.ProcessImpl.start(Unknown Source)
+	... 24 more
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:49:00.812
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:49:00.821
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:51:23.790
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:51:23.798
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:52:45.245
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:52:45.258
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:56:33.535
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-13 22:56:33.544
+!MESSAGE Targets: deploy, Mode: run

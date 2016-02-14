@@ -33,7 +33,7 @@
 //CAN values
 #define SHOOTERMOTOR1 0
 #define SHOOTERMOTOR2 0
-#define ANGLEMOTOR 0
+#define ANGLEMOTOR 4
 
 
 //drive
@@ -41,10 +41,10 @@
 #define DRIVE_CONTROLLER_I 0
 #define DRIVE_CONTROLLER_D 0.052
 
-#define DRIVE_LEFT1 3
-#define DRIVE_LEFT2 2
-#define DRIVE_RIGHT1 0
-#define DRIVE_RIGHT2 1
+#define DRIVE_LEFT1 2
+#define DRIVE_LEFT2 5
+#define DRIVE_RIGHT1 1
+#define DRIVE_RIGHT2 6
 #define DRIVE_ENCODER_1_A 0
 #define DRIVE_ENCODER_1_B 1
 #define DRIVE_ENCODER_2_A 4
@@ -52,9 +52,12 @@
 #define TICKS_PER_INCH 13.479
 
 //intake
-#define INTAKE_SOL1 0
-#define INTAKE_SOL2 0
 
-#define INTAKE_MOTOR 0
+#define INTAKE_MOTOR 3
+
+#define TOMOHAWKS 2
+#define INTAKE_SOL 0
+#define SHOOTER SOL 1
+
 
 #endif /* SRC_SETTINGS_H_ */

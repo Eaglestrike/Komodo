@@ -19,7 +19,7 @@ ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, in
 
 	shootIn = new ShooterIn(angle);
 	shootOut = new ShooterOut();
-	angleController = new PIDController(SHOOTER_CONTROLLER_P, SHOOTER_CONTROLLER_I, SHOOTER_CONTROLLER_D,  shootIn, angleMotor);
+	angleController = new PIDController(RSHOOTER_CONTROLLER_P, RSHOOTER_CONTROLLER_I, RSHOOTER_CONTROLLER_D,  shootIn, angleMotor);
 
 }
 
@@ -40,16 +40,30 @@ void ShooterModule::run() {
 	shoot(1, 1, 1);
 }
 
+bool ShooterModule::getShot() {
+	return shot;
+}
 void ShooterModule::shoot(double left, double right, double time) {
+	shot = true;
 	shooterSol->Set(true);
-	leftShooter->Set(left);
+	leftShooter->Set(-left);
 	rightShooter->Set(right);
 	Wait(time);
 	leftShooter->Set(0);
 	rightShooter->Set(0);
 	shooterSol->Set(false);
+	shot = false;
 }
 
+void ShooterModule::shootKicker(bool kick) {
+	shooterSol->Set(kick);
+}
+
+void ShooterModule::mShoot(double power) {
+	rightShooter->Set(power);
+	leftShooter->Set(-power);
+
+}
 void ShooterModule::setAngleMotorPower(double power) {
 	angleMotor->Set(power);
 }

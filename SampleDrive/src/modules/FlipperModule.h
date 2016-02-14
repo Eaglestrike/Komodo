@@ -7,13 +7,13 @@
 
 class FlipperModule {
 public:
-	FlipperModule(int Solenoid1, int Solenoid2);
+	FlipperModule(int Solenoid1);
 	void Deploy();
 	void Retract();
+	bool get();
 
 private:
 	Solenoid* deploySol;
-	Solenoid* retractSol;
 };
 
 

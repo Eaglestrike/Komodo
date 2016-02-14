@@ -57,12 +57,12 @@ void DriveModule::driveArcade(double throttle, double angle) {
 			rightMotorOutput = -fmax(-throttle,-angle);
 		}
 	}
-	setLeftPower(leftMotorOutput);
+	setLeftPower(-leftMotorOutput);
 	setRightPower(rightMotorOutput);
 }
 
 void DriveModule::driveTank(double lPow, double rPow) {
-	setLeftPower(lPow);
+	setLeftPower(-lPow);
 	setRightPower(rPow);
 }
 

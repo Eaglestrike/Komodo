@@ -60,10 +60,13 @@ public:
 	void tilt(double angle);
 	void shoot(double left, double right, double time);
 	double getAngle();
+	bool getShot();
 
     void run();
     static void callrun(void*);
   	void createThread();
+	bool shot = false;
+
 
 private:
 	AnalogPotentiometer* angle;
@@ -75,6 +78,7 @@ private:
 	ShooterIn* shootIn;
 	ShooterOut* shootOut;
 	PIDController* angleController;
+
 };
 
 #endif /* SRC_MODULES_SHOOTERMODULE_H_ */

@@ -8,6 +8,11 @@ private:
 	const std::string autoNameDefault = "Default";
 	const std::string autoNameCustom = "My Auto";
 	std::string autoSelected;
+	DriveModule* drive;
+	ShooterModule* shooter;
+	IntakeModule* intake;
+	FlipperModule* tomahawks;
+	bool real = true;
 
 	void RobotInit()
 	{

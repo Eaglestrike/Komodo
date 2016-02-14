@@ -58,6 +58,9 @@ public:
 	void setAngleMotorPower(double power);
 	void tilt(double angle);
 	void shoot(double left, double right, double time);
+	bool getShot();
+	void mShoot(double power);
+	void shootKicker(bool kick);
 
     void run();
     static void callrun(void*);
@@ -73,6 +76,7 @@ private:
 	ShooterIn* shootIn;
 	ShooterOut* shootOut;
 	PIDController* angleController;
+	bool shot = false;
 };
 
 #endif /* SRC_MODULES_SHOOTERMODULE_H_ */
