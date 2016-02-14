@@ -123,6 +123,7 @@ private:
 			drive->driveTank(lJoy->GetY(), rJoy->GetY());
 		}
 
+
 		intake->setSpinPower(controller->getLY());
 		//if(rJoy->GetTrigger() && lJoy->GetTrigger() && !shooter->getShot()) {
 		//shooter->shoot(1, 1, 2);
@@ -178,6 +179,7 @@ private:
 
 		}
 		//intakeCounter++;
+
 
 	}
 
