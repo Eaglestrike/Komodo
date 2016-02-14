@@ -37,11 +37,7 @@ private:
 	int movementFactor=1;
 	Servo* up;
 	Servo* side;
-	LiveWindow *lw = LiveWindow::GetInstance();
-	SendableChooser *chooser;
-	const std::string autoNameDefault = "Default";
-	const std::string autoNameCustom = "My Auto";
-	std::string autoSelected;
+
 
 	bool arcade;
 
@@ -86,15 +82,7 @@ private:
 	 */
 	void AutonomousInit()
 	{
-		std::cout << "Starting auton" << std::endl;
-		autoSelected = *((std::string*)chooser->GetSelected());
-		std::string autoSelectedString = SmartDashboard::GetString("Auto Selector", autoNameDefault);
-		std::cout << "Auto selected: " << autoSelectedString << std::endl;
-		if(autoSelected == autoNameCustom){
-			//Custom Auto goes here
-		} else {
-			//Default Auto goes here
-		}
+
 	}
 
 	//	void autonGo(double distance, double time) {//Time in seconds for now
@@ -116,11 +104,7 @@ private:
 
 	void AutonomousPeriodic()
 	{
-		if(autoSelected == autoNameCustom){
-			//Custom Auto goes here
-		} else {
-			//Default Auto goes here
-		}
+
 	}
 
 	void TeleopInit()
