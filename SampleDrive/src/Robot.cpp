@@ -279,7 +279,7 @@ private:
 		std::cout<<"P: "<<shooter->getP()<<" I: "<<shooter->getI()<<" D: "<<shooter->getD()<<std::endl;
 		shooter->enablePID();
 		shooter->setMaxPower(.5);
-		test->SetClosedLoopControl(false);
+		//test->SetClosedLoopControl(false);
 		shooter->tilt(RSHOOT_ANGLE);
 
 	}
@@ -317,6 +317,7 @@ private:
 		}
 		shooter->mShoot(controller->getLX());
 
+		Wait(.05);
 
 	}
 };
