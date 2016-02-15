@@ -22,10 +22,9 @@ private:
 	double movementInX=0;
 	double xTime;
 	double yTime;
-	Xbox* xbox;
 	double xAngle;
-	Timer* xTimer;
-	Timer* yTimer;
+	double setpoint=0;
+	Compressor* test;
 	double yAngle;
 	int ticks=0;
 	int yticks=0;
@@ -55,9 +54,15 @@ private:
 	FlipperModule* tomahawks;
 	int tomahawkCounter = 0;
 	//PCM* pcm;
+	int counter=0;
+
 
 	void RobotInit()
 	{
+		visionTable = NetworkTable::GetTable("visionTable");
+		test = new Compressor(0);
+		up = new Servo(0);
+		side = new Servo(1);
 		rJoy = new Joystick(1);
 		lJoy = new Joystick(0);
 		controller = new Xbox(2);
@@ -109,20 +114,22 @@ private:
 
 	void TeleopInit()
 	{
+
+		std::cout<<"yoyo"<<std::endl;
 		frameWidth = visionTable->GetNumber("width");
 		frameHeight = visionTable->GetNumber("height");
 		Xtolerance = visionTable->GetNumber("XTolerance");
 		Ytolerance = visionTable->GetNumber("YTolerance");
 		yMovePerTick = visionTable->GetNumber("yTicks");
 		xMovePerTick = visionTable->GetNumber("xTicks");
-		xTimer->Reset();
-		yTimer->Reset();
-		xTimer->Start();
-		yTimer->Start();
+
 		up->SetAngle(60);
 		side->SetAngle(0);
 		arcade = false;
-		intake->deployIntake();
+		std::cout<<"yoyoyo"<<std::endl;
+		shooter->enablePID();
+		shooter->setMaxPower(.5);
+		shooter->tilt(RSHOOT_ANGLE);
 		//std::cout << "Autonomous starting" << std::endl;
 		//autonGo(900,2);
 	}
@@ -151,7 +158,7 @@ private:
 			shooter->shootKicker(false);
 		}
 		shooter->mShoot(controller->getLX());
-		shooter->setAngleMotorPower(.2 * controller->getRX());
+		//shooter->setAngleMotorPower(.2 * controller->getRX());
 
 		if(controller->getY() != intakes){
 			intakeCounter++;
@@ -160,6 +167,15 @@ private:
 
 		if(controller->getA() != tomah){
 			tomahawkCounter++;
+		}
+		if(controller->getLB()){
+			shooter->tilt(RINTAKE_ANGLE);
+		}
+		if(controller->getRB()){
+			shooter->tilt(RSHOOT_ANGLE);
+		}
+		if(controller->getStart()){
+			shooter->tilt(.3);
 		}
 		tomah = controller->getA();
 
@@ -195,6 +211,7 @@ private:
 
 		}
 		//intakeCounter++;
+		std::cout<<"Yo"<<std::endl;
 		Xtolerance = visionTable->GetNumber("XTolerance");
 		Ytolerance = visionTable->GetNumber("YTolerance");
 
@@ -225,8 +242,7 @@ private:
 				double moveAngle = (xAngle-26.4)*.5;
 				side->SetAngle(side->GetAngle()+moveAngle);
 				xTime = fabs((50/ 60)*moveAngle);
-				xTimer->Reset();
-				xTimer->Start();
+
 				ticks=0;
 			}
 			if(yticks%25==0){
@@ -234,8 +250,7 @@ private:
 				double moveAngle = (19.8-yAngle);
 				up->SetAngle(up->GetAngle()+moveAngle);
 				yTime = fabs((50/60)*moveAngle);
-				yTimer->Reset();
-				yTimer->Start();
+
 				yticks=0;
 			}
 			if(up->GetAngle()>90){
@@ -261,17 +276,48 @@ private:
 	}
 
 	void TestInit() {
+		std::cout<<"P: "<<shooter->getP()<<" I: "<<shooter->getI()<<" D: "<<shooter->getD()<<std::endl;
+		shooter->enablePID();
+		shooter->setMaxPower(.5);
+		test->SetClosedLoopControl(false);
+		shooter->tilt(RSHOOT_ANGLE);
 
 	}
 
 	void TestPeriodic()
 	{
-		if(intakeCounter % 60 == 0) {
-			std::cout << shooter->getAngle() << std::endl;
 
+//		if(intakeCounter % 60 == 0) {
+//			std::cout<<"Side: "<<side->GetAngle()<<" Tilt: "<<up->GetAngle()<<std::endl;;
+//
+////			std::cout << shooter->getAngle() << std::endl;
+////
+//		}
+//		intakeCounter++;
+
+////		lw->Run();
+		drive->driveTank(lJoy->GetY(),rJoy->GetY());
+		if(counter%60==0){
+			std::cout<<"Pot: "<<shooter->getAngle()<<" SetPoint: "<<shooter->getSetpoint()<<std::endl;
+			counter=0;
 		}
-		intakeCounter++;
-		lw->Run();
+		counter++;
+		if(controller->getY()){
+			shooter->tilt(shooter->getSetpoint()+.01);
+		}
+		if(controller->getA()){
+			shooter->tilt(shooter->getSetpoint()-.01);
+		}
+
+		if(controller->getX()) {
+			shooter->shootKicker(true);
+		}
+		else {
+			shooter->shootKicker(false);
+		}
+		shooter->mShoot(controller->getLX());
+
+
 	}
 };
 

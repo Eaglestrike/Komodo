@@ -63,11 +63,18 @@ public:
 	void mShoot(double power);
 	void shootKicker(bool kick);
 	bool isBallIn();
-
+	double getP();
+	double getI();
+	double getD();
+	void setPID(double p, double i, double d);
     void run();
+    void enablePID();
+    void setMaxPower(double power);
+    double getSetpoint();
     static void callrun(void*);
   	void createThread();
-
+  	void speed(double);
+  	double getSpeed();
 private:
 	AnalogPotentiometer* angle;
 	CANTalon* angleMotor;

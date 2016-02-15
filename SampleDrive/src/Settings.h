@@ -11,7 +11,7 @@
 //shooter module
 
 //PID Controllers
-#define RSHOOTER_CONTROLLER_P 0
+#define RSHOOTER_CONTROLLER_P -7.4
 #define RSHOOTER_CONTROLLER_I 0
 #define RSHOOTER_CONTROLLER_D 0
 
@@ -29,7 +29,7 @@
 #define RINTAKE_ANGLE .56
 
 #define PINTAKE_ANGLE 0
-
+#define RSHOOT_ANGLE .08
 //CAN values
 #define SHOOTERMOTOR1 7
 #define SHOOTERMOTOR2 8
