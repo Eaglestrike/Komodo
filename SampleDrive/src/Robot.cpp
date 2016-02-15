@@ -308,7 +308,7 @@ private:
 		if(controller->getA()){
 			shooter->tilt(shooter->getSetpoint()-.01);
 		}
-
+		if(controller->getButtonPress(Xbox::A))
 		if(controller->getX()) {
 			shooter->shootKicker(true);
 		}
