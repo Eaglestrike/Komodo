@@ -66,6 +66,11 @@ public:
 	double getP();
 	double getI();
 	double getD();
+	void setLeftShooterPID(double p, double i, double d);
+	double getShooterP();
+	double getShooterI();
+	double getShooterD();
+	void setShooterSpeed(double speed);
 	void setPID(double p, double i, double d);
     void run();
     void enablePID();

@@ -18,7 +18,8 @@ ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, in
 	rightShooter = new CANTalon(rightport);
 	shooterSol = new Solenoid(solenoidPort);
 	button = new DigitalInput(buttonport);
-
+	leftShooter->EnableControl();
+	leftShooter->SetControlMode(CANSpeedController::kSpeed);
 
 	shootIn = new ShooterIn(angle);
 	shootOut = new ShooterOut();
@@ -88,16 +89,19 @@ double ShooterModule::getSpeed(){
 	return leftShooter->GetSpeed();
 }
 void ShooterModule::setPID(double p, double i, double d){
-	leftShooter->SetPID(p,i,d);
+	angleController->SetPID(p,i,d);
+}
+void ShooterModule::setShooterSpeed(float speed){
+
 }
 double ShooterModule::getP(){
-	return leftShooter->GetP();
+	return angleController->GetP();
 }
 double ShooterModule::getI(){
-	return leftShooter->GetI();
+	return angleController->GetI();
 }
 double ShooterModule::getD(){
-	return leftShooter->GetD();
+	return angleController->GetD();
 }
 void ShooterModule::enablePID(){
 	angleController->Enable();
@@ -107,4 +111,24 @@ void ShooterModule::setMaxPower(double power){
 }
 double ShooterModule::getSetpoint(){
 	return angleController->GetSetpoint();
+}
+
+void ShooterModule::setLeftShooterPID(double p, double i, double d) {
+	leftShooter->SetPID(p,i,d);
+}
+
+double ShooterModule::getShooterSetpoint() {
+	return leftShooter->GetSetpoint();
+}
+
+double ShooterModule::getShooterP() {
+	return leftShooter->GetP();
+}
+
+double ShooterModule::getShooterI() {
+	return leftShooter->GetI();
+}
+
+double ShooterModule::getShooterD() {
+	return leftShooter->GetD();
 }

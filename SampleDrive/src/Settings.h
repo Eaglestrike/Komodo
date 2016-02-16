@@ -9,11 +9,13 @@
 #define SRC_SETTINGS_H_
 
 //shooter module
+#define RAMPOTPOSITION 0.17475
+#define RAMPOWER 0.608
 
 //PID Controllers
-#define RSHOOTER_CONTROLLER_P -7.4
+#define RSHOOTER_CONTROLLER_P -7.7
 #define RSHOOTER_CONTROLLER_I 0
-#define RSHOOTER_CONTROLLER_D 0
+#define RSHOOTER_CONTROLLER_D -0.7
 
 #define PSHOOTER_CONTROLLER_P 0
 #define PSHOOTER_CONTROLLER_I 0
@@ -28,6 +30,7 @@
 
 #define RINTAKE_ANGLE .56
 
+#define LEVEL_ANGLE .486
 #define PINTAKE_ANGLE 0
 #define RSHOOT_ANGLE .08
 //CAN values

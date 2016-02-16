@@ -105,7 +105,6 @@ private:
 	////		std::cout << func->getA() << std::endl;
 	////		std::cout << func->getDistance(2) << std::endl;
 	//		std::cout << "Finishing functions" << std::endl;
-	//	}
 
 	void AutonomousPeriodic()
 	{
@@ -177,6 +176,17 @@ private:
 		if(controller->getStart()){
 			shooter->tilt(.3);
 		}
+		if(controller->getBack()) {
+			shooter->tilt(LEVEL_ANGLE);
+		}
+
+		if(controller->getRB()) {
+			shooter->mShoot(.608);
+			Wait(2);
+			shooter->shootKicker(true);
+			Wait(.5);
+			shooter->mShoot(0);
+		}
 		tomah = controller->getA();
 
 
@@ -236,7 +246,7 @@ private:
 			else if(y<(frameHeight/2-Ytolerance)){
 				movementInY=-yMovePerTick;
 			}
-//			0.19sec/60degrees move speed on servos
+			//			0.19sec/60degrees move speed on servos
 			if(ticks%15==0){
 				xAngle = visionTable->GetNumber("xAngle");
 				double moveAngle = (xAngle-26.4)*.5;
@@ -277,49 +287,136 @@ private:
 
 	void TestInit() {
 		std::cout<<"P: "<<shooter->getP()<<" I: "<<shooter->getI()<<" D: "<<shooter->getD()<<std::endl;
-		shooter->enablePID();
-		shooter->setMaxPower(.5);
+		//shooter->enablePID();
+		//shooter->setMaxPower(.5);
 		//test->SetClosedLoopControl(false);
-		shooter->tilt(RSHOOT_ANGLE);
+		//shooter->tilt(RSHOOT_ANGLE);
 
 	}
+
+	//double setpointz = 0.17475;`
 
 	void TestPeriodic()
 	{
 
-//		if(intakeCounter % 60 == 0) {
-//			std::cout<<"Side: "<<side->GetAngle()<<" Tilt: "<<up->GetAngle()<<std::endl;;
-//
-////			std::cout << shooter->getAngle() << std::endl;
-////
-//		}
-//		intakeCounter++;
+		//		if(intakeCounter % 60 == 0) {
+		//			std::cout<<"Side: "<<side->GetAngle()<<" Tilt: "<<up->GetAngle()<<std::endl;;
+		//
+		////			std::cout << shooter->getAngle() << std::endl;
+		////
+		//		}
+		//		intakeCounter++;
 
-////		lw->Run();
-		drive->driveTank(lJoy->GetY(),rJoy->GetY());
+		////		lw->Run();
+
+
+		//		drive->driveTank(lJoy->GetY(),rJoy->GetY());
 		if(counter%60==0){
-			std::cout<<"Pot: "<<shooter->getAngle()<<" SetPoint: "<<shooter->getSetpoint()<<std::endl;
+			std::cout<<"Pot: "<<shooter->getAngle()<<std::endl;
 			counter=0;
 		}
-		counter++;
-		if(controller->getY()){
-			shooter->tilt(shooter->getSetpoint()+.01);
-		}
-		if(controller->getA()){
-			shooter->tilt(shooter->getSetpoint()-.01);
-		}
-		if(controller->getButtonPress(Xbox::A))
-		if(controller->getX()) {
-			shooter->shootKicker(true);
-		}
-		else {
-			shooter->shootKicker(false);
-		}
-		shooter->mShoot(controller->getLX());
+		//		counter++;
+		//		if(controller->getY()){
+		//			shooter->tilt(setpointz+.0001);
+		//			setpointz = shooter->getSetpoint();
+		//		}
+		//		if(controller->getA()){
+		//			shooter->tilt(setpointz -.0001);
+		//			setpointz = shooter->getSetpoint();
+		//		}
+		//		if(controller->getB()) {
+		//			shooter->tilt(RINTAKE_ANGLE);
+		//		}
+		//		if(controller->getStart()) {
+		//			shooter->tilt(setpointz);
+		//		}
+		//		//if(controller->getButtonPress(Xbox::A))
+		//		if(controller->getX()) {
+		//			shooter->mShoot(.608);
+		//			Wait(2);
+		//			shooter->shootKicker(true);
+		//			Wait(.5);
+		//		}
+		//		else {
+		//			shooter->shootKicker(false);
+		//			shooter->mShoot(0);
+		//		}
+		//shooter->mShoot(controller->getLX()*0.608);
 
 		Wait(.05);
-
+		//TestPID();
 	}
+
+	void TestPID() {
+		if(controller->getA()) {
+			shooter->setPID(shooter->getP() - .01, shooter->getI(), shooter->getD());
+		}
+		if(controller->getY()) {
+			shooter->setPID(shooter->getP() + .01, shooter->getI(), shooter->getD());
+		}
+		if(controller->getX()) {
+			shooter->setPID(shooter->getP(), shooter->getI() - .01, shooter->getD());
+		}
+		if(controller->getB()) {
+			shooter->setPID(shooter->getP(), shooter->getI() + .01, shooter->getD());
+		}
+		if(controller->getBack()) {
+			shooter->setPID(shooter->getP(), shooter->getI(), shooter->getD() - 0.01);
+		}
+		if(controller->getStart()) {
+			shooter->setPID(shooter->getP(), shooter->getI(), shooter->getD()+ 0.01);
+		}
+
+		if(controller->getLB()) {
+			shooter->tilt(.1755);
+		}
+
+		if(controller->getRB()) {
+			shooter->tilt(RINTAKE_ANGLE);
+		}
+
+		if(counter % 60 == 0) {
+			std::cout<<"P: "<<shooter->getP()<<" I: "<<shooter->getI()<<" D: "<<shooter->getD()<<std::endl;
+			std::cout<<"Pot: "<<shooter->getAngle()<<" SetPoint: "<<shooter->getSetpoint()<<std::endl;
+		}
+	}
+
+	void TestShooterPID() {
+			if(controller->getA()) {
+				shooter->setLeftShooterPID(shooter->getP() - .01, shooter->getI(), shooter->getD());
+			}
+			if(controller->getY()) {
+				shooter->setLeftShooterPID(shooter->getP() + .01, shooter->getI(), shooter->getD());
+			}
+			if(controller->getX()) {
+				shooter->setLeftShooterPID(shooter->getP(), shooter->getI() - .01, shooter->getD());
+			}
+			if(controller->getB()) {
+				shooter->setLeftShooterPID(shooter->getP(), shooter->getI() + .01, shooter->getD());
+			}
+			if(controller->getBack()) {
+				shooter->setLeftShooterPID(shooter->getP(), shooter->getI(), shooter->getD() - 0.01);
+			}
+			if(controller->getStart()) {
+				shooter->setLeftShooterPID(shooter->getP(), shooter->getI(), shooter->getD()+ 0.01);
+			}
+
+			if(controller->getLB()) {
+
+			}
+
+			if(controller->getRB()) {
+				shooter->tilt(RINTAKE_ANGLE);
+			}
+
+			if(counter % 60 == 0) {
+				std::cout<<"P: "<<shooter->getShooterP()<<" I: "<<shooter->getShooterI()<<" D: "<<shooter->getShooterD()<<std::endl;
+				std::cout<<"Speed: "<<shooter->getSpeed()<<" SetPoint: "<<shooter->getShooterSetpoint()<<std::endl;
+			}
+		}
+
+
+	//.1688 , .637
 };
 
 START_ROBOT_CLASS(Robot)
