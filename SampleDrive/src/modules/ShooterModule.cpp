@@ -18,9 +18,18 @@ ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, in
 	rightShooter = new CANTalon(rightport);
 	shooterSol = new Solenoid(solenoidPort);
 	button = new DigitalInput(buttonport);
-	leftShooter->EnableControl();
-	leftShooter->SetControlMode(CANSpeedController::kSpeed);
-
+	leftShooter->SetFeedbackDevice(CANTalon::QuadEncoder);
+	//leftShooter->EnableControl();
+	//leftShooter->SetInverted(true);
+//	leftShooter->SetPosition(0);
+//	leftShooter->SetControlMode(CANSpeedController::kSpeed);
+//	leftShooter->SetPID(.12996,0,3);
+//
+//	rightShooter->SetFeedbackDevice(CANTalon::QuadEncoder);
+//	//rightShooter->EnableControl();
+//	rightShooter->SetPosition(0);
+//	rightShooter->SetControlMode(CANSpeedController::kSpeed);
+//	rightShooter->SetPID(.12996,0,3);
 	shootIn = new ShooterIn(angle);
 	shootOut = new ShooterOut();
 	angleController = new PIDController(RSHOOTER_CONTROLLER_P, RSHOOTER_CONTROLLER_I, RSHOOTER_CONTROLLER_D,  shootIn, angleMotor);
@@ -80,19 +89,25 @@ void ShooterModule::setAngleMotorPower(double power) {
 }
 
 void ShooterModule::tilt(double angle) {
+	if(angle > RMAXIMUM_ANGLE) {
+		angle = RMAXIMUM_ANGLE;
+	}
+	if(angle < RMINIMUM_ANGLE) {
+		angle = RMINIMUM_ANGLE;
+	}
 	angleController->SetSetpoint(angle);
 }
 void ShooterModule::speed(double speed){
-	leftShooter->Set(speed);
+	rightShooter->Set(speed);
 }
 double ShooterModule::getSpeed(){
-	return leftShooter->GetSpeed();
+	return rightShooter->GetSpeed();
 }
 void ShooterModule::setPID(double p, double i, double d){
 	angleController->SetPID(p,i,d);
 }
-void ShooterModule::setShooterSpeed(float speed){
-
+void ShooterModule::setShooterSpeed(double speed){
+	rightShooter->SetSetpoint(speed);
 }
 double ShooterModule::getP(){
 	return angleController->GetP();
@@ -114,21 +129,21 @@ double ShooterModule::getSetpoint(){
 }
 
 void ShooterModule::setLeftShooterPID(double p, double i, double d) {
-	leftShooter->SetPID(p,i,d);
+	rightShooter->SetPID(p,i,d);
 }
 
 double ShooterModule::getShooterSetpoint() {
-	return leftShooter->GetSetpoint();
+	return rightShooter->GetSetpoint();
 }
 
 double ShooterModule::getShooterP() {
-	return leftShooter->GetP();
+	return rightShooter->GetP();
 }
 
 double ShooterModule::getShooterI() {
-	return leftShooter->GetI();
+	return rightShooter->GetI();
 }
 
 double ShooterModule::getShooterD() {
-	return leftShooter->GetD();
+	return rightShooter->GetD();
 }
