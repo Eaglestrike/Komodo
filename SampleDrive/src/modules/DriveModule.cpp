@@ -14,11 +14,18 @@ DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, 
 
 	rEnc = new Encoder(rEncA, rEncB);
 	lEnc = new Encoder(lEncA, lEncB);
-
+	//rEnc->SetDistancePerPulse(0.04477);
+	//lEnc->SetDistancePerPulse(0.04477);
+	lEnc->SetReverseDirection(true);
 	driveIn = new DriveIn(rEnc, lEnc);
 	driveOut = new DriveOut();
 	drive_controller = new PIDController(DRIVE_CONTROLLER_P, DRIVE_CONTROLLER_I, DRIVE_CONTROLLER_D, driveIn, driveOut);
-	drive_controller->Enable();
+	drive_controller->SetOutputRange(-.5, .5);
+	angleIn = new AngleIn(rEnc, lEnc);
+	angleOut = new DriveOut();
+	angle_controller = new PIDController(ANGLE_CONTROLLER_P, ANGLE_CONTROLLER_I, ANGLE_CONTROLLER_D, angleIn, angleOut);
+	angle_controller->SetOutputRange(-.5, .5);
+	//drive_controller->Enable();
 }
 
 void DriveModule::setRightPower(double rPow) {
@@ -29,6 +36,16 @@ void DriveModule::setRightPower(double rPow) {
 void DriveModule::setLeftPower(double lPow) {
 	lTalon1->Set(lPow);
 	lTalon2->Set(lPow);
+}
+
+void DriveModule::EnablePID(bool enable) {
+	if(enable){
+		drive_controller->Enable();
+		angle_controller->Enable();
+	} else {
+		drive_controller->Disable();
+		angle_controller->Disable();
+	}
 }
 
 void DriveModule::driveArcade(double throttle, double angle) {
@@ -70,10 +87,83 @@ double DriveModule::getDriveOutput() {
 	return driveOut->getPower();
 }
 
+double DriveModule::getAngleOutput() {
+	return angleOut->getPower();
+}
+
 void DriveModule::setDriveSetpoint(double setpoint) {
 	drive_controller->SetSetpoint(setpoint);
 }
 
 double DriveModule::getDriveSetpoint() {
 	return drive_controller->GetSetpoint();
+}
+
+void DriveModule::setAngleSetpoint(double angle) {
+	angle_controller->SetSetpoint(angle);
+}
+
+double DriveModule::getAngleSetpoint() {
+	return angle_controller->GetSetpoint();
+}
+
+double DriveModule::getRightEncoder() {
+	return rEnc->PIDGet();
+}
+
+double DriveModule::getLeftEncoder() {
+	return lEnc->PIDGet();
+}
+
+double DriveModule::getP() {
+	return angle_controller->GetP();
+}
+
+double DriveModule::getI() {
+	return angle_controller->GetI();
+
+}
+
+double DriveModule::getD() {
+	return angle_controller->GetD();
+}
+
+void DriveModule::setPID(double p, double i, double d) {
+	angle_controller->SetPID(p,i,d);
+}
+
+void DriveModule::drive(double setpoint) {
+	rEnc->Reset();
+	lEnc->Reset();
+	Timer* time = new Timer();
+	time->Start();
+	EnablePID(true);
+	setDriveSetpoint(setpoint);
+	std::cout << " in " <<std::endl;
+	while(time->Get() < 4 && abs(driveIn->PIDGet() - getDriveSetpoint()) > 1) {
+		std::cout << driveOut->getPower() <<std::endl;
+		driveTank(driveOut->getPower(), driveOut->getPower());
+	}
+	rEnc->Reset();
+	lEnc->Reset();
+	EnablePID(false);
+	driveTank(0,0);
+}
+
+void DriveModule::turn(double angle) {
+	rEnc->Reset();
+	lEnc->Reset();
+	Timer* time = new Timer();
+	time->Start();
+	EnablePID(true);
+	setAngleSetpoint(angle);
+	std::cout << abs(angleIn->PIDGet() - getAngleSetpoint()) <<std::endl;
+	while(time->Get() < 4 && (((angleIn->PIDGet() - getAngleSetpoint()) > 1) || ((angleIn->PIDGet() - getAngleSetpoint()) < -1))) {
+		std::cout <<  abs(angleIn->PIDGet() - getAngleSetpoint())  <<std::endl;
+		driveTank(angleOut->getPower(), -angleOut->getPower());
+	}
+	rEnc->Reset();
+	lEnc->Reset();
+	EnablePID(false);
+	driveTank(0,0);
 }

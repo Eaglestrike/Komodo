@@ -24,7 +24,24 @@ public:
 	}
 
 	double PIDGet() {
-		return (rEnc->GetDistance() - lEnc->GetDistance())/2.0;
+		return (rEnc->PIDGet() + lEnc->PIDGet())/2.0;
+	}
+};
+
+class AngleIn: public PIDSource {
+private:
+	Encoder* rEnc;
+	Encoder* lEnc;
+
+public:
+	virtual ~AngleIn(){}
+	AngleIn(Encoder* rEncInput, Encoder* lEncInput) {
+		rEnc = rEncInput;
+		lEnc = lEncInput;
+	}
+
+	double PIDGet() {
+		return (rEnc->GetDistance() - lEnc->GetDistance());
 	}
 };
 
@@ -56,7 +73,18 @@ public:
 	double getDriveSetpoint();
 	void setDrivePID(double p, double i, double d);
 	double getDriveOutput();
-
+	double getRightEncoder();
+	double getLeftEncoder();
+	void setPID(double p, double i, double d);
+	double getD();
+	double getI();
+	double getP();
+	void EnablePID(bool enable);
+	double getAngleOutput();
+	void setAngleSetpoint(double angle);
+	double getAngleSetpoint();
+	void drive(double setpoint);
+	void turn(double angle);
 private:
 	CANTalon* rTalon1;
 	CANTalon* rTalon2;
@@ -69,7 +97,10 @@ private:
 	Encoder* rEnc;
 	DriveIn* driveIn;
 	DriveOut* driveOut;
+	AngleIn* angleIn;
+	DriveOut* angleOut;
 	PIDController* drive_controller;
+	PIDController* angle_controller;
 };
 
 
