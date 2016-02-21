@@ -41,6 +41,7 @@ void DriveModule::setLeftPower(double lPow) {
 void DriveModule::EnablePID(bool enable) {
 	if(enable){
 		drive_controller->Enable();
+
 		angle_controller->Enable();
 	} else {
 		drive_controller->Disable();
