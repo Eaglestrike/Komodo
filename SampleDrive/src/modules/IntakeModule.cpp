@@ -7,7 +7,7 @@
 
 #include <modules/IntakeModule.h>
 
-IntakeModule::IntakeModule(int spinInput, int moveInput) {
+IntakeModule::IntakeModule(int spinInput,int moveInput) {
 	spinTalon = new CANTalon(spinInput);
 	moveSol = new Solenoid(moveInput);
 
@@ -27,4 +27,8 @@ void IntakeModule::deployIntake() {
 
 void IntakeModule::alternateIntake() {
 	moveSol->Set(!moveSol->Get());
+}
+
+bool IntakeModule::getStatus() {
+	return moveSol->Get();
 }

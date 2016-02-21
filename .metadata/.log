@@ -567,3 +567,207 @@ Caused by: java.io.IOException: CreateProcess error=2, The system cannot find th
 
 !ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-18 20:41:19.940
 !MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-19 17:13:55.278
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-19 17:13:55.290
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-19 17:18:13.687
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-19 17:18:13.697
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-19 17:20:19.365
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-19 17:20:19.375
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-19 17:21:34.184
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-19 17:21:34.194
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-19 17:40:19.464
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-19 17:40:19.475
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-19 18:48:36.543
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-19 18:48:36.553
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-19 18:50:23.685
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-19 18:50:23.695
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-19 19:01:35.360
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-19 19:01:35.370
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-19 19:15:49.264
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-19 19:15:49.273
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 10:31:28.315
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 10:31:28.330
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 13:16:39.023
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 13:16:39.031
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 13:18:08.517
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 13:18:08.533
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 13:23:51.243
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 13:23:51.258
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 13:26:46.413
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 13:26:46.429
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 13:46:47.041
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 13:46:47.048
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 13:55:10.182
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 13:55:10.187
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 13:57:03.226
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 13:57:03.235
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 13:57:37.820
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 13:57:37.820
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 14:24:31.258
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 14:24:31.273
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 14:34:51.296
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 14:34:51.296
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 14:43:42.800
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 14:43:42.815
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 14:45:07.629
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 14:45:07.629
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 14:57:48.376
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 14:57:48.376
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 14:59:51.424
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 14:59:51.424
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:01:26.054
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:01:26.070
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:03:11.191
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:03:11.191
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:05:28.289
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:05:28.304
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:17:42.357
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:17:42.357
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:21:04.717
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:21:04.717
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:22:29.760
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:22:29.776
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:32:48.994
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:32:49.010
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:34:48.601
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:34:48.617
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:38:56.841
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:38:56.848
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:39:56.402
+!MESSAGE Running ant file: C:\Robotics\Komodo\SampleDrive\build.xml
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2016-02-20 15:39:56.402
+!MESSAGE Targets: deploy, Mode: run

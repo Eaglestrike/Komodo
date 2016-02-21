@@ -12,13 +12,14 @@
 
 class IntakeModule {
 public:
-	IntakeModule(int spinInput, int moveInput);
+	IntakeModule(int spinInput,int moveInput);
 	void setSpinPower(double pow);
 	void spinIn();
 	void spinOut();
 	void deployIntake();
 	void retractIntake();
 	void alternateIntake();
+	bool getStatus();
 
 private:
 	CANTalon* spinTalon;
