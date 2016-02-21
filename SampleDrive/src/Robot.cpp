@@ -20,8 +20,12 @@ public:
 	std::shared_ptr<NetworkTable> visionTable;
 private:
 	double movementInX=0;
+
 	double xTime;
 	double yTime;
+	I2C *i2c;
+	uint8_t lightPattern[1];
+	uint8_t arduinoData[1];
 	double xAngle;
 	double setpoint=0;
 	Compressor* test;
@@ -68,7 +72,7 @@ private:
 		up = new Servo(0);
 		side = new Servo(1);
 
-
+		lightPattern[0] = 0;
 		//rJoy = new Joystick(1);
 		//lJoy = new Joystick(0);
 		//controller = new Xbox(2);
@@ -137,6 +141,7 @@ private:
 //				yMovePerTick = visionTable->GetNumber("yTicks");
 //				xMovePerTick = visionTable->GetNumber("xTicks");
 
+		lightPattern[0]=DriverStation::GetInstance()->GetAlliance()+1;
 		up->SetAngle(150);
 		side->SetAngle(90);
 		arcade = false;
@@ -150,6 +155,9 @@ private:
 
 	void TeleopPeriodic()
 	{
+
+		std::cout<<"Arduino sending result: "<<i2c->Write(84,lightPattern[0])<<std::endl;
+
 		if (rJoy->GetRawButton(1)) {
 			arcade = !arcade;
 		}
@@ -311,6 +319,10 @@ private:
 //					side->SetAngle(side->GetAngle()+xMovePerTick*movementFactor*2);
 //				}
 
+	}
+	void DisabledPeriodic(){
+		lightPattern[0] = 0; // Probably better to define enums for various light modes, but set a light mode here
+		std::cout<<"Arduino sending result: "<<i2c->Write(84,lightPattern[0])<<std::endl;
 	}
 
 	void TestInit() {
