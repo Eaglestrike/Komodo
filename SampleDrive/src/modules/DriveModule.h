@@ -45,12 +45,10 @@ public:
 	}
 };
 
-class DriveOut: public PIDOutput {
-private:
-	double power;
+class DriveOut : public PIDOutput  {
 
 public:
-	DriveOut(): power(0) {}
+	DriveOut() {}
 	virtual ~DriveOut(){}
 
 	void PIDWrite(float output) {
@@ -60,6 +58,9 @@ public:
 	double getPower() {
 		return power;
 	}
+
+private:
+	double power = 0;
 };
 
 class DriveModule{

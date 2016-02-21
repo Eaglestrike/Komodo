@@ -13,6 +13,7 @@
 #include "Settings.h"
 #include "modules/FlipperModule.h"
 #include "Xbox.h"
+#include "CameraInput.h"
 
 class Robot: public IterativeRobot
 {
@@ -60,6 +61,7 @@ private:
 	double b = -0.0011549369;
 	double c = 0.1656727552;
 	AnalogInput* ultra;
+	CameraInput* panInput;
 
 	void RobotInit()
 	{

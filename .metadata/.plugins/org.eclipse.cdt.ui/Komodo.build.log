@@ -1,10 +1,4 @@
-15:39:56 **** Incremental Build of configuration Debug for project Komodo ****
-Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\Komodo\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "VisionRobot\\src\\HUDServer.o" "..\\VisionRobot\\src\\HUDServer.cpp" 
-..\VisionRobot\src\HUDServer.cpp:8:23: fatal error: HUDServer.h: No such file or directory
- #include <HUDServer.h>
-                       ^
-compilation terminated.
+22:42:39 **** Clean-only build of configuration Debug for project Komodo ****
 
-15:39:56 Build Finished (took 140ms)
+22:42:39 Build Finished (took 98ms)
 
