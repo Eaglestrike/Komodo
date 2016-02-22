@@ -21,7 +21,7 @@ public:
 	std::shared_ptr<NetworkTable> visionTable;
 private:
 	double movementInX=0;
-
+	DriverStation::Alliance color;
 	double xTime;
 	double yTime;
 	I2C *i2c;
@@ -144,8 +144,7 @@ private:
 		//				Ytolerance = visionTable->GetNumber("YTolerance");
 		//				yMovePerTick = visionTable->GetNumber("yTicks");
 		//				xMovePerTick = visionTable->GetNumber("xTicks");
-		DriverStation::Alliance color = DriverStation::GetInstance().GetAlliance();
-		lightPattern[0]=color+1;
+
 //		lightPattern[0]=lightPattern[0]+1;
 		up->SetAngle(180);
 		side->SetAngle(90);
@@ -160,8 +159,10 @@ private:
 
 	void TeleopPeriodic()
 	{
-
-		//std::cout<<"Arduino sending result: "<<i2c->Write(84,lightPattern[0])<<std::endl;
+		color = DriverStation::GetInstance().GetAlliance();
+		lightPattern[0]=color+1;
+		std::cout<<"color: "<<color+1<<std::endl;
+		i2c->Write(84,lightPattern[0]);
 
 		if (rJoy->GetRawButton(1)) {
 			arcade = !arcade;
@@ -359,7 +360,7 @@ private:
 	}
 	void DisabledPeriodic(){
 		lightPattern[0] = 0; // Probably better to define enums for various light modes, but set a light mode here
-		//std::cout<<"Arduino sending result: "<<i2c->Write(84,lightPattern[0])<<std::endl;
+		i2c->Write(84,lightPattern[0]);
 	}
 
 	void TestInit() {
