@@ -13,7 +13,7 @@
 #include "Settings.h"
 #include "modules/FlipperModule.h"
 #include "Xbox.h"
-#include "CameraInput.h"
+//#include "CameraInput.h"
 
 class Robot: public IterativeRobot
 {
@@ -59,12 +59,14 @@ private:
 	FlipperModule* tomahawks;
 	int tomahawkCounter = 0;
 	//PCM* pcm;
+	bool cameras=false;
+	int cameracount=0;
 	int counter=0;
 	double a = 3.897257 * pow(10, -6);
 	double b = -0.0011549369;
 	double c = 0.1656727552;
 	AnalogInput* ultra;
-	CameraInput* panInput;
+	//CameraInput* panInput;
 
 	void RobotInit()
 	{
@@ -73,7 +75,7 @@ private:
 		up = new Servo(0);
 		side = new Servo(1);
 		lightPattern[0] = 0;
-
+		i2c = new I2C(I2C::Port::kOnboard, 84);
 
 		rJoy = new Joystick(1);
 		lJoy = new Joystick(0);
@@ -145,7 +147,7 @@ private:
 		DriverStation::Alliance color = DriverStation::GetInstance().GetAlliance();
 		lightPattern[0]=color+1;
 //		lightPattern[0]=lightPattern[0]+1;
-		up->SetAngle(150);
+		up->SetAngle(180);
 		side->SetAngle(90);
 		arcade = false;
 		std::cout<<"yoyoyo"<<std::endl;
@@ -159,7 +161,7 @@ private:
 	void TeleopPeriodic()
 	{
 
-		std::cout<<"Arduino sending result: "<<i2c->Write(84,lightPattern[0])<<std::endl;
+		//std::cout<<"Arduino sending result: "<<i2c->Write(84,lightPattern[0])<<std::endl;
 
 		if (rJoy->GetRawButton(1)) {
 			arcade = !arcade;
@@ -174,11 +176,12 @@ private:
 		//std::cout << "Autonomous starting" << std::endl;
 
 
-		intake->setSpinPower(controller->getRX());
+		intake->setSpinPower(controller->getLX());
 		//if(rJoy->GetTrigger() && lJoy->GetTrigger() && !shooter->getShot()) {
 		//shooter->shoot(1, 1, 2);
 		//}
-		if(controller->getX()) {
+		if(controller->getRT()) {
+			drive->driveTank(0,0);
 			shooter->mShoot(1);
 			Wait(1.5);
 			shooter->shootKicker(true);
@@ -187,7 +190,7 @@ private:
 		else {
 			shooter->shootKicker(false);
 		}
-		shooter->mShoot(controller->getLX());
+		shooter->mShoot(-controller->getLX());
 		//shooter->setAngleMotorPower(.2 * controller->getRX());
 		//std::cout << "Autonomous starting" << std::endl;
 
@@ -198,20 +201,24 @@ private:
 			shooter->shootKicker(true);
 			Wait(.5);
 		}
-		if(controller->getY() != intakes){
+		if(controller->getLB() != intakes){
 			intakeCounter++;
 		}
-		intakes = controller->getY();
+		intakes = controller->getLB();
+		if(lJoy->GetRawButton(2) != cameras){
+					cameracount++;
+				}
+				cameras = lJoy->GetRawButton(2);
 		//std::cout << "Autonomous starting" << std::endl;
 
-		if(controller->getA() != tomah){
+		if(controller->getRB() != tomah){
 			tomahawkCounter++;
 		}
-		if(controller->getLB()){
+		if(controller->getA()){
 			//if(intake->getStatus() || shooter->getSetpoint() == LEVEL_ANGLE)
 			shooter->tilt(RINTAKE_ANGLE);
 		}
-		if(controller->getRB()){
+		if(controller->getY()){
 			//if(intake->getStatus || shooter->getSetpoint() >= LEVEL_ANGLE)
 			shooter->tilt(RSHOOT_ANGLE);
 		}
@@ -219,7 +226,7 @@ private:
 			//if(intake->getStatus || shooter->getSetpoint() >= LEVEL_ANGLE)
 			shooter->tilt(RAMPOTPOSITION);
 		}
-		if(controller->getBack()) {
+		if(controller->getX()) {
 			//if(intake->getStatus || shooter->getSetpoint() == RINTAKE_ANGLE)
 			shooter->tilt(LEVEL_ANGLE);
 		}
@@ -230,11 +237,17 @@ private:
 		//			Wait(.5);
 		//			shooter->mShoot(0);
 		//		}
-		if(rJoy->GetRawButton(6)) {
-			tomahawkCounter = 2;
-			intakeCounter = 2;
+//		if(rJoy->GetRawButton(6)) {
+//			tomahawkCounter = 2;
+//			intakeCounter = 2;
+//		}
+		if(!shooter->isBallIn()) {
+			controller->SetRumble(Xbox::kRightRumble, .5);
+
+		}  else {
+			controller->SetRumble(Xbox::kRightRumble, 0);
 		}
-		tomah = controller->getA();
+		tomah = controller->getRB();
 
 		//std::cout << "Autonomous starting" << std::endl;
 
@@ -264,7 +277,16 @@ private:
 		}else if(intakeCounter % 2 == 0){
 			intake->deployIntake();
 		}
-		std::cout << "Autonomous starting" << std::endl;
+		if(cameracount % 4 == 0){
+					up->SetAngle(180);
+				}else if(cameracount % 2 == 0){
+					up->SetAngle(150);
+				}
+
+		if(lJoy->GetRawButton(2)){
+			up->Set(150);
+		}
+		//std::cout << "Autonomous starting" << std::endl;
 
 		//		if(intakeCounter % 20 == 0) {
 		//			std::cout << "controller value" << controller->getA() << std::endl;
@@ -337,7 +359,7 @@ private:
 	}
 	void DisabledPeriodic(){
 		lightPattern[0] = 0; // Probably better to define enums for various light modes, but set a light mode here
-		std::cout<<"Arduino sending result: "<<i2c->Write(84,lightPattern[0])<<std::endl;
+		//std::cout<<"Arduino sending result: "<<i2c->Write(84,lightPattern[0])<<std::endl;
 	}
 
 	void TestInit() {
