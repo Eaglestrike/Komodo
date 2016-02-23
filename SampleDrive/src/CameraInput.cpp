@@ -17,6 +17,6 @@ CameraInput::~CameraInput() {
 }
 
 double CameraInput::PIDGet() {
-	return m_visionTable->GetNumber("Center");
+	return m_visionTable->GetNumber("xValue");
 }
 

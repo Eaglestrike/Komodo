@@ -12,7 +12,7 @@
 
 class IntakeModule {
 public:
-	IntakeModule(int spinInput,int moveInput);
+	IntakeModule(int spinInput, int spinInput2, int moveInput);
 	void setSpinPower(double pow);
 	void spinIn();
 	void spinOut();
@@ -23,6 +23,7 @@ public:
 
 private:
 	CANTalon* spinTalon;
+	CANTalon* spinTalon2;
 	Solenoid* moveSol;
 };
 

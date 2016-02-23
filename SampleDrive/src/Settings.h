@@ -20,7 +20,7 @@
 #define RSHOOTER_CONTROLLER_P -7.2
 #define RSHOOTER_CONTROLLER_I 0
 #define RSHOOTER_CONTROLLER_D 0
-#define RBACK_COURT 0.27
+#define RBACK_COURT 0.30
 
 #define AUTOSHOT 0.298
 #define RINTAKESHOOTSIDE 0.55
@@ -78,6 +78,7 @@
 #define TOMOHAWKS 2
 #define INTAKE_SOL 0
 #define SHOOTER_SOL 1
+#define INTAKE_MOTOR_2 9
 
 
 #endif /* SRC_SETTINGS_H_ */

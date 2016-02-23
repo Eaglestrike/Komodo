@@ -7,14 +7,16 @@
 
 #include <modules/IntakeModule.h>
 
-IntakeModule::IntakeModule(int spinInput,int moveInput) {
+IntakeModule::IntakeModule(int spinInput, int spinInput2, int moveInput) {
 	spinTalon = new CANTalon(spinInput);
+	spinTalon2 = new CANTalon(spinInput2);
 	moveSol = new Solenoid(moveInput);
 
 }
 
 void IntakeModule::setSpinPower(double pow) {
 	spinTalon->Set(pow);
+	spinTalon2->Set(pow);
 }
 
 void IntakeModule::retractIntake() {

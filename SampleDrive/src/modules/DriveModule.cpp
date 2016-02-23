@@ -6,7 +6,7 @@
  */
 #include "DriveModule.h"
 
-DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, int lEncB, int rEncA, int rEncB) {
+DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, int lEncB, int rEncA, int rEncB, PIDSource*  panIn) {
 	rTalon1 = new CANTalon(rTal1);
 	rTalon2 = new CANTalon(rTal2);
 	lTalon1 = new CANTalon(lTal1);
@@ -16,6 +16,7 @@ DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, 
 	lEnc = new Encoder(lEncA, lEncB);
 	//rEnc->SetDistancePerPulse(0.04477);
 	//lEnc->SetDistancePerPulse(0.04477);
+	panOut = new DriveOut();
 	lEnc->SetReverseDirection(true);
 	driveIn = new DriveIn(rEnc, lEnc);
 	driveOut = new DriveOut();
@@ -25,6 +26,9 @@ DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, 
 	angleOut = new DriveOut();
 	angle_controller = new PIDController(ANGLE_CONTROLLER_P, ANGLE_CONTROLLER_I, ANGLE_CONTROLLER_D, angleIn, angleOut);
 	angle_controller->SetOutputRange(-.5, .5);
+	pan = panIn;
+	pan_controller = new PIDController(0.005,0,.84, pan, panOut);
+	pan_controller->SetOutputRange(-.4, .4);
 	//drive_controller->Enable();
 }
 
@@ -167,4 +171,43 @@ void DriveModule::turn(double angle) {
 	lEnc->Reset();
 	EnablePID(false);
 	driveTank(0,0);
+}
+
+void DriveModule::setPanPID(double p, double i, double d) {
+	pan_controller->SetPID(p, i , d);
+}
+
+double DriveModule::getPanP() {
+	return pan_controller->GetP();
+}
+
+double DriveModule::getPanI() {
+	return pan_controller->GetI();
+}
+
+double DriveModule::getPanD() {
+	return pan_controller->GetD();
+}
+
+void DriveModule::setPanSetpoint(double setPoint) {
+	pan_controller->SetSetpoint(setPoint);
+}
+
+void DriveModule::enablePan(bool enable) {
+	if(enable)
+		pan_controller->Enable();
+	else
+		pan_controller->Disable();
+}
+
+double DriveModule::getPanOutput() {
+	return panOut->getPower();
+}
+
+double DriveModule::getPanSetpoint() {
+	return pan_controller->GetSetpoint();
+}
+
+double DriveModule::getPanInput() {
+	return pan->PIDGet();
 }

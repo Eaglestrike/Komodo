@@ -10,6 +10,7 @@
 
 #include <WPILib.h>
 #include "Settings.h"
+#include "CameraInput.h"
 
 class DriveIn: public PIDSource {
 private:
@@ -65,7 +66,7 @@ private:
 
 class DriveModule{
 public:
-	DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, int lEncB, int rEncA, int rEncB);
+	DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, int lEncB, int rEncA, int rEncB, PIDSource* panIn);
 	void setRightPower(double rPow);
 	void setLeftPower(double lPow);
 	void driveArcade(double throttle, double angle);
@@ -86,6 +87,16 @@ public:
 	double getAngleSetpoint();
 	void drive(double setpoint);
 	void turn(double angle);
+	void setPanPID(double p, double i, double d);
+	double getPanP();
+	double getPanI();
+	double getPanD();
+	void setPanSetpoint(double setPoint);
+	void enablePan(bool enable);
+	double getPanOutput();
+	double getPanSetpoint();
+	double getPanInput();
+
 private:
 	CANTalon* rTalon1;
 	CANTalon* rTalon2;
@@ -100,8 +111,11 @@ private:
 	DriveOut* driveOut;
 	AngleIn* angleIn;
 	DriveOut* angleOut;
+	DriveOut* panOut;
 	PIDController* drive_controller;
 	PIDController* angle_controller;
+	PIDController* pan_controller;
+	PIDSource* pan;
 };
 
 
