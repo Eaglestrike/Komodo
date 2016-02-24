@@ -41,6 +41,11 @@
 #define LEVEL_ANGLE 0.7281
 #define PINTAKE_ANGLE 0
 #define RSHOOT_ANGLE 0.322551
+#define RSHOOT .31
+#define RSHOOT1 .324
+//101 to
+#define RSHOOT2 .334
+// .35, .344, .349
 //CAN values
 #define SHOOTERMOTOR1 7
 #define SHOOTERMOTOR2 8
@@ -70,6 +75,11 @@
 #define DRIVE_ENCODER_2_A 5
 #define DRIVE_ENCODER_2_B 6
 #define TICKS_PER_INCH 13.479
+#define DISTANCE1 60
+#define DISTANCE2 72
+#define DISTANCE3 103
+#define DISTANCE4 174
+#define DISTANCE5 209
 
 //intake
 

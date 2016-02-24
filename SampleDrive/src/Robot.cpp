@@ -47,7 +47,7 @@ private:
 
 	IntakeModule* intake;
 	DriveModule* drive;
-	double setpointz = 0.29;
+	double setpointz = 0.34;
 	//LogisticFunction* func;
 	ShooterModule* shooter;
 	Joystick* rJoy;
@@ -71,6 +71,7 @@ private:
 	CameraInput* panInput;
 	PIDController* panController;
 	bool ball = false;
+	bool detected = false;
 	int counr = 0;
 
 	void RobotInit()
@@ -164,19 +165,19 @@ private:
 		std::cout<<"yoyoyo"<<std::endl;
 		color = DriverStation::GetInstance().GetAlliance();
 		lightPattern[0]=color+1;
+		width = visionTable->GetNumber("width");
 		//std::cout << "Autonomous starting" << std::endl;
 		//autonGo(900,2);
 	}
 
 	void TeleopPeriodic()
 	{
+		detected = visionTable->GetNumber("detected");
 		color = DriverStation::GetInstance().GetAlliance();
 		//std::cout<<"color: "<<color+1<<std::endl;
 		i2c->Write(84,lightPattern[0]);
 
-		if (rJoy->GetRawButton(1)) {
-			arcade = !arcade;
-		}
+
 
 		if (arcade) {
 			drive->driveArcade(rJoy->GetY(),lJoy->GetX());
@@ -193,6 +194,22 @@ private:
 		//}
 		//std::cout<<"yoyoyo"<<std::endl;
 
+		if(lJoy->GetRawButton(3)) {
+			drive->enablePan(true);
+			drive->setPanSetpoint(width/2);
+			if(!detected) {
+				lightPattern[0]=4;
+			}
+			while(abs(drive->getPanInput() - drive->getPanSetpoint()) > 40) {
+				drive->driveTank(drive->getPanOutput(), -drive->getPanOutput());
+				detected = visionTable->GetNumber("detected");
+				if(lJoy->GetRawButton(4)) {
+					break;
+				}
+			}
+			drive->driveTank(0,0);
+			drive->enablePan(false);
+		}
 		if(controller->getRT()) {
 			drive->driveTank(0,0);
 			shooter->mShoot(1);
@@ -207,7 +224,20 @@ private:
 		//shooter->setAngleMotorPower(.2 * controller->getRX());
 		//std::cout << "Autonomous starting" << std::endl;
 
+		if(lJoy->GetRawButton(5)) {
+			distance = visionTable->GetNumber("distance");
+			distance = distance - 41;
+			if(distance > DISTANCE4 && distance < DISTANCE5 && !as) {
+				shooter->tilt(RSHOOT);
+			}
+			if(distance > DISTANCE3 && distance < DISTANCE4 && !as) {
+				shooter->tilt(RSHOOT1);
+			}
+			if(distance > DISTANCE2 && distance < DISTANCE1 && !as) {
+				shooter->tilt(RSHOOT2);
 
+			}
+		}
 		if(lJoy->GetTrigger() && rJoy->GetTrigger()) {
 			shooter->mShoot(RAMPOWER);
 			Wait(2.5);
@@ -233,11 +263,11 @@ private:
 		}
 		if(controller->getY()){
 			//if(intake->getStatus || shooter->getSetpoint() >= LEVEL_ANGLE)
-			shooter->tilt(RSHOOT_ANGLE);
+			shooter->tilt(RSHOOT);
 		}
 		if(controller->getStart()){
 			//if(intake->getStatus || shooter->getSetpoint() >= LEVEL_ANGLE)
-			shooter->tilt(RBACK_COURT);
+			shooter->tilt(RSHOOT_ANGLE);
 		}
 		if(controller->getX()) {
 			//if(intake->getStatus || shooter->getSetpoint() == RINTAKE_ANGLE)
@@ -389,77 +419,111 @@ private:
 
 	void TestInit() {
 		//std::cout<<"P: "<<shooter->getP()<<" I: "<<shooter->getI()<<" D: "<<shooter->getD()<<std::endl;
+		//width = visionTable->GetNumber("width");
+		shooter->enablePID();
+		shooter->setMaxPower(.5);
 		width = visionTable->GetNumber("width");
-		//shooter->enablePID();
-		//shooter->setMaxPower(.5);
 		//test->SetClosedLoopControl(false);
-		//shooter->tilt(RSHOOT_ANGLE);
+		shooter->tilt(RSHOOT_ANGLE);
 		//shooter->tilt(RAMPOTPOSITION);
-		drive->EnablePID(true);
-		drive->enablePan(true);
+		//drive->EnablePID(true);
+		//drive->enablePan(true);
 	}
+	double distance = 0;
+	bool as = false;
 
 	void TestPeriodic()
 	{
 		//TestForultra();
+		distance = visionTable->GetNumber("distance");
+		distance = distance - 41;
+		shooter->mShoot(-controller->getLX());
+		if(counter % 60 == 0) {
+			std::cout<<"tilt:" << distance<< " setpoint: " << shooter->getSetpoint()<< std::endl;;
 
-		//		if(intakeCounter % 60 == 0) {
-		//			std::cout<<"tilt:" << shooter->getAngle()<< " setpoint: " << shooter->getSetpoint()<< std::endl;;
-		//
-		//			//			std::cout << shooter->getAngle() << std::endl;
-		//			//
-		//		}
-		//		intakeCounter++;
-		//
-		//		////		lw->Run();
-		//		if(controller->getBack()){
-		//			intake->deployIntake();
-		//		}
-		//		else {
-		//			intake->retractIntake();
-		//		}
-		//
-		//		if(controller->getRB()) {
-		//			shooter->mShoot(1);
-		//			Wait(2);
-		//			shooter->shootKicker(true);
-		//			Wait(.5);
-		//		}
-		//
-		//		drive->driveTank(lJoy->GetY(),rJoy->GetY());
-		//		counter++;
-		//		if(controller->getY()){
-		//			shooter->tilt(setpointz+.001);
-		//			setpointz = shooter->getSetpoint();
-		//		}
-		//		if(controller->getA()){
-		//			shooter->tilt(setpointz -.001);
-		//			setpointz = shooter->getSetpoint();
-		//		}
-		//		if(controller->getB()) {
-		//			shooter->tilt(RINTAKE_ANGLE);
-		//		}
-		//		if(controller->getStart()) {
-		//			shooter->tilt(setpointz);
-		//		}
-		//		//if(controller->getButtonPress(Xbox::A))
-		//		if(controller->getX()) {
-		//			shooter->mShoot(1);
-		//			Wait(2);
-		//			shooter->shootKicker(true);
-		//			Wait(.5);
-		//		}
-		//		else {
-		//			shooter->shootKicker(false);
-		//			shooter->mShoot(0);
-		//		}
-		//		shooter->mShoot(controller->getLX()*0.608);
-		//
-		//		Wait(.05);
+			//			std::cout << shooter->getAngle() << std::endl;
+			//
+		}
+		counter++;
+
+		////		lw->Run();
+		if(controller->getBack()){
+			intake->deployIntake();
+		}
+		else {
+			intake->retractIntake();
+		}
+
+		if(controller->getRB()) {
+			shooter->mShoot(1);
+			Wait(2);
+			shooter->shootKicker(true);
+			Wait(.5);
+		}
+
+		drive->driveTank(lJoy->GetY(),rJoy->GetY());
+		counter++;
+		if(controller->getY()){
+			shooter->tilt(RSHOOT);
+		}
+		if(controller->getA()){
+			shooter->tilt(RSHOOT1);
+		}
+		if(controller->getB()) {
+			shooter->tilt(RSHOOT2);
+		}
+		if(controller->getStart()) {
+			shooter->tilt(RINTAKE_ANGLE);
+			as = true;
+		}
+		else {
+			as = false;
+		}
+
+		if(distance > DISTANCE4 && distance < DISTANCE5 && !as) {
+			shooter->tilt(RSHOOT);
+		}
+		if(distance > DISTANCE3 && distance < DISTANCE4 && !as) {
+			shooter->tilt(RSHOOT1);
+		}
+		if(distance > DISTANCE2 && distance < DISTANCE1 && !as) {
+			shooter->tilt(RSHOOT2);
+		}
+		//if(controller->getButtonPress(Xbox::A))
+		if(controller->getX()) {
+			drive->driveTank(0,0);
+			shooter->mShoot(1);
+			Wait(2);
+			shooter->shootKicker(true);
+			Wait(.5);
+		}
+		else {
+			shooter->shootKicker(false);
+			shooter->mShoot(0);
+		}
+		shooter->mShoot(controller->getLX()*0.608);
+
+		Wait(.05);
+		if(lJoy->GetRawButton(3)) {
+			drive->enablePan(true);
+			drive->setPanSetpoint(width/2);
+			if(!detected) {
+				lightPattern[0]=4;
+			}
+			while(abs(drive->getPanInput() - drive->getPanSetpoint()) > 40) {
+				drive->driveTank(drive->getPanOutput(), -drive->getPanOutput());
+				detected = visionTable->GetNumber("detected");
+				if(lJoy->GetRawButton(4)) {
+					break;
+				}
+			}
+			drive->driveTank(0,0);
+			drive->enablePan(false);
+		}
 		//TestDrive();
 		//TestPID();
 		//TestShooterPID();
-		TestPan();
+		//TestPan();
 		Wait(.05);
 	}
 
