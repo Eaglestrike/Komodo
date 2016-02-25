@@ -6,7 +6,7 @@
  */
 #include "DriveModule.h"
 
-DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, int lEncB, int rEncA, int rEncB, PIDSource*  panIn) {
+DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, int lEncB, int rEncA, int rEncB, PIDSource*  panIn) : RobotModule("DriveModule") {
 	rTalon1 = new CANTalon(rTal1);
 	rTalon2 = new CANTalon(rTal2);
 	lTalon1 = new CANTalon(lTal1);
@@ -20,11 +20,19 @@ DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, 
 	lEnc->SetReverseDirection(true);
 	driveIn = new DriveIn(rEnc, lEnc);
 	driveOut = new DriveOut();
-	drive_controller = new PIDController(DRIVE_CONTROLLER_P, DRIVE_CONTROLLER_I, DRIVE_CONTROLLER_D, driveIn, driveOut);
+	if (real) {
+		drive_controller = new PIDController(RDRIVE_CONTROLLER_P, RDRIVE_CONTROLLER_I, RDRIVE_CONTROLLER_D, driveIn, driveOut);
+	} else {
+		drive_controller = new PIDController(PDRIVE_CONTROLLER_P, PDRIVE_CONTROLLER_I, PDRIVE_CONTROLLER_D, driveIn, driveOut);
+	}
 	drive_controller->SetOutputRange(-.5, .5);
 	angleIn = new AngleIn(rEnc, lEnc);
 	angleOut = new DriveOut();
-	angle_controller = new PIDController(ANGLE_CONTROLLER_P, ANGLE_CONTROLLER_I, ANGLE_CONTROLLER_D, angleIn, angleOut);
+	if (real) {
+		angle_controller = new PIDController(RANGLE_CONTROLLER_P, RANGLE_CONTROLLER_I, RANGLE_CONTROLLER_D, angleIn, angleOut);
+	} else {
+		angle_controller = new PIDController(PANGLE_CONTROLLER_P, PANGLE_CONTROLLER_I, PANGLE_CONTROLLER_D, angleIn, angleOut);
+	}
 	angle_controller->SetOutputRange(-.5, .5);
 	pan = panIn;
 	pan_controller = new PIDController(0.005,0,.84, pan, panOut);

@@ -9,6 +9,7 @@
 #include <iostream>
 #include <cstdio>
 #include <ctime>
+#include "RobotModule.h"
 
 #ifndef SRC_MODULES_SHOOTERMODULE_H_
 #define SRC_MODULES_SHOOTERMODULE_H_
@@ -50,7 +51,7 @@ public:
 
 };
 
-class ShooterModule {
+class ShooterModule: public RobotModule {
 public:
 	ShooterModule(int anglePort, int angleMotorPort, int leftport, int rightport, int solenoidPort, int buttonport);
 	virtual ~ShooterModule();

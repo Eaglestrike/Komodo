@@ -9,7 +9,7 @@
 
 
 
-ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, int rightport, int solenoidPort, int buttonport) {
+ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, int rightport, int solenoidPort, int buttonport) : RobotModule("ShooterModule") {
 	// TODO Auto-generated constructor stub
 	angle = new AnalogPotentiometer(anglePort);
 	angleMotor = new CANTalon(angleMotorPort);
@@ -32,7 +32,11 @@ ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, in
 //	rightShooter->SetPID(.12996,0,3);
 	shootIn = new ShooterIn(angle);
 	shootOut = new ShooterOut();
-	angleController = new PIDController(RSHOOTER_CONTROLLER_P, RSHOOTER_CONTROLLER_I, RSHOOTER_CONTROLLER_D,  shootIn, angleMotor);
+	if (real) {
+		angleController = new PIDController(RSHOOTER_CONTROLLER_P, RSHOOTER_CONTROLLER_I, RSHOOTER_CONTROLLER_D,  shootIn, angleMotor);
+	} else {
+		angleController = new PIDController(PSHOOTER_CONTROLLER_P, PSHOOTER_CONTROLLER_I, PSHOOTER_CONTROLLER_D,  shootIn, angleMotor);
+	}
 }
 
 ShooterModule::~ShooterModule() {

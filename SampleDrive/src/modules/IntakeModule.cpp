@@ -7,7 +7,7 @@
 
 #include <modules/IntakeModule.h>
 
-IntakeModule::IntakeModule(int spinInput, int spinInput2, int moveInput) {
+IntakeModule::IntakeModule(int spinInput, int spinInput2, int moveInput) : RobotModule("IntakeModule") {
 	spinTalon = new CANTalon(spinInput);
 	spinTalon2 = new CANTalon(spinInput2);
 	moveSol = new Solenoid(moveInput);

@@ -11,6 +11,7 @@
 #include <WPILib.h>
 #include "Settings.h"
 #include "CameraInput.h"
+#include "RobotModule.h"
 
 class DriveIn: public PIDSource {
 private:
@@ -64,7 +65,7 @@ private:
 	double power = 0;
 };
 
-class DriveModule{
+class DriveModule: public RobotModule{
 public:
 	DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, int lEncB, int rEncA, int rEncB, PIDSource* panIn);
 	void setRightPower(double rPow);

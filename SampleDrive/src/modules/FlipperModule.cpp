@@ -1,7 +1,7 @@
 
 #include "FlipperModule.h"
 
-FlipperModule::FlipperModule(int Solenoid1) {
+FlipperModule::FlipperModule(int Solenoid1) : RobotModule("FlipperModule") {
 	deploySol = new Solenoid(Solenoid1);
 }
 

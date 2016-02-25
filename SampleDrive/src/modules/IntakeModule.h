@@ -9,8 +9,10 @@
 #define SRC_MODULES_INTAKEMODULE_H_
 
 #include <WPIlib.h>
+#include "RobotModule.h"
 
-class IntakeModule {
+
+class IntakeModule: public RobotModule {
 public:
 	IntakeModule(int spinInput, int spinInput2, int moveInput);
 	void setSpinPower(double pow);

@@ -1,1 +1,32 @@
-Info: Nothing to build for SampleDrive
+14:56:42 **** Incremental Build of configuration Debug for project SampleDrive ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\SampleDrive\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopInit()':
+..\src\Robot.cpp:171:41: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+   width = visionTable->GetNumber("width");
+                                         ^
+..\src\Robot.cpp: In member function 'virtual void Robot::TeleopPeriodic()':
+..\src\Robot.cpp:178:47: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+   detected = visionTable->GetNumber("detected");
+                                               ^
+..\src\Robot.cpp:208:49: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+     detected = visionTable->GetNumber("detected");
+                                                 ^
+..\src\Robot.cpp:231:48: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+    distance = visionTable->GetNumber("distance");
+                                                ^
+..\src\Robot.cpp: In member function 'virtual void Robot::TestInit()':
+..\src\Robot.cpp:428:41: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+   width = visionTable->GetNumber("width");
+                                         ^
+..\src\Robot.cpp: In member function 'virtual void Robot::TestPeriodic()':
+..\src\Robot.cpp:441:47: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+   distance = visionTable->GetNumber("distance");
+                                               ^
+..\src\Robot.cpp:518:49: warning: 'virtual double NetworkTable::GetNumber(llvm::StringRef) const' is deprecated (declared at C:\Users\Samsung/wpilib/cpp/current/include/networktables/NetworkTable.h:277): Raises an exception if key not found; use GetNumber(StringRef key, double defaultValue) instead [-Wdeprecated-declarations]
+     detected = visionTable->GetNumber("detected");
+                                                 ^
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\Samsung/wpilib/cpp/current/lib" -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a,-rpath,/usr/local/frc/rpath-lib -o FRCUserProgram "src\\modules\\ShooterModule.o" "src\\modules\\RobotModule.o" "src\\modules\\IntakeModule.o" "src\\modules\\FlipperModule.o" "src\\modules\\DriveModule.o" "src\\Xbox.o" "src\\Robot.o" "src\\Peripherals\\AutonomousCode\\LogisticFunction.o" "src\\CameraInput.o" -lwpi 
+
+14:56:48 Build Finished (took 6s.183ms)
+

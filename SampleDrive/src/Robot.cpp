@@ -1,7 +1,7 @@
 #include "WPIlib.h"
 #include <math.h>
 #include "Xbox.h"
-#include "modules/IntakeModule.h"
+#include "modules/RobotModule.h"
 #include "modules/DriveModule.h"
 #include "Peripherals/AutonomousCode/LogisticFunction.h"
 #include <iostream>
@@ -12,6 +12,7 @@
 #include "modules/DriveModule.h"
 #include "Settings.h"
 #include "modules/FlipperModule.h"
+#include "modules/IntakeModule.h"
 #include "Xbox.h"
 //#include "CameraInput.h"
 
@@ -73,6 +74,8 @@ private:
 	bool ball = false;
 	bool detected = false;
 	int counr = 0;
+
+	bool real = true;
 
 	void RobotInit()
 	{
