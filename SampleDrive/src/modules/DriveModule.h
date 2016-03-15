@@ -26,24 +26,22 @@ public:
 	}
 
 	double PIDGet() {
-		return (rEnc->PIDGet() + lEnc->PIDGet())/2.0;
+		return rEnc->PIDGet();
 	}
 };
 
 class AngleIn: public PIDSource {
 private:
-	Encoder* rEnc;
-	Encoder* lEnc;
+	ADXRS450_Gyro* gyro;
 
 public:
 	virtual ~AngleIn(){}
-	AngleIn(Encoder* rEncInput, Encoder* lEncInput) {
-		rEnc = rEncInput;
-		lEnc = lEncInput;
+	AngleIn(ADXRS450_Gyro* g) {
+		gyro = g;
 	}
 
 	double PIDGet() {
-		return (rEnc->GetDistance() - lEnc->GetDistance());
+		return gyro->GetAngle();
 	}
 };
 
@@ -67,7 +65,7 @@ private:
 
 class DriveModule: public RobotModule{
 public:
-	DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, int lEncB, int rEncA, int rEncB, PIDSource* panIn);
+	DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, int lEncB, int rEncA, int rEncB, PIDSource* panIn, int gyroPort);
 	void setRightPower(double rPow);
 	void setLeftPower(double lPow);
 	void driveArcade(double throttle, double angle);
@@ -94,9 +92,15 @@ public:
 	double getPanD();
 	void setPanSetpoint(double setPoint);
 	void enablePan(bool enable);
+	void turnALPHA(double angle);
+	void calibrate();
 	double getPanOutput();
 	double getPanSetpoint();
 	double getPanInput();
+	double getAngle();
+	void setMaxPower(double min, double max);
+	void reset();
+	void resetEncoders();
 
 private:
 	CANTalon* rTalon1;
@@ -117,6 +121,7 @@ private:
 	PIDController* angle_controller;
 	PIDController* pan_controller;
 	PIDSource* pan;
+	ADXRS450_Gyro* gyro;
 };
 
 

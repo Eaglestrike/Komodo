@@ -21,15 +21,15 @@ ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, in
 	leftShooter->SetFeedbackDevice(CANTalon::QuadEncoder);
 	//leftShooter->EnableControl();
 	//leftShooter->SetInverted(true);
-//	leftShooter->SetPosition(0);
-//	leftShooter->SetControlMode(CANSpeedController::kSpeed);
-//	leftShooter->SetPID(.12996,0,3);
-//
-//	rightShooter->SetFeedbackDevice(CANTalon::QuadEncoder);
-//	//rightShooter->EnableControl();
-//	rightShooter->SetPosition(0);
-//	rightShooter->SetControlMode(CANSpeedController::kSpeed);
-//	rightShooter->SetPID(.12996,0,3);
+	//	leftShooter->SetPosition(0);
+	//	leftShooter->SetControlMode(CANSpeedController::kSpeed);
+	//	leftShooter->SetPID(.12996,0,3);
+	//
+	//	rightShooter->SetFeedbackDevice(CANTalon::QuadEncoder);
+	//	//rightShooter->EnableControl();
+	//	rightShooter->SetPosition(0);
+	//	rightShooter->SetControlMode(CANSpeedController::kSpeed);
+	//	rightShooter->SetPID(.12996,0,3);
 	shootIn = new ShooterIn(angle);
 	shootOut = new ShooterOut();
 	if (real) {
@@ -93,11 +93,21 @@ void ShooterModule::setAngleMotorPower(double power) {
 }
 
 void ShooterModule::tilt(double angle) {
-	if(angle > RMAXIMUM_ANGLE) {
-		angle = RMAXIMUM_ANGLE;
+	if(real) {
+		if(angle > RMAXIMUM_ANGLE) {
+			angle = RMAXIMUM_ANGLE;
+		}
+		if(angle < RMINIMUM_ANGLE) {
+			angle = RMINIMUM_ANGLE;
+		}
 	}
-	if(angle < RMINIMUM_ANGLE) {
-		angle = RMINIMUM_ANGLE;
+	if(!real) {
+		if(angle > PMAXIMUM_ANGLE) {
+			angle = PMAXIMUM_ANGLE;
+		}
+		if(angle < PMINIMUM_ANGLE) {
+			angle = PMINIMUM_ANGLE;
+		}
 	}
 	angleController->SetSetpoint(angle);
 }

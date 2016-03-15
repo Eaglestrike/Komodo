@@ -93,6 +93,7 @@ private:
 	ShooterOut* shootOut;
 	PIDController* angleController;
 	DigitalInput* button;
+	bool real = false;
 	bool shot = false;
 };
 

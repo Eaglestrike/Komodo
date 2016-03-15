@@ -6,7 +6,7 @@
  */
 #include "DriveModule.h"
 
-DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, int lEncB, int rEncA, int rEncB, PIDSource*  panIn) : RobotModule("DriveModule") {
+DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, int lEncB, int rEncA, int rEncB, PIDSource*  panIn, int gyroPort) : RobotModule("DriveModule") {
 	rTalon1 = new CANTalon(rTal1);
 	rTalon2 = new CANTalon(rTal2);
 	lTalon1 = new CANTalon(lTal1);
@@ -17,32 +17,45 @@ DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, 
 	//rEnc->SetDistancePerPulse(0.04477);
 	//lEnc->SetDistancePerPulse(0.04477);
 	panOut = new DriveOut();
+	gyro = new ADXRS450_Gyro(SPI::Port::kOnboardCS0);
+	gyro->Calibrate();
 	lEnc->SetReverseDirection(true);
 	driveIn = new DriveIn(rEnc, lEnc);
 	driveOut = new DriveOut();
 	if (real) {
-		drive_controller = new PIDController(RDRIVE_CONTROLLER_P, RDRIVE_CONTROLLER_I, RDRIVE_CONTROLLER_D, driveIn, driveOut);
+		drive_controller = new PIDController(PDRIVE_CONTROLLER_P, RDRIVE_CONTROLLER_I, RDRIVE_CONTROLLER_D, driveIn, driveOut);
 	} else {
 		drive_controller = new PIDController(PDRIVE_CONTROLLER_P, PDRIVE_CONTROLLER_I, PDRIVE_CONTROLLER_D, driveIn, driveOut);
 	}
-	drive_controller->SetOutputRange(-.5, .5);
-	angleIn = new AngleIn(rEnc, lEnc);
+	drive_controller->SetOutputRange(-.75, .75);
+	angleIn = new AngleIn(gyro);
 	angleOut = new DriveOut();
 	if (real) {
-		angle_controller = new PIDController(RANGLE_CONTROLLER_P, RANGLE_CONTROLLER_I, RANGLE_CONTROLLER_D, angleIn, angleOut);
+		angle_controller = new PIDController(PANGLE_CONTROLLER_P, RANGLE_CONTROLLER_I, RANGLE_CONTROLLER_D, angleIn, angleOut);
 	} else {
 		angle_controller = new PIDController(PANGLE_CONTROLLER_P, PANGLE_CONTROLLER_I, PANGLE_CONTROLLER_D, angleIn, angleOut);
 	}
 	angle_controller->SetOutputRange(-.5, .5);
-	pan = panIn;
-	pan_controller = new PIDController(0.005,0,.84, pan, panOut);
-	pan_controller->SetOutputRange(-.4, .4);
+//	pan = panIn;
+	pan = new AngleIn(gyro);
+	pan_controller = new PIDController( 0.023,0,0, pan, panOut);
+	// 0.0729007 5 degree
+	// 0.143002  2 degree
+	// 	0.0573003 10 degree
+	//  0.0346          15
+//	pan_controller->SetOutputRange(-.4, .4);
+	rEnc->Reset();
+	lEnc->Reset();
 	//drive_controller->Enable();
 }
 
 void DriveModule::setRightPower(double rPow) {
 	rTalon1->Set(rPow);
 	rTalon2->Set(rPow);
+}
+
+void DriveModule::calibrate() {
+	gyro->Calibrate();
 }
 
 void DriveModule::setLeftPower(double lPow) {
@@ -105,7 +118,7 @@ double DriveModule::getAngleOutput() {
 }
 
 void DriveModule::setDriveSetpoint(double setpoint) {
-	drive_controller->SetSetpoint(setpoint);
+	drive_controller->SetSetpoint(setpoint*120.75/95);
 }
 
 double DriveModule::getDriveSetpoint() {
@@ -133,18 +146,21 @@ double DriveModule::getP() {
 }
 
 double DriveModule::getI() {
-	return angle_controller->GetI();
+	return drive_controller->GetI();
 
 }
 
 double DriveModule::getD() {
-	return angle_controller->GetD();
+	return drive_controller->GetD();
 }
 
 void DriveModule::setPID(double p, double i, double d) {
 	angle_controller->SetPID(p,i,d);
 }
 
+void DriveModule::setMaxPower(double min, double max) {
+	angle_controller->SetOutputRange(min, max);
+}
 void DriveModule::drive(double setpoint) {
 	rEnc->Reset();
 	lEnc->Reset();
@@ -152,15 +168,21 @@ void DriveModule::drive(double setpoint) {
 	time->Start();
 	EnablePID(true);
 	setDriveSetpoint(setpoint);
+	setAngleSetpoint(0);
+	//setAngleSetpoint(0);
 	std::cout << " in " <<std::endl;
 	while(time->Get() < 4 && abs(driveIn->PIDGet() - getDriveSetpoint()) > 1) {
-		std::cout << driveOut->getPower() <<std::endl;
-		driveTank(driveOut->getPower(), driveOut->getPower());
+		//std::cout << driveOut->getPower() <<std::endl;
+		driveTank(-driveOut->getPower() - angleOut->getPower(), -driveOut->getPower() + angleOut->getPower());
 	}
-	rEnc->Reset();
-	lEnc->Reset();
+	//rEnc->Reset();
+	//lEnc->Reset();
 	EnablePID(false);
 	driveTank(0,0);
+}
+
+double DriveModule::getAngle() {
+	return gyro->GetAngle();
 }
 
 void DriveModule::turn(double angle) {
@@ -172,15 +194,30 @@ void DriveModule::turn(double angle) {
 	setAngleSetpoint(angle);
 	std::cout << abs(angleIn->PIDGet() - getAngleSetpoint()) <<std::endl;
 	while(time->Get() < 4 && (((angleIn->PIDGet() - getAngleSetpoint()) > 1) || ((angleIn->PIDGet() - getAngleSetpoint()) < -1))) {
-		std::cout <<  abs(angleIn->PIDGet() - getAngleSetpoint())  <<std::endl;
-		driveTank(angleOut->getPower(), -angleOut->getPower());
+		//std::cout <<  abs(angleIn->PIDGet() - getAngleSetpoint())  <<std::endl;
+		driveTank(-angleOut->getPower(), angleOut->getPower());
+	}
+	//	rEnc->Reset();
+	//	lEnc->Reset();
+	EnablePID(false);
+	driveTank(0,0);
+}
+
+void DriveModule::turnALPHA(double angle) {
+	Timer* time = new Timer();
+	time->Start();
+	EnablePID(true);
+	setAngleSetpoint(angle);
+	std::cout << abs(angleIn->PIDGet() - getAngleSetpoint()) <<std::endl;
+	while(time->Get() < 4 && (((angleIn->PIDGet() - getAngleSetpoint()) > 1) || ((angleIn->PIDGet() - getAngleSetpoint()) < -1))) {
+		//std::cout <<  abs(angleIn->PIDGet() - getAngleSetpoint())  <<std::endl;
+		driveTank(-angleOut->getPower(), angleOut->getPower());
 	}
 	rEnc->Reset();
 	lEnc->Reset();
 	EnablePID(false);
 	driveTank(0,0);
 }
-
 void DriveModule::setPanPID(double p, double i, double d) {
 	pan_controller->SetPID(p, i , d);
 }
@@ -218,4 +255,13 @@ double DriveModule::getPanSetpoint() {
 
 double DriveModule::getPanInput() {
 	return pan->PIDGet();
+}
+
+void DriveModule::reset() {
+	gyro->Reset();
+}
+
+void DriveModule::resetEncoders() {
+	rEnc->Reset();
+	lEnc->Reset();
 }

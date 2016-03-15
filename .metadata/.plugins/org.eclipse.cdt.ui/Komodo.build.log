@@ -1,18 +1,10 @@
-19:43:28 **** Incremental Build of configuration Debug for project Komodo ****
+18:14:14 **** Incremental Build of configuration Debug for project Komodo ****
 Info: Internal Builder is used for build
-arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\Komodo\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
-..\src\Robot.cpp:11:2: error: 'DriveModule' does not name a type
-  DriveModule* drive;
-  ^
-..\src\Robot.cpp:12:2: error: 'ShooterModule' does not name a type
-  ShooterModule* shooter;
-  ^
-..\src\Robot.cpp:13:2: error: 'IntakeModule' does not name a type
-  IntakeModule* intake;
-  ^
-..\src\Robot.cpp:14:2: error: 'FlipperModule' does not name a type
-  FlipperModule* tomahawks;
-  ^
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\Komodo\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "cv\\main.o" "..\\cv\\main.cpp" 
+..\cv\main.cpp:1:30: fatal error: opencv2/opencv.hpp: No such file or directory
+ #include "opencv2/opencv.hpp"
+                              ^
+compilation terminated.
 
-19:43:31 Build Finished (took 2s.318ms)
+18:14:14 Build Finished (took 160ms)
 
