@@ -38,7 +38,7 @@ DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, 
 	angle_controller->SetOutputRange(-.5, .5);
 //	pan = panIn;
 	pan = new AngleIn(gyro);
-	pan_controller = new PIDController( 0.023,0,0, pan, panOut);
+	pan_controller = new PIDController( /*0.0512,0,0.08,*/ .0441, 0, 0.13,  pan, panOut);
 	// 0.0729007 5 degree
 	// 0.143002  2 degree
 	// 	0.0573003 10 degree
@@ -159,6 +159,7 @@ void DriveModule::setPID(double p, double i, double d) {
 }
 
 void DriveModule::setMaxPower(double min, double max) {
+	drive_controller->SetOutputRange(min,max);
 	angle_controller->SetOutputRange(min, max);
 }
 void DriveModule::drive(double setpoint) {
@@ -171,7 +172,7 @@ void DriveModule::drive(double setpoint) {
 	setAngleSetpoint(0);
 	//setAngleSetpoint(0);
 	std::cout << " in " <<std::endl;
-	while(time->Get() < 4 && abs(driveIn->PIDGet() - getDriveSetpoint()) > 1) {
+	while(time->Get() < 5 && abs(driveIn->PIDGet() - getDriveSetpoint()) > 2) {
 		//std::cout << driveOut->getPower() <<std::endl;
 		driveTank(-driveOut->getPower() - angleOut->getPower(), -driveOut->getPower() + angleOut->getPower());
 	}

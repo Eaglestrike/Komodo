@@ -51,6 +51,7 @@
 // .35, .344, .349
 
 #define PSHOOT_ANGLE 0.475551
+#define PSHOOT_ANGLE1 0.48
 #define PSHOOT 0.4620
 #define PSHOOT1 0.4561
 #define PSHOOT3 0.501
@@ -98,8 +99,9 @@
 #define DISTANCE4 174
 #define DISTANCE5 209
 #define PDISTANCE 56.5
-#define PDISTANCE2 91
-#define PDISTANCE3 174
+#define PDISTANCE2 104
+#define PDISTANCE3 91
+#define PDISTANCE4 174
 
 //intake
 
