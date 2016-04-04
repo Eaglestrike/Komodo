@@ -85,6 +85,7 @@ public:
 	void setAngleSetpoint(double angle);
 	double getAngleSetpoint();
 	void drive(double setpoint);
+	void driveWithoutAngle(double setpoint);
 	void turn(double angle);
 	void setPanPID(double p, double i, double d);
 	double getPanP();

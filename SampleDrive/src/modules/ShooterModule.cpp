@@ -30,6 +30,7 @@ ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, in
 	//	rightShooter->SetPosition(0);
 	//	rightShooter->SetControlMode(CANSpeedController::kSpeed);
 	//	rightShooter->SetPID(.12996,0,3);
+	real = false;
 	shootIn = new ShooterIn(angle);
 	shootOut = new ShooterOut();
 	if (real) {

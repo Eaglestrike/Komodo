@@ -22,23 +22,25 @@ DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, 
 	lEnc->SetReverseDirection(true);
 	driveIn = new DriveIn(rEnc, lEnc);
 	driveOut = new DriveOut();
+	real =false;
 	if (real) {
-		drive_controller = new PIDController(PDRIVE_CONTROLLER_P, RDRIVE_CONTROLLER_I, RDRIVE_CONTROLLER_D, driveIn, driveOut);
+		drive_controller = new PIDController(RDRIVE_CONTROLLER_P, RDRIVE_CONTROLLER_I, RDRIVE_CONTROLLER_D, driveIn, driveOut);
 	} else {
 		drive_controller = new PIDController(PDRIVE_CONTROLLER_P, PDRIVE_CONTROLLER_I, PDRIVE_CONTROLLER_D, driveIn, driveOut);
 	}
 	drive_controller->SetOutputRange(-.75, .75);
 	angleIn = new AngleIn(gyro);
 	angleOut = new DriveOut();
+	//enableReal();
 	if (real) {
-		angle_controller = new PIDController(PANGLE_CONTROLLER_P, RANGLE_CONTROLLER_I, RANGLE_CONTROLLER_D, angleIn, angleOut);
+		angle_controller = new PIDController(RANGLE_CONTROLLER_P, RANGLE_CONTROLLER_I, RANGLE_CONTROLLER_D, angleIn, angleOut);
 	} else {
 		angle_controller = new PIDController(PANGLE_CONTROLLER_P, PANGLE_CONTROLLER_I, PANGLE_CONTROLLER_D, angleIn, angleOut);
 	}
 	angle_controller->SetOutputRange(-.5, .5);
 //	pan = panIn;
 	pan = new AngleIn(gyro);
-	pan_controller = new PIDController( /*0.0512,0,0.08,*/ .0441, 0, 0.13,  pan, panOut);
+	pan_controller = new PIDController( /*0.0512,0,0.08,*/ .0441, 0, 0.13 ,  pan, panOut);
 	// 0.0729007 5 degree
 	// 0.143002  2 degree
 	// 	0.0573003 10 degree
@@ -118,7 +120,7 @@ double DriveModule::getAngleOutput() {
 }
 
 void DriveModule::setDriveSetpoint(double setpoint) {
-	drive_controller->SetSetpoint(setpoint*120.75/95);
+	drive_controller->SetSetpoint(setpoint*120.75/95 * 2.0);
 }
 
 double DriveModule::getDriveSetpoint() {
@@ -173,8 +175,27 @@ void DriveModule::drive(double setpoint) {
 	//setAngleSetpoint(0);
 	std::cout << " in " <<std::endl;
 	while(time->Get() < 5 && abs(driveIn->PIDGet() - getDriveSetpoint()) > 2) {
-		//std::cout << driveOut->getPower() <<std::endl;
+		std::cout << getRightEncoder() <<std::endl;
 		driveTank(-driveOut->getPower() - angleOut->getPower(), -driveOut->getPower() + angleOut->getPower());
+	}
+	//rEnc->Reset();
+	//lEnc->Reset();
+	EnablePID(false);
+	driveTank(0,0);
+}
+void DriveModule::driveWithoutAngle(double setpoint) {
+	rEnc->Reset();
+	lEnc->Reset();
+	Timer* time = new Timer();
+	time->Start();
+	EnablePID(true);
+	setDriveSetpoint(setpoint);
+	setAngleSetpoint(0);
+	//setAngleSetpoint(0);
+	std::cout << " in " <<std::endl;
+	while(time->Get() < 5 && abs(driveIn->PIDGet() - getDriveSetpoint()) > 2) {
+		std::cout << getRightEncoder() <<std::endl;
+		driveTank(-driveOut->getPower(), -driveOut->getPower());
 	}
 	//rEnc->Reset();
 	//lEnc->Reset();
