@@ -86014,3 +86014,7 @@ arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\Samsung/wpilib/cpp/current/in
        std::cout << "status == -1   errno == " << errno << "  in Socket::recv\n";
        ^
 Info: Nothing to build for SampleDrive
+15:24:58 **** Rebuild of configuration Debug for project LearningBot ****
+Info: Internal Builder is used for build
+arm-frc-linux-gnueabi-g++ -std=c++1y "-IC:\\Users\\natek/wpilib/cpp/current/include" "-IC:\\Robotics\\Komodo\\LearningBot\\src" -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Robot.o" "..\\src\\Robot.cpp" 
+arm-frc-linux-gnueabi-g++ "-LC:\\Users\\natek/wpilib/cpp/current/lib" -Wl,-rpath,/opt/GenICam_v2_3/bin/Linux_armv7-a,-rpath,/usr/local/frc/rpath-lib -o FRCUserProgram "src\\Robot.o" -lwpi 
