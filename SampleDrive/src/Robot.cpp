@@ -383,7 +383,7 @@ private:
 		if (arcade) {
 			drive->driveArcade(rJoy->GetY(),lJoy->GetX());
 		} else {
-			drive->driveTank(lJoy->GetY(), rJoy->GetY());
+			drive->driveTank(lJoy->GetY()*((lJoy.getZ()+1)/2), rJoy->GetY()*((lJoy.getZ()+1)/2));
 		}
 
 		//std::cout << "Autonomous starting" << std::endl;
