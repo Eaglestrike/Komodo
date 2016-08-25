@@ -33,11 +33,11 @@ public:
 
 class AngleIn: public PIDSource {
 private:
-	ADXRS450_Gyro* gyro;
+	AHRS* gyro;
 
 public:
 	virtual ~AngleIn(){}
-	AngleIn(ADXRS450_Gyro* g) {
+	AngleIn(AHRS* g) {
 		gyro = g;
 	}
 

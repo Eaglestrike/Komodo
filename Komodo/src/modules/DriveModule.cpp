@@ -56,7 +56,7 @@ void DriveModule::setRightPower(double rPow) {
 }
 
 void DriveModule::calibrate() {
-	gyro->Calibrate();
+	gyro->ZeroYaw();
 }
 
 void DriveModule::setLeftPower(double lPow) {
