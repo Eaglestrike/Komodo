@@ -12,6 +12,7 @@
 #include "modules/DriveModule.h"
 #include "Settings.h"
 #include "modules/FlipperModule.h"
+#include "AHRS.h"
 #include "modules/IntakeModule.h"
 #include "Xbox.h"
 //#include "CameraInput.h"
@@ -43,7 +44,7 @@ private:
 	int movementFactor=1;
 	Servo* up;
 	Servo* side;
-
+	AHRS* navX; //navX
 	bool arcade;
 
 	IntakeModule* intake;
@@ -79,6 +80,7 @@ private:
 
 	void RobotInit()
 	{
+		navX = new AHRS(SPI::kMXP); //navX
 		visionTable = NetworkTable::GetTable("visionTable");
 		panInput = new CameraInput(visionTable);
 		test = new Compressor(0);
@@ -383,7 +385,7 @@ private:
 		if (arcade) {
 			drive->driveArcade(rJoy->GetY(),lJoy->GetX());
 		} else {
-			drive->driveTank(lJoy->GetY()*((lJoy.getZ()+1)/2), rJoy->GetY()*((lJoy.getZ()+1)/2));
+			drive->driveTank(lJoy->GetY()*((lJoy->GetZ()+1)/2), rJoy->GetY()*((lJoy->GetZ()+1)/2));
 		}
 
 		//std::cout << "Autonomous starting" << std::endl;

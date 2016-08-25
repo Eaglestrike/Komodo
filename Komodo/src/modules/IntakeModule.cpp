@@ -7,14 +7,16 @@
 
 #include <modules/IntakeModule.h>
 
-IntakeModule::IntakeModule(int spinInput, int moveInput) : RobotModule("IntakeModule") {
+IntakeModule::IntakeModule(int spinInput, int spinInput2, int moveInput) : RobotModule("IntakeModule") {
 	spinTalon = new CANTalon(spinInput);
+	spinTalon2 = new CANTalon(spinInput2);
 	moveSol = new Solenoid(moveInput);
 
 }
 
 void IntakeModule::setSpinPower(double pow) {
 	spinTalon->Set(pow);
+	spinTalon2->Set(pow);
 }
 
 void IntakeModule::retractIntake() {
@@ -27,4 +29,8 @@ void IntakeModule::deployIntake() {
 
 void IntakeModule::alternateIntake() {
 	moveSol->Set(!moveSol->Get());
+}
+
+bool IntakeModule::getStatus() {
+	return moveSol->Get();
 }

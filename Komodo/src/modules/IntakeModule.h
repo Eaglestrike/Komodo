@@ -11,18 +11,21 @@
 #include <WPIlib.h>
 #include "RobotModule.h"
 
-class IntakeModule: public RobotModule{
+
+class IntakeModule: public RobotModule {
 public:
-	IntakeModule(int spinInput, int moveInput);
+	IntakeModule(int spinInput, int spinInput2, int moveInput);
 	void setSpinPower(double pow);
 	void spinIn();
 	void spinOut();
 	void deployIntake();
 	void retractIntake();
 	void alternateIntake();
+	bool getStatus();
 
 private:
 	CANTalon* spinTalon;
+	CANTalon* spinTalon2;
 	Solenoid* moveSol;
 };
 
