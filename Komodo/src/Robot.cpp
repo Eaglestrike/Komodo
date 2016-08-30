@@ -76,7 +76,7 @@ private:
 	bool detected = false;
 	int counr = 0;
 
-	bool real = false;
+	bool real = true;
 
 	void RobotInit()
 	{
@@ -521,10 +521,15 @@ private:
 			intakeCounter++;
 		}
 		intakes = controller->getLB();
-		if(lJoy->GetRawButton(2) != cameras){
+		if(lJoy->GetRawButton(2)){
 			cameracount++;
 		}
-		cameras = lJoy->GetRawButton(2);
+		if(cameracount%2==0){
+			up->Set(150);
+		}
+		if(cameracount%2==1){
+			up->Set(180);
+		}
 		//std::cout << "Autonomous starting" << std::endl;
 
 		if(controller->getRB() != tomah){
@@ -612,15 +617,14 @@ private:
 		}else if(intakeCounter % 2 == 0){
 			intake->deployIntake();
 		}
-		if(lJoy->GetRawButton(2)){
-			up->Set(150);
-		}
+
 		//std::cout << "Autonomous starting" << std::endl;
 
 		if(counter % 60 == 0) {
 			//std::cout << "controller value" << controller->getA() << std::endl;
 			//std::cout << "value of solenoid" << intakeSolenoid->Get() << std::endl;
-			std::cout << shooter->getSetpoint() << std::endl;
+//			std::cout << shooter->getSetpoint() << std::endl;
+			std::cout << navX->GetAngle() << std::endl;
 		}
 		counter++;
 		//				std::cout<<"Yo"<<std::endl;
@@ -697,7 +701,7 @@ private:
 		//std::cout<<"P: "<<shooter->getP()<<" I: "<<shooter->getI()<<" D: "<<shooter->getD()<<std::endl;
 		//width = visionTable->GetNumber("width");
 		shooter->enablePID();
-		shooter->setMaxPower(.5);
+		shooter->setMaxPower(.8);
 		shooter->tilt(.56);
 		//TestEverything();
 		//	width = visionTable->GetNumber("width");
@@ -708,6 +712,7 @@ private:
 		//shooter->tilt(RAMPOTPOSITION);
 		//drive->EnablePID(true);
 		drive->enablePan(true);
+//		shooter->disablePID();
 	}
 	double distance = 0;
 	bool as = false;
@@ -801,9 +806,9 @@ private:
 		////			drive->enablePan(false);
 		////		}
 		//TestDrive();
-		//TestPID();
+		TestPID();
 		//TestShooterPID();
-		TestPan();
+//		TestPan();
 		//		Wait(.05);
 	}
 	//

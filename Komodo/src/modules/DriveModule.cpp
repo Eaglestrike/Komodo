@@ -21,7 +21,7 @@ DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, 
 	lEnc->SetReverseDirection(true);
 	driveIn = new DriveIn(rEnc, lEnc);
 	driveOut = new DriveOut();
-	real =false;
+	real =true;
 	if (real) {
 		drive_controller = new PIDController(RDRIVE_CONTROLLER_P, RDRIVE_CONTROLLER_I, RDRIVE_CONTROLLER_D, driveIn, driveOut);
 	} else {

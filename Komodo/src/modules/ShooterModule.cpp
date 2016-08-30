@@ -30,7 +30,7 @@ ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, in
 	//	rightShooter->SetPosition(0);
 	//	rightShooter->SetControlMode(CANSpeedController::kSpeed);
 	//	rightShooter->SetPID(.12996,0,3);
-	real = false;
+	real = true;
 	shootIn = new ShooterIn(angle);
 	shootOut = new ShooterOut();
 	if (real) {
@@ -135,6 +135,9 @@ double ShooterModule::getD(){
 }
 void ShooterModule::enablePID(){
 	angleController->Enable();
+}
+void ShooterModule::disablePID(){
+	angleController->Disable();
 }
 void ShooterModule::setMaxPower(double power){
 	angleController->SetOutputRange(-power, power);

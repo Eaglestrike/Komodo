@@ -82,6 +82,7 @@ public:
   	void createThread();
   	void speed(double);
   	double getSpeed();
+  	void disablePID();
 private:
 	AnalogPotentiometer* angle;
 	CANTalon* angleMotor;
