@@ -42,7 +42,7 @@ public:
 	}
 
 	double PIDGet() {
-		return gyro->GetAngle();
+		return gyro->GetYaw();
 	}
 };
 

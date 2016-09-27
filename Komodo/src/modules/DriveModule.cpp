@@ -21,12 +21,8 @@ DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, 
 	lEnc->SetReverseDirection(true);
 	driveIn = new DriveIn(rEnc, lEnc);
 	driveOut = new DriveOut();
-	real =true;
-	if (real) {
-		drive_controller = new PIDController(RDRIVE_CONTROLLER_P, RDRIVE_CONTROLLER_I, RDRIVE_CONTROLLER_D, driveIn, driveOut);
-	} else {
-		drive_controller = new PIDController(PDRIVE_CONTROLLER_P, PDRIVE_CONTROLLER_I, PDRIVE_CONTROLLER_D, driveIn, driveOut);
-	}
+	drive_controller = new PIDController(RDRIVE_CONTROLLER_P, RDRIVE_CONTROLLER_I, RDRIVE_CONTROLLER_D, driveIn, driveOut);
+
 	drive_controller->SetOutputRange(-.75, .75);
 	angleIn = new AngleIn(gyro);
 	angleOut = new DriveOut();
@@ -119,7 +115,7 @@ double DriveModule::getAngleOutput() {
 }
 
 void DriveModule::setDriveSetpoint(double setpoint) {
-	drive_controller->SetSetpoint(setpoint*120.75/95 * 2.0);
+	drive_controller->SetSetpoint(setpoint*TICKS_PER_INCH);
 }
 
 double DriveModule::getDriveSetpoint() {
@@ -143,7 +139,7 @@ double DriveModule::getLeftEncoder() {
 }
 
 double DriveModule::getP() {
-	return angle_controller->GetP();
+	return drive_controller->GetP();
 }
 
 double DriveModule::getI() {
@@ -203,7 +199,7 @@ void DriveModule::driveWithoutAngle(double setpoint) {
 }
 
 double DriveModule::getAngle() {
-	return gyro->GetAngle();
+	return gyro->GetYaw();
 }
 
 void DriveModule::turn(double angle) {
@@ -242,7 +238,9 @@ void DriveModule::turnALPHA(double angle) {
 void DriveModule::setPanPID(double p, double i, double d) {
 	pan_controller->SetPID(p, i , d);
 }
-
+void DriveModule::setDrivePID(double p, double i, double d) {
+	drive_controller->SetPID(p, i , d);
+}
 double DriveModule::getPanP() {
 	return pan_controller->GetP();
 }

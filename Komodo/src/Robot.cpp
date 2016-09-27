@@ -75,7 +75,7 @@ private:
 	bool ball = false;
 	bool detected = false;
 	int counr = 0;
-
+	double testAngle=.79;
 	bool real = true;
 
 	void RobotInit()
@@ -164,29 +164,29 @@ private:
 		drive->enablePan(false);
 		drive->driveTank(0,0);
 	}
-	void tilt() {
-		distance = visionTable->GetNumber("distance");
-		distance = distance - 107;
-		if(distance > DISTANCE4 && distance < DISTANCE5) {
-			shooter->tilt(RSHOOT);
-		}
-		if(distance > DISTANCE3 && distance < DISTANCE4) {
-			shooter->tilt(RSHOOT_ANGLE);
-			std::cout << "in range 1" << std::endl;
 
-		}
-		if(distance > DISTANCE2 && distance < DISTANCE3) {
-			shooter->tilt(RSHOOT1);
-			std::cout << "in range 2" << std::endl;
-
-		}
-		if(distance < DISTANCE1) {
-			shooter->tilt(RSHOOT2);
-			std::cout << "in range 3" << std::endl;
-		}
+	void AutoStatic(){
+		drive->EnablePID(true);
+		shooter->enablePID();
+		shooter->tilt(LEVEL_ANGLE);
+		Wait(1);
+		//drive->drive(15);
+		//Wait(.5);
+		drive->reset();
+		drive->resetEncoders();
+		navX->ZeroYaw();
+		Timer* timeout = new Timer();
+		timeout->Reset();
+		timeout->Start();
+//		while(timeout->Get()<10){
+		drive->drive(-160);
+//		}
+//		std::cout << "SWITCHING" << std::endl;
+//		if(drive->getLeftEncoder()<-100*TICKS_PER_INCH){
+//			drive->setMaxPower(1,1);
+//		}
 
 	}
-
 	void AutoPortColis() {
 		drive->EnablePID(true);
 		drive->reset();
@@ -199,117 +199,41 @@ private:
 	}
 
 	void AutoSeeSaw() {
+		shooter->enablePID();
 		shooter->tilt(LEVEL_ANGLE);
+		Wait(1);
 		//drive->drive(15);
 		//Wait(.5);
-		drive->drive(-32);
+		drive->resetEncoders();
+		navX->ZeroYaw();
+		drive->drive(-40);
 		Wait(.5);
 		//drive->setMaxPower(-1,1);
 		tomahawks->Deploy();
 		Wait(.5);
-		//tomahawks->Retract();
+		drive->EnablePID(false);
+		drive->resetEncoders();
+		drive->EnablePID(true);
+
+		drive->drive(-30);
+		Wait(.5);
+		tomahawks->Retract();
+		Wait(.5);
 		//drive->drive(12);
 		drive->EnablePID(false);
-		drive->driveTank(-.4, -.4);
-		Wait(.75);
-		drive->driveTank(0,0);
+		drive->resetEncoders();
 		drive->EnablePID(true);
-		tomahawks->Retract();
-		//drive->reset();
-		drive->driveWithoutAngle(-100);
+
+		drive->drive(-72);
+		drive->driveTank(0,0);
+		drive->EnablePID(false);
 	}
 
-	void Shoot() {
-		up->SetAngle(150);
-		Wait(.25);
-		drive->reset();
-		drive->turn(-50);
-		Wait(.5);
-		pan();
-		Wait(.25);
-		pan();
-		Wait(.25);
-		shooter->enablePID();
-		Timer* time = new Timer();
-		time->Start();
-		while(time->Get() < 1.5 && abs(shooter->getSetpoint() - shooter->getAngle()) < .05) {
-			tilt();
-		}
-	}
+
+
 	void AutonomousInit()
 	{
-		drive->reset();
-		drive->calibrate();
-		//
-		//		//drive->drive(5);
-		//	AutoPortColis();
-		//shooter->enablePID();
-		//AutoSeeSaw();
-	  // AutoPortColis();
-		drive->drive(-10);
-		//		up->SetAngle(150);
-		//		Wait(.25);
-		//		drive->reset();
-		//		drive->turn(-50);
-		//		Wait(.5);
-		//		pan();
-		//		Wait(.25);
-		//		pan();
-		//		Wait(.25);
-		//		//		pan();
-		//		//		pan();
-		//		//Wait(.25);
-
-		//		drive->driveTank(0,0);
-		//		shooter->mShoot(1);
-		//		Wait(1.5);
-		//		shooter->shootKicker(true);
-		//		Wait(.5);
-		//		shooter->mShoot(0);
-		//		Wait(.25);
-		//		pan();
-
-
-		//		drive->EnablePID(true);
-		//		drive->reset();
-		//		shooter->enablePID();
-		//		intake->deployIntake();
-		//		tomahawks->Deploy();
-		//		shooter->tilt(PLEVEL_ANGLE);
-		//		Wait(1);
-		//		drive->drive(173);
-		//		Wait(1);
-		//		drive->turn(-drive->getAngle());
-		//	drive->reset();
-		//		drive->turn(163);
-		//		Wait(1);
-		//		drive->reset();
-		//		drive->drive(150);
-		//		drive->turn(-drive->getAngle());
-		//		drive->turn(163);
-
-		//		drive->drive(15);
-		//		Wait(.5);
-		//		drive->drive(64);
-		//		Wait(.5);
-		//		//drive->setMaxPower(-1,1);
-		//		tomahawks->Deploy();
-		//		Wait(.5);
-		//		//tomahawks->Retract();
-		//		//drive->drive(12);
-		//		drive->EnablePID(false);
-		//		drive->driveTank(-.4, -.4);
-		//		Wait(.5);
-		//		drive->driveTank(0,0);
-		//		drive->EnablePID(true);
-		//		tomahawks->Retract();
-		//		drive->drive(90);
-
-		//		Wait(3);
-		//drive->turnALPHA(0);
-		std::cout << drive->getRightEncoder() << std::endl;
-		std::cout << "done" << std::endl;
-		//	std::cout << drive->getRightEncoder() - drive->getLeftEncoder() << std::endl;
+		AutoStatic();
 	}
 
 	// NOT BEING USED
@@ -356,7 +280,7 @@ private:
 		arcade = false;
 		std::cout<<"yoyoyo"<<std::endl;
 		shooter->enablePID();
-		shooter->setMaxPower(.5);
+		shooter->setMaxPower(.8);
 		shooter->tilt(LEVEL_ANGLE);
 		std::cout<<"yoyoyo"<<std::endl;
 		color = DriverStation::GetInstance().GetAlliance();
@@ -436,9 +360,9 @@ private:
 			drive->resetEncoders();
 			Timer* time = new Timer();
 			time->Start();
-			drive->setPanSetpoint(/*40/47.55*/ .91235*  angle);
+			drive->setPanSetpoint(/*40/47.55*/ VISION_TO_GYRO*angle);
 			//for(int i=0; i<400; i++){
-			while(time->Get()<2 && !lJoy->GetRawButton(4)&&(((drive->getAngle() - drive->getPanSetpoint()) > 2) || ((drive->getAngle() - drive->getPanSetpoint()) < -2))) {
+			while(time->Get()<2 && !lJoy->GetRawButton(4)&&(((drive->getAngle() - drive->getPanSetpoint()) > 2) || ((drive->getAngle()) - drive->getPanSetpoint()) < -2)) {
 				drive->driveTank(-drive->getPanOutput(), drive->getPanOutput());
 			}
 			//}
@@ -449,16 +373,16 @@ private:
 			drive->enablePan(false);
 			drive->driveTank(0,0);
 		}
-		if(controller->getRT()) {
-			drive->driveTank(0,0);
-			shooter->mShoot(1);
-			Wait(1.5);
-			shooter->shootKicker(true);
-			Wait(.5);
-		}
-		else {
-			shooter->shootKicker(false);
-		}
+//		if(controller->getRT()) {
+//			drive->driveTank(0,0);
+//			shooter->mShoot(1);
+//			Wait(1.5);
+//			shooter->shootKicker(true);
+//			Wait(.5);
+//		}
+//		else {
+//			shooter->shootKicker(false);
+//		}
 		double power = -controller->getLX();
 		if(power > .1 || power < -.1) {
 			shooter->mShoot(-controller->getLX());
@@ -471,17 +395,14 @@ private:
 
 		if(lJoy->GetRawButton(5)) {
 						distance = visionTable->GetNumber("distance");
-						distance = distance - 41;
-						if(distance > PDISTANCE && distance < PDISTANCE4) {
-							shooter->tilt(PSHOOT_ANGLE1);
-							std::cout << "in range 2" << std::endl;
+						if(distance >= DISTANCE2 && distance <= DISTANCE3) {
+							shooter->tilt(SHOOT2);
+							std::cout << "in zone 2" << std::endl;
 
 						}
-						if(distance < PDISTANCE) {
-							shooter->tilt(PSHOOT3);
-							std::cout << "in range 3" << std::endl;
-
-
+						if(distance <= DISTANCE1) {
+							shooter->tilt(SHOOT1);
+							std::cout << "in zone 1" << std::endl;
 						}
 //			distance = visionTable->GetNumber("distance");
 //			distance = distance + 50;
@@ -511,35 +432,43 @@ private:
 			shootvalue = shootvalue - .001;
 		}
 
-		//		if(lJoy->GetTrigger() && rJoy->GetTrigger()) {
-		//			shooter->mShoot(RAMPOWER);
-		//			Wait(2.5);
-		//			shooter->shootKicker(true);
-		//			Wait(.5);
-		//		}
+		if(lJoy->GetTrigger() && rJoy->GetTrigger()) {
+			drive->driveTank(0,0);
+			shooter->mShoot(1);
+			Wait(1.5);
+			shooter->shootKicker(true);
+			Wait(.5);
+		}
+		else {
+			shooter->shootKicker(false);
+		}
 		if(controller->getLB() != intakes){
 			intakeCounter++;
 		}
 		intakes = controller->getLB();
-		if(lJoy->GetRawButton(2)){
+		if(lJoy->GetRawButton(2)&&lJoy->GetRawButton(2)!=cameras){
 			cameracount++;
+			std::cout<<"print"<<std::endl;
 		}
+		cameras=lJoy->GetRawButton(2);
 		if(cameracount%2==0){
-			up->Set(150);
+			up->SetAngle(150);
+
 		}
 		if(cameracount%2==1){
-			up->Set(180);
+			up->SetAngle(180);
+
 		}
 		//std::cout << "Autonomous starting" << std::endl;
 
 		if(controller->getRB() != tomah){
 			tomahawkCounter++;
 		}
-		if(controller->getB()) {
-			shooter->tilt(RSHOOT_ANGLE + 0.01);
-			//std::cout << "in range 1" << std::endl;
-
-		}
+//		if(controller->getB()) {
+//			shooter->tilt(RSHOOT_ANGLE + 0.01);
+//			//std::cout << "in range 1" << std::endl;
+//
+//		}
 		if(controller->getA()){
 			//if(intake->getStatus() || shooter->getSetpoint() == LEVEL_ANGLE)
 			shooter->tilt(PINTAKE_ANGLE);
@@ -547,12 +476,12 @@ private:
 		}
 		if(controller->getY()){
 			//if(intake->get																																																																																																																							Status || shooter->getSetpoint() >= LEVEL_ANGLE)
-			shooter->tilt(PSHOOT);
+			shooter->tilt(SHOOT1);
 			//shooter->tilt(RSHOOT);
 		}
 		if(controller->getStart()){
 			//if(intake->getStatus || shooter->getSetpoint() >= LEVEL_ANGLE)
-			shooter->tilt(PSHOOT_ANGLE);
+			shooter->tilt(SHOOT2);
 			//shooter->tilt(RSHOOT_ANGLE);
 		}
 		if(controller->getX() || rJoy->GetRawButton(3)) {
@@ -570,6 +499,7 @@ private:
 		//			tomahawkCounter = 2;
 		//			intakeCounter = 2;
 		//		}
+
 		if(!shooter->isBallIn()) {
 			controller->SetRumble(Xbox::kRightRumble, .5);
 			if(counr < 10) {
@@ -624,70 +554,11 @@ private:
 			//std::cout << "controller value" << controller->getA() << std::endl;
 			//std::cout << "value of solenoid" << intakeSolenoid->Get() << std::endl;
 //			std::cout << shooter->getSetpoint() << std::endl;
-			std::cout << navX->GetAngle() << std::endl;
+//			std::cout << "l:" << drive->getLeftEncoder() <<" r: "<<drive->getRightEncoder()<<std::endl;
+//			std::cout << navX->getYaw() << std::endl;
 		}
 		counter++;
-		//				std::cout<<"Yo"<<std::endl;
-		//				Xtolerance = visionTable->GetNumber("XTolerance");
-		//				Ytolerance = visionTable->GetNumber("YTolerance");
-		//
-		//				movementInX=0;
-		//				movementInY=0;
-		//				std::cout<<visionTable->GetNumber("detectedObject")<<std::endl;
-		//				if(visionTable->GetNumber("detectedObject")==1){
-		//					std::cout<<"ticks: "<<ticks<<std::endl;
-		//
-		//					x = visionTable->GetNumber("X");
-		//					y = visionTable->GetNumber("Y");
-		//
-		//					if(x>(frameWidth/2+Xtolerance)){
-		//						movementInX = -xMovePerTick;
-		//					}
-		//					if(x<(frameWidth/2-Xtolerance)){
-		//						movementInX = xMovePerTick;
-		//					}
-		//					if(y>(frameHeight/2+Ytolerance)){
-		//						movementInY=yMovePerTick;
-		//					}
-		//					else if(y<(frameHeight/2-Ytolerance)){
-		//						movementInY=-yMovePerTick;
-		//					}
-		//					//			0.19sec/60degrees move speed on servos
-		//					if(ticks%15==0){
-		//						xAngle = visionTable->GetNumber("xAngle");
-		//						double moveAngle = (xAngle-26.4)*.5;
-		//						side->SetAngle(side->GetAngle()+moveAngle);
-		//						xTime = fabs((50/ 60)*moveAngle);
-		//
-		//						ticks=0;
-		//					}
-		//					if(yticks%25==0){
-		//						yAngle = visionTable->GetNumber("yAngle");
-		//						double moveAngle = (19.8-yAngle);
-		//						up->SetAngle(up->GetAngle()+moveAngle);
-		//						yTime = fabs((50/60)*moveAngle);
-		//
-		//						yticks=0;
-		//					}
-		//					if(up->GetAngle()>90){
-		//						up->SetAngle(90);
-		//					}
-		//					ticks++;
-		//					yticks++;
-		//				}
-		//				else{
-		//
-		//					std::cout<<"Sweeping"<<std::endl;
-		//					if(side->GetAngle()==180){
-		//						movementFactor=-1;
-		//					}
-		//					if(side->GetAngle()==0){
-		//						movementFactor=1;
-		//					}
-		//					std::cout<<side->GetAngle()<<std::endl;
-		//
-		//					side->SetAngle(side->GetAngle()+xMovePerTick*movementFactor*2);
-		//				}
+
 
 
 	}
@@ -719,96 +590,12 @@ private:
 
 	void TestPeriodic()
 	{
-		//if(counter % 100 == 0)
-			//std::cout << "enc " << drive->getRightEncoder() << "angle" << drive->getAngle()<< std::endl;
-		//counter++;
-		//TestForultra();
-		//				distance = visionTable->GetNumber("distance");
-		//				distance = distance - 41;
-		//				shooter->mShoot(-controller->getLX());
-		//				if(counter % 60 == 0) {
-		//					std::cout<<"tilt:" << distance<< " setpoint: " << shooter->getSetpoint()<< std::endl;;
-		//
-		//					//			std::cout << shooter->getAngle() << std::endl;
-		//					//
-		//				}
-		//				counter++;
-		//
-		//				////		lw->Run();
-		//				if(controller->getRT()){
-		//					intake->deployIntake();
-		//				}
-		//				else if(controller->getLT()) {
-		//					intake->retractIntake();
-		//				}
-		//
-		//				if(controller->getRB()) {
-		//					shooter->mShoot(1);
-		//					Wait(2);
-		//					shooter->shootKicker(true);
-		//					Wait(.5);
-		//				}
-		//
-		//				drive->driveTank(lJoy->GetY(),rJoy->GetY());
-		//				counter++;
-		//				if(controller->getY()){
-		//					shooter->tilt(RSHOOT);
-		//				}
-		//				if(controller->getA()){
-		//					shooter->tilt(RSHOOT1);
-		//				}
-		//				if(controller->getB()) {
-		//					shooter->tilt(RSHOOT2);
-		//				}
-		//				if(controller->getStart()) {
-		//					shooter->tilt(PINTAKE_ANGLE);
-		//					as = true;
-		//				}
-		//				else {
-		//					as = false;
-		//				}
-		//
-		//		if(distance > PDISTANCE && distance < PDISTANCE2 && !as) {
-		//			shooter->tilt(PSHOOT);
-		//		}
-		//		if(distance > PDISTANCE2 && distance < PDISTANCE3 && !as) {
-		//			shooter->tilt(PSHOOT_ANGLE);
-		//		}
-		//		//if(controller->getButtonPress(Xbox::A))
-		//		if(controller->getX()) {
-		//			drive->driveTank(0,0);
-		//			shooter->mShoot(1);
-		//			Wait(2);
-		//			shooter->shootKicker(true);
-		//			Wait(.5);
-		//		}
-		//		else {
-		//			shooter->shootKicker(false);
-		//			shooter->mShoot(0);
-		//		}
-		//		shooter->mShoot(controller->getLX()*0.608);
-		//
-		////		Wait(.05);
-		////		if(lJoy->GetRawButton(3)) {
-		////			drive->enablePan(true);
-		////			drive->setPanSetpoint(width/2);
-		////			if(!detected) {
-		////				lightPattern[0]=4;
-		////			}
-		////			while(abs(drive->getPanInput() - drive->getPanSetpoint()) > 40) {
-		////				drive->driveTank(drive->getPanOutput(), -drive->getPanOutput());
-		////				detected = visionTable->GetNumber("detected");
-		////				if(lJoy->GetRawButton(4)) {
-		////					break;
-		////				}
-		////			}
-		////			drive->driveTank(0,0);
-		////			drive->enablePan(false);
-		////		}
-		//TestDrive();
-		TestPID();
-		//TestShooterPID();
+
+//		TestDrive();
+//		TestPID();
+//		TestShooterPID();
 //		TestPan();
+//		findSetpoints();
 		//		Wait(.05);
 	}
 	//
@@ -888,7 +675,103 @@ private:
 	//		}
 	//		counter++;
 	//}
+	void findSetpoints(){
+		double power = -controller->getLX();
+		if(power > .1 || power < -.1) {
+			shooter->mShoot(-controller->getLX());
+		}
+		else {
+			shooter->mShoot(0);
+		}
+		intake->setSpinPower(controller->getLX());
 
+		drive->driveTank(lJoy->GetY(), rJoy->GetY());
+		if(controller->getRB()){
+			shooter->tilt(RINTAKE_ANGLE);
+		}
+		if(controller->getLB()){
+			shooter->tilt(testAngle);
+		}
+
+//		if(controller->getRT()) {
+//					drive->driveTank(0,0);
+//					shooter->mShoot(1);
+//					Wait(1.5);
+//					shooter->shootKicker(true);
+//					Wait(.5);
+//		}
+//		else {
+//					shooter->shootKicker(false);
+//		}
+		if(lJoy->GetRawButton(3)) {
+					//drive->enablePan(true);
+					//drive->setPanSetpoint(width/2);
+					drive->reset();
+					drive->enablePan(true);
+					double angle = visionTable->GetNumber("xAngle");
+					//			if(angle > 180) {
+					//				angle = 360 - angle;
+					//			}
+					drive->setMaxPower(-.75,.75);
+					if(angle > 31) {
+						angle = angle - 31;
+					} else {
+						angle = angle - 31;
+					}
+
+
+					//			if(abs(angle) <= 2) {
+					//				drive->setPanPID(0.143,0,0);
+					//			}
+					//			if(abs(angle) <= 5 && abs(angle) > 2) {
+					//				drive->setPanPID(0.0729007,0,0);
+					//			}
+					//			if(abs(angle) <= 10 && abs(angle) > 5) {
+					//				drive->setPanPID(0.0573,0,0);
+					//			}
+					//			if(abs(angle) <= 15 && abs(angle) > 10) {
+					//				drive->setPanPID(0.0346,0,0);
+					//			}
+					//			if(abs(angle) > 15) {
+					//drive->setPanPID(0.023,0,0);
+					//			}
+
+					if(!detected) {
+						lightPattern[0]=4;
+					}
+					drive->resetEncoders();
+					Timer* time = new Timer();
+					time->Start();
+					drive->setPanSetpoint(/*40/47.55*/ VISION_TO_GYRO*angle);
+					//for(int i=0; i<400; i++){
+					while(time->Get()<2 && !lJoy->GetRawButton(4)&&(((drive->getAngle() - drive->getPanSetpoint()) > 2) || ((drive->getAngle() - drive->getPanSetpoint()) < -2))) {
+						drive->driveTank(-drive->getPanOutput(), drive->getPanOutput());
+					}
+					//}
+
+
+					//	rEnc->Reset();
+					//	lEnc->Reset();
+					drive->enablePan(false);
+					drive->driveTank(0,0);
+				}
+		if(counter % 60 == 0) {
+			if(controller->getA()) {
+			          testAngle+=.01;
+					}
+			if(controller->getY()) {
+			  testAngle-=.01;
+			}
+			distance = visionTable->GetNumber("distance");
+
+			std::cout<<"distance: "<<distance<<std::endl;
+			std::cout<<"Pan: "<<navX->GetYaw()<< std::endl;
+			std::cout<<"currangle: "<<testAngle<<std::endl;
+
+		}
+		counter++;
+
+	}
 	void TestForultra() {
 		drive->driveTank(lJoy->GetY(), rJoy->GetY());
 		double x = ultra->GetVoltage()/.0049 *.393701 - 3.5;
@@ -916,26 +799,84 @@ private:
 		//else {
 		//drive->driveTank(0,0);
 		//}
-		if(controller->getY()) {
+		drive->EnablePID(true);
+		if(controller->getLB()) {
 			//drive->setPID(drive->getP() + .001, drive->getI(), drive->getD());
-			drive->calibrate();
+			drive->resetEncoders();
 		}
 		if(controller->getA()) {
-			drive->setPID(drive->getP() - .001, drive->getI(), drive->getD());
+			drive->setDrivePID(drive->getP() - .001, drive->getI(), drive->getD());
 		}
-		if(controller->getX()) {
-			drive->setAngleSetpoint(90);
+		if(controller->getY()){
+			drive->setDrivePID(drive->getP() + .001, drive->getI(), drive->getD());
+		}
+		if(controller->getX()){
+			drive->setDrivePID(drive->getP(), drive->getI(), drive->getD()+.001);
+		}
+		if(controller->getB()){
+			drive->setDrivePID(drive->getP(), drive->getI(), drive->getD()-.001);
+		}
+		if(controller->getRB()) {
+			drive->driveWithoutAngle(-43);
+//			drive->setDriveSetpoint(-43);
 		}
 		else {
-			drive->setAngleSetpoint(0);
+			drive->setDriveSetpoint(0);
+//			drive->EnablePID(false);
+//			drive->driveTank(0, 0);
+
 		}
 		if(counter % 60 == 0) {
-			std::cout << "p: " << drive->getP() <<  " position: " << drive->getAngle() << " setpoint:" << drive->getAngleSetpoint()  <<  std::endl;
+			std::cout << "p: " << drive->getP() <<  " position: " << drive->getLeftEncoder() << " setpoint:" << drive->getDriveSetpoint()  <<  std::endl;
 		}
 		counter++;
-		//drive->driveTank(-drive->getAngleOutput() , drive->getAngleOutput());
-		// drive->driveTank(-drive->getAngleOutput(), drive->getAngleOutput());
+		drive->driveTank(drive->getDriveOutput(), drive->getDriveOutput());
+
+//		drive->driveTank(-drive->getAngleOutput() , drive->getAngleOutput());
 	}
+	void TestDriveWithAngle()  {
+
+			//if(controller->getB()) {
+			//drive->driveTank(0, .25);
+			//}
+			//else {
+			//drive->driveTank(0,0);
+			//}
+			drive->EnablePID(true);
+			if(controller->getLB()) {
+				//drive->setPID(drive->getP() + .001, drive->getI(), drive->getD());
+				drive->resetEncoders();
+			}
+			if(controller->getA()) {
+				drive->setDrivePID(drive->getP() - .001, drive->getI(), drive->getD());
+			}
+			if(controller->getY()){
+				drive->setDrivePID(drive->getP() + .001, drive->getI(), drive->getD());
+			}
+			if(controller->getX()){
+				drive->setDrivePID(drive->getP(), drive->getI(), drive->getD()+.001);
+			}
+			if(controller->getB()){
+				drive->setDrivePID(drive->getP(), drive->getI(), drive->getD()-.001);
+			}
+			if(controller->getRB()) {
+
+				drive->drive(-43);
+			}
+			else {
+				drive->drive(0);
+	//			drive->EnablePID(false);
+	//			drive->driveTank(0, 0);
+
+			}
+			if(counter % 60 == 0) {
+				std::cout << "p: " << drive->getP() <<  " position: " << drive->getLeftEncoder() << " setpoint:" << drive->getDriveSetpoint()  <<  std::endl;
+			}
+			counter++;
+			drive->driveTank(drive->getDriveOutput(), drive->getDriveOutput());
+
+	//		drive->driveTank(-drive->getAngleOutput() , drive->getAngleOutput());
+		}
 	void TestPan() {
 
 		//		double angle = visionTable->GetNumber("xAngle");
