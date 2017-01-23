@@ -36,6 +36,7 @@ private:
 	double yAngle;
 	int ticks=0;
 	int yticks=0;
+	bool down = false;
 	double movementInY=0;
 	double x;
 	double y;
@@ -320,6 +321,18 @@ private:
 		//shooter->shoot(1, 1, 2);
 		//}
 		//std::cout<<"yoyoyo"<<std::endl;
+		if(rJoy->GetRawButton(3)){
+			down = true;
+			shooter->tilt(LEVEL_ANGLE);
+			intake->deployIntake();
+			tomahawks->Deploy();
+		}
+		else if(down==true) {
+			down=false;
+			tomahawkCounter = 4;
+			intakeCounter=4;
+		}
+		std::cout<<"Down: "<<down<<std::endl;
 
 		if(lJoy->GetRawButton(3)) {
 			//drive->enablePan(true);
@@ -534,17 +547,17 @@ private:
 		//			tomahawks->Deploy();
 		//		}
 
-		if(tomahawkCounter % 4 == 0) {
+		if(tomahawkCounter % 4 == 0 && down==false) {
 			tomahawks->Retract();
 		}
-		else if(tomahawkCounter % 2 == 0) {
+		else if(tomahawkCounter % 2 == 0 && down==false) {
 			tomahawks->Deploy();
 		}
 		//std::cout << "Autonomous starting" << std::endl;
 
-		if(intakeCounter % 4 == 0){
+		if(intakeCounter % 4 == 0 && down==false){
 			intake->retractIntake();
-		}else if(intakeCounter % 2 == 0){
+		}else if(intakeCounter % 2 == 0 && down==false){
 			intake->deployIntake();
 		}
 
