@@ -167,7 +167,7 @@ int main() {
                         break;
                 }
         }
-//              make sure the java process quits when the loop finishes
+
         videoCapture.release();
         exit(0);
 }
