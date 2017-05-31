@@ -9,6 +9,7 @@
 #define SRC_MODULES_DRIVEMODULE_H_
 
 #include <WPILib.h>
+#include <CANTalon.h>
 #include "AHRS.h"
 #include "Settings.h"
 #include "CameraInput.h"
@@ -52,7 +53,7 @@ public:
 	DriveOut() {}
 	virtual ~DriveOut(){}
 
-	void PIDWrite(float output) {
+	void PIDWrite(double output) {
 		power = output;
 	}
 

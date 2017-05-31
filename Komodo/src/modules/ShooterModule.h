@@ -5,6 +5,7 @@
  *      Author: Samsung
  */
 #include "WPILib.h"
+#include <CANTalon.h>
 #include "Settings.h"
 #include <iostream>
 #include <cstdio>
@@ -40,7 +41,7 @@ public:
 	ShooterOut(): power(0){}
 
 
-	void PIDWrite(float output){
+	void PIDWrite(double output){
 		power = output;
 	}
 

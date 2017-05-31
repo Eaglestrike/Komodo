@@ -3,7 +3,7 @@
 #ifndef SRC_MODULES_FLIPPERMODULE_H_
 #define SRC_MODULES_FLIPPERMODULE_H_
 
-#include <WPIlib.h>
+#include <WPILib.h>
 #include "RobotModule.h"
 
 class FlipperModule: public RobotModule {

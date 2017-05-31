@@ -1,4 +1,4 @@
-#include "WPIlib.h"
+#include "WPILib.h"
 #include <math.h>
 #include "Xbox.h"
 #include "modules/RobotModule.h"

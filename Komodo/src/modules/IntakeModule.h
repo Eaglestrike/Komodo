@@ -8,7 +8,8 @@
 #ifndef SRC_MODULES_INTAKEMODULE_H_
 #define SRC_MODULES_INTAKEMODULE_H_
 
-#include <WPIlib.h>
+#include <WPILib.h>
+#include <CANTalon.h>
 #include "RobotModule.h"
 
 
