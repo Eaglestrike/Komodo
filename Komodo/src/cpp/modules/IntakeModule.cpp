@@ -8,15 +8,15 @@
 #include <modules/IntakeModule.h>
 
 IntakeModule::IntakeModule(int spinInput, int spinInput2, int moveInput) : RobotModule("IntakeModule") {
-	spinTalon = new CANTalon(spinInput);
-	spinTalon2 = new CANTalon(spinInput2);
+	spinTalon = new WPI_TalonSRX(spinInput);
+	spinTalon2 = new WPI_TalonSRX(spinInput2);
 	moveSol = new Solenoid(moveInput);
 
 }
 
 void IntakeModule::setSpinPower(double pow) {
-	spinTalon->Set(pow);
-	spinTalon2->Set(pow);
+	spinTalon->Set(ControlMode::PercentOutput, pow);
+	spinTalon2->Set(ControlMode::PercentOutput, pow);
 }
 
 void IntakeModule::retractIntake() {

@@ -12,20 +12,20 @@
 ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, int rightport, int solenoidPort, int buttonport) : RobotModule("ShooterModule") {
 	// TODO Auto-generated constructor stub
 	angle = new AnalogPotentiometer(anglePort);
-	angleMotor = new CANTalon(angleMotorPort);
-	leftShooter = new CANTalon(leftport);
+	angleMotor = new WPI_TalonSRX(angleMotorPort);
+	leftShooter = new WPI_TalonSRX(leftport);
 
-	rightShooter = new CANTalon(rightport);
+	rightShooter = new WPI_TalonSRX(rightport);
 	shooterSol = new Solenoid(solenoidPort);
 	button = new DigitalInput(buttonport);
-	leftShooter->SetFeedbackDevice(CANTalon::QuadEncoder);
+	leftShooter->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0);
 	//leftShooter->EnableControl();
 	//leftShooter->SetInverted(true);
 	//	leftShooter->SetPosition(0);
 	//	leftShooter->SetControlMode(CANSpeedController::kSpeed);
 	//	leftShooter->SetPID(.12996,0,3);
 	//
-	//	rightShooter->SetFeedbackDevice(CANTalon::QuadEncoder);
+	//	rightShooter->SetFeedbackDevice(TalonSRX::QuadEncoder);
 	//	//rightShooter->EnableControl();
 	//	rightShooter->SetPosition(0);
 	//	rightShooter->SetControlMode(CANSpeedController::kSpeed);
@@ -71,11 +71,11 @@ bool ShooterModule::getShot() {
 void ShooterModule::shoot(double left, double right, double time) {
 	shot = true;
 	shooterSol->Set(true);
-	leftShooter->Set(-left);
-	rightShooter->Set(right);
+	leftShooter->Set(ControlMode::PercentOutput, -left);
+	rightShooter->Set(ControlMode::PercentOutput, right);
 	Wait(time);
-	leftShooter->Set(0);
-	rightShooter->Set(0);
+	leftShooter->Set(ControlMode::PercentOutput, 0);
+	rightShooter->Set(ControlMode::PercentOutput, 0);
 	shooterSol->Set(false);
 	shot = false;
 }
@@ -85,12 +85,12 @@ void ShooterModule::shootKicker(bool kick) {
 }
 
 void ShooterModule::mShoot(double power) {
-	rightShooter->Set(power);
-	leftShooter->Set(-power);
+	rightShooter->Set(ControlMode::PercentOutput, power);
+	leftShooter->Set(ControlMode::PercentOutput, -power);
 
 }
 void ShooterModule::setAngleMotorPower(double power) {
-	angleMotor->Set(power);
+	angleMotor->Set(ControlMode::PercentOutput, power);
 }
 
 void ShooterModule::tilt(double angle) {
@@ -113,16 +113,16 @@ void ShooterModule::tilt(double angle) {
 	angleController->SetSetpoint(angle);
 }
 void ShooterModule::speed(double speed){
-	rightShooter->Set(speed);
+	rightShooter->Set(ControlMode::Velocity, speed);
 }
 double ShooterModule::getSpeed(){
-	return rightShooter->GetSpeed();
+	return rightShooter->GetSelectedSensorVelocity(0);
 }
 void ShooterModule::setPID(double p, double i, double d){
 	angleController->SetPID(p,i,d);
 }
 void ShooterModule::setShooterSpeed(double speed){
-	rightShooter->SetSetpoint(speed);
+	rightShooter->Set(ControlMode::Velocity, speed);
 }
 double ShooterModule::getP(){
 	return angleController->GetP();
@@ -146,22 +146,3 @@ double ShooterModule::getSetpoint(){
 	return angleController->GetSetpoint();
 }
 
-void ShooterModule::setLeftShooterPID(double p, double i, double d) {
-	rightShooter->SetPID(p,i,d);
-}
-
-double ShooterModule::getShooterSetpoint() {
-	return rightShooter->GetSetpoint();
-}
-
-double ShooterModule::getShooterP() {
-	return rightShooter->GetP();
-}
-
-double ShooterModule::getShooterI() {
-	return rightShooter->GetI();
-}
-
-double ShooterModule::getShooterD() {
-	return rightShooter->GetD();
-}

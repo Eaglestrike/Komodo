@@ -9,7 +9,7 @@
 #define SRC_MODULES_DRIVEMODULE_H_
 
 #include <WPILib.h>
-#include <CANTalon.h>
+#include <ctre/Phoenix.h>
 #include "AHRS.h"
 #include "Settings.h"
 #include "CameraInput.h"
@@ -65,7 +65,7 @@ private:
 	double power = 0;
 };
 
-class DriveModule: public RobotModule{
+class DriveModule: public RobotModule {
 public:
 	DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, int lEncB, int rEncA, int rEncB, PIDSource* panIn, AHRS* gyro);
 	void setRightPower(double rPow);
@@ -106,10 +106,10 @@ public:
 	void resetEncoders();
 
 private:
-	CANTalon* rTalon1;
-	CANTalon* rTalon2;
-	CANTalon* lTalon1;
-	CANTalon* lTalon2;
+	WPI_TalonSRX* rTalon1;
+	WPI_TalonSRX* rTalon2;
+	WPI_TalonSRX* lTalon1;
+	WPI_TalonSRX* lTalon2;
 	double leftMotorOutput;
 	double rightMotorOutput;
 

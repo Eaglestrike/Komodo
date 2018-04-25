@@ -1,5 +1,5 @@
 
-#include "FlipperModule.h"
+#include <modules/FlipperModule.h>
 
 FlipperModule::FlipperModule(int Solenoid1) : RobotModule("FlipperModule") {
 	deploySol = new Solenoid(Solenoid1);

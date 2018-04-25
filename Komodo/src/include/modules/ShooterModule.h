@@ -5,7 +5,7 @@
  *      Author: Samsung
  */
 #include "WPILib.h"
-#include <CANTalon.h>
+#include <ctre/Phoenix.h>
 #include "Settings.h"
 #include <iostream>
 #include <cstdio>
@@ -16,12 +16,12 @@
 #define SRC_MODULES_SHOOTERMODULE_H_
 
 
-class ShooterIn: public PIDSource{
+class ShooterIn: public PIDSource {
 private:
 	AnalogPotentiometer* p1;
 
 public:
-	virtual ~ShooterIn(){};
+	virtual ~ShooterIn() {};
 	ShooterIn(AnalogPotentiometer* a){
 		p1 = a;
 	}
@@ -68,12 +68,9 @@ public:
 	double getP();
 	double getI();
 	double getD();
-	void setLeftShooterPID(double p, double i, double d);
-	double getShooterP();
-	double getShooterI();
-	double getShooterD();
+
 	void setShooterSpeed(double speed);
-	double getShooterSetpoint();
+
 	void setPID(double p, double i, double d);
     void run();
     void enablePID();
@@ -86,9 +83,9 @@ public:
   	void disablePID();
 private:
 	AnalogPotentiometer* angle;
-	CANTalon* angleMotor;
-	CANTalon* rightShooter;
-	CANTalon* leftShooter;
+	WPI_TalonSRX* angleMotor;
+	WPI_TalonSRX* rightShooter;
+	WPI_TalonSRX* leftShooter;
 	Solenoid* shooterSol;
 
 	ShooterIn* shootIn;

@@ -4,13 +4,13 @@
  *  Created on: Jan 13, 2016
  *      Author: natek
  */
-#include "DriveModule.h"
+#include <modules/DriveModule.h>
 
 DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, int lEncB, int rEncA, int rEncB, PIDSource*  panIn, AHRS* gyro) : RobotModule("DriveModule") {
-	rTalon1 = new CANTalon(rTal1);
-	rTalon2 = new CANTalon(rTal2);
-	lTalon1 = new CANTalon(lTal1);
-	lTalon2 = new CANTalon(lTal2);
+	rTalon1 = new WPI_TalonSRX(rTal1);
+	rTalon2 = new WPI_TalonSRX(rTal2);
+	lTalon1 = new WPI_TalonSRX(lTal1);
+	lTalon2 = new WPI_TalonSRX(lTal2);
 
 	rEnc = new Encoder(rEncA, rEncB);
 	lEnc = new Encoder(lEncA, lEncB);
@@ -47,8 +47,8 @@ DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, 
 }
 
 void DriveModule::setRightPower(double rPow) {
-	rTalon1->Set(rPow);
-	rTalon2->Set(rPow);
+	rTalon1->Set(ControlMode::PercentOutput, rPow);
+	rTalon2->Set(ControlMode::PercentOutput, rPow);
 }
 
 void DriveModule::calibrate() {
@@ -56,8 +56,8 @@ void DriveModule::calibrate() {
 }
 
 void DriveModule::setLeftPower(double lPow) {
-	lTalon1->Set(lPow);
-	lTalon2->Set(lPow);
+	lTalon1->Set(ControlMode::PercentOutput, lPow);
+	lTalon2->Set(ControlMode::PercentOutput, lPow);
 }
 
 void DriveModule::EnablePID(bool enable) {

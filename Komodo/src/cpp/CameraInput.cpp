@@ -17,6 +17,6 @@ CameraInput::~CameraInput() {
 }
 
 double CameraInput::PIDGet() {
-	return m_visionTable->GetNumber("xValue");
+	return m_visionTable->GetNumber("xValue", 0);
 }
 

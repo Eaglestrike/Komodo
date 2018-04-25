@@ -3,10 +3,11 @@
 #include "Xbox.h"
 #include "modules/RobotModule.h"
 #include "modules/DriveModule.h"
-#include "Peripherals/AutonomousCode/LogisticFunction.h"
+#include "../Peripherals/AutonomousCode/LogisticFunction.h"
 #include <iostream>
 #include <cstdio>
 #include <ctime>
+#include <LiveWindow/LiveWindow.h>
 #include "WPILib.h"
 #include "modules/ShooterModule.h"
 #include "modules/DriveModule.h"
@@ -14,7 +15,7 @@
 #include "modules/FlipperModule.h"
 #include "AHRS.h"
 #include "modules/IntakeModule.h"
-#include "Xbox.h"
+#include <networktables/NetworkTableInstance.h>
 //#include "CameraInput.h"
 
 class Robot: public IterativeRobot
@@ -82,7 +83,7 @@ private:
 	void RobotInit()
 	{
 		navX = new AHRS(SPI::kMXP); //navX
-		visionTable = NetworkTable::GetTable("visionTable");
+		visionTable = nt::NetworkTableInstance::GetDefault().GetTable("visionTable");
 		panInput = new CameraInput(visionTable);
 		test = new Compressor(0);
 		up = new Servo(0);
@@ -119,7 +120,7 @@ private:
 	void pan() {
 		drive->enablePan(true);
 		drive->reset();
-		double angle = visionTable->GetNumber("xAngle");
+		double angle = visionTable->GetNumber("xAngle", 0);
 		//			if(angle > 180) {
 		//				angle = 360 - angle;
 		//			}
@@ -339,7 +340,7 @@ private:
 			//drive->setPanSetpoint(width/2);
 			drive->reset();
 			drive->enablePan(true);
-			double angle = visionTable->GetNumber("xAngle");
+			double angle = visionTable->GetNumber("xAngle", 0);
 			//			if(angle > 180) {
 			//				angle = 360 - angle;
 			//			}
@@ -407,7 +408,7 @@ private:
 		//std::cout << "Autonomous starting" << std::endl;
 
 		if(lJoy->GetRawButton(5)) {
-						distance = visionTable->GetNumber("distance");
+						distance = visionTable->GetNumber("distance", 0);
 						if(distance >= DISTANCE2 && distance <= DISTANCE3) {
 							shooter->tilt(SHOOT2);
 							std::cout << "in zone 2" << std::endl;
@@ -721,7 +722,7 @@ private:
 					//drive->setPanSetpoint(width/2);
 					drive->reset();
 					drive->enablePan(true);
-					double angle = visionTable->GetNumber("xAngle");
+					double angle = visionTable->GetNumber("xAngle", 0);
 					//			if(angle > 180) {
 					//				angle = 360 - angle;
 					//			}
@@ -775,7 +776,7 @@ private:
 			if(controller->getY()) {
 			  testAngle-=.01;
 			}
-			distance = visionTable->GetNumber("distance");
+			distance = visionTable->GetNumber("distance", 0);
 
 			std::cout<<"distance: "<<distance<<std::endl;
 			std::cout<<"Pan: "<<navX->GetYaw()<< std::endl;
