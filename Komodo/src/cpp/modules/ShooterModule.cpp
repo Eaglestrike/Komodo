@@ -113,7 +113,7 @@ void ShooterModule::tilt(double angle) {
 	angleController->SetSetpoint(angle);
 }
 void ShooterModule::speed(double speed){
-	rightShooter->Set(ControlMode::Velocity, speed);
+	rightShooter->Set(ControlMode::PercentOutput, speed);
 }
 double ShooterModule::getSpeed(){
 	return rightShooter->GetSelectedSensorVelocity(0);
@@ -122,7 +122,7 @@ void ShooterModule::setPID(double p, double i, double d){
 	angleController->SetPID(p,i,d);
 }
 void ShooterModule::setShooterSpeed(double speed){
-	rightShooter->Set(ControlMode::Velocity, speed);
+	rightShooter->Set(ControlMode::PercentOutput, speed);
 }
 double ShooterModule::getP(){
 	return angleController->GetP();
