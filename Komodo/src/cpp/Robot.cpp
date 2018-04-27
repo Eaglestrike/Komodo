@@ -93,8 +93,8 @@ private:
 
 		rJoy = new Joystick(1);
 		lJoy = new Joystick(0);
-		controller = new Xbox(2);
-		intake = new IntakeModule(INTAKE_MOTOR, INTAKE_MOTOR_2, INTAKE_SOL);
+		controller = new Xbox(4);
+		intake = new IntakeModule(INTAKE_MOTOR_FORWARD, INTAKE_MOTOR_SIDEWAYS, INTAKE_SOL);
 		//intakeSolenoid = new Solenoid(0);
 		drive = new DriveModule(DRIVE_LEFT1, DRIVE_LEFT2, DRIVE_RIGHT1, DRIVE_RIGHT2, DRIVE_ENCODER_1_A, DRIVE_ENCODER_1_B, DRIVE_ENCODER_2_A, DRIVE_ENCODER_2_B, (PIDSource*)panInput, navX);
 		shooter = new ShooterModule(POT, ANGLEMOTOR, SHOOTERMOTOR1, SHOOTERMOTOR2, SHOOTER_SOL, 9);
@@ -328,7 +328,7 @@ private:
 			intake->deployIntake();
 			tomahawks->Deploy();
 		}
-		else if(down==true) {
+		else if(down) {
 			down=false;
 			tomahawkCounter = 4;
 			intakeCounter=4;
@@ -641,7 +641,10 @@ private:
 		if(controller->getRB()) {
 			shooter->tilt(.80);
 		}
-		if(lJoy->GetTrigger() && rJoy->GetTrigger()) {
+
+		bool shouldFire = (lJoy->GetTrigger() && rJoy->GetTrigger()) ||
+					(controller->getLT() > .75 && controller->getLY() > .75);
+		if(shouldFire) {
 			shooter->mShoot(RAMPOWER);
 			Wait(2.5);
 			shooter->shootKicker(true);

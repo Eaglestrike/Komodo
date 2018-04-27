@@ -4,7 +4,7 @@
 
 Written by Nathan Larson, Ankith Uppunda, Cole Brinsfield
 
-Maintained by Josh Hejna, Aris (Karim) Merchant
+Maintained by Josh Hejna, Aris (Karim) Merchant, Jasper Meggit
 
 # To set up:
 ---
