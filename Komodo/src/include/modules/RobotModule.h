@@ -12,20 +12,10 @@
 
 class RobotModule {
 public:
-    RobotModule(std::string);
 
+    RobotModule();
     virtual ~RobotModule();
-
-    void enable();
-
-    void disable();
-
-    void enableReal();
-
-    void enablePractice();
-
 protected:
-    std::string m_Module_Name;
     bool m_Enabled;
     bool real;
 };

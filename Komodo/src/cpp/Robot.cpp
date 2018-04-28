@@ -74,7 +74,7 @@ private:
         controller = new Xbox(4);
         intake = new IntakeModule(INTAKE_MOTOR_FORWARD, INTAKE_MOTOR_SIDEWAYS, INTAKE_SOL);
         drive = new DriveModule(DRIVE_LEFT1, DRIVE_LEFT2, DRIVE_RIGHT1, DRIVE_RIGHT2, DRIVE_ENCODER_1_A,
-                                DRIVE_ENCODER_1_B, DRIVE_ENCODER_2_A, DRIVE_ENCODER_2_B, (PIDSource *) panInput, navX);
+                                DRIVE_ENCODER_1_B, DRIVE_ENCODER_2_A, DRIVE_ENCODER_2_B, panInput, navX);
         shooter = new ShooterModule(POT, ANGLEMOTOR, SHOOTERMOTOR1, SHOOTERMOTOR2, SHOOTER_SOL, 9);
         shooter->createThread();
         tomahawks = new FlipperModule(TOMOHAWKS);
@@ -101,7 +101,7 @@ private:
         angle = angle - 31;
 
         drive->resetEncoders();
-        Timer *time = new Timer();
+        auto *time = new Timer();
         time->Start();
         drive->setPanSetpoint(/*40/47.55*/  angle);
         while (time->Get() < 2 && !lJoy->GetRawButton(4) && (((drive->getAngle() - drive->getPanSetpoint()) > 2) ||

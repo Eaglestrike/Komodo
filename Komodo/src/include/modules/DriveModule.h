@@ -21,7 +21,7 @@ private:
     Encoder *lEnc;
 
 public:
-    virtual ~DriveIn() {}
+    virtual ~DriveIn() = default;
 
     DriveIn(Encoder *rEncInput, Encoder *lEncInput) {
         rEnc = rEncInput;

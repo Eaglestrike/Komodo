@@ -8,13 +8,10 @@
 #include <CameraInput.h>
 
 CameraInput::CameraInput(std::shared_ptr<NetworkTable> visionTable) {
-    // TODO Auto-generated constructor stub
-    m_visionTable = visionTable;
+    m_visionTable = std::move(visionTable);
 }
 
-CameraInput::~CameraInput() {
-    // TODO Auto-generated destructor stub
-}
+CameraInput::~CameraInput() = default;
 
 double CameraInput::PIDGet() {
     return m_visionTable->GetNumber("xValue", 0);

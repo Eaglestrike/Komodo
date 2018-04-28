@@ -7,7 +7,7 @@
 
 #include <modules/IntakeModule.h>
 
-IntakeModule::IntakeModule(int spinInput, int spinInput2, int moveInput) : RobotModule("IntakeModule") {
+IntakeModule::IntakeModule(int spinInput, int spinInput2, int moveInput) : RobotModule() {
     spinTalon = new WPI_TalonSRX(spinInput);
     spinTalon2 = new WPI_TalonSRX(spinInput2);
     moveSol = new Solenoid(moveInput);

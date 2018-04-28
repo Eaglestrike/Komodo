@@ -51,20 +51,17 @@ public:
 
     bool getL3();
 
-    float getLT();
+    double getLT();
 
-    float getRT();
+    double getRT();
 
-    float getRX();
+    double getRX();
 
-    float getRY();
+    double getRY();
 
-    float getLX();
+    double getLX();
 
-    float getLY();
-
-    float getPX();
-
+    double getLY();
 
     void setRumble(float);
 

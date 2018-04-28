@@ -7,10 +7,7 @@
 
 #include <Xbox.h>
 
-Xbox::Xbox(int port) : Joystick(port) {
-
-}
-
+Xbox::Xbox(int port) : Joystick(port) {}
 
 bool Xbox::getA() {
     return GetRawButton(1);
@@ -53,23 +50,23 @@ bool Xbox::getL3() {
 }
 
 
-float Xbox::getLT() {
+double Xbox::getLT() {
     return GetRawAxis(3);
 }
 
-float Xbox::getRT() {
+double Xbox::getRT() {
     return GetRawAxis(3);
 }
 
-float Xbox::getRX() {
+double Xbox::getRX() {
     return GetRawAxis(4);
 }
 
-float Xbox::getRY() {
+double Xbox::getRY() {
     return -GetRawAxis(5);
 }
 
-float Xbox::getLX() {
+double Xbox::getLX() {
     return GetX();
 }
 
@@ -86,7 +83,7 @@ bool Xbox::getButtonPress(button button) {
 }
 
 
-float Xbox::getLY() {
+double Xbox::getLY() {
     return -GetY();
 }
 

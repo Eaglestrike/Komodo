@@ -9,7 +9,7 @@
 
 
 ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, int rightport, int solenoidPort,
-                             int buttonport) : RobotModule("ShooterModule") {
+                             int buttonport) : RobotModule() {
     // TODO Auto-generated constructor stub
     angle = new AnalogPotentiometer(anglePort);
     angleMotor = new WPI_TalonSRX(angleMotorPort);
@@ -19,17 +19,6 @@ ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, in
     shooterSol = new Solenoid(solenoidPort);
     button = new DigitalInput(buttonport);
     leftShooter->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0);
-    //leftShooter->EnableControl();
-    //leftShooter->SetInverted(true);
-    //	leftShooter->SetPosition(0);
-    //	leftShooter->SetControlMode(CANSpeedController::kSpeed);
-    //	leftShooter->SetPID(.12996,0,3);
-    //
-    //	rightShooter->SetFeedbackDevice(TalonSRX::QuadEncoder);
-    //	//rightShooter->EnableControl();
-    //	rightShooter->SetPosition(0);
-    //	rightShooter->SetControlMode(CANSpeedController::kSpeed);
-    //	rightShooter->SetPID(.12996,0,3);
     real = true;
     shootIn = new ShooterIn(angle);
     shootOut = new ShooterOut();
@@ -42,9 +31,7 @@ ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, in
     }
 }
 
-ShooterModule::~ShooterModule() {
-    // TODO Auto-generated destructor stub
-}
+ShooterModule::~ShooterModule() = default;
 
 double ShooterModule::getAngle() {
     return angle->Get();

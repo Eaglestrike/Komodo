@@ -7,7 +7,7 @@
 #include <modules/DriveModule.h>
 
 DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, int lEncB, int rEncA, int rEncB,
-                         PIDSource *panIn, AHRS *gyro) : RobotModule("DriveModule") {
+                         PIDSource *panIn, AHRS *gyro) : RobotModule() {
     rTalon1 = new WPI_TalonSRX(rTal1);
     rTalon2 = new WPI_TalonSRX(rTal2);
     lTalon1 = new WPI_TalonSRX(lTal1);
@@ -15,8 +15,6 @@ DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, 
 
     rEnc = new Encoder(rEncA, rEncB);
     lEnc = new Encoder(lEncA, lEncB);
-    //rEnc->SetDistancePerPulse(0.04477);
-    //lEnc->SetDistancePerPulse(0.04477);
     panOut = new DriveOut();
     this->gyro = gyro;
     lEnc->SetReverseDirection(true);
@@ -28,7 +26,6 @@ DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, 
     drive_controller->SetOutputRange(-.75, .75);
     angleIn = new AngleIn(gyro);
     angleOut = new DriveOut();
-    //enableReal();
     if (real) {
         angle_controller = new PIDController(RANGLE_CONTROLLER_P, RANGLE_CONTROLLER_I, RANGLE_CONTROLLER_D, angleIn,
                                              angleOut);
@@ -37,14 +34,8 @@ DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, 
                                              angleOut);
     }
     angle_controller->SetOutputRange(-.5, .5);
-//	pan = panIn;
     pan = new AngleIn(gyro);
     pan_controller = new PIDController( /*0.0512,0,0.08,*/ .0441, 0, 0.13, pan, panOut);
-    // 0.0729007 5 degree
-    // 0.143002  2 degree
-    // 	0.0573003 10 degree
-    //  0.0346          15
-//	pan_controller->SetOutputRange(-.4, .4);
     rEnc->Reset();
     lEnc->Reset();
     //drive_controller->Enable();
@@ -232,7 +223,6 @@ void DriveModule::turnALPHA(double angle) {
     std::cout << abs(angleIn->PIDGet() - getAngleSetpoint()) << std::endl;
     while (time->Get() < 4 &&
            (((angleIn->PIDGet() - getAngleSetpoint()) > 1) || ((angleIn->PIDGet() - getAngleSetpoint()) < -1))) {
-        //std::cout <<  abs(angleIn->PIDGet() - getAngleSetpoint())  <<std::endl;
         driveTank(-angleOut->getPower(), angleOut->getPower());
     }
     rEnc->Reset();
