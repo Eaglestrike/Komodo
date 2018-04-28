@@ -9,7 +9,7 @@
 #define SRC_SETTINGS_H_
 
 //shooter module
-const double RAMPOWER = 0.60;
+const double RAMPOWER = .85;
 
 
 const double VISION_TO_GYRO = 1.24; //Ratio of vision degrees to rotation degrees (they do vary slightly)
