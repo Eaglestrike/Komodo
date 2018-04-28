@@ -64,7 +64,7 @@ private:
 class DriveModule : public RobotModule {
 public:
     DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, int lEncB, int rEncA, int rEncB,
-                PIDSource *panIn, AHRS *gyro);
+                AHRS *gyro);
 
     void setRightPower(double rPow);
 

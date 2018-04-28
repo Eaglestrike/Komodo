@@ -33,7 +33,7 @@ private:
     LiveWindow *lw = LiveWindow::GetInstance();
     Servo *up;
     Servo *side;
-    AHRS *navX;g
+    AHRS *navX;
     bool arcade;
 
     IntakeModule *intake;
@@ -72,11 +72,10 @@ private:
         controller = new Xbox(4);
         intake = new IntakeModule(INTAKE_MOTOR_FORWARD, INTAKE_MOTOR_SIDEWAYS, INTAKE_SOL);
         drive = new DriveModule(DRIVE_LEFT1, DRIVE_LEFT2, DRIVE_RIGHT1, DRIVE_RIGHT2, DRIVE_ENCODER_1_A,
-                                DRIVE_ENCODER_1_B, DRIVE_ENCODER_2_A, DRIVE_ENCODER_2_B, panInput, navX);
+                                DRIVE_ENCODER_1_B, DRIVE_ENCODER_2_A, DRIVE_ENCODER_2_B, navX);
         shooter = new ShooterModule(POT, ANGLEMOTOR, SHOOTERMOTOR1, SHOOTERMOTOR2, SHOOTER_SOL, 9);
         shooter->createThread();
         tomahawks = new FlipperModule(TOMOHAWKS);
-        ultra = new AnalogInput(3);
         std::cout << "yoyoyo" << std::endl;
         drive->calibrate();
 

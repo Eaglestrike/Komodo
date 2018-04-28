@@ -1,7 +1,7 @@
 #include <modules/DriveModule.h>
 
 DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, int lEncB, int rEncA, int rEncB,
-                         PIDSource *panIn, AHRS *gyro) : RobotModule() {
+                         AHRS *gyro) : RobotModule() {
     rTalon1 = new WPI_TalonSRX(rTal1);
     rTalon2 = new WPI_TalonSRX(rTal2);
     lTalon1 = new WPI_TalonSRX(lTal1);

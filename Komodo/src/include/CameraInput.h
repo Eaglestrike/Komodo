@@ -11,7 +11,7 @@
 #define SRC_MODULES_CAMERAINPUT_H_
 
 
-class CameraInput : PIDSource {
+class CameraInput : public PIDSource {
 public:
     CameraInput(std::shared_ptr<NetworkTable> visionTable);
 
