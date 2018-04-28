@@ -1,10 +1,3 @@
-/*
- * DriveModule.h
- *
- *  Created on: Jan 13, 2016
- *      Author: natek
- */
-
 #ifndef SRC_MODULES_DRIVEMODULE_H_
 #define SRC_MODULES_DRIVEMODULE_H_
 

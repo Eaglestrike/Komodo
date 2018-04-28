@@ -1,10 +1,3 @@
-/*
- * Xbox.cpp
- *
- *  Created on: Aug 31, 2015
- *      Author: LAHS
- */
-
 #include <Xbox.h>
 
 Xbox::Xbox(int port) : Joystick(port) {}

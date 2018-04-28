@@ -1,9 +1,3 @@
-/*
- * DriveModule.cpp
- *
- *  Created on: Jan 13, 2016
- *      Author: natek
- */
 #include <modules/DriveModule.h>
 
 DriveModule::DriveModule(int lTal1, int lTal2, int rTal1, int rTal2, int lEncA, int lEncB, int rEncA, int rEncB,

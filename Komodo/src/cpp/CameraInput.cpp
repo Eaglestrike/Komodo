@@ -1,10 +1,3 @@
-/*
- * CameraInput.cpp
- *
- *  Created on: Feb 21, 2016
- *      Author: Samsung
- */
-
 #include <CameraInput.h>
 
 CameraInput::CameraInput(std::shared_ptr<NetworkTable> visionTable) {

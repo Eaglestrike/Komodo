@@ -1,9 +1,3 @@
-/*
- * ShooterModule.h
- *
- *  Created on: Jan 17, 2016
- *      Author: Samsung
- */
 #include "WPILib.h"
 #include <ctre/Phoenix.h>
 #include "Settings.h"

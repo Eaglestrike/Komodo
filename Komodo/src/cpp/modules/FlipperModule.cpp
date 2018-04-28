@@ -1,4 +1,3 @@
-
 #include <modules/FlipperModule.h>
 
 FlipperModule::FlipperModule(int Solenoid1) : RobotModule() {

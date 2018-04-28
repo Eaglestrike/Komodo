@@ -1,10 +1,3 @@
-/*
- * IntakeModule.cpp
- *
- *  Created on: Jan 13, 2016
- *      Author: natek
- */
-
 #include <modules/IntakeModule.h>
 
 IntakeModule::IntakeModule(int spinInput, int spinInput2, int moveInput) : RobotModule() {
