@@ -193,24 +193,21 @@ double DriveModule::getAngle() {
 void DriveModule::turn(double angle) {
     rEnc->Reset();
     lEnc->Reset();
-    Timer *time = new Timer();
+    auto *time = new Timer();
     time->Start();
     EnablePID(true);
     setAngleSetpoint(angle);
     std::cout << abs(angleIn->PIDGet() - getAngleSetpoint()) << std::endl;
     while (time->Get() < 4 &&
            (((angleIn->PIDGet() - getAngleSetpoint()) > 1) || ((angleIn->PIDGet() - getAngleSetpoint()) < -1))) {
-        //std::cout <<  abs(angleIn->PIDGet() - getAngleSetpoint())  <<std::endl;
         driveTank(-angleOut->getPower(), angleOut->getPower());
     }
-    //	rEnc->Reset();
-    //	lEnc->Reset();
     EnablePID(false);
     driveTank(0, 0);
 }
 
 void DriveModule::turnALPHA(double angle) {
-    Timer *time = new Timer();
+    auto *time = new Timer();
     time->Start();
     EnablePID(true);
     setAngleSetpoint(angle);

@@ -9,7 +9,6 @@ public:
     RobotModule();
     virtual ~RobotModule();
 protected:
-    bool m_Enabled;
     bool real;
 };
 

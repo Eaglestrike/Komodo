@@ -33,7 +33,7 @@ private:
     LiveWindow *lw = LiveWindow::GetInstance();
     Servo *up;
     Servo *side;
-    AHRS *navX; //navX
+    AHRS *navX;g
     bool arcade;
 
     IntakeModule *intake;
@@ -52,15 +52,13 @@ private:
     double b = -0.0011549369;
     double c = 0.1656727552;
     double width = 0;
-    AnalogInput *ultra;
     CameraInput *panInput;
     bool detected = false;
     int counr = 0;
-    double testAngle = .79;
     bool real = true;
 
     void RobotInit() override {
-        navX = new AHRS(SPI::kMXP); //navX
+        navX = new AHRS(SPI::kMXP);
         visionTable = nt::NetworkTableInstance::GetDefault().GetTable("visionTable");
         panInput = new CameraInput(visionTable);
         test = new Compressor(0);
@@ -171,9 +169,7 @@ private:
         AutoStatic();
     }
 
-    void AutonomousPeriodic() override {
-
-    }
+    void AutonomousPeriodic() override {}
 
     void TeleopInit() override {
         std::cout << "yoyoyo" << std::endl;
@@ -322,9 +318,6 @@ private:
 
 
         tomahawks->Retract();
-
-        //std::cout << "Autonomous starting" << std::endl;
-
         if (intakeCounter % 4 == 0 && !down) {
             intake->retractIntake();
         } else if (intakeCounter % 2 == 0 && !down) {
@@ -336,7 +329,8 @@ private:
     }
 
     void DisabledPeriodic() override {
-        lightPattern[0] = 0; // Probably better to define enums for various light modes, but set a light mode here
+        // Probably better to define enums for various light modes, but set a light mode here
+        lightPattern[0] = 0;
         i2c->Write(84, lightPattern[0]);
         controller->SetRumble(Xbox::kRightRumble, 0);
     }
@@ -351,250 +345,9 @@ private:
     double distance = 0;
     bool as = false;
 
-    void TestPeriodic() override {
+    void TestPeriodic() override {}
 
-    }
-
-    void TestPID() {
-        if (controller->getA()) {
-            shooter->setPID(shooter->getP() - 0.01, shooter->getI(), shooter->getD());
-        }
-        if (controller->getY()) {
-            shooter->setPID(shooter->getP() + 0.01, shooter->getI(), shooter->getD());
-            std::cout << "increase P" << std::endl;
-        }
-        if (controller->getX()) {
-            shooter->setPID(shooter->getP(), shooter->getI() - 0.01, shooter->getD());
-        }
-        if (controller->getB()) {
-            shooter->setPID(shooter->getP(), shooter->getI() + 0.01, shooter->getD());
-        }
-        if (controller->getBack()) {
-            shooter->setPID(shooter->getP(), shooter->getI(), shooter->getD() - 0.01);
-        }
-        if (controller->getStart()) {
-            shooter->setPID(shooter->getP(), shooter->getI(), shooter->getD() + 0.01);
-        }
-
-        if (controller->getLB()) {
-            shooter->tilt(.56);
-        }
-
-        if (controller->getRB()) {
-            shooter->tilt(.80);
-        }
-
-        if (counter % 60 == 0) {
-            std::cout << "P: " << shooter->getP() << " I: " << shooter->getI() << " D: " << shooter->getD()
-                      << std::endl;
-            std::cout << "Pot: " << shooter->getAngle() << " SetPoint: " << shooter->getSetpoint() << std::endl;
-        }
-        counter++;
-    }
-
-    void findSetpoints() {
-        double power = -controller->getLX();
-        if (power > .1 || power < -.1) {
-            shooter->mShoot(-controller->getLX());
-        } else {
-            shooter->mShoot(0);
-        }
-        intake->setSpinPower(controller->getLX());
-
-        drive->driveTank(lJoy->GetY(), rJoy->GetY());
-        if (controller->getRB()) {
-            shooter->tilt(RINTAKE_ANGLE);
-        }
-        if (controller->getLB()) {
-            shooter->tilt(testAngle);
-        }
-
-        if (lJoy->GetRawButton(3)) {
-            drive->reset();
-            drive->enablePan(true);
-            double angle = visionTable->GetNumber("xAngle", 0);
-            drive->setMaxPower(-.75, .75);
-            if (angle > 31) {
-                angle = angle - 31;
-            } else {
-                angle = angle - 31;
-            }
-
-            if (!detected) {
-                lightPattern[0] = 4;
-            }
-            drive->resetEncoders();
-            Timer *time = new Timer();
-            time->Start();
-            drive->setPanSetpoint(/*40/47.55*/ VISION_TO_GYRO * angle);
-            while (time->Get() < 2 && !lJoy->GetRawButton(4) && (((drive->getAngle() - drive->getPanSetpoint()) > 2) ||
-                                                                 ((drive->getAngle() - drive->getPanSetpoint()) <
-                                                                  -2))) {
-                drive->driveTank(-drive->getPanOutput(), drive->getPanOutput());
-            }
-
-            drive->enablePan(false);
-            drive->driveTank(0, 0);
-        }
-        if (counter % 60 == 0) {
-            if (controller->getA()) {
-                testAngle += .01;
-            }
-            if (controller->getY()) {
-                testAngle -= .01;
-            }
-            distance = visionTable->GetNumber("distance", 0);
-
-            std::cout << "distance: " << distance << std::endl;
-            std::cout << "Pan: " << navX->GetYaw() << std::endl;
-            std::cout << "currangle: " << testAngle << std::endl;
-
-        }
-        counter++;
-
-    }
-
-    void TestForultra() {
-        drive->driveTank(lJoy->GetY(), rJoy->GetY());
-        double x = ultra->GetVoltage() / .0049 * .393701 - 3.5;
-        if (counter % 60 == 0) {
-            std::cout << "shooter setpoint : " << shooter->getSetpoint() << " ultra: " << x * 2.53 << std::endl;
-        }
-        if (controller->getX()) {
-            shooter->mShoot(1);
-            Wait(2);
-            shooter->shootKicker(true);
-            Wait(.5);
-        } else {
-            shooter->shootKicker(false);
-            shooter->mShoot(0);
-        }
-        counter++;
-
-    }
-
-    void TestDrive() {
-
-        drive->EnablePID(true);
-        if (controller->getLB()) {
-            drive->resetEncoders();
-        }
-        if (controller->getA()) {
-            drive->setDrivePID(drive->getP() - .001, drive->getI(), drive->getD());
-        }
-        if (controller->getY()) {
-            drive->setDrivePID(drive->getP() + .001, drive->getI(), drive->getD());
-        }
-        if (controller->getX()) {
-            drive->setDrivePID(drive->getP(), drive->getI(), drive->getD() + .001);
-        }
-        if (controller->getB()) {
-            drive->setDrivePID(drive->getP(), drive->getI(), drive->getD() - .001);
-        }
-        if (controller->getRB()) {
-            drive->driveWithoutAngle(-43);
-        } else {
-            drive->setDriveSetpoint(0);
-        }
-        if (counter % 60 == 0) {
-            std::cout << "p: " << drive->getP() << " position: " << drive->getLeftEncoder() << " setpoint:"
-                      << drive->getDriveSetpoint() << std::endl;
-        }
-        counter++;
-        drive->driveTank(drive->getDriveOutput(), drive->getDriveOutput());
-
-    }
-
-    void TestDriveWithAngle() {
-
-        drive->EnablePID(true);
-        if (controller->getLB()) {
-            drive->resetEncoders();
-        }
-        if (controller->getA()) {
-            drive->setDrivePID(drive->getP() - .001, drive->getI(), drive->getD());
-        }
-        if (controller->getY()) {
-            drive->setDrivePID(drive->getP() + .001, drive->getI(), drive->getD());
-        }
-        if (controller->getX()) {
-            drive->setDrivePID(drive->getP(), drive->getI(), drive->getD() + .001);
-        }
-        if (controller->getB()) {
-            drive->setDrivePID(drive->getP(), drive->getI(), drive->getD() - .001);
-        }
-        if (controller->getRB()) {
-
-            drive->drive(-43);
-        } else {
-            drive->drive(0);
-        }
-        if (counter % 60 == 0) {
-            std::cout << "p: " << drive->getP() << " position: " << drive->getLeftEncoder() << " setpoint:"
-                      << drive->getDriveSetpoint() << std::endl;
-        }
-        counter++;
-        drive->driveTank(drive->getDriveOutput(), drive->getDriveOutput());
-    }
-
-    void TestPan() {
-        up->SetAngle(150);
-        if (controller->getY()) {
-            drive->setPanPID(drive->getPanP() + .0001, drive->getPanI(), drive->getPanD());
-        }
-        if (controller->getA()) {
-            drive->setPanPID(drive->getPanP() - .0001, drive->getPanI(), drive->getPanD());
-        }
-        if (controller->getX()) {
-            drive->setPanPID(drive->getPanP(), drive->getPanI() - .00001, drive->getPanD());
-        }
-        if (controller->getB()) {
-            drive->setPanPID(drive->getPanP(), drive->getPanI() + .00001, drive->getPanD());
-        }
-        if (controller->getBack()) {
-            drive->setPanPID(drive->getPanP(), drive->getPanI(), drive->getPanD() - .01);
-        }
-        if (controller->getStart()) {
-            drive->setPanPID(drive->getPanP(), drive->getPanI(), drive->getPanD() + .01);
-        }
-        if (controller->getRB())
-            drive->setPanSetpoint(0);
-        if (controller->getLB()) {
-            drive->setPanSetpoint(10);
-        }
-        if (controller->getRT()) {
-            drive->setPanSetpoint(40);
-        }
-        if (controller->getLT()) {
-            drive->setPanSetpoint(40);
-        }
-        if (counter % 60 == 0) {
-            std::cout << " p : " << drive->getPanP() << " i : " << drive->getPanI() << " d: " << drive->getPanD()
-                      << "setpoint " << drive->getPanSetpoint() << " actual point: " << drive->getAngle() << std::endl;
-        }
-        counter++;
-        if (lJoy->GetTrigger()) {
-            drive->driveTank(lJoy->GetY(), rJoy->GetY());
-        }
-        drive->driveTank(-drive->getPanOutput(), drive->getPanOutput());
-
-    }
-
-    void TestEverything() {
-        shooter->tilt(LEVEL_ANGLE);
-        auto *times = new Timer();
-        times->Start();
-        while (times->Get() < 4) {
-            drive->driveTank(1, 1);
-        }
-        drive->driveTank(0, 0);
-        shooter->tilt(RSHOOT);
-        Wait(.5);
-        up->SetAngle(150);
-        Wait(.25);
-    }
-
-    //.1688 , .637
 };
+
 
 START_ROBOT_CLASS(Robot)
