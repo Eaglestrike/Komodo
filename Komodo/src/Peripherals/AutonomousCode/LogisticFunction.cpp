@@ -8,16 +8,16 @@
 #include <math.h>
 
 LogisticFunction::LogisticFunction(double maxTime, double maxDistance) {
-	errorD = 0.5; //how many units we can be away from target distance
-	D = maxDistance + errorD; //Adjust the target distance so we stop at the target
-	maxT = maxTime;
-	A = (log(errorD/D)/maxT); //from (D-E) = D(1-e^(-AT))
+    errorD = 0.5; //how many units we can be away from target distance
+    D = maxDistance + errorD; //Adjust the target distance so we stop at the target
+    maxT = maxTime;
+    A = (log(errorD / D) / maxT); //from (D-E) = D(1-e^(-AT))
 }
 
 double LogisticFunction::getDistance(double time) {
-	return D*(1-exp(A*time));
+    return D * (1 - exp(A * time));
 }
 
 double LogisticFunction::getA() {
-	return A;
+    return A;
 }

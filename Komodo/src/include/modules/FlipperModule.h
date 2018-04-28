@@ -6,15 +6,18 @@
 #include <WPILib.h>
 #include "RobotModule.h"
 
-class FlipperModule: public RobotModule {
+class FlipperModule : public RobotModule {
 public:
-	FlipperModule(int Solenoid1);
-	void Deploy();
-	void Retract();
-	bool get();
+    FlipperModule(int Solenoid1);
+
+    void Deploy();
+
+    void Retract();
+
+    bool get();
 
 private:
-	Solenoid* deploySol;
+    Solenoid *deploySol;
 };
 
 

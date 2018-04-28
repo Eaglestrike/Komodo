@@ -18,7 +18,7 @@ const double RSHOOTER_CONTROLLER_P = -9.09;
 const double RSHOOTER_CONTROLLER_I = 0;
 const double RSHOOTER_CONTROLLER_D = -4.01;
 
-const double PSHOOTER_CONTROLLER_P  = -8.95;
+const double PSHOOTER_CONTROLLER_P = -8.95;
 const double PSHOOTER_CONTROLLER_I = 0;
 const double PSHOOTER_CONTROLLER_D = 0;
 
@@ -32,7 +32,7 @@ const double PMINIMUM_ANGLE = 0.452;
 const double RINTAKE_ANGLE = 0.79;
 const double PINTAKE_ANGLE = 0.79;
 
-const double LEVEL_ANGLE  = 0.7281;
+const double LEVEL_ANGLE = 0.7281;
 
 const double RSHOOT_ANGLE = 0.342551;
 const double RSHOOT = .31;

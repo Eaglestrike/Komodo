@@ -7,28 +7,28 @@
 
 #include <modules/RobotModule.h>
 
-RobotModule::RobotModule(std::string name): m_Module_Name(name), m_Enabled(false), real(true) {
-	// TODO Auto-generated constructor stub
+RobotModule::RobotModule(std::string name) : m_Module_Name(name), m_Enabled(false), real(true) {
+    // TODO Auto-generated constructor stub
 
 }
 
 void RobotModule::enable() {
-	m_Enabled = true;
+    m_Enabled = true;
 }
 
 void RobotModule::disable() {
-	m_Enabled = false;
+    m_Enabled = false;
 }
 
 void RobotModule::enableReal() {
-	real = true;
+    real = true;
 }
 
 void RobotModule::enablePractice() {
-	real = false;
+    real = false;
 }
 
 RobotModule::~RobotModule() {
-	// TODO Auto-generated destructor stub
+    // TODO Auto-generated destructor stub
 }
 

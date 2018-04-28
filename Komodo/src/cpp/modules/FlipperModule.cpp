@@ -2,17 +2,17 @@
 #include <modules/FlipperModule.h>
 
 FlipperModule::FlipperModule(int Solenoid1) : RobotModule("FlipperModule") {
-	deploySol = new Solenoid(Solenoid1);
+    deploySol = new Solenoid(Solenoid1);
 }
 
 void FlipperModule::Deploy() {
-	deploySol->Set(true);
+    deploySol->Set(true);
 }
 
 void FlipperModule::Retract() {
-	deploySol->Set(false);
+    deploySol->Set(false);
 }
 
 bool FlipperModule::get() {
-	return deploySol->Get();
+    return deploySol->Get();
 }

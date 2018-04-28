@@ -13,12 +13,14 @@
 
 class CameraInput : PIDSource {
 public:
-	CameraInput(std::shared_ptr<NetworkTable> visionTable);
-	virtual ~CameraInput();
-	double PIDGet();
+    CameraInput(std::shared_ptr<NetworkTable> visionTable);
+
+    virtual ~CameraInput();
+
+    double PIDGet();
 
 private:
-	std::shared_ptr<NetworkTable> m_visionTable;
+    std::shared_ptr<NetworkTable> m_visionTable;
 };
 
 #endif /* SRC_MODULES_CAMERAINPUT_H_ */
