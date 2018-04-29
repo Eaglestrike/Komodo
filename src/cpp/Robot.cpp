@@ -1,19 +1,9 @@
 #include "WPILib.h"
-#include <cmath>
 #include "Xbox.h"
-#include "modules/RobotModule.h"
 #include "modules/DriveModule.h"
-#include "peripherals/LogisticFunction.h"
-#include <iostream>
-#include <cstdio>
-#include <ctime>
 #include <LiveWindow/LiveWindow.h>
-#include "WPILib.h"
 #include "modules/ShooterModule.h"
-#include "modules/DriveModule.h"
-#include "Settings.h"
 #include "modules/FlipperModule.h"
-#include "AHRS.h"
 #include "modules/IntakeModule.h"
 #include <networktables/NetworkTableInstance.h>
 
