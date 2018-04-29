@@ -1,16 +1,12 @@
-# Eclipse (old)
-**/.settings
-**/.metadata
-
 # Gradle
 build
 .gradle
 
 # C++/CLion
-/Komodo/Debug/
-/Komodo/CMakeLists.txt
-Komodo/cmake-build-debug/
-/Komodo/.idea
+/Debug/
+CMakeLists.txt
+/cmake-build-debug/
+/.idea/
 
 # OS Specific
 **/.DS_Store
