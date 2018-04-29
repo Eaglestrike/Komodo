@@ -5,11 +5,7 @@
 
 class RobotModule {
 public:
-
-    RobotModule();
     virtual ~RobotModule();
-protected:
-    bool real;
 };
 
 #endif /* SRC_MODULES_ROBOTMODULE_H_ */

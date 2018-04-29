@@ -63,19 +63,6 @@ double Xbox::getLX() {
     return GetX();
 }
 
-
-bool Xbox::getButtonPress(button button) {
-    if (GetRawButton(button) && !buttonStatus[button]) {
-        buttonStatus[button] = true;
-        return 1;
-    } else {
-        buttonStatus[button] = GetRawButton(button);
-        return 0;
-    }
-
-}
-
-
 double Xbox::getLY() {
     return -GetY();
 }

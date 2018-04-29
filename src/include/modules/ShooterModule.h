@@ -15,36 +15,15 @@ private:
     AnalogPotentiometer *p1;
 
 public:
-    virtual ~ShooterIn() {};
+    virtual ~ShooterIn() = default;
 
-    ShooterIn(AnalogPotentiometer *a) {
+    explicit ShooterIn(AnalogPotentiometer *a) {
         p1 = a;
     }
 
-    double PIDGet() {
+    double PIDGet() override {
         return p1->Get();
     }
-
-};
-
-class ShooterOut : public PIDOutput {
-private:
-    double power;
-
-public:
-    virtual ~ShooterOut() {};
-
-    ShooterOut() : power(0) {}
-
-
-    void PIDWrite(double output) {
-        power = output;
-    }
-
-    double getPower() {
-        return power;
-    }
-
 
 };
 
@@ -52,7 +31,7 @@ class ShooterModule : public RobotModule {
 public:
     ShooterModule(int anglePort, int angleMotorPort, int leftport, int rightport, int solenoidPort, int buttonport);
 
-    virtual ~ShooterModule();
+    ~ShooterModule() override;
 
     void setAngleMotorPower(double power);
 
@@ -106,7 +85,6 @@ private:
     Solenoid *shooterSol;
 
     ShooterIn *shootIn;
-    ShooterOut *shootOut;
     PIDController *angleController;
     DigitalInput *button;
     bool shot = false;

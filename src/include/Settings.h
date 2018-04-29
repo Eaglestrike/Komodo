@@ -14,28 +14,19 @@ const double RAMPOWER = .85;
 
 const double VISION_TO_GYRO = 1.24; //Ratio of vision degrees to rotation degrees (they do vary slightly)
 //PID Controllers
-const double RSHOOTER_CONTROLLER_P = -9.09;
-const double RSHOOTER_CONTROLLER_I = 0;
-const double RSHOOTER_CONTROLLER_D = -4.01;
+const double SHOOTER_CONTROLLER_P = -9.09;
+const double SHOOTER_CONTROLLER_I = 0;
+const double SHOOTER_CONTROLLER_D = -4.01;
 
-const double PSHOOTER_CONTROLLER_P = -8.95;
-const double PSHOOTER_CONTROLLER_I = 0;
-const double PSHOOTER_CONTROLLER_D = 0;
 
 //angles
-const double RMAXIMUM_ANGLE = .81;
-const double RMINIMUM_ANGLE = .29;
-
-const double PMAXIMUM_ANGLE = 0.97;
-const double PMINIMUM_ANGLE = 0.452;
-
-const double RINTAKE_ANGLE = 0.79;
-const double PINTAKE_ANGLE = 0.79;
+const double MAXIMUM_ANGLE = .81;
+const double MINIMUM_ANGLE = .29;
+const double INTAKE_ANGLE = 0.79;
 
 const double LEVEL_ANGLE = 0.7281;
 
-const double RSHOOT_ANGLE = 0.342551;
-const double RSHOOT = .31;
+const double SHOOT_ANGLE = 0.342551;
 const double SHOOT1 = .34;
 const double SHOOT2 = .32;
 
@@ -47,17 +38,13 @@ const int ANGLEMOTOR = 4;
 const int POT = 0;
 
 //drive
-const double RDRIVE_CONTROLLER_P = -0.012;
-const double RDRIVE_CONTROLLER_I = 0;
-const double RDRIVE_CONTROLLER_D = 0;
+const double DRIVE_CONTROLLER_P = -0.012;
+const double DRIVE_CONTROLLER_I = 0;
+const double DRIVE_CONTROLLER_D = 0;
 
-const double RANGLE_CONTROLLER_P = 0.0441;
-const double RANGLE_CONTROLLER_I = 0;
-const double RANGLE_CONTROLLER_D = 0.09;
-
-const double PANGLE_CONTROLLER_P = 0.025;
-const double PANGLE_CONTROLLER_I = 0;
-const double PANGLE_CONTROLLER_D = 0;
+const double ANGLE_CONTROLLER_P = 0.0441;
+const double ANGLE_CONTROLLER_I = 0;
+const double ANGLE_CONTROLLER_D = 0.09;
 
 const int DRIVE_LEFT1 = 2;
 const int DRIVE_LEFT2 = 5;

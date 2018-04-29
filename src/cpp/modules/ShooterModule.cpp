@@ -11,16 +11,10 @@ ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, in
     shooterSol = new Solenoid(solenoidPort);
     button = new DigitalInput(buttonport);
     leftShooter->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0);
-    real = true;
     shootIn = new ShooterIn(angle);
-    shootOut = new ShooterOut();
-    if (real) {
-        angleController = new PIDController(RSHOOTER_CONTROLLER_P, RSHOOTER_CONTROLLER_I, RSHOOTER_CONTROLLER_D,
+
+    angleController = new PIDController(SHOOTER_CONTROLLER_P, SHOOTER_CONTROLLER_I, SHOOTER_CONTROLLER_D,
                                             shootIn, angleMotor);
-    } else {
-        angleController = new PIDController(PSHOOTER_CONTROLLER_P, PSHOOTER_CONTROLLER_I, PSHOOTER_CONTROLLER_D,
-                                            shootIn, angleMotor);
-    }
 }
 
 ShooterModule::~ShooterModule() = default;
@@ -77,21 +71,11 @@ void ShooterModule::setAngleMotorPower(double power) {
 }
 
 void ShooterModule::tilt(double angle) {
-    if (real) {
-        if (angle > RMAXIMUM_ANGLE) {
-            angle = RMAXIMUM_ANGLE;
-        }
-        if (angle < RMINIMUM_ANGLE) {
-            angle = RMINIMUM_ANGLE;
-        }
+    if (angle > MAXIMUM_ANGLE) {
+        angle = MAXIMUM_ANGLE;
     }
-    if (!real) {
-        if (angle > PMAXIMUM_ANGLE) {
-            angle = PMAXIMUM_ANGLE;
-        }
-        if (angle < PMINIMUM_ANGLE) {
-            angle = PMINIMUM_ANGLE;
-        }
+    if (angle < MINIMUM_ANGLE) {
+        angle = MINIMUM_ANGLE;
     }
     angleController->SetSetpoint(angle);
 }

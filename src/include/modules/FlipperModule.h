@@ -6,7 +6,7 @@
 
 class FlipperModule : public RobotModule {
 public:
-    FlipperModule(int Solenoid1);
+    explicit FlipperModule(int Solenoid1);
 
     void Deploy();
 

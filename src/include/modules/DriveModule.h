@@ -21,7 +21,7 @@ public:
         lEnc = lEncInput;
     }
 
-    double PIDGet() {
+    double PIDGet() override {
         return rEnc->PIDGet();
     }
 };
@@ -31,13 +31,13 @@ private:
     AHRS *gyro;
 
 public:
-    virtual ~AngleIn() {}
+    virtual ~AngleIn() = default;
 
-    AngleIn(AHRS *g) {
+    explicit AngleIn(AHRS *g) {
         gyro = g;
     }
 
-    double PIDGet() {
+    double PIDGet() override {
         return gyro->GetYaw();
     }
 };
@@ -45,11 +45,11 @@ public:
 class DriveOut : public PIDOutput {
 
 public:
-    DriveOut() {}
+    DriveOut() = default;
 
-    virtual ~DriveOut() {}
+    virtual ~DriveOut() = default;
 
-    void PIDWrite(double output) {
+    void PIDWrite(double output) override {
         power = output;
     }
 

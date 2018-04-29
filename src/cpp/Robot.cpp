@@ -42,7 +42,6 @@ private:
     double b = -0.0011549369;
     double c = 0.1656727552;
     double width = 0;
-    CameraInput *panInput;
     bool detected = false;
     int counr = 0;
     bool real = true;
@@ -50,7 +49,6 @@ private:
     void RobotInit() override {
         navX = new AHRS(SPI::kMXP);
         visionTable = nt::NetworkTableInstance::GetDefault().GetTable("visionTable");
-        panInput = new CameraInput(visionTable);
         test = new Compressor(0);
         up = new Servo(0);
         side = new Servo(1);
@@ -174,7 +172,7 @@ private:
         lightPattern[0] = color + 1;
     }
 
-    double shootvalue = RSHOOT_ANGLE;
+    double shootvalue = SHOOT_ANGLE;
 
     void TeleopPeriodic() override {
         color = DriverStation::GetInstance().GetAlliance();
@@ -278,7 +276,7 @@ private:
         }
 
         if (controller->getA()) {
-            shooter->tilt(PINTAKE_ANGLE);
+            shooter->tilt(INTAKE_ANGLE);
         }
         if (controller->getY()) {
             shooter->tilt(SHOOT1);
@@ -291,7 +289,7 @@ private:
         }
 
         if (!shooter->isBallIn()) {
-            controller->SetRumble(Xbox::kRightRumble, .5);
+            controller->setRRumble(.5);
             if (counr < 10) {
                 lightPattern[0] = 3;
             } else {
@@ -301,7 +299,7 @@ private:
             counr++;
 
         } else {
-            controller->SetRumble(Xbox::kRightRumble, 0);
+            controller->setRumble(0);
             counr = 0;
         }
 
@@ -321,7 +319,7 @@ private:
         // Probably better to define enums for various light modes, but set a light mode here
         lightPattern[0] = 0;
         i2c->Write(84, lightPattern[0]);
-        controller->SetRumble(Xbox::kRightRumble, 0);
+        controller->setRumble(0);
     }
 
     void TestInit() override {
