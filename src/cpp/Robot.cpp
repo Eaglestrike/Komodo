@@ -3,7 +3,7 @@
 #include "Xbox.h"
 #include "modules/RobotModule.h"
 #include "modules/DriveModule.h"
-#include "../Peripherals/AutonomousCode/LogisticFunction.h"
+#include "peripherals/LogisticFunction.h"
 #include <iostream>
 #include <cstdio>
 #include <ctime>

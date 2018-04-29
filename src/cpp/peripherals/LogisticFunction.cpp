@@ -4,7 +4,7 @@
  *  Created on: Jan 16, 2016
  *      Author: natek
  */
-#include "LogisticFunction.h"
+#include "peripherals/LogisticFunction.h"
 #include <math.h>
 
 LogisticFunction::LogisticFunction(double maxTime, double maxDistance) {
