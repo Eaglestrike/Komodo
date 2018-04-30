@@ -69,35 +69,6 @@ private:
 
     }
 
-
-    /**
-     * This autonomous (along with the chooser code above) shows how to select between different autonomous modes
-     * using the dashboard. The sendable chooser code works with the Java SmartDashboard. If you prefer the LabVIEW
-     * Dashboard, remove all of the chooser code and uncomment the GetString line to get the auto name from the text box
-     * below the Gyro
-     *
-     * You can add additional auto modes by adding additional comparisons to the if-else structure below with additional strings.
-     * If using the SendableChooser make sure to add them to the chooser code above as well.
-     */
-    void pan() {
-        drive->enablePan(true);
-        drive->reset();
-        double angle = visionTable->GetNumber("xAngle", 0);
-        angle = angle - 31;
-
-        drive->resetEncoders();
-        auto *time = new Timer();
-        time->Start();
-        drive->setPanSetpoint(/*40/47.55*/  angle);
-        while (time->Get() < 2 && !lJoy->GetRawButton(4) && (((drive->getAngle() - drive->getPanSetpoint()) > 2) ||
-                                                             ((drive->getAngle() - drive->getPanSetpoint()) < -2))) {
-            drive->driveTank(-drive->getPanOutput(), drive->getPanOutput());
-        }
-
-        drive->enablePan(false);
-        drive->driveTank(0, 0);
-    }
-
     void AutoStatic() {
         drive->EnablePID(true);
         shooter->enablePID();
@@ -111,44 +82,6 @@ private:
         timeout->Start();
         drive->drive(-160);
 
-    }
-
-    void AutoPortColis() {
-        drive->EnablePID(true);
-        drive->reset();
-        shooter->enablePID();
-        intake->deployIntake();
-        tomahawks->Deploy();
-        shooter->tilt(LEVEL_ANGLE);
-        Wait(1);
-        drive->drive(-100);
-    }
-
-    void AutoSeeSaw() {
-        shooter->enablePID();
-        shooter->tilt(LEVEL_ANGLE);
-        Wait(1);
-        drive->resetEncoders();
-        navX->ZeroYaw();
-        drive->drive(-40);
-        Wait(.5);
-        tomahawks->Deploy();
-        Wait(.5);
-        drive->EnablePID(false);
-        drive->resetEncoders();
-        drive->EnablePID(true);
-
-        drive->drive(-30);
-        Wait(.5);
-        tomahawks->Retract();
-        Wait(.5);
-        drive->EnablePID(false);
-        drive->resetEncoders();
-        drive->EnablePID(true);
-
-        drive->drive(-72);
-        drive->driveTank(0, 0);
-        drive->EnablePID(false);
     }
 
 
