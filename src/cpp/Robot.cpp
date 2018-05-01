@@ -17,7 +17,7 @@ private:
     I2C *i2c;
     uint8_t lightPattern[1];
     Compressor *test;
-    bool down = false;
+    bool isIntakeDown = false;
     double x;
     double y;
     LiveWindow *lw = LiveWindow::GetInstance();
@@ -35,7 +35,7 @@ private:
     Xbox *controller;
     bool intakes = true;
     FlipperModule *tomahawks;
-    bool cameras = false;
+    bool enableCameras = true;
     int cameracount = 0;
     int counter = 0;
     double a = 3.897257 * pow(10, -6);
@@ -44,7 +44,6 @@ private:
     double width = 0;
     bool detected = false;
     int counr = 0;
-    bool real = true;
 
     void RobotInit() override {
         navX = new AHRS(SPI::kMXP);
@@ -64,7 +63,7 @@ private:
         shooter = new ShooterModule(POT, ANGLEMOTOR, SHOOTERMOTOR1, SHOOTERMOTOR2, SHOOTER_SOL, 9);
         shooter->createThread();
         tomahawks = new FlipperModule(TOMOHAWKS);
-        std::cout << "yoyoyo" << std::endl;
+        tomahawks->Retract();
         drive->calibrate();
 
     }
@@ -109,8 +108,10 @@ private:
 
     void TeleopPeriodic() override {
         color = DriverStation::GetInstance().GetAlliance();
-        i2c->Write(84, lightPattern[0]);
 
+        //Set LED mode
+        lightPattern[0] = isIntakeDown ? 1 : 0;
+        i2c->Write(84, lightPattern[0]);
 
         if (controller->getBack()) {
             drive->driveTank(0, 0);
@@ -118,22 +119,30 @@ private:
             return;
         }
 
-        if (arcade) {
-            drive->driveArcade(rJoy->GetY(), lJoy->GetX());
-        } else {
-            drive->driveTank(lJoy->GetY(), rJoy->GetY());
+        //Drive mode
+        //TODO: Add cheesy drive option
+        if (!lJoy->GetRawButton(3)) {
+            if (arcade) {
+                drive->driveArcade(rJoy->GetY(), lJoy->GetX());
+            } else {
+                drive->driveTank(lJoy->GetY(), rJoy->GetY());
+            }
         }
 
+        //Do intake speed
         intake->setSpinPower(controller->getLX());
+
+        //Put down intake
         if (rJoy->GetRawButton(3)) {
-            down = true;
+            isIntakeDown = true;
+            //TODO: LEVEL_ANGLE is too high to pick up ball.
             shooter->tilt(LEVEL_ANGLE);
             intake->deployIntake();
-        } else if (down) {
-            down = false;
+        } else if (isIntakeDown) {
+            isIntakeDown = false;
             intakeCounter = 4;
         }
-        std::cout << "Down: " << down << std::endl;
+
 
         if (lJoy->GetRawButton(3)) {
             drive->reset();
@@ -200,14 +209,13 @@ private:
             intakeCounter++;
         }
         intakes = controller->getLB();
-        if (lJoy->GetRawButton(2) && lJoy->GetRawButton(2) != cameras) {
+        if (lJoy->GetRawButton(2) && enableCameras) {
             cameracount++;
             std::cout << "print" << std::endl;
         }
-        cameras = lJoy->GetRawButton(2);
+        enableCameras = lJoy->GetRawButton(2);
         if (cameracount % 2 == 0) {
             up->SetAngle(150);
-
         }
         if (cameracount % 2 == 1) {
             up->SetAngle(180);
@@ -242,11 +250,10 @@ private:
             counr = 0;
         }
 
-
-        tomahawks->Retract();
-        if (intakeCounter % 4 == 0 && !down) {
+        //TODO: This may not be needed, test if we can remove this with no effects
+        if (intakeCounter % 4 == 0 && !isIntakeDown) {
             intake->retractIntake();
-        } else if (intakeCounter % 2 == 0 && !down) {
+        } else if (intakeCounter % 2 == 0 && !isIntakeDown) {
             intake->deployIntake();
         }
 
