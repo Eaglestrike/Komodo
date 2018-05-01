@@ -112,6 +112,12 @@ private:
         i2c->Write(84, lightPattern[0]);
 
 
+        if (controller->getBack()) {
+            drive->driveTank(0, 0);
+            intake->setSpinPower(0);
+            return;
+        }
+
         if (arcade) {
             drive->driveArcade(rJoy->GetY(), lJoy->GetX());
         } else {
