@@ -116,6 +116,7 @@ private:
         if (controller->getBack()) {
             drive->driveTank(0, 0);
             intake->setSpinPower(0);
+            shooter->setShooterSpeed(0);
             return;
         }
 
@@ -127,6 +128,8 @@ private:
             } else {
                 drive->driveTank(lJoy->GetY(), rJoy->GetY());
             }
+        } else {
+            drive->driveTank(0, 0);
         }
 
         //Do intake speed
