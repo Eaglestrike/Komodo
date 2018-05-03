@@ -170,11 +170,11 @@ private:
             drive->enablePan(false);
             drive->driveTank(0, 0);
         }
-        double power = -controller->getLX();
+        double power = controller->getLX();
         if (power > .1 || power < -.1) {
-            shooter->mShoot(-controller->getLX());
+            shooter->setShooterSpeed(-controller->getLX());
         } else {
-            shooter->mShoot(0);
+            shooter->setShooterSpeed(0);
         }
 
         if (lJoy->GetRawButton(5)) {
@@ -200,7 +200,7 @@ private:
                           (controller->getLT() > .75 && controller->getRT() > .75);
 
         if (shouldFire) {
-            shooter->mShoot(RAMPOWER);
+            shooter->setShooterSpeed(RAMPOWER);
             Wait(2.5);
             shooter->shootKicker(true);
             Wait(.5);

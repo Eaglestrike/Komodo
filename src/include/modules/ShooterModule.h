@@ -37,13 +37,11 @@ public:
 
     void tilt(double angle);
 
-    void shoot(double left, double right, double time);
+    void shoot(double shootSpeed, double time);
 
     bool getShot();
 
     double getAngle();
-
-    void mShoot(double power);
 
     void shootKicker(bool kick);
 
