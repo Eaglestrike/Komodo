@@ -78,25 +78,11 @@ public:
 
     double getDriveSetpoint();
 
-    void setDrivePID(double p, double i, double d);
-
-    double getDriveOutput();
-
     double getRightEncoder();
 
     double getLeftEncoder();
 
-    void setPID(double p, double i, double d);
-
-    double getD();
-
-    double getI();
-
-    double getP();
-
-    void EnablePID(bool enable);
-
-    double getAngleOutput();
+    void enablePID(bool enable);
 
     void setAngleSetpoint(double angle);
 
@@ -108,27 +94,15 @@ public:
 
     void turn(double angle);
 
-    void setPanPID(double p, double i, double d);
-
-    double getPanP();
-
-    double getPanI();
-
-    double getPanD();
-
     void setPanSetpoint(double setPoint);
 
     void enablePan(bool enable);
 
     void turnALPHA(double angle);
 
-    void calibrate();
-
     double getPanOutput();
 
     double getPanSetpoint();
-
-    double getPanInput();
 
     double getAngle();
 
@@ -143,8 +117,6 @@ private:
     WPI_TalonSRX *rTalon2;
     WPI_TalonSRX *lTalon1;
     WPI_TalonSRX *lTalon2;
-    double leftMotorOutput;
-    double rightMotorOutput;
 
     Encoder *lEnc;
     Encoder *rEnc;

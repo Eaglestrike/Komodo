@@ -11,67 +11,80 @@ class Robot : public IterativeRobot {
 public:
     std::shared_ptr<NetworkTable> visionTable;
 private:
-    //offset = 41
+
     DriverStation::Alliance color;
 
     I2C *i2c;
     uint8_t lightPattern[1];
-    Compressor *test;
+
+    //We define this but it is never used.
+    //We may need to add limits to it so it wont just use it's unknown default value.
+    Compressor *compressor = new Compressor(0);
+
     bool isIntakeDown = false;
-    double x;
-    double y;
+
+    //Like smart dashboard?
     LiveWindow *lw = LiveWindow::GetInstance();
-    Servo *up;
-    Servo *side;
+
+    Servo *visionVerticalAngleServo;
+    Servo *visionPivotAngleServo;
+
+
     AHRS *navX;
     bool arcade;
 
     IntakeModule *intake;
     DriveModule *drive;
     ShooterModule *shooter;
+    FlipperModule *tomahawks;
+
+    //Control systems
     Joystick *rJoy;
     Joystick *lJoy;
-    int intakeCounter = 0;
     Xbox *controller;
+
+    int intakeCounter = 0;
     bool intakes = true;
-    FlipperModule *tomahawks;
     bool enableCameras = true;
     int cameracount = 0;
     int counter = 0;
-    double a = 3.897257 * pow(10, -6);
+
+    double a = 3.897257E-6;
     double b = -0.0011549369;
     double c = 0.1656727552;
-    double width = 0;
-    bool detected = false;
+    //double width = 0;
+    //bool detected = false;
     int counr = 0;
 
     void RobotInit() override {
         navX = new AHRS(SPI::kMXP);
+        
+        //Do vision setup
         visionTable = nt::NetworkTableInstance::GetDefault().GetTable("visionTable");
-        test = new Compressor(0);
-        up = new Servo(0);
-        side = new Servo(1);
+        visionVerticalAngleServo = new Servo(0);
+        visionPivotAngleServo = new Servo(1);
+
+        //Setup communication to LED arduino
         lightPattern[0] = 0;
         i2c = new I2C(I2C::Port::kOnboard, 84);
 
+        //Define controllers
         rJoy = new Joystick(1);
         lJoy = new Joystick(0);
         controller = new Xbox(4);
+
+        //Define modules
         intake = new IntakeModule(INTAKE_MOTOR_FORWARD, INTAKE_MOTOR_SIDEWAYS, INTAKE_SOL);
         drive = new DriveModule(DRIVE_LEFT1, DRIVE_LEFT2, DRIVE_RIGHT1, DRIVE_RIGHT2, DRIVE_ENCODER_1_A,
                                 DRIVE_ENCODER_1_B, DRIVE_ENCODER_2_A, DRIVE_ENCODER_2_B, navX);
         shooter = new ShooterModule(POT, ANGLEMOTOR, SHOOTERMOTOR1, SHOOTERMOTOR2, SHOOTER_SOL, 9);
-        shooter->createThread();
         tomahawks = new FlipperModule(TOMOHAWKS);
-        tomahawks->Retract();
-        drive->calibrate();
-
     }
 
     void AutoStatic() {
-        drive->EnablePID(true);
+        drive->enablePID(true);
         shooter->enablePID();
-        shooter->tilt(LEVEL_ANGLE);
+        shooter->setShooterAngle(LEVEL_ANGLE);
         Wait(1);
         drive->reset();
         drive->resetEncoders();
@@ -92,19 +105,19 @@ private:
 
     void TeleopInit() override {
         std::cout << "yoyoyo" << std::endl;
-        up->SetAngle(150);
-        side->SetAngle(90);
+        visionVerticalAngleServo->SetAngle(150);
+        visionPivotAngleServo->SetAngle(90);
         arcade = false;
         std::cout << "yoyoyo" << std::endl;
         shooter->enablePID();
         shooter->setMaxPower(.8);
-        shooter->tilt(LEVEL_ANGLE);
+        shooter->setShooterAngle(LEVEL_ANGLE);
         std::cout << "yoyoyo" << std::endl;
         color = DriverStation::GetInstance().GetAlliance();
         lightPattern[0] = color + 1;
     }
 
-    double shootvalue = SHOOT_ANGLE;
+    //double shootvalue = SHOOT_ANGLE;
 
     void TeleopPeriodic() override {
         color = DriverStation::GetInstance().GetAlliance();
@@ -139,7 +152,7 @@ private:
         if (rJoy->GetRawButton(3)) {
             isIntakeDown = true;
             //TODO: LEVEL_ANGLE is too high to pick up ball.
-            shooter->tilt(LEVEL_ANGLE);
+            shooter->setShooterAngle(LEVEL_ANGLE);
             intake->deployIntake();
         } else if (isIntakeDown) {
             isIntakeDown = false;
@@ -152,102 +165,83 @@ private:
             drive->enablePan(true);
             double angle = visionTable->GetNumber("xAngle", 0);
             drive->setMaxPower(-.75, .75);
-            angle = angle - 31;
-
-
-            if (!detected) {
-                lightPattern[0] = 4;
-            }
+            angle -= 31;
             drive->resetEncoders();
             auto *time = new Timer();
             time->Start();
-            drive->setPanSetpoint(/*40/47.55*/ VISION_TO_GYRO * angle);
-            while (time->Get() < 2 && !lJoy->GetRawButton(4) && (((drive->getAngle() - drive->getPanSetpoint()) > 2) ||
-                                                                 ((drive->getAngle()) - drive->getPanSetpoint()) <
-                                                                 -2)) {
+            drive->setPanSetpoint(VISION_TO_GYRO * angle);
+            while (time->Get() < 2 && !lJoy->GetRawButton(4) && (drive->getAngle() - drive->getPanSetpoint() > 2 ||
+                                                                 drive->getAngle() - drive->getPanSetpoint() < -2)) {
                 drive->driveTank(-drive->getPanOutput(), drive->getPanOutput());
             }
             drive->enablePan(false);
             drive->driveTank(0, 0);
         }
-        double power = controller->getLX();
-        if (power > .1 || power < -.1) {
-            shooter->setShooterSpeed(-controller->getLX());
-        } else {
-            shooter->setShooterSpeed(0);
-        }
 
-        if (lJoy->GetRawButton(5)) {
-            distance = visionTable->GetNumber("distance", 0);
-            if (distance >= DISTANCE2 && distance <= DISTANCE3) {
-                shooter->tilt(SHOOT2);
-                std::cout << "in zone 2" << std::endl;
+        shooter->setShooterSpeed(deadZone(-controller->getLX(), 0.1));
 
-            }
-            if (distance <= DISTANCE1) {
-                shooter->tilt(SHOOT1);
-                std::cout << "in zone 1" << std::endl;
-            }
-        }
-        if (controller->getR3()) {
-            shootvalue = shootvalue + .001;
-        }
-        if (controller->getL3()) {
-            shootvalue = shootvalue - .001;
-        }
+        //Auto aiming method which we may want to consider removing
+//        if (lJoy->GetRawButton(5)) {
+//            distance = visionTable->GetNumber("distance", 0);
+//            if (distance >= DISTANCE2 && distance <= DISTANCE3) {
+//                shooter->setShooterAngle(SHOOT2);
+//                std::cout << "in zone 2" << std::endl;
+//
+//            }
+//            if (distance <= DISTANCE1) {
+//                shooter->setShooterAngle(SHOOT1);
+//                std::cout << "in zone 1" << std::endl;
+//            }
+//        }
 
-        bool shouldFire = (lJoy->GetTrigger() && rJoy->GetTrigger()) ||
-                          (controller->getLT() > .75 && controller->getRT() > .75);
-
-        if (shouldFire) {
-            shooter->setShooterSpeed(RAMPOWER);
-            Wait(2.5);
-            shooter->shootKicker(true);
-            Wait(.5);
+        //If the robot should fire
+        if ((lJoy->GetTrigger() && rJoy->GetTrigger()) || (controller->getLT() > .75 && controller->getRT() > .75)) {
+//            shooter->setShooterSpeed(RAMPOWER);
+//            Wait(2.5);
+//            shooter->shootKicker(true);
+//            Wait(.5);
+            shooter->run();
         } else {
             shooter->shootKicker(false);
         }
 
+        //This will toggle twice on press then release
+        //May be an issue
         if (controller->getLB() != intakes) {
             intakeCounter++;
         }
         intakes = controller->getLB();
+
+
         if (lJoy->GetRawButton(2) && enableCameras) {
             cameracount++;
             std::cout << "print" << std::endl;
         }
         enableCameras = lJoy->GetRawButton(2);
-        if (cameracount % 2 == 0) {
-            up->SetAngle(150);
-        }
-        if (cameracount % 2 == 1) {
-            up->SetAngle(180);
 
-        }
+        visionVerticalAngleServo->SetAngle(cameracount % 2 == 0 ? 150 : 180);
 
         if (controller->getA()) {
-            shooter->tilt(INTAKE_ANGLE);
+            shooter->setShooterAngle(INTAKE_ANGLE);
         }
         if (controller->getY()) {
-            shooter->tilt(SHOOT1);
+            shooter->setShooterAngle(SHOOT1);
         }
         if (controller->getStart()) {
-            shooter->tilt(SHOOT2);
+            shooter->setShooterAngle(SHOOT2);
         }
         if (controller->getX() || rJoy->GetRawButton(3)) {
-            shooter->tilt(LEVEL_ANGLE);
+            shooter->setShooterAngle(LEVEL_ANGLE);
         }
 
         if (!shooter->isBallIn()) {
-            controller->setRRumble(.5);
+            controller->setRumble(.5);
             if (counr < 10) {
                 lightPattern[0] = 3;
             } else {
                 lightPattern[0] = color + 1;
-
             }
             counr++;
-
         } else {
             controller->setRumble(0);
             counr = 0;
@@ -264,6 +258,14 @@ private:
 
     }
 
+    double limit(double in, double min, double max) {
+        return fmin(fmax(in, min), max);
+    }
+
+    double deadZone(double in, double zoneSize) {
+        return abs(in) <= zoneSize ? 0 : in;
+    }
+
     void DisabledPeriodic() override {
         // Probably better to define enums for various light modes, but set a light mode here
         lightPattern[0] = 0;
@@ -274,12 +276,9 @@ private:
     void TestInit() override {
         shooter->enablePID();
         shooter->setMaxPower(.8);
-        shooter->tilt(.56);
+        shooter->setShooterAngle(.56);
         drive->enablePan(true);
     }
-
-    double distance = 0;
-    bool as = false;
 
     void TestPeriodic() override {}
 

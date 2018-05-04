@@ -20,10 +20,10 @@ void IntakeModule::deployIntake() {
     moveSol->Set(true);
 }
 
-void IntakeModule::alternateIntake() {
+void IntakeModule::toggleIntakeDeployment() {
     moveSol->Set(!moveSol->Get());
 }
 
-bool IntakeModule::getStatus() {
+bool IntakeModule::isIntakeDeployed() {
     return moveSol->Get();
 }

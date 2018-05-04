@@ -1,23 +1,28 @@
 #include <modules/ShooterModule.h>
 
-ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftport, int rightport, int solenoidPort,
-                             int buttonport) : RobotModule() {
+ShooterModule::ShooterModule(int anglePort, int angleMotorPort, int leftPort, int rightPort, int solenoidPort,
+                             int buttonPort) : RobotModule() {
     angle = new AnalogPotentiometer(anglePort);
     angleMotor = new WPI_TalonSRX(angleMotorPort);
-    leftShooter = new WPI_TalonSRX(leftport);
 
-    rightShooter = new WPI_TalonSRX(rightport);
+    leftShooter = new WPI_TalonSRX(leftPort);
+    rightShooter = new WPI_TalonSRX(rightPort);
+
     shooterSol = new Solenoid(solenoidPort);
-    button = new DigitalInput(buttonport);
+
+    button = new DigitalInput(buttonPort);
+
     leftShooter->ConfigSelectedFeedbackSensor(FeedbackDevice::QuadEncoder, 0, 0);
     shootIn = new ShooterIn(angle);
 
     angleController = new PIDController(SHOOTER_CONTROLLER_P, SHOOTER_CONTROLLER_I, SHOOTER_CONTROLLER_D,
                                         shootIn, angleMotor);
+    createThread();
 }
 
 ShooterModule::~ShooterModule() = default;
 
+//This is un-used but may be helpful
 double ShooterModule::getAngle() {
     return angle->Get();
 }
@@ -27,56 +32,34 @@ bool ShooterModule::isBallIn() {
 }
 
 void ShooterModule::createThread() {
-    std::thread t(ShooterModule::callrun, this);
+    std::thread t(ShooterModule::callRun, this);
     t.detach();
 }
 
-void ShooterModule::callrun(void *m) {
+void ShooterModule::callRun(void *m) {
     ((ShooterModule *) m)->run();
 }
 
 void ShooterModule::run() {
-    shoot(1, 1);
+    shoot(1, 2.5);
 }
 
-bool ShooterModule::getShot() {
-    return shot;
-}
-
+//May be broken
 void ShooterModule::shoot(double shootSpeed, double time) {
-    shot = true;
-    shooterSol->Set(true);
     setShooterSpeed(shootSpeed);
     Wait(time);
+    shooterSol->Set(true);
+    Wait(.5);
     setShooterSpeed(0);
     shooterSol->Set(false);
-    shot = false;
 }
 
 void ShooterModule::shootKicker(bool kick) {
     shooterSol->Set(kick);
 }
 
-void ShooterModule::setAngleMotorPower(double power) {
-    angleMotor->Set(ControlMode::PercentOutput, power);
-}
-
-void ShooterModule::tilt(double angle) {
-    if (angle > MAXIMUM_ANGLE) {
-        angle = MAXIMUM_ANGLE;
-    }
-    if (angle < MINIMUM_ANGLE) {
-        angle = MINIMUM_ANGLE;
-    }
-    angleController->SetSetpoint(angle);
-}
-
-double ShooterModule::getSpeed() {
-    return rightShooter->GetSelectedSensorVelocity(0);
-}
-
-void ShooterModule::setPID(double p, double i, double d) {
-    angleController->SetPID(p, i, d);
+void ShooterModule::setShooterAngle(double angle) {
+    angleController->SetSetpoint(angle < MINIMUM_ANGLE ? MINIMUM_ANGLE : angle > MAXIMUM_ANGLE ? MAXIMUM_ANGLE : angle);
 }
 
 void ShooterModule::setShooterSpeed(double speed) {
@@ -84,30 +67,10 @@ void ShooterModule::setShooterSpeed(double speed) {
     leftShooter->Set(ControlMode::PercentOutput, -speed);
 }
 
-double ShooterModule::getP() {
-    return angleController->GetP();
-}
-
-double ShooterModule::getI() {
-    return angleController->GetI();
-}
-
-double ShooterModule::getD() {
-    return angleController->GetD();
-}
-
 void ShooterModule::enablePID() {
     angleController->Enable();
 }
 
-void ShooterModule::disablePID() {
-    angleController->Disable();
-}
-
 void ShooterModule::setMaxPower(double power) {
     angleController->SetOutputRange(-power, power);
-}
-
-double ShooterModule::getSetpoint() {
-    return angleController->GetSetpoint();
 }

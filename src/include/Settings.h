@@ -56,9 +56,6 @@ const int DRIVE_ENCODER_1_B = 6;
 const int DRIVE_ENCODER_2_A = 7;
 const int DRIVE_ENCODER_2_B = 8;
 const double TICKS_PER_INCH = 1.92;
-const double DISTANCE1 = 169;
-const double DISTANCE2 = 174;
-const double DISTANCE3 = 252;
 //intake
 
 const int INTAKE_MOTOR_FORWARD = 3;

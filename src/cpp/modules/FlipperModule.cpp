@@ -2,16 +2,17 @@
 
 FlipperModule::FlipperModule(int Solenoid1) : RobotModule() {
     deploySol = new Solenoid(Solenoid1);
+    retract();
 }
 
-void FlipperModule::Deploy() {
+void FlipperModule::deploy() {
     deploySol->Set(true);
 }
 
-void FlipperModule::Retract() {
+void FlipperModule::retract() {
     deploySol->Set(false);
 }
 
-bool FlipperModule::get() {
+bool FlipperModule::isFlipperDeployed() {
     return deploySol->Get();
 }

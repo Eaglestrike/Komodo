@@ -29,17 +29,13 @@ public:
 
 class ShooterModule : public RobotModule {
 public:
-    ShooterModule(int anglePort, int angleMotorPort, int leftport, int rightport, int solenoidPort, int buttonport);
+    ShooterModule(int anglePort, int angleMotorPort, int leftPort, int rightPort, int solenoidPort, int buttonPort);
 
     ~ShooterModule() override;
 
-    void setAngleMotorPower(double power);
-
-    void tilt(double angle);
+    void setShooterAngle(double angle);
 
     void shoot(double shootSpeed, double time);
-
-    bool getShot();
 
     double getAngle();
 
@@ -47,15 +43,7 @@ public:
 
     bool isBallIn();
 
-    double getP();
-
-    double getI();
-
-    double getD();
-
     void setShooterSpeed(double speed);
-
-    void setPID(double p, double i, double d);
 
     void run();
 
@@ -63,17 +51,9 @@ public:
 
     void setMaxPower(double power);
 
-    double getSetpoint();
-
-    static void callrun(void *);
+    static void callRun(void *);
 
     void createThread();
-
-    void speed(double);
-
-    double getSpeed();
-
-    void disablePID();
 
 private:
     AnalogPotentiometer *angle;
@@ -85,7 +65,6 @@ private:
     ShooterIn *shootIn;
     PIDController *angleController;
     DigitalInput *button;
-    bool shot = false;
 };
 
 #endif /* SRC_MODULES_SHOOTERMODULE_H_ */

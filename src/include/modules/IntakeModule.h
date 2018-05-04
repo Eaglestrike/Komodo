@@ -16,9 +16,9 @@ public:
 
     void retractIntake();
 
-    void alternateIntake();
+    void toggleIntakeDeployment();
 
-    bool getStatus();
+    bool isIntakeDeployed();
 
 private:
     WPI_TalonSRX *spinTalon;

@@ -8,11 +8,11 @@ class FlipperModule : public RobotModule {
 public:
     explicit FlipperModule(int Solenoid1);
 
-    void Deploy();
+    void deploy();
 
-    void Retract();
+    void retract();
 
-    bool get();
+    bool isFlipperDeployed();
 
 private:
     Solenoid *deploySol;
