@@ -8,8 +8,10 @@
 #ifndef SRC_SETTINGS_H_
 #define SRC_SETTINGS_H_
 
+const double RUMBLE = .33;
 //shooter module
 const double RAMPOWER = .85;
+const double RAMTIME = 2.5;
 
 
 const double VISION_TO_GYRO = 1.24; //Ratio of vision degrees to rotation degrees (they do vary slightly)

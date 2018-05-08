@@ -18,8 +18,8 @@ private:
     uint8_t lightPattern[1];
 
     //We define this but it is never used.
-    //We may need to add limits to it so it wont just use it's unknown default value.
-    Compressor *compressor = new Compressor(0);
+    //We may need to add limits to it so it won't just use its unknown default value.
+    Compressor *compressor = new Compressor();
 
     bool isIntakeDown = false;
 
@@ -123,7 +123,7 @@ private:
         color = DriverStation::GetInstance().GetAlliance();
 
         //Set LED mode
-        lightPattern[0] = isIntakeDown ? 1 : 0;
+        lightPattern[0] = static_cast<uint8_t>(isIntakeDown ? 1 : 0);
         i2c->Write(84, lightPattern[0]);
 
         if (controller->getBack()) {
@@ -180,26 +180,8 @@ private:
 
         shooter->setShooterSpeed(deadZone(-controller->getLX(), 0.1));
 
-        //Auto aiming method which we may want to consider removing
-//        if (lJoy->GetRawButton(5)) {
-//            distance = visionTable->GetNumber("distance", 0);
-//            if (distance >= DISTANCE2 && distance <= DISTANCE3) {
-//                shooter->setShooterAngle(SHOOT2);
-//                std::cout << "in zone 2" << std::endl;
-//
-//            }
-//            if (distance <= DISTANCE1) {
-//                shooter->setShooterAngle(SHOOT1);
-//                std::cout << "in zone 1" << std::endl;
-//            }
-//        }
-
         //If the robot should fire
         if ((lJoy->GetTrigger() && rJoy->GetTrigger()) || (controller->getLT() > .75 && controller->getRT() > .75)) {
-//            shooter->setShooterSpeed(RAMPOWER);
-//            Wait(2.5);
-//            shooter->shootKicker(true);
-//            Wait(.5);
             shooter->run();
         } else {
             shooter->shootKicker(false);
@@ -235,7 +217,7 @@ private:
         }
 
         if (!shooter->isBallIn()) {
-            controller->setRumble(.5);
+            controller->setRumble(RUMBLE);
             if (counr < 10) {
                 lightPattern[0] = 3;
             } else {

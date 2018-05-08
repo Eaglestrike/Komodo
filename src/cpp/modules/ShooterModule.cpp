@@ -41,7 +41,7 @@ void ShooterModule::callRun(void *m) {
 }
 
 void ShooterModule::run() {
-    shoot(1, 2.5);
+    shoot(RAMPOWER, RAMTIME);
 }
 
 //May be broken
