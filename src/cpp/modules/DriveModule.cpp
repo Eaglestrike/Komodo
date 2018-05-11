@@ -119,12 +119,12 @@ void DriveModule::setMaxPower(double min, double max) {
 
 void DriveModule::drive(double setpoint) {
     resetEncoders();
-    Timer *time = new Timer();
+    auto *time = new Timer();
     time->Start();
     enablePID(true);
     setDriveSetpoint(setpoint);
     setAngleSetpoint(0);
-    while (time->Get() < 5 && abs(driveIn->PIDGet() - getDriveSetpoint()) > 2) {
+    while (time->Get() < 5 && fabs(driveIn->PIDGet() - getDriveSetpoint()) > 2) {
         driveTank(-driveOut->getPower() - angleOut->getPower(), -driveOut->getPower() + angleOut->getPower());
     }
     enablePID(false);
@@ -133,11 +133,11 @@ void DriveModule::drive(double setpoint) {
 
 void DriveModule::driveWithoutAngle(double setpoint) {
     resetEncoders();
-    Timer *time = new Timer();
+    auto *time = new Timer();
     time->Start();
     enablePID(true);
     setDriveSetpoint(setpoint);
-    while (time->Get() < 5 && abs(driveIn->PIDGet() - getDriveSetpoint()) > 2) {
+    while (time->Get() < 5 && fabs(driveIn->PIDGet() - getDriveSetpoint()) > 2) {
         std::cout << getRightEncoder() << std::endl;
         driveTank(-driveOut->getPower(), -driveOut->getPower());
     }

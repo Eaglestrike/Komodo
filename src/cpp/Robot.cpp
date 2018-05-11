@@ -5,6 +5,7 @@
 #include "modules/ShooterModule.h"
 #include "modules/FlipperModule.h"
 #include "modules/IntakeModule.h"
+#include <cmath>
 #include <networktables/NetworkTableInstance.h>
 
 class Robot : public IterativeRobot {
@@ -17,14 +18,7 @@ private:
     I2C *i2c;
     uint8_t lightPattern[1];
 
-    //We define this but it is never used.
-    //We may need to add limits to it so it won't just use its unknown default value.
-    Compressor *compressor = new Compressor();
-
     bool isIntakeDown = false;
-
-    //Like smart dashboard?
-    LiveWindow *lw = LiveWindow::GetInstance();
 
     Servo *visionVerticalAngleServo;
     Servo *visionPivotAngleServo;
@@ -52,8 +46,6 @@ private:
     double a = 3.897257E-6;
     double b = -0.0011549369;
     double c = 0.1656727552;
-    //double width = 0;
-    //bool detected = false;
     int counr = 0;
 
     void RobotInit() override {
@@ -245,7 +237,7 @@ private:
     }
 
     double deadZone(double in, double zoneSize) {
-        return abs(in) <= zoneSize ? 0 : in;
+        return fabs(in) <= zoneSize ? 0 : in;
     }
 
     void DisabledPeriodic() override {
